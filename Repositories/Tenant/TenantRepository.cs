@@ -177,7 +177,11 @@ namespace XeniaRentalApi.Repositories.Tenant
                     Docmenturl = u.Docmenturl,
                     isActive = u.isActive,
                     CompanyID = u.CompanyID,
-                    Documents =u.Documents
+                    DocumentName = u.Documents.docName,
+                    IsAlphaNumeric = u.Documents.isAlphanumeric,
+                    IsMandatory = u.Documents.isMandatory,
+                   IsExpiry = u.Documents.isExpiry
+
                 })
                 .ToListAsync();
 

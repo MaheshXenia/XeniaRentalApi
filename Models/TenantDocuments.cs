@@ -55,8 +55,20 @@ namespace XeniaRentalApi.Models
         public virtual Tenant? Tenant { get; set; }
 
         [ForeignKey("DocTypeId")]
-        //[JsonIgnore]
+        [JsonIgnore]
         public virtual Documents? Documents { get; set; }
+
+        [NotMapped]
+        public string? DocumentName { get; set; }
+
+        [NotMapped]
+        public bool? IsAlphaNumeric { get; set; }
+
+        [NotMapped]
+        public bool? IsExpiry { get; set; }
+
+        [NotMapped]
+        public bool? IsMandatory { get; set; }
 
     }
 }

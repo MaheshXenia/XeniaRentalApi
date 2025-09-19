@@ -129,7 +129,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = assignment });
         }
 
-        [HttpPost("create-tenant-assignment -document")]
+        [HttpPost("create-tenant-assignment-document")]
         public async Task<IActionResult> CreateTenantAssignmentWithDocument([FromBody] TenantAssignmentDocumentUploadDTO dto)
         {
             if (dto == null || dto.Assignment == null || dto.Documents == null)
