@@ -38,6 +38,10 @@ namespace XeniaRentalApi.Models
         [JsonIgnore]
         public virtual Charges? Charges { get; set; }
 
+        [ForeignKey("unitID")]
+        [JsonIgnore]
+        public virtual Units? Units { get; set; }
+
 
     }
 }

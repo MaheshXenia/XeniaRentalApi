@@ -87,7 +87,11 @@ namespace XeniaRentalApi.Repositories.Units
                      DefaultRent = u.Unit.DefaultRent,
                      escalationper = u.Unit.escalationper,
                      CatID = u.Unit.CatID,
-                     CategoryName = u.Category != null ? u.Category.CategoryName : null
+                     CategoryName = u.Category != null ? u.Category.CategoryName : null,
+                      UnitCharges = _context.UnitChargesMappings
+                .Where(uc => uc.unitID == u.Unit.UnitId)
+                .ToList()
+
                  }).ToListAsync();
             return new PagedResultDto<Models.Units>
             {

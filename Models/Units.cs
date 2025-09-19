@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using XeniaRentalApi.DTOs;
 
 namespace XeniaRentalApi.Models
 {
@@ -79,6 +80,6 @@ namespace XeniaRentalApi.Models
         [JsonIgnore]
         public virtual Category? Category { get; set; }
 
-
+        public ICollection<UnitChargesMapping> UnitCharges { get; set; }
     }
 }
