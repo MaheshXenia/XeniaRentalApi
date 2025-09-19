@@ -1,0 +1,2214 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\tenantassignementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\tenantassignementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenantassignment\\itenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantassignment\\itenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantassignmentdocumentuploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantassignmentdocumentuploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenant\\tenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenant\\tenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantdocumentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantdocumentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantwithdocumentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantwithdocumentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantdocumentuploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantdocumentuploaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createtenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createtenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tenant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tenantassignemnt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tenantassignemnt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\tenantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\tenantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenant\\itenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenant\\itenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\tenantdocumentgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\tenantdocumentgetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createtenantdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createtenantdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tenantdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tenantdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspaceassignemnt\\bedspaceassigmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceassignemnt\\bedspaceassigmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspaceassignemnt\\ibedspaceassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceassignemnt\\ibedspaceassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\bedspacsassignement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\bedspacsassignement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\bedspacecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\bedspacecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\bedspaceassignemnt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\bedspaceassignemnt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspace\\bedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspace\\bedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\documents\\documentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\documents\\documentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\documentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\bedspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\bedspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\documents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\ledger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\ledger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\messdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\messdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\properties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\properties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\unitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\unitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\voucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\voucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\category\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\category\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspaceplan\\bedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceplan\\bedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\tenantdcouemntscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\tenantdcouemntscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\bedspaceassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\bedspaceassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\unitchargesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\unitchargesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\unitcharges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\unitcharges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\auth\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\auth\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\foregtpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\foregtpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\loginotpdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\loginotpdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\forgetpasswordotpdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\forgetpasswordotpdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createbedspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createbedspace.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenantdocuments\\tenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantdocuments\\tenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\messdetails\\messdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messdetails\\messdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\messdetails\\imessdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messdetails\\imessdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\messdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\messdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\messtypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\messtypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\ledger\\iledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\ledger\\iledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\messtypes\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messtypes\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\messtypes\\imesstypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messtypes\\imesstypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createmesstypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createmesstypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\documents\\idocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\documents\\idocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\accountgroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\accountgroupcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\chargescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\chargescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\ledgercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\ledgercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\vouchercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\tenantdocuments\\itenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantdocuments\\itenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspace\\ibedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspace\\ibedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\company\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\company\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\bedspaceplan\\ibedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceplan\\ibedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\account\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\account\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\pagedresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createvoucher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createunitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createunitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createproperties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createdocuments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createcharges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createcharges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dtos\\createbedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\createbedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\properties\\ipropertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\properties\\ipropertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\ledger\\ledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\ledger\\ledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\payment\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\payment\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\payment\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\payment\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\company\\icompanyrepsitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\company\\icompanyrepsitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\charges\\ichargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\charges\\ichargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\category\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\category\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\accounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\voucher\\voucherrrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\voucher\\voucherrrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\voucher\\ivoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\voucher\\ivoucherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\notification\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\notification\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\notification\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\notification\\inotificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\userrole\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\userrole\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\userrole\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\userrole\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tblemailsmssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tblemailsmssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\accountgroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\accountgroups.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tblnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tblnotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\models\\tblotplog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\tblotplog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\propertytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\propertytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\accountgroups\\accountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\accountgroups\\accountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\product\\ftpsettingscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\product\\ftpsettingscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\accountgroups\\iaccountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\accountgroups\\iaccountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\repositories\\account\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\account\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\common\\jwthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\common\\jwthelperservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\common\\igeneralservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\common\\igeneralservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\common\\generalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\common\\generalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\service\\common\\aesencryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:service\\common\\aesencryptionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\hubs\\cataloguehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:hubs\\cataloguehub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\documentapplicabletotype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\documentapplicabletotype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\otptype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\otptype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\orderdiscounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\orderdiscounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\offervaluetype .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\offervaluetype .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\deliverytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\deliverytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\deliveryareatype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\deliveryareatype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|c:\\users\\hp\\source\\repos\\xeniarentalapi\\dictionnary\\companysettingkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dictionnary\\companysettingkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "MessDetailsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessDetails\\MessDetailsRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\MessDetails\\MessDetailsRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessDetails\\MessDetailsRepository.cs",
+              "RelativeToolTip": "Repositories\\MessDetails\\MessDetailsRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAIwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T04:19:02.595Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TenantAssignmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
+              "RelativeToolTip": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
+              "ViewState": "AgIAAF4BAAAAAAAAAAAWwHEBAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:56:37.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TenantAssignmentDocumentUploadDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantAssignmentDocumentUploadDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantAssignmentDocumentUploadDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantAssignmentDocumentUploadDTO.cs",
+              "RelativeToolTip": "DTOs\\TenantAssignmentDocumentUploadDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T00:53:23.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ITenantAssignmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
+              "RelativeToolTip": "Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:55:07.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TenantAssignementController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantAssignementController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TenantAssignementController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantAssignementController.cs",
+              "RelativeToolTip": "Controllers\\TenantAssignementController.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAqwJEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:04:11.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TenantRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Tenant\\TenantRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Tenant\\TenantRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Tenant\\TenantRepository.cs",
+              "RelativeToolTip": "Repositories\\Tenant\\TenantRepository.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAAAIUBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:09:31.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TenantDocumentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantDocumentDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentDTO.cs",
+              "RelativeToolTip": "DTOs\\TenantDocumentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T02:46:41.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TenantWithDocumentsDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantWithDocumentsDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantWithDocumentsDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantWithDocumentsDto.cs",
+              "RelativeToolTip": "DTOs\\TenantWithDocumentsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T06:08:36.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TenantDocumentUploadDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentUploadDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantDocumentUploadDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentUploadDto.cs",
+              "RelativeToolTip": "DTOs\\TenantDocumentUploadDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T06:11:03.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateTenant.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateTenant.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateTenant.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateTenant.cs",
+              "RelativeToolTip": "DTOs\\CreateTenant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T02:42:21.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Tenant.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Tenant.cs",
+              "RelativeDocumentMoniker": "Models\\Tenant.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Tenant.cs",
+              "RelativeToolTip": "Models\\Tenant.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwDIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:57:43.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TenantAssignemnt.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TenantAssignemnt.cs",
+              "RelativeDocumentMoniker": "Models\\TenantAssignemnt.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TenantAssignemnt.cs",
+              "RelativeToolTip": "Models\\TenantAssignemnt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:55:16.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TenantAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantAssignment.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantAssignment.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantAssignment.cs",
+              "RelativeToolTip": "DTOs\\TenantAssignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T05:56:59.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TenantController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TenantController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantController.cs",
+              "RelativeToolTip": "Controllers\\TenantController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAADwv04AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:04:23.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ITenantRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Tenant\\ITenantRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Tenant\\ITenantRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Tenant\\ITenantRepository.cs",
+              "RelativeToolTip": "Repositories\\Tenant\\ITenantRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T07:43:17.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TenantDocumentGetDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentGetDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\TenantDocumentGetDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\TenantDocumentGetDTO.cs",
+              "RelativeToolTip": "DTOs\\TenantDocumentGetDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T01:50:05.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CreateTenantDocuments.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateTenantDocuments.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateTenantDocuments.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateTenantDocuments.cs",
+              "RelativeToolTip": "DTOs\\CreateTenantDocuments.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAkwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T07:37:08.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BedSpaceController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpaceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BedSpaceController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpaceController.cs",
+              "RelativeToolTip": "Controllers\\BedSpaceController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAQwCUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:02:06.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TenantDocuments.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TenantDocuments.cs",
+              "RelativeDocumentMoniker": "Models\\TenantDocuments.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TenantDocuments.cs",
+              "RelativeToolTip": "Models\\TenantDocuments.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwDoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:41:40.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BedSpaceAssigmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAgwE4AAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:44:53.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BedSpaceAssignemnt.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpaceAssignemnt.cs",
+              "RelativeDocumentMoniker": "Models\\BedSpaceAssignemnt.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpaceAssignemnt.cs",
+              "RelativeToolTip": "Models\\BedSpaceAssignemnt.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswBIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:39:36.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BedSpacsAssignement.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpacsAssignement.cs",
+              "RelativeDocumentMoniker": "Controllers\\BedSpacsAssignement.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpacsAssignement.cs",
+              "RelativeToolTip": "Controllers\\BedSpacsAssignement.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAcwCYAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:02:34.021Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IBedSpaceAssignmentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\IBedSpaceAssignmentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpaceAssignemnt\\IBedSpaceAssignmentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\IBedSpaceAssignmentRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpaceAssignemnt\\IBedSpaceAssignmentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwAcAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:44:49.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BedSpaceRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpace\\BedSpaceRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpace\\BedSpaceRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpace\\BedSpaceRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpace\\BedSpaceRepository.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAIwBUBAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T02:59:21.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "UnitRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\UnitRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\UnitRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAuwBwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:20:41.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DocumentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Documents\\DocumentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Documents\\DocumentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Documents\\DocumentRepository.cs",
+              "RelativeToolTip": "Repositories\\Documents\\DocumentRepository.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAHYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:53:40.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "DocumentsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
+              "RelativeToolTip": "Controllers\\DocumentsController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAiwDEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:03:15.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Units.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Units.cs",
+              "RelativeDocumentMoniker": "Models\\Units.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Units.cs",
+              "RelativeToolTip": "Models\\Units.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T11:08:23.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwDUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T02:32:35.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BedSpace.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpace.cs",
+              "RelativeDocumentMoniker": "Models\\BedSpace.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpace.cs",
+              "RelativeToolTip": "Models\\BedSpace.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA3wBwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:40:44.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BedSpacePlan.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpacePlan.cs",
+              "RelativeDocumentMoniker": "Models\\BedSpacePlan.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\BedSpacePlan.cs",
+              "RelativeToolTip": "Models\\BedSpacePlan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:40:10.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Category.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Category.cs",
+              "RelativeToolTip": "Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T00:57:40.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Charges.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Charges.cs",
+              "RelativeDocumentMoniker": "Models\\Charges.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Charges.cs",
+              "RelativeToolTip": "Models\\Charges.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:49:38.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Company.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Company.cs",
+              "RelativeDocumentMoniker": "Models\\Company.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Company.cs",
+              "RelativeToolTip": "Models\\Company.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:40:21.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Documents.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Documents.cs",
+              "RelativeDocumentMoniker": "Models\\Documents.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Documents.cs",
+              "RelativeToolTip": "Models\\Documents.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:53:54.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Ledger.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Ledger.cs",
+              "RelativeDocumentMoniker": "Models\\Ledger.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Ledger.cs",
+              "RelativeToolTip": "Models\\Ledger.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:40:30.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "MessDetails.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\MessDetails.cs",
+              "RelativeDocumentMoniker": "Models\\MessDetails.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\MessDetails.cs",
+              "RelativeToolTip": "Models\\MessDetails.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAA5wCgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:40:33.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "MessTypes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\MessTypes.cs",
+              "RelativeDocumentMoniker": "Models\\MessTypes.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\MessTypes.cs",
+              "RelativeToolTip": "Models\\MessTypes.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwB8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T08:40:36.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Properties.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Properties.cs",
+              "RelativeDocumentMoniker": "Models\\Properties.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Properties.cs",
+              "RelativeToolTip": "Models\\Properties.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T11:08:09.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "UnitChargesMapping.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\UnitChargesMapping.cs",
+              "RelativeDocumentMoniker": "Models\\UnitChargesMapping.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\UnitChargesMapping.cs",
+              "RelativeToolTip": "Models\\UnitChargesMapping.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowCYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T11:51:15.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UserRoles.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\UserRoles.cs",
+              "RelativeDocumentMoniker": "Models\\UserRoles.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\UserRoles.cs",
+              "RelativeToolTip": "Models\\UserRoles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T10:43:43.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Voucher.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Voucher.cs",
+              "RelativeDocumentMoniker": "Models\\Voucher.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Voucher.cs",
+              "RelativeToolTip": "Models\\Voucher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T08:26:29.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ChargesRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Charges\\ChargesRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeToolTip": "Repositories\\Charges\\ChargesRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T00:50:16.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Category\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Category\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Category\\CategoryRepository.cs",
+              "RelativeToolTip": "Repositories\\Category\\CategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T00:56:00.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "BedSpacePlanRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:05:19.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "BedSpaceAssignment.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\BedSpaceAssignment.cs",
+              "RelativeDocumentMoniker": "DTOs\\BedSpaceAssignment.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\BedSpaceAssignment.cs",
+              "RelativeToolTip": "DTOs\\BedSpaceAssignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T05:57:27.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "TenantDcouemntsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantDcouemntsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TenantDcouemntsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\TenantDcouemntsController.cs",
+              "RelativeToolTip": "Controllers\\TenantDcouemntsController.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAAEUAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:04:41.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "UnitsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\UnitsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UnitsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\UnitsController.cs",
+              "RelativeToolTip": "Controllers\\UnitsController.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAiwIwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:04:53.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "UnitChargesDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\UnitChargesDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\UnitChargesDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\UnitChargesDTO.cs",
+              "RelativeToolTip": "DTOs\\UnitChargesDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T07:39:45.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "IUnitRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\IUnitRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\IUnitRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:20:44.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "UnitCharges.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\UnitCharges.cs",
+              "RelativeDocumentMoniker": "DTOs\\UnitCharges.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\UnitCharges.cs",
+              "RelativeToolTip": "DTOs\\UnitCharges.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T01:14:43.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "IAuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Auth\\IAuthRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Auth\\IAuthRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Auth\\IAuthRepository.cs",
+              "RelativeToolTip": "Repositories\\Auth\\IAuthRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T02:55:28.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Auth\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Auth\\AuthRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Auth\\AuthRepository.cs",
+              "RelativeToolTip": "Repositories\\Auth\\AuthRepository.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAcwF0AAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:14:58.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:02:00.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ForegtPasswordDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\ForegtPasswordDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\ForegtPasswordDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\ForegtPasswordDTO.cs",
+              "RelativeToolTip": "DTOs\\ForegtPasswordDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T05:40:58.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "LoginOTPDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\LoginOTPDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginOTPDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\LoginOTPDTO.cs",
+              "RelativeToolTip": "DTOs\\LoginOTPDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T05:39:24.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ForgetPasswordOTPDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\ForgetPasswordOTPDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\ForgetPasswordOTPDTO.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\ForgetPasswordOTPDTO.cs",
+              "RelativeToolTip": "DTOs\\ForgetPasswordOTPDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T05:40:16.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\LoginRequest.cs",
+              "RelativeToolTip": "DTOs\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T02:22:39.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "CreateBedSpace.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateBedSpace.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateBedSpace.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateBedSpace.cs",
+              "RelativeToolTip": "DTOs\\CreateBedSpace.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T04:56:17.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "TenantDocumentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
+              "RelativeToolTip": "Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAzwD8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T05:30:49.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "IMessDetailsRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessDetails\\IMessDetailsRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\MessDetails\\IMessDetailsRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessDetails\\IMessDetailsRepository.cs",
+              "RelativeToolTip": "Repositories\\MessDetails\\IMessDetailsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T04:18:17.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "MessTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\MessTypesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MessTypesController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\MessTypesController.cs",
+              "RelativeToolTip": "Controllers\\MessTypesController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAcwCUAAACRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:03:55.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "MessDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\MessDetailsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MessDetailsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\MessDetailsController.cs",
+              "RelativeToolTip": "Controllers\\MessDetailsController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAiwC8AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:03:38.572Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "ILedgerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Ledger\\ILedgerRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Ledger\\ILedgerRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Ledger\\ILedgerRepository.cs",
+              "RelativeToolTip": "Repositories\\Ledger\\ILedgerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T04:11:41.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "MessTypes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessTypes\\MessTypes.cs",
+              "RelativeDocumentMoniker": "Repositories\\MessTypes\\MessTypes.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessTypes\\MessTypes.cs",
+              "RelativeToolTip": "Repositories\\MessTypes\\MessTypes.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwDcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:06:37.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "IMessTypes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessTypes\\IMessTypes.cs",
+              "RelativeDocumentMoniker": "Repositories\\MessTypes\\IMessTypes.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\MessTypes\\IMessTypes.cs",
+              "RelativeToolTip": "Repositories\\MessTypes\\IMessTypes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAByAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T04:27:58.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "CreateMessTypes.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateMessTypes.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateMessTypes.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateMessTypes.cs",
+              "RelativeToolTip": "DTOs\\CreateMessTypes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T03:44:44.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "IDocumentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Documents\\IDocumentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
+              "RelativeToolTip": "Repositories\\Documents\\IDocumentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:47:06.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-03T11:18:56.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "AccountGroupController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AccountGroupController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountGroupController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AccountGroupController.cs",
+              "RelativeToolTip": "Controllers\\AccountGroupController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAUwEcAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:01:18.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "AccountsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AccountsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\AccountsController.cs",
+              "RelativeToolTip": "Controllers\\AccountsController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAADwv2cAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:01:45.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "BedSpacePlan.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpacePlan.cs",
+              "RelativeDocumentMoniker": "Controllers\\BedSpacePlan.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\BedSpacePlan.cs",
+              "RelativeToolTip": "Controllers\\BedSpacePlan.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswFsAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:02:20.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAwBoAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T00:50:53.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "ChargesController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\ChargesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ChargesController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\ChargesController.cs",
+              "RelativeToolTip": "Controllers\\ChargesController.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAswGgAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:02:50.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CompanyController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "Controllers\\CompanyController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:03:00.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "LedgerController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\LedgerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LedgerController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\LedgerController.cs",
+              "RelativeToolTip": "Controllers\\LedgerController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:03:27.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "PropertiesController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PropertiesController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
+              "RelativeToolTip": "Controllers\\PropertiesController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAswDAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T10:53:10.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "VoucherController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\VoucherController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VoucherController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\VoucherController.cs",
+              "RelativeToolTip": "Controllers\\VoucherController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswFAAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:05:22.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "CreateUnit.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUnit.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateUnit.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUnit.cs",
+              "RelativeToolTip": "DTOs\\CreateUnit.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:14:32.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "ITenantDocumentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantDocuments\\ITenantDocumentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\TenantDocuments\\ITenantDocumentRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\TenantDocuments\\ITenantDocumentRepository.cs",
+              "RelativeToolTip": "Repositories\\TenantDocuments\\ITenantDocumentRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T05:59:47.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "IBedSpaceRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpace\\IBedSpaceRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpace\\IBedSpaceRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpace\\IBedSpaceRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpace\\IBedSpaceRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T02:57:48.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "PropertiesRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Properties\\PropertiesRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
+              "RelativeToolTip": "Repositories\\Properties\\PropertiesRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAmwEAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T10:46:19.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "CompanyRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Company\\CompanyRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Company\\CompanyRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Company\\CompanyRepository.cs",
+              "RelativeToolTip": "Repositories\\Company\\CompanyRepository.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAA6wDwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:38:09.589Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "IBedSpacePlanRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpacePlan\\IBedSpacePlanRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\BedSpacePlan\\IBedSpacePlanRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\BedSpacePlan\\IBedSpacePlanRepository.cs",
+              "RelativeToolTip": "Repositories\\BedSpacePlan\\IBedSpacePlanRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:04:28.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Account\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Account\\AccountRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Account\\AccountRepository.cs",
+              "RelativeToolTip": "Repositories\\Account\\AccountRepository.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwEUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:40:00.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "PagedResultDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\PagedResultDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\PagedResultDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\PagedResultDto.cs",
+              "RelativeToolTip": "DTOs\\PagedResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:15:13.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "CreateVoucher.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateVoucher.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateVoucher.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateVoucher.cs",
+              "RelativeToolTip": "DTOs\\CreateVoucher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T01:43:19.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "CreateUser.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUser.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateUser.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUser.cs",
+              "RelativeToolTip": "DTOs\\CreateUser.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T11:55:07.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "CreateUnitChargesMapping.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUnitChargesMapping.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateUnitChargesMapping.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateUnitChargesMapping.cs",
+              "RelativeToolTip": "DTOs\\CreateUnitChargesMapping.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T12:01:08.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "CreateProperties.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateProperties.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateProperties.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateProperties.cs",
+              "RelativeToolTip": "DTOs\\CreateProperties.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:03:03.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "CreateDocuments.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateDocuments.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateDocuments.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateDocuments.cs",
+              "RelativeToolTip": "DTOs\\CreateDocuments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T04:03:46.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "CreateCharges.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateCharges.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateCharges.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateCharges.cs",
+              "RelativeToolTip": "DTOs\\CreateCharges.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:45:20.107Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "CreateCategory.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateCategory.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateCategory.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateCategory.cs",
+              "RelativeToolTip": "DTOs\\CreateCategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T01:04:13.219Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "CreateBedSpacePlan.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateBedSpacePlan.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateBedSpacePlan.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\DTOs\\CreateBedSpacePlan.cs",
+              "RelativeToolTip": "DTOs\\CreateBedSpacePlan.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA3wAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T04:55:16.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "IPropertiesRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Properties\\IPropertiesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Properties\\IPropertiesRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Properties\\IPropertiesRepository.cs",
+              "RelativeToolTip": "Repositories\\Properties\\IPropertiesRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAYwAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:00:18.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "LedgerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Ledger\\LedgerRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Ledger\\LedgerRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Ledger\\LedgerRepository.cs",
+              "RelativeToolTip": "Repositories\\Ledger\\LedgerRepository.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAqwFcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T04:12:25.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Payment\\PaymentService.cs",
+              "RelativeDocumentMoniker": "Service\\Payment\\PaymentService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Payment\\PaymentService.cs",
+              "RelativeToolTip": "Service\\Payment\\PaymentService.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T03:36:30.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Payment\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "Service\\Payment\\IPaymentService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Payment\\IPaymentService.cs",
+              "RelativeToolTip": "Service\\Payment\\IPaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T03:36:26.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "ICompanyRepsitory.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Company\\ICompanyRepsitory.cs",
+              "RelativeDocumentMoniker": "Repositories\\Company\\ICompanyRepsitory.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Company\\ICompanyRepsitory.cs",
+              "RelativeToolTip": "Repositories\\Company\\ICompanyRepsitory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:37:32.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "IChargesRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Charges\\IChargesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Charges\\IChargesRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Charges\\IChargesRepository.cs",
+              "RelativeToolTip": "Repositories\\Charges\\IChargesRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T03:22:09.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "ICategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Category\\ICategoryRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Category\\ICategoryRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Category\\ICategoryRepository.cs",
+              "RelativeToolTip": "Repositories\\Category\\ICategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-15T00:55:38.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "VoucherRrepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Voucher\\VoucherRrepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Voucher\\VoucherRrepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Voucher\\VoucherRrepository.cs",
+              "RelativeToolTip": "Repositories\\Voucher\\VoucherRrepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:12:29.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "Accounts.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Accounts.cs",
+              "RelativeDocumentMoniker": "Models\\Accounts.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Accounts.cs",
+              "RelativeToolTip": "Models\\Accounts.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T01:40:46.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "IVoucherRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Voucher\\IVoucherRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Voucher\\IVoucherRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Voucher\\IVoucherRepository.cs",
+              "RelativeToolTip": "Repositories\\Voucher\\IVoucherRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAsAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:12:35.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAUwJcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T15:06:27.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAcwG4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:20:17.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "OTPService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Notification\\OTPService.cs",
+              "RelativeDocumentMoniker": "Service\\Notification\\OTPService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Notification\\OTPService.cs",
+              "RelativeToolTip": "Service\\Notification\\OTPService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T03:09:55.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "INotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Notification\\INotificationService.cs",
+              "RelativeDocumentMoniker": "Service\\Notification\\INotificationService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Notification\\INotificationService.cs",
+              "RelativeToolTip": "Service\\Notification\\INotificationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T03:09:51.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\UserRole\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRole\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\UserRole\\UserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRole\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:13:56.011Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\UserRole\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\UserRole\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\UserRole\\IUserRepository.cs",
+              "RelativeToolTip": "Repositories\\UserRole\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:23:20.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 110,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "Models\\Users.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\Users.cs",
+              "RelativeToolTip": "Models\\Users.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T11:55:12.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 111,
+              "Title": "TblEmailSmsSettings.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblEmailSmsSettings.cs",
+              "RelativeDocumentMoniker": "Models\\TblEmailSmsSettings.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblEmailSmsSettings.cs",
+              "RelativeToolTip": "Models\\TblEmailSmsSettings.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T03:15:55.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 112,
+              "Title": "AccountGroups.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\AccountGroups.cs",
+              "RelativeDocumentMoniker": "Models\\AccountGroups.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\AccountGroups.cs",
+              "RelativeToolTip": "Models\\AccountGroups.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:43:18.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 113,
+              "Title": "TblNotification.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblNotification.cs",
+              "RelativeDocumentMoniker": "Models\\TblNotification.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblNotification.cs",
+              "RelativeToolTip": "Models\\TblNotification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T03:14:03.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 114,
+              "Title": "TblOTPLog.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblOTPLog.cs",
+              "RelativeDocumentMoniker": "Models\\TblOTPLog.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Models\\TblOTPLog.cs",
+              "RelativeToolTip": "Models\\TblOTPLog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-11T03:00:17.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 115,
+              "Title": "PropertyType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\PropertyType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\PropertyType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\PropertyType.cs",
+              "RelativeToolTip": "Dictionnary\\PropertyType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:54:15.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 116,
+              "Title": "AccountGroupRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\AccountGroups\\AccountGroupRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\AccountGroups\\AccountGroupRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\AccountGroups\\AccountGroupRepository.cs",
+              "RelativeToolTip": "Repositories\\AccountGroups\\AccountGroupRepository.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAuwG8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T02:35:24.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 117,
+              "Title": "FtpSettingscs.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Product\\FtpSettingscs.cs",
+              "RelativeDocumentMoniker": "Repositories\\Product\\FtpSettingscs.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Product\\FtpSettingscs.cs",
+              "RelativeToolTip": "Repositories\\Product\\FtpSettingscs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:47:03.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "IAccountGroupRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\AccountGroups\\IAccountGroupRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\AccountGroups\\IAccountGroupRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\AccountGroups\\IAccountGroupRepository.cs",
+              "RelativeToolTip": "Repositories\\AccountGroups\\IAccountGroupRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA9wBEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-01T02:32:27.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 119,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Account\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Account\\IAccountRepository.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Repositories\\Account\\IAccountRepository.cs",
+              "RelativeToolTip": "Repositories\\Account\\IAccountRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:39:59.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 120,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-08T08:18:58.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 121,
+              "Title": "JwtHelperService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\JwtHelperService.cs",
+              "RelativeDocumentMoniker": "Service\\Common\\JwtHelperService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\JwtHelperService.cs",
+              "RelativeToolTip": "Service\\Common\\JwtHelperService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:18:12.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 122,
+              "Title": "IGeneralService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\IGeneralService.cs",
+              "RelativeDocumentMoniker": "Service\\Common\\IGeneralService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\IGeneralService.cs",
+              "RelativeToolTip": "Service\\Common\\IGeneralService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:18:10.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 123,
+              "Title": "GeneralService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\GeneralService.cs",
+              "RelativeDocumentMoniker": "Service\\Common\\GeneralService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\GeneralService.cs",
+              "RelativeToolTip": "Service\\Common\\GeneralService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:18:07.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 124,
+              "Title": "AesEncryptionService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\AesEncryptionService.cs",
+              "RelativeDocumentMoniker": "Service\\Common\\AesEncryptionService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Service\\Common\\AesEncryptionService.cs",
+              "RelativeToolTip": "Service\\Common\\AesEncryptionService.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T03:18:01.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 125,
+              "Title": "CatalogueHub.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Hubs\\CatalogueHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\CatalogueHub.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Hubs\\CatalogueHub.cs",
+              "RelativeToolTip": "Hubs\\CatalogueHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:47:50.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 126,
+              "Title": "UserType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\UserType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\UserType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\UserType.cs",
+              "RelativeToolTip": "Dictionnary\\UserType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:49.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 127,
+              "Title": "DocumentApplicableToType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DocumentApplicableToType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\DocumentApplicableToType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DocumentApplicableToType.cs",
+              "RelativeToolTip": "Dictionnary\\DocumentApplicableToType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-02T03:59:41.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 133,
+              "Title": "DeliveryType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DeliveryType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\DeliveryType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DeliveryType.cs",
+              "RelativeToolTip": "Dictionnary\\DeliveryType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:31.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 132,
+              "Title": "NotificationType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\NotificationType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\NotificationType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\NotificationType.cs",
+              "RelativeToolTip": "Dictionnary\\NotificationType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:33.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 131,
+              "Title": "OfferValueType .cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OfferValueType .cs",
+              "RelativeDocumentMoniker": "Dictionnary\\OfferValueType .cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OfferValueType .cs",
+              "RelativeToolTip": "Dictionnary\\OfferValueType .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:36.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 130,
+              "Title": "OrderDiscountType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OrderDiscountType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\OrderDiscountType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OrderDiscountType.cs",
+              "RelativeToolTip": "Dictionnary\\OrderDiscountType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:36.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 129,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\OrderStatus.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OrderStatus.cs",
+              "RelativeToolTip": "Dictionnary\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:37.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 128,
+              "Title": "OTPType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OTPType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\OTPType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\OTPType.cs",
+              "RelativeToolTip": "Dictionnary\\OTPType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:50:25.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 134,
+              "Title": "DeliveryAreaType.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DeliveryAreaType.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\DeliveryAreaType.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\DeliveryAreaType.cs",
+              "RelativeToolTip": "Dictionnary\\DeliveryAreaType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:28.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 135,
+              "Title": "CompanySettingKey.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\CompanySettingKey.cs",
+              "RelativeDocumentMoniker": "Dictionnary\\CompanySettingKey.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\XeniaRentalApi\\Dictionnary\\CompanySettingKey.cs",
+              "RelativeToolTip": "Dictionnary\\CompanySettingKey.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-28T08:49:24.15Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

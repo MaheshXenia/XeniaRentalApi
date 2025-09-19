@@ -1,0 +1,41 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace XeniaRentalApi.Models
+{
+    [Table("XRS_Bedspace")]
+    public class BedSpace
+    {
+        [Key]
+        public int bedID { get; set; }
+
+        public int companyID { get; set; }
+
+        public int propID { get; set; }
+
+        public int unitID { get; set; }
+
+        public int planID { get; set; }
+
+        public string bedSpaceName { get; set; }
+
+        public decimal rentAmt { get; set; }
+
+        [NotMapped]
+        public string? PropName { get; set; }
+
+        [NotMapped]
+        public string? UnitName { get; set; }
+
+        public  bool isActive  {get; set; }
+
+            [ForeignKey("propID")]
+            [JsonIgnore]
+            public virtual Properties? Properties { get; set; }
+
+            [ForeignKey("unitID")]
+            [JsonIgnore]
+            public virtual Units? Units { get; set; }
+        }
+}
