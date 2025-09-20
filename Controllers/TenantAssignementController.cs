@@ -108,7 +108,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<DTOs.TenantAssignmentDTO>> GetTenantAssignment(int id)
+        public async Task<ActionResult<DTOs.TenantAssignmentDocumentGetDTO>> GetTenantAssignment(int id)
         {
             var assignment = await _tenantAssignmentRepository.GetTenantAssignemntsbyId(id);
             if (assignment == null)

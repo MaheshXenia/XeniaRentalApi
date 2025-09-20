@@ -216,10 +216,10 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
         }
 
-        public async Task<IEnumerable<DTOs.TenantAssignmentDTO>> GetTenantAssignemntsbyId(int documassignmentId)
+        public async Task<TenantAssignmentDocumentGetDTO> GetTenantAssignemntsbyId(int documassignmentId)
         {
 
-            return await _context.TenantAssignemnts
+           var assignment = await _context.TenantAssignemnts
                 .Where(u => u.tenantAssignId == documassignmentId)
                 .GroupJoin(_context.Properties,
                     ta => ta.propID,
@@ -266,8 +266,43 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                     isActive = u.ta.isActive,
                     notes = u.ta.notes,
                     TenantContactNo = u.Tenant != null ? u.Tenant.emergencyContactNo : null
-                }).ToListAsync();
+                }).FirstOrDefaultAsync();
 
+            if (assignment == null)
+            {
+                return new TenantAssignmentDocumentGetDTO
+                {
+                    Tenant = null,
+                    Documents = new List<Models.TenantDocuments>()
+                };
+            }
+
+            var assignmentDocs = await _context.TenantDocuments
+               .Where(u => u.TenantID == assignment.tenantID)
+               .Include(u => u.Documents)
+               .Select(u => new Models.TenantDocuments
+               {
+                   TenantID = u.TenantID,
+                   DocTypeId = u.DocTypeId,
+                   DocumentsNo = u.DocumentsNo,
+                   Docmenturl = u.Docmenturl,
+                   isActive = u.isActive,
+                   CompanyID = u.CompanyID,
+                   DocumentName = u.Documents.docName,
+                   IsAlphaNumeric = u.Documents.isAlphanumeric,
+                   IsMandatory = u.Documents.isMandatory,
+                   IsExpiry = u.Documents.isExpiry,
+                   DocPurpose = u.Documents.docPurpose,
+                   ExpiryDate = u.Documents.ExpiryDate
+
+               })
+               .ToListAsync();
+
+
+            TenantAssignmentDocumentGetDTO dtotenantDocs = new TenantAssignmentDocumentGetDTO();
+            dtotenantDocs.Tenant = assignment;
+            dtotenantDocs.Documents = assignmentDocs;
+            return dtotenantDocs;
         }
 
         public async Task<Models.TenantAssignemnt> CreateTenantAssignments(DTOs.TenantAssignment dtoAssignments)
