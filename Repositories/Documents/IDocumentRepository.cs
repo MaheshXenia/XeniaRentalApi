@@ -12,7 +12,7 @@ namespace XeniaRentalApi.Repositories.Documents
 
         Task<bool> DeleteDocumentType(int id);
 
-        Task<IEnumerable<XRS_Documents>> GetDocumentsbyId(int documentId);
+        Task<XRS_Documents> GetDocumentById(int documentId);
 
         Task<bool> UpdateDocuments(int id, XRS_Documents documents);
 

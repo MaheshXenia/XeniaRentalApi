@@ -62,7 +62,7 @@ namespace XeniaRentalApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Documents>> GetDocuments(int id)
         {
-            var createdDocuments = await _documentRepository.GetDocumentsbyId(id);
+            var createdDocuments = await _documentRepository.GetDocumentById(id);
             if (createdDocuments == null)
             {
                 return NotFound(new { Status = "Error", Message = "Documents not found." });

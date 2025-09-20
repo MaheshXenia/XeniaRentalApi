@@ -15,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\documents\\idocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DocumentsController.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
+              "RelativeToolTip": "Controllers\\DocumentsController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAMwBQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T11:31:46.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IDocumentRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Documents\\IDocumentRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
+              "RelativeToolTip": "Repositories\\Documents\\IDocumentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T11:31:18.084Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -40,48 +66,22 @@
               "RelativeDocumentMoniker": "Repositories\\Documents\\DocumentRepository.cs",
               "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\DocumentRepository.cs",
               "RelativeToolTip": "Repositories\\Documents\\DocumentRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T11:15:59.312Z",
+              "WhenOpened": "2025-09-20T11:28:23.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UnitRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Units\\UnitRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
-              "RelativeToolTip": "Repositories\\Units\\UnitRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAACSAAAAAAAAAA==",
+              "Title": "ChargesRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Charges\\ChargesRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeToolTip": "Repositories\\Charges\\ChargesRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T11:15:20.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IDocumentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Documents\\IDocumentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\IDocumentRepository.cs",
-              "RelativeToolTip": "Repositories\\Documents\\IDocumentRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T11:14:12.439Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DocumentsController.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DocumentsController.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DocumentsController.cs",
-              "RelativeToolTip": "Controllers\\DocumentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T11:13:26.467Z",
+              "WhenOpened": "2025-09-20T11:27:16.455Z",
               "EditorCaption": ""
             }
           ]

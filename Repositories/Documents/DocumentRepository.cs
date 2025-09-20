@@ -21,8 +21,7 @@ namespace XeniaRentalApi.Repositories.Documents
                 {
                     docTypeId = u.docTypeId,
                     docPurpose = u.docPurpose,
-                    docName = u.docName,
-                    propID = u.propID,
+                    docName = u.docName,            
                     isActive = u.isActive,
                     isMandatory = u.isMandatory,
                     isAlphanumeric = u.isAlphanumeric,
@@ -32,14 +31,11 @@ namespace XeniaRentalApi.Repositories.Documents
                 .ToListAsync();
         }
 
-
-
-        public async Task<PagedResultDto<XRS_Documents>> GetDocumentsCompanyId(int companyId, string? search = null,int pageNumber = 1,int pageSize = 10)
+        public async Task<PagedResultDto<XRS_Documents>> GetDocumentsCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
-            var query = _context.Documents.AsQueryable();
-
-            query = query.Where(u => u.companyID == companyId);
-
+            var query = _context.Documents
+                .Where(u => u.companyID == companyId); 
+      
             if (!string.IsNullOrWhiteSpace(search))
             {
                 string lowerSearch = search.ToLower();
@@ -49,31 +45,24 @@ namespace XeniaRentalApi.Repositories.Documents
             var totalRecords = await query.CountAsync();
 
             var items = await query
-                .GroupJoin(
-                    _context.Properties,
-                    doc => doc.propID,
-                    prop => prop.PropID,
-                    (doc, props) => new { doc, prop = props.FirstOrDefault() }
-                )
-                .OrderBy(u => u.doc.docName) 
+                .OrderBy(u => u.docName)
+                .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(u => new Models.XRS_Documents
+                .Select(u => new XRS_Documents
                 {
-                    docTypeId = u.doc.docTypeId,
-                    docPurpose = u.doc.docPurpose,
-                    docName = u.doc.docName,
-                    propID = u.doc.propID,
-                    isActive = u.doc.isActive,
-                    isMandatory = u.doc.isMandatory,
-                    isAlphanumeric = u.doc.isAlphanumeric,
-                    isExpiry = u.doc.isExpiry,
-                    propName = u.prop != null ? u.prop.propertyName : null,
-                    companyID = u.doc.companyID,
-                    ExpiryDate = u.doc.ExpiryDate
+                    docTypeId = u.docTypeId,
+                    docPurpose = u.docPurpose,
+                    docName = u.docName,
+                    isActive = u.isActive,
+                    isMandatory = u.isMandatory,
+                    isAlphanumeric = u.isAlphanumeric,
+                    isExpiry = u.isExpiry,
+                    companyID = u.companyID,
+                    ExpiryDate = u.ExpiryDate
                 })
                 .ToListAsync();
 
-            return new PagedResultDto<Models.XRS_Documents>
+            return new PagedResultDto<XRS_Documents>
             {
                 Data = items,
                 PageNumber = pageNumber,
@@ -82,34 +71,25 @@ namespace XeniaRentalApi.Repositories.Documents
             };
         }
 
-
-        public async Task<IEnumerable<XRS_Documents>> GetDocumentsbyId(int documentId)
+        public async Task<XRS_Documents?> GetDocumentById(int documentId)
         {
-
             return await _context.Documents
                 .Where(u => u.docTypeId == documentId)
-                 .GroupJoin(
-                 _context.Properties,
-                 doc => doc.propID,
-                prop => prop.PropID,
-                (doc, props) => new { doc, prop = props.FirstOrDefault() }
-                )
-                .Select(u => new Models.XRS_Documents
+                .Select(u => new XRS_Documents
                 {
-                    docTypeId = u.doc.docTypeId,
-                    docPurpose = u.doc.docPurpose,
-                    docName = u.doc.docName,
-                    propID = u.doc.propID,
-                    propName = u.prop != null ? u.prop.propertyName : null,
-                    isActive = u.doc.isActive,
-                    isMandatory = u.doc.isMandatory,
-                    isAlphanumeric = u.doc.isAlphanumeric,
-                    isExpiry = u.doc.isExpiry,
-                    ExpiryDate = u.doc.ExpiryDate
-
-                }).ToListAsync();
-
+                    docTypeId = u.docTypeId,
+                    docPurpose = u.docPurpose,
+                    docName = u.docName,
+                    isActive = u.isActive,
+                    isMandatory = u.isMandatory,
+                    isAlphanumeric = u.isAlphanumeric,
+                    isExpiry = u.isExpiry,
+                    ExpiryDate = u.ExpiryDate,
+                    companyID = u.companyID 
+                })
+                .FirstOrDefaultAsync();
         }
+
 
         public async Task<XRS_Documents> CreateDocuments(XRS_Documents dtoDocuments)
         {
@@ -118,8 +98,7 @@ namespace XeniaRentalApi.Repositories.Documents
             {
                 docName = dtoDocuments.docName,
                 docPurpose = dtoDocuments.docPurpose,
-                companyID = dtoDocuments.companyID,
-                propID = dtoDocuments.propID,
+                companyID = dtoDocuments.companyID,         
                 isActive = dtoDocuments.isActive,
                 isMandatory = dtoDocuments.isMandatory,
                 isAlphanumeric = dtoDocuments.isAlphanumeric,
@@ -154,7 +133,6 @@ namespace XeniaRentalApi.Repositories.Documents
             updatedDocuments.docName = documents.docName ?? documents.docName;
             updatedDocuments.companyID = documents.companyID;
             updatedDocuments.docPurpose = documents.docPurpose;
-            updatedDocuments.propID = documents.propID;
             updatedDocuments.isExpiry = documents.isExpiry;
             updatedDocuments.isAlphanumeric = documents.isAlphanumeric;
             updatedDocuments.isMandatory = documents.isMandatory;
@@ -163,44 +141,6 @@ namespace XeniaRentalApi.Repositories.Documents
             await _context.SaveChangesAsync();
             return true;
         }
-
-        public async Task<PagedResultDto<XRS_Documents>> GetDocumentsAsync(string? search, int pageNumber, int pageSize)
-        {
-            var query = _context.Documents.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.docName.Contains(search)); 
-
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query            
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new XRS_Documents
-                {
-                    companyID = u.companyID,
-                    docName = u.docName,
-                    docPurpose = u.docPurpose,
-                    propID = u.propID,
-                    isExpiry = u.isExpiry,
-                    isActive = u.isActive,
-                    isAlphanumeric= u.isAlphanumeric,
-                    isMandatory = u.isMandatory,
-                    propName = u.Properties != null ? u.Properties.propertyName : null,
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<XRS_Documents>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
+     
     }
 }

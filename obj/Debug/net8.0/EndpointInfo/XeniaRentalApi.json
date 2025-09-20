@@ -11419,10 +11419,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
           "docName": {
             "type": "string",
             "nullable": true
@@ -11446,10 +11442,6 @@
           "ExpiryDate": {
             "type": "string",
             "format": "date-time",
-            "nullable": true
-          },
-          "propName": {
-            "type": "string",
             "nullable": true
           }
         },
