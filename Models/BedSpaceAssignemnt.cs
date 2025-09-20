@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
@@ -10,12 +11,16 @@ namespace XeniaRentalApi.Models
         [Key]
         public int assignmentID {  get; set; }
 
+        [ForeignKey(nameof(Property))]
         public int propID { get; set; }
 
+        [ForeignKey(nameof(Units))]
         public int unitID { get; set; }
 
+        [ForeignKey(nameof(Tenant))]
         public int tenantID { get; set; }
 
+        [ForeignKey(nameof(BedSpace))]
         public int bedSpaceID { get; set; }
 
         public int companyID { get;set; }
@@ -62,19 +67,16 @@ namespace XeniaRentalApi.Models
         [NotMapped]
         public string? BedSpaceName { get; set; }
 
-        [ForeignKey("propID")]
         [JsonIgnore]
-        public virtual XRS_Properties? Properties { get; set; }
+        public virtual XRS_Properties? Property { get; set; }
 
-        [ForeignKey("unitID")]
+
         [JsonIgnore]
         public virtual XRS_Units? Units { get; set; }
 
-        [ForeignKey("tenantID")]
         [JsonIgnore]
         public virtual Tenant? Tenant { get; set; }
 
-        [ForeignKey("bedSpaceID")]
         [JsonIgnore]
         public virtual BedSpace? BedSpace { get; set; }
 

@@ -79,12 +79,15 @@ namespace XeniaRentalApi.Repositories.BedSpaceAssignemnt
         public async Task<PagedResultDto<Models.BedSpaceAssignemnt>> GetBedSpaceAssignemntsByCompanyId(int companyId, string srch,int pageNumber, int pageSize)
         {
 
-            var query = _context.BedSpaceAssignemnt.AsQueryable();
+            var query = _context.BedSpaceAssignemnt
+               .Include(u => u.Property)
+               .Include(u => u.Tenant)
+               .Include(u => u.Units)
+               .Include (u => u.BedSpace)
+               .Where(u => u.companyID == companyId)
+               .AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
-            {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
-            }
+            
             if (!string.IsNullOrWhiteSpace(srch))
             {
                 query = query.Where(u => u.Tenant.phoneNumber.Contains(srch));
@@ -93,61 +96,41 @@ namespace XeniaRentalApi.Repositories.BedSpaceAssignemnt
             var totalRecords = await query.CountAsync();
 
             var items = await query
-    .GroupJoin(_context.Properties,
-        a => a.propID,
-        p => p.PropID,
-        (a, props) => new { a, Property = props.FirstOrDefault() })
-    .Join(_context.Units,
-        ap => ap.a.unitID,
-        u => u.UnitId,
-        (ap, unit) => new { ap.a, ap.Property, Unit = unit })
-    .Join(_context.Tenants,
-        apu => apu.a.tenantID,
-        t => t.tenantID,
-        (apu, tenant) => new { apu.a, apu.Property, apu.Unit, Tenant = tenant })
-      .Join(_context.BedSpaces,
-                aput => aput.a.bedSpaceID,
-                 b => b.bedID,
-                (aput, bedSpace) => new
+                //.OrderBy(u => u.UnitName)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(u => new Models.BedSpaceAssignemnt
                 {
-                    aput.a,
-                    aput.Property,
-                    aput.Unit,
-                    aput.Tenant,
-                    BedSpace = bedSpace
-                })
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-               .Select(u => new Models.BedSpaceAssignemnt
-                {
-                    assignmentID = u.a.assignmentID,
-                    amount = u.a.amount,
-                    agreementStartDate = u.a.agreementStartDate,
-                    agreementEndDate = u.a.agreementEndDate,
-                    propID = u.a.propID,
-                    unitID = u.a.unitID,
-                    tenantID = u.a.tenantID,
-                    UnitName = u.Unit != null ? u.Unit.UnitName : null,
-                    companyID = u.a.companyID,
-                    rentAmt = u.a.rentAmt,
+                    assignmentID = u.assignmentID,
+                    amount = u.amount,
+                    agreementStartDate = u.agreementStartDate,
+                    agreementEndDate = u.agreementEndDate,
+                    propID = u.propID,
+                    unitID = u.unitID,
+                    tenantID = u.tenantID,
+                    UnitName = u.Units != null ? u.Units.UnitName : null,
+                    companyID = u.companyID,
+                    rentAmt = u.rentAmt,
                     PropName = u.Property != null ? u.Property.propertyName : null,
-                    isActive = u.a.isActive,
+                    isActive = u.isActive,
                     TenantName = u.Tenant != null ? u.Tenant.tenantName : null,
-                    isTaxable = u.a.isTaxable,
-                    taxRatePer = u.a.taxRatePer,
-                    rentConcession = u.a.rentConcession,
-                    messConcession = u.a.messConcession,
-                    frequency = u.a.frequency,
-                    rentDueDate = u.a.rentDueDate,
-                    rentescalationPer = u.a.rentescalationPer,
-                    charges = u.a.charges,
-                    securityAmt = u.a.securityAmt,
-                    bedSpaceID = u.a.bedSpaceID,
-                    BedSpaceName = u.BedSpace.bedSpaceName,
-                   escalationDate = u.a.escalationDate,
+                    isTaxable = u.isTaxable,
+                    taxRatePer = u.taxRatePer,
+                    rentConcession = u.rentConcession,
+                    messConcession = u.messConcession,
+                    frequency = u.frequency,
+                    rentDueDate = u.rentDueDate,
+                    rentescalationPer = u.rentescalationPer,
+                    charges = u.charges,
+                    securityAmt = u.securityAmt,
+                    bedSpaceID = u.bedSpaceID,
+                    BedSpaceName = u.BedSpace != null ? u.BedSpace.bedSpaceName : null,
+                    escalationDate = u.escalationDate,
 
+                })
+                .ToListAsync();
 
-               }).ToListAsync();
+            
             return new PagedResultDto<Models.BedSpaceAssignemnt>
             {
                 Data = items,
@@ -299,7 +282,7 @@ namespace XeniaRentalApi.Repositories.BedSpaceAssignemnt
 
             if (!string.IsNullOrWhiteSpace(propertyName))
             {
-                query = query.Where(u => u.Properties.propertyName.Contains(propertyName));
+                query = query.Where(u => u.Property.propertyName.Contains(propertyName));
             }
 
             if (!string.IsNullOrWhiteSpace(tenantName))
