@@ -32,18 +32,15 @@ namespace XeniaRentalApi.Models
         [NotMapped]
         public string? UnitName { get; set; }
 
-        // Navigation to Property
         [ForeignKey("propID")]
         [JsonIgnore]
         public virtual XRS_Properties? Properties { get; set; }
 
-        // Navigation to Unit
         [ForeignKey("unitID")]
         [JsonIgnore]
         public virtual XRS_Units? Units { get; set; }
 
-        // Navigation to Tenant Documents
-        [JsonIgnore] // Optional, if you don't want EF Core to serialize this automatically
+        [JsonIgnore] 
         public virtual ICollection<XRS_TenantDocuments>? TenantDocuments { get; set; }
     }
 }

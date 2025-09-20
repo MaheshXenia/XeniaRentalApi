@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_TenantAssignment")]
-    public class TenantAssignemnt
+    public class XRS_TenantAssignment
     {
         [Key]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -13,88 +13,58 @@ namespace XeniaRentalApi.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int tenantAssignId { get; set; }
 
-        /// <summary>
-        /// CompanyId
-        /// Required
-        /// </summary>
+
         public int propID { get; set; }
 
-        /// <summary>
-        /// UnitId
-        /// required
-        /// </summary>
         public int unitID { get; set; }
-
-        /// <summary
-        /// tenantId
-        /// Required
-        /// </summary>
 
         public int tenantID { get; set; }
 
-        /// <summary>
-        /// ComapnyId
-        /// Required
-        /// </summary>
         public int companyID { get; set; }
 
-        /// <summary>
-        /// securityAmt
-        /// optional
-        /// </summary>
         public decimal securityAmt { get; set; }
 
-        /// <summary>
-        /// rentamt
-        /// Optional
-        /// </summary>
+        public bool isTaxable { get; set; }
+
+        public int bedSpaceID { get; set; }
+
         public decimal rentAmt { get; set; }
 
-        /// <summary>
-        /// collection type
-        /// Optional
-        /// </summary>
+        public decimal rentConcession { get; set; }
+
+        public decimal messConcession { get; set; }
+
+        public string frequency { get; set; }
+
         public string collectionType { get; set; }
 
-        /// <summary>
-        /// agreement start date
-        /// </summary>
         public DateTime agreementStartDate { get; set; }
 
-        /// <summary>
-        /// agreement End date        
-        /// </summary>
         public DateTime agreementEndDate { get; set; }
 
-        /// <summary>
-        /// rent Collection
-        /// </summary>
         public string rentCollection { get; set; }
 
-        /// <summary>
-        /// escalationper
-        /// </summary>
         public decimal escalationPer { get; set; }
 
-        /// <summary>
-        /// nextescalationdate
-        /// </summary>
-        public DateTime nextescalationDate { get; set; }
+        public DateTime? nextescalationDate { get; set; }
 
-        /// <summary>
-        /// isactive
-        /// </summary>
-        public bool isActive { get;set;}
+        public DateTime? rentDueDate { get; set; }
 
         public string closureReason { get; set; }
 
-        public DateTime closureDate { get; set; }
+        public DateTime? closureDate { get; set; }
 
-        public string refundAmount { get; set; }
+        public decimal refundAmount { get; set; }
+
+        public string charges { get; set; }
+
+        public decimal amount { get; set; }
 
         public string notes { get; set; }
 
         public bool isClosure { get; set; }
+
+        public bool isActive { get; set; }
 
         [NotMapped]
         public string? PropName { get; set; }
@@ -120,6 +90,9 @@ namespace XeniaRentalApi.Models
         [ForeignKey("unitID")]
         [JsonIgnore]
         public virtual XRS_Units? Unit { get; set; }
+/*
+        [JsonIgnore]
+        public virtual ICollection<XRS_TenantDocuments>? TenantDocuments { get; set; }*/
 
     }
 }

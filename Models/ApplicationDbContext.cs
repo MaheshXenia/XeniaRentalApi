@@ -35,7 +35,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<XRS_Tenant> Tenants { get; set; }
 
-        public DbSet<TenantAssignemnt> TenantAssignemnts { get; set; }
+        public DbSet<XRS_TenantAssignment> TenantAssignemnts { get; set; }
 
         public DbSet<XRS_TenantDocuments> TenantDocuments { get; set; }
 

@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.WebSockets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Stripe;
 using System.Security.Claims;
 using System.Text;
-using XeniaRentalApi.Hubs;
 using XeniaRentalApi.Repositories.UserRole;
 using XeniaRentalApi.Repositories.AccountGroups;
 using XeniaRentalApi.Repositories.Auth;
@@ -44,22 +42,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Xenia Rental API", Version = "v1" });
-    //c.CustomSchemaIds(type => type.FullName);
     c.CustomSchemaIds(type => {
-        // If it's a generic type, handle it specially
         if (type.IsGenericType)
         {
-            // Get the base name (e.g., "PagedResultDto")
             var genericTypeName = type.Name.Split('`')[0];
-
-            // Get the names of the generic arguments (e.g., "Units")
             var genericArguments = type.GetGenericArguments().Select(t => t.Name);
-
-            // Combine them into a clean name (e.g., "PagedResultDtoOfUnits")
             return $"{genericTypeName}Of{string.Join("", genericArguments)}";
         }
-
-        // For non-generic types, use the full name as it's typically safe
         return type.FullName.Replace("+", ".");
     });
 

@@ -46,7 +46,7 @@ namespace XeniaRentalApi.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var tenant = await _tenantRepository.GetTenantWithDocumentsById(id);
-            if (tenant.Tenant == null)
+            if (tenant == null)
                 return NotFound();
             return Ok(tenant);
         }
