@@ -206,7 +206,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             return new PagedResultDto<Models.TenantAssignemnt>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -441,7 +441,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             return new PagedResultDto<Models.TenantAssignemnt>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -567,7 +567,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             return new PagedResultDto<Models.TenantAssignemnt>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

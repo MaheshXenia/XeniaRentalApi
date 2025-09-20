@@ -13,12 +13,12 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<IEnumerable<Models.Category>> GetCategories()
+        public async Task<IEnumerable<Models.XRS_Categories>> GetCategories()
         {
 
             return await _context.Category
                 .Where(u => u.IsActive == true)
-                 .Select(u => new Models.Category
+                 .Select(u => new Models.XRS_Categories
                  {
                      CategoryName = u.CategoryName,
                      CatID = u.CatID,
@@ -30,7 +30,7 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<PagedResultDto<Models.Category>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Categories>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize)
         {
 
             var query = _context.Category.AsQueryable();
@@ -46,7 +46,7 @@ namespace XeniaRentalApi.Repositories.Category
                 .OrderBy(u => u.CategoryName) // Optional: add sorting
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                 .Select(u => new Models.Category
+                 .Select(u => new Models.XRS_Categories
                  {
                      CategoryName = u.CategoryName,
                      CatID = u.CatID,
@@ -56,9 +56,9 @@ namespace XeniaRentalApi.Repositories.Category
                  }).ToListAsync();
 
 
-            return new PagedResultDto<Models.Category>
+            return new PagedResultDto<Models.XRS_Categories>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -66,12 +66,12 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<IEnumerable<Models.Category>> GetCategorybyId(int categoryId)
+        public async Task<IEnumerable<Models.XRS_Categories>> GetCategorybyId(int categoryId)
         {
 
             return await _context.Category
                 .Where(u => u.CatID == categoryId)
-                 .Select(u => new Models.Category
+                 .Select(u => new Models.XRS_Categories
                  {
                      CategoryName = u.CategoryName,
                      CatID = u.CatID,
@@ -82,10 +82,10 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<Models.Category> CreateCategory(DTOs.CreateCategory dtoCategory)
+        public async Task<Models.XRS_Categories> CreateCategory(DTOs.CreateCategory dtoCategory)
         {
 
-            var category = new Models.Category
+            var category = new Models.XRS_Categories
             {
                 CategoryName = dtoCategory.CategoryName,
                 IsActive = dtoCategory.IsActive,
@@ -107,7 +107,7 @@ namespace XeniaRentalApi.Repositories.Category
             return true;
         }
 
-        public async Task<bool> UpdateCategory(int id, Models.Category category)
+        public async Task<bool> UpdateCategory(int id, Models.XRS_Categories category)
         {
             var updatebedSpace = await _context.Category.FirstOrDefaultAsync(u => u.CatID == id);
             if (updatebedSpace == null) return false;
@@ -119,7 +119,7 @@ namespace XeniaRentalApi.Repositories.Category
             return true;
         }
 
-        public async Task<PagedResultDto<Models.Category>> GetCategoriesAsync(string? search, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Categories>> GetCategoriesAsync(string? search, int pageNumber, int pageSize)
         {
             var query = _context.Category.AsQueryable();
 
@@ -134,7 +134,7 @@ namespace XeniaRentalApi.Repositories.Category
                 .OrderBy(u => u.CategoryName) // Optional: add sorting
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(u => new Models.Category
+                .Select(u => new Models.XRS_Categories
                 {
                     CategoryName = u.CategoryName,
                     CatID = u.CatID,
@@ -143,9 +143,9 @@ namespace XeniaRentalApi.Repositories.Category
 
                 }).ToListAsync();
 
-            return new PagedResultDto<Models.Category>
+            return new PagedResultDto<Models.XRS_Categories>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

@@ -52,7 +52,7 @@ namespace XeniaRentalApi.Repositories.Company
                 .ToListAsync();
             return new PagedResultDto<Models.Company>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -137,7 +137,7 @@ namespace XeniaRentalApi.Repositories.Company
 
             return new PagedResultDto<Models.Company>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

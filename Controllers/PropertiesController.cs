@@ -24,7 +24,7 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/properties/{companyId}")]
+        [HttpGet("all/{companyId}")]
         public async Task<ActionResult<IEnumerable<XRS_Properties>>> Get(int companyId)
         {
             var properties = await _propertyRepository.GetProperties(companyId);
@@ -36,7 +36,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         
-        [HttpGet("properties/company/{companyId}")]
+        [HttpGet("company/{companyId}")]
         public async Task<ActionResult<PagedResultDto<XRS_Properties>>> GetPropertyByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
 
@@ -62,7 +62,7 @@ namespace XeniaRentalApi.Controllers
         }
 
       
-        [HttpGet("GetPropertyById/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Properties>> GetPropertyById(int id)
         {
             var properties = await _propertyRepository.GetPrpoertiesbyId(id);
@@ -75,7 +75,7 @@ namespace XeniaRentalApi.Controllers
 
 
 
-        [HttpPut("UpdateProperties/{id}")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProperties(int id, [FromBody] XRS_Properties property)
         {
             if (property == null)

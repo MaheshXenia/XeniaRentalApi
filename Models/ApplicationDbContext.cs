@@ -19,7 +19,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<BedSpacePlan> BedSpacePlans { get; set; }
 
-        public DbSet<Charges> Charges { get; set; }
+        public DbSet<XRS_Charges> Charges { get; set; }
 
         public DbSet<Company> Company { get; set; }
 
@@ -39,11 +39,11 @@ namespace XeniaRentalApi.Models
 
         public DbSet<TenantDocuments> TenantDocuments { get; set; }
 
-        public DbSet<Units> Units { get; set; }
+        public DbSet<XRS_Units> Units { get; set; }
 
         public DbSet<Voucher> Vouchers { get; set; }
 
-        public DbSet<UnitChargesMapping> UnitChargesMappings { get; set; }
+        public DbSet<XRS_UnitChargesMapping> UnitChargesMappings { get; set; }
 
         public DbSet<TblOTPLog> tblOTPLogs { get; set; }
 
@@ -51,7 +51,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<TblEmailSmsSettings> tblEmailSmsSettings {  get; set; }
 
-        public DbSet<Category> Category { get; set; }
+        public DbSet<XRS_Categories> Category { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

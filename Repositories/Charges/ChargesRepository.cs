@@ -13,7 +13,7 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<IEnumerable<Models.Charges>> GetCharges()
+        public async Task<IEnumerable<Models.XRS_Charges>> GetCharges()
         {
 
             return await _context.Charges
@@ -23,7 +23,7 @@ namespace XeniaRentalApi.Repositories.Charges
                 prop => prop.PropID,
                 (charges, props) => new { charges, prop = props.FirstOrDefault() }
                 )
-                .Select(u => new Models.Charges
+                .Select(u => new Models.XRS_Charges
                 {
                     chargeID = u.charges.chargeID,
                     chargeName = u.charges.chargeName,
@@ -40,7 +40,7 @@ namespace XeniaRentalApi.Repositories.Charges
         }
 
 
-        public async Task<PagedResultDto<Models.Charges>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Charges>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
         {
 
             var query = _context.Charges.AsQueryable();
@@ -60,7 +60,7 @@ namespace XeniaRentalApi.Repositories.Charges
                 )
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
-                .Select(u => new Models.Charges
+                .Select(u => new Models.XRS_Charges
                 {
                     chargeID = u.charges.chargeID,
                     chargeName = u.charges.chargeName,
@@ -72,9 +72,9 @@ namespace XeniaRentalApi.Repositories.Charges
                     isVariable = u.charges.isVariable,
 
                 }).ToListAsync();
-            return new PagedResultDto<Models.Charges>
+            return new PagedResultDto<Models.XRS_Charges>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -82,7 +82,7 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<IEnumerable<Models.Charges>> GetChargesbyId(int chargeId)
+        public async Task<IEnumerable<Models.XRS_Charges>> GetChargesbyId(int chargeId)
         {
 
             return await _context.Charges
@@ -93,7 +93,7 @@ namespace XeniaRentalApi.Repositories.Charges
                 prop => prop.PropID,
                  (charges, props) => new { charges, prop = props.FirstOrDefault() }
                 )
-                .Select(u => new Models.Charges
+                .Select(u => new Models.XRS_Charges
                 {
                     chargeID = u.charges.chargeID,
                     chargeName = u.charges.chargeName,
@@ -108,10 +108,10 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<Models.Charges> CreateCharges(DTOs.CreateCharges createCharges)
+        public async Task<Models.XRS_Charges> CreateCharges(DTOs.CreateCharges createCharges)
         {
 
-            var charge = new Models.Charges
+            var charge = new Models.XRS_Charges
             {
                 chargeName= createCharges.chargeName,
                 chargeAmt = createCharges.chargeAmt,
@@ -136,7 +136,7 @@ namespace XeniaRentalApi.Repositories.Charges
             return true;
         }
 
-        public async Task<bool> UpdateCharges(int id, Models.Charges charges)
+        public async Task<bool> UpdateCharges(int id, Models.XRS_Charges charges)
         {
             var updatedCharges = await _context.Charges.FirstOrDefaultAsync(u => u.chargeID == id);
             if (updatedCharges == null) return false;
@@ -151,10 +151,10 @@ namespace XeniaRentalApi.Repositories.Charges
             return true;
         }
 
-        public async Task<PagedResultDto<Models.Charges>> GetChargesAsync(string? chargeName,string? propertyName, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Charges>> GetChargesAsync(string? chargeName,string? propertyName, int pageNumber, int pageSize)
         {
             var query = _context.Charges
-                 .Include(u => u.Properties)
+                 .Include(u => u.Property)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(chargeName))
@@ -165,7 +165,7 @@ namespace XeniaRentalApi.Repositories.Charges
 
             if (!string.IsNullOrWhiteSpace(propertyName))
             {
-                query = query.Where(u => u.Properties.propertyName.Contains(propertyName));
+                query = query.Where(u => u.Property.propertyName.Contains(propertyName));
             }
 
             var totalRecords = await query.CountAsync();
@@ -174,7 +174,7 @@ namespace XeniaRentalApi.Repositories.Charges
                 // Optional: add sorting
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(u => new Models.Charges
+                .Select(u => new Models.XRS_Charges
                 {
                     chargeID=u.chargeID,
                     chargeName=u.chargeName,
@@ -183,13 +183,13 @@ namespace XeniaRentalApi.Repositories.Charges
                     chargeAmt=u.chargeAmt,
                     isActive=u.isActive,
                     PropID=u.PropID,
-                    PropName = u.Properties != null ? u.Properties.propertyName : null
+                    PropName = u.Property != null ? u.Property.propertyName : null
                 })
                 .ToListAsync();
 
-            return new PagedResultDto<Models.Charges>
+            return new PagedResultDto<Models.XRS_Charges>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

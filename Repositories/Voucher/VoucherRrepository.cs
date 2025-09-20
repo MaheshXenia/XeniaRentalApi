@@ -143,7 +143,7 @@ namespace XeniaRentalApi.Repositories.Voucher
 
             return new PagedResultDto<Models.Voucher>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

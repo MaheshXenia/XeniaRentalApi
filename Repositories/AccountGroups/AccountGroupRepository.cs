@@ -104,7 +104,7 @@ namespace XeniaRentalApi.Repositories.AccountGroups
 
             return new PagedResultDto<Models.AccountGroups>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

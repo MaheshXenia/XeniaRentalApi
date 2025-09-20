@@ -13,431 +13,249 @@ namespace XeniaRentalApi.Repositories.Units
 
         }
 
-        public async Task<IEnumerable<Models.Units>> GetUnits()
+        public async Task<IEnumerable<XRS_Units>> GetUnits(int companyId, int? propertyId = null)
         {
+            var query = _context.Units.AsQueryable();
+            query = query.Where(p => p.CompanyId == companyId);
 
-            return await _context.Units
-            .Select(u => new
+            if (propertyId.HasValue)
             {
-                Unit = u,
-                Property = _context.Properties
-            .Where(p => p.PropID == u.PropID)
-            .FirstOrDefault(),
-                Category = _context.Category
-            .Where(c => c.CatID == u.CatID)
-            .FirstOrDefault()
-            })
-             .Select(u => new Models.Units
-                  {
-                      UnitId = u.Unit.UnitId,
-                      UnitName = u.Unit.UnitName,
-                      PropID = u.Unit.PropID,
-                      CompanyId = u.Unit.CompanyId,
-                      UnitType = u.Unit.UnitType,
-                      PropName = u.Property != null ? u.Property.propertyName : null,
-                      IsActive = u.Unit.IsActive,
-                      Area = u.Unit.Area,
-                      Remarks = u.Unit.Remarks,
-                      FloorNo = u.Unit.FloorNo,
-                      DefaultRent = u.Unit.DefaultRent,
-                      escalationper = u.Unit.escalationper,
-                      CatID=u.Unit.CatID,
-                      CategoryName=u.Category != null? u.Category.CategoryName : null,
-                  }).ToListAsync();
+                query = query.Where(p => p.PropID == propertyId.Value);
+            }
+
+            return await query.ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<Models.Units>> GetUnitByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_Units>> GetUnitByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
 
-            var query = _context.Units.AsQueryable();
+            var query = _context.Units
+                .Include(u => u.Property)
+                .Include(u => u.Category)
+                .Include(u => u.UnitCharges)
+                    .ThenInclude(uc => uc.Charges)
+                .Where(u => u.CompanyId == companyId)
+                .AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.CompanyId.Equals(companyId)); // Adjust property as needed
+                string lowerSearch = search.ToLower();
+                query = query.Where(u =>
+                    u.UnitName.ToLower().Contains(lowerSearch) ||
+                    (u.Property != null && u.Property.propertyName.ToLower().Contains(lowerSearch)));
             }
 
             var totalRecords = await query.CountAsync();
 
-            var items = await query
-               .Select(u => new
-               {
-                   Unit = u,
-                   Property = _context.Properties
-            .Where(p => p.PropID == u.PropID)
-            .FirstOrDefault(),
-                   Category = _context.Category
-            .Where(c => c.CatID == u.CatID)
-            .FirstOrDefault()
-               })
+            var units = await query
+                .OrderBy(u => u.UnitName)
                 .Skip((pageNumber - 1) * pageSize)
-             .Take(pageSize)
-                 .Select(u => new Models.Units
-                 {
-                     UnitId = u.Unit.UnitId,
-                     UnitName = u.Unit.UnitName,
-                     PropID = u.Unit.PropID,
-                     CompanyId = u.Unit.CompanyId,
-                     UnitType = u.Unit.UnitType,
-                     PropName = u.Property != null ? u.Property.propertyName : null,
-                     IsActive = u.Unit.IsActive,
-                     Area = u.Unit.Area,
-                     Remarks = u.Unit.Remarks,
-                     FloorNo = u.Unit.FloorNo,
-                     DefaultRent = u.Unit.DefaultRent,
-                     escalationper = u.Unit.escalationper,
-                     CatID = u.Unit.CatID,
-                     CategoryName = u.Category != null ? u.Category.CategoryName : null,
-                      UnitCharges = _context.UnitChargesMappings
-                .Where(uc => uc.unitID == u.Unit.UnitId)
-                .ToList()
+                .Take(pageSize)
+                .ToListAsync();
 
-                 }).ToListAsync();
-            return new PagedResultDto<Models.Units>
+
+            var items = units.Select(u => new XRS_Units
             {
-                Items = items,
+                UnitId = u.UnitId,
+                UnitName = u.UnitName,
+                PropID = u.PropID,
+                CompanyId = u.CompanyId,
+                UnitType = u.UnitType,
+                PropName = u.Property != null ? u.Property.propertyName : null,
+                IsActive = u.IsActive,
+                Area = u.Area,
+                Remarks = u.Remarks,
+                FloorNo = u.FloorNo,
+                DefaultRent = u.DefaultRent,
+                escalationper = u.escalationper,
+                CatID = u.CatID,
+                CategoryName = u.Category != null ? u.Category.CategoryName : null,
+                UnitCharges = u.UnitCharges?.Select(uc => new XRS_UnitChargesMapping
+                {
+                    unitMapID = uc.unitMapID,
+                    unitID = uc.unitID,
+                    propID = uc.propID,
+                    companyID = uc.companyID,
+                    chargeID = uc.chargeID,
+                    amount = uc.amount,
+                    frequency = uc.frequency,
+                    isActive = uc.isActive,
+                    ChargeName = uc.Charges?.chargeName,
+                    ChargeType = uc.Charges != null && uc.Charges.isVariable ? "Variable" : "Fixed"
+                }).ToList()
+            }).ToList();
+
+            return new PagedResultDto<XRS_Units>
+            {
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
             };
-
         }
 
-        public async Task<IEnumerable<Models.UnitChargesMapping>> GetUnitChargesByUnitId(int unitId)
+        public async Task<XRS_Units> GetUnitById(int unitId)
         {
+            var unit = await _context.Units
+                .Include(u => u.Property)
+                .Include(u => u.Category)
+                .Include(u => u.UnitCharges)
+                    .ThenInclude(uc => uc.Charges)
+                .Where(u => u.UnitId == unitId)
+                .FirstOrDefaultAsync();
 
-            return await _context.UnitChargesMappings
-                .Where(u => u.unitMapID == unitId)
-                 .Select(u => new Models.UnitChargesMapping
-                 {
-                     unitMapID = u.unitMapID,
-                     unitID = u.unitID,
-                     isActive = u.isActive,
-                     propID = u.propID,
-                     amount = u.amount,
-                     frequency = u.frequency,
-                     companyID = u.companyID,
-                     chargeID = u.chargeID,
-                 }).ToListAsync();
+            if (unit == null)
+                return null;
 
+            var result = new XRS_Units
+            {
+                UnitId = unit.UnitId,
+                UnitName = unit.UnitName,
+                PropID = unit.PropID,
+                CompanyId = unit.CompanyId,
+                UnitType = unit.UnitType,
+                PropName = unit.Property?.propertyName,
+                CatID = unit.CatID,
+                CategoryName = unit.Category?.CategoryName,
+                IsActive = unit.IsActive,
+                Area = unit.Area,
+                Remarks = unit.Remarks,
+                FloorNo = unit.FloorNo,
+                DefaultRent = unit.DefaultRent,
+                escalationper = unit.escalationper,
+                UnitCharges = unit.UnitCharges?.Select(uc => new Models.XRS_UnitChargesMapping
+                {
+                    unitMapID = uc.unitMapID,
+                    unitID = uc.unitID,
+                    propID = uc.propID,
+                    companyID = uc.companyID,
+                    chargeID = uc.chargeID,
+                    amount = uc.amount,
+                    frequency = uc.frequency,
+                    isActive = uc.isActive,
+                    ChargeName = uc.Charges?.chargeName,
+                    ChargeType = uc.Charges != null && uc.Charges.isVariable ? "Variable" : "Fixed"
+                }).ToList()
+            };
 
+            return result;
         }
 
-        public async Task<DTOs.UnitChargesDTO> GetUnitsByUnitId(int unitId)
+        public async Task<XRS_Units> CreateUnit(XRS_Units model)
         {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
 
+            var unit = new XRS_Units
+            {
+                UnitName = model.UnitName,
+                PropID = model.PropID,
+                CompanyId = model.CompanyId,
+                UnitType = model.UnitType,
+                CatID = model.CatID,
+                IsActive = model.IsActive,
+                Area = model.Area,
+                Remarks = model.Remarks,
+                FloorNo = model.FloorNo,
+                DefaultRent = model.DefaultRent,
+                escalationper = model.escalationper
+            };
+
+
+            if (model.UnitCharges != null && model.UnitCharges.Any())
+            {
+                unit.UnitCharges = model.UnitCharges.Select(uc => new XRS_UnitChargesMapping
+                {
+                    unitID = uc.unitID,
+                    propID = uc.propID,
+                    companyID = uc.companyID,
+                    chargeID = uc.chargeID,
+                    amount = uc.amount,
+                    frequency = uc.frequency,
+                    isActive = uc.isActive
+                }).ToList();
+            }
+
+            _context.Units.Add(unit);
+            await _context.SaveChangesAsync();
+
+            return await GetUnitById(unit.UnitId);
+        }
+
+        public async Task<XRS_Units> UpdateUnit(XRS_Units model)
+        {
+            if (model == null)
+                throw new ArgumentNullException(nameof(model));
 
             var unit = await _context.Units
-                        .Where(u => u.UnitId == unitId)
-                        .Select(u => new
-                        {
-                            Unit = u,
-                            Property = _context.Properties
-                                         .Where(p => p.PropID == u.PropID)
-                                          .FirstOrDefault(),
-                            Category = _context.Category
-                                        .Where(c => c.CatID == u.CatID)
-                                        .FirstOrDefault()
-                        })
-                        .Select(u => new Models.Units
-                         {
-                             UnitId = u.Unit.UnitId,
-                             UnitName = u.Unit.UnitName,
-                             PropID = u.Unit.PropID,
-                             CompanyId = u.Unit.CompanyId,
-                             UnitType = u.Unit.UnitType,
-                             PropName = u.Property != null ? u.Property.propertyName : null,
-                             IsActive = u.Unit.IsActive,
-                             Area = u.Unit.Area,
-                             Remarks = u.Unit.Remarks,
-                             FloorNo = u.Unit.FloorNo,
-                             DefaultRent = u.Unit.DefaultRent,
-                             escalationper = u.Unit.escalationper,
-                             CatID = u.Unit.CatID,
-                             CategoryName = u.Category != null ? u.Category.CategoryName : null
-                         }).FirstOrDefaultAsync();
-            var unitmapping = await _context.UnitChargesMappings.Where(u => u.unitID == unitId)
-                              .Select(u => new Models.UnitChargesMapping
-                              {
-                                  chargeID = u.chargeID,
-                                  companyID = u.companyID,
-                                  amount = u.amount,
-                                  frequency = u.frequency,
-                                  isActive = u.isActive,
-                                  propID = u.propID,
-                                  unitID = u.unitID,
-                                  ChargeName = u.Charges != null ? u.Charges.chargeName : null,
-                                  unitMapID = u.unitMapID,
-                                  ChargeType = u.Charges.isVariable ? "Variable" : "Fixed",
-                                  
+                .Include(u => u.UnitCharges)
+                .FirstOrDefaultAsync(u => u.UnitId == model.UnitId);
 
-                              }).ToListAsync();
+            if (unit == null)
+                return null;
+
+            unit.UnitName = model.UnitName;
+            unit.PropID = model.PropID;
+            unit.CompanyId = model.CompanyId;
+            unit.UnitType = model.UnitType;
+            unit.CatID = model.CatID;
+            unit.IsActive = model.IsActive;
+            unit.Area = model.Area;
+            unit.Remarks = model.Remarks;
+            unit.FloorNo = model.FloorNo;
+            unit.DefaultRent = model.DefaultRent;
+            unit.escalationper = model.escalationper;
 
 
-
-            DTOs.UnitChargesDTO unitChargesDTO = new DTOs.UnitChargesDTO();
-            unitChargesDTO.Unit = unit;
-            unitChargesDTO.Charges = unitmapping;
-            return unitChargesDTO;
-
-
-        }
-
-        public async Task<DTOs.UnitChargesDTO> GetUnitsByPropertyId(int propertyId)
-        {
-
-
-            var unit = await _context.Units.FirstOrDefaultAsync(u => u.PropID == propertyId);
-            var unitmapping = await _context.UnitChargesMappings.Where(u => u.unitID == unit.UnitId)
-                              .Select(u => new Models.UnitChargesMapping
-                              {
-                                  chargeID = u.chargeID,
-                                  companyID = u.companyID,
-                                  amount = u.amount,
-                                  frequency = u.frequency,
-                                  isActive = u.isActive,
-                                  propID = u.propID,
-                                  unitID = u.unitID,
-                                  ChargeName = u.Charges != null ? u.Charges.chargeName : null,
-                                  unitMapID = u.unitMapID,
-                                  ChargeType = u.Charges.isVariable ? "Variable" : "Fixed",
-
-                              }).ToListAsync();
-
-
-
-            DTOs.UnitChargesDTO unitChargesDTO = new DTOs.UnitChargesDTO();
-            unitChargesDTO.Unit = unit;
-            unitChargesDTO.Charges = unitmapping;
-            return unitChargesDTO;
-
-
-        }
-
-        public async Task<Models.Units> CreateUnit(DTOs.CreateUnit dtoUnit)
-        {
-
-            var unit = new Models.Units
+            if (model.UnitCharges != null)
             {
-                UnitName = dtoUnit.UnitName,
-                PropID = dtoUnit.PropID,
-                UnitType = dtoUnit.UnitType,
-                CompanyId = dtoUnit.CompanyId,
-                IsActive = dtoUnit.IsActive,
-                Area = dtoUnit.Area,
-                FloorNo = dtoUnit.FloorNo,
-                Remarks = dtoUnit.Remarks,
-                escalationper = dtoUnit.escalationper,
-                DefaultRent = dtoUnit.DefaultRent,
-                CatID=dtoUnit.CatID,
+                var chargesToRemove = unit.UnitCharges
+                    .Where(uc => !model.UnitCharges.Any(m => m.unitMapID == uc.unitMapID))
+                    .ToList();
+                _context.UnitChargesMappings.RemoveRange(chargesToRemove);
 
-            };
-            await _context.Units.AddAsync(unit);
+
+                foreach (var ucModel in model.UnitCharges)
+                {
+                    var existingCharge = unit.UnitCharges
+                        .FirstOrDefault(uc => uc.unitMapID == ucModel.unitMapID);
+
+                    if (existingCharge != null)
+                    {
+                        existingCharge.chargeID = ucModel.chargeID;
+                        existingCharge.amount = ucModel.amount;
+                        existingCharge.frequency = ucModel.frequency;
+                        existingCharge.isActive = ucModel.isActive;
+                    }
+                    else
+                    {
+                        unit.UnitCharges.Add(new XRS_UnitChargesMapping
+                        {
+                            unitID = unit.UnitId,
+                            propID = ucModel.propID,
+                            companyID = ucModel.companyID,
+                            chargeID = ucModel.chargeID,
+                            amount = ucModel.amount,
+                            frequency = ucModel.frequency,
+                            isActive = ucModel.isActive
+                        });
+                    }
+                }
+            }
+
             await _context.SaveChangesAsync();
-            return unit;
-
+            return await GetUnitById(unit.UnitId);
         }
 
         public async Task<bool> DeleteUnit(int id)
         {
             var bedspacesettings = await _context.Units.FirstOrDefaultAsync(u => u.UnitId == id);
             if (bedspacesettings == null) return false;
-            bedspacesettings.IsActive = false;
-            //. = DateTime.UtcNow;
+            bedspacesettings.IsActive = false;        
             await _context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> UpdateUnit(DTOs.UnitChargesDTO unitCharges)
-        {
-            var updateUnits = await _context.Units.FirstOrDefaultAsync(u => u.UnitId == unitCharges.Unit.UnitId);
-            if (updateUnits == null) return false;
-
-            updateUnits.UnitType = unitCharges.Unit.UnitType;
-            updateUnits.UnitName = unitCharges.Unit.UnitName;
-            updateUnits.CompanyId = unitCharges.Unit.CompanyId;
-            updateUnits.PropID = unitCharges.Unit.PropID;
-            updateUnits.IsActive = unitCharges.Unit.IsActive;
-            updateUnits.Area = unitCharges.Unit.Area;
-            updateUnits.Remarks = unitCharges.Unit.Remarks;
-            updateUnits.FloorNo = unitCharges.Unit.FloorNo;
-            updateUnits.DefaultRent = unitCharges.Unit.DefaultRent;
-            updateUnits.escalationper = unitCharges.Unit.escalationper;
-            updateUnits.CatID = unitCharges.Unit.CatID;
-
-            await _context.SaveChangesAsync();
-
-            foreach (var docDto in unitCharges.Charges)
-            {
-                if (docDto.unitMapID > 0)
-                {
-                    // Update existing unit charges mapping
-                    var existingUnit = await _context.UnitChargesMappings
-                        .Where(d => d.unitMapID == docDto.unitMapID).FirstOrDefaultAsync();
-
-                    if (existingUnit != null)
-                    {
-                        existingUnit.frequency = docDto.frequency;
-                        existingUnit.amount = docDto.amount;
-                        await _context.SaveChangesAsync();
-                    }
-                }
-                else
-                {
-                    // Insert new unit charges
-                    var unit = new Models.UnitChargesMapping
-                    {
-                        unitID = docDto.unitID,
-                        propID = docDto.propID,
-                        amount = docDto.amount,
-                        chargeID = docDto.chargeID,
-                        frequency = docDto.frequency,
-                        isActive = docDto.isActive,
-                        companyID = docDto.companyID,
-                    };
-
-                    _context.UnitChargesMappings.Add(unit);
-                    await _context.SaveChangesAsync();
-                }
-            }
-            return true;
-        }
-
-        public async Task<PagedResultDto<Models.Units>> GetUnitsAsync(string? unitName, string? propetyName, int pageNumber, int pageSize)
-        {
-            var query = _context.Units
-                        .Include(u => u.Properties)
-                        .AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(unitName))
-            {
-                query = query.Where(u => u.UnitName.Contains(unitName)); // Adjust property as needed
-
-            }
-
-            if (!string.IsNullOrWhiteSpace(propetyName))
-            {
-                query = query.Where(u => u.Properties.propertyName.Contains(propetyName));
-            }
-
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.Units
-                {
-                    PropID = u.PropID,
-                    UnitName = u.UnitName,
-                    UnitId = u.UnitId,
-                    UnitType = u.UnitType,
-                    IsActive = u.IsActive,
-                    PropName = u.Properties != null ? u.Properties.propertyName : null
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.Units>
-            {
-                Items = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
-
-        public async Task<IEnumerable<Models.UnitChargesMapping>> GetUnitChargesMapping()
-        {
-
-            return await _context.UnitChargesMappings.Where(u => u.isActive == true)
-                  .Select(u => new Models.UnitChargesMapping
-                  {
-                      unitID = u.unitID,
-                      propID = u.propID,
-                      amount = u.amount,
-                      unitMapID = u.unitMapID,
-                      companyID = u.companyID,
-                      chargeID = u.chargeID,
-                      frequency = u.frequency,
-                      isActive = u.isActive,
-
-                  }).ToListAsync();
-        }
-
-        public async Task<Models.UnitChargesMapping> CreateUnitChargesMapping(DTOs.CreateUnitChargesMapping dtoUnit)
-        {
-
-            var unit = new Models.UnitChargesMapping
-            {
-                unitID = dtoUnit.unitID,
-                propID = dtoUnit.propID,
-                amount = dtoUnit.amount,
-                chargeID = dtoUnit.chargeID,
-                frequency = dtoUnit.frequency,
-                isActive = dtoUnit.isActive,
-                companyID = dtoUnit.companyID,
-            };
-            await _context.UnitChargesMappings.AddAsync(unit);
-            await _context.SaveChangesAsync();
-            return unit;
-
-        }
-
-        public async Task<bool> UpdateUnitChargesMapping(int id, Models.UnitChargesMapping units)
-        {
-            var updateUnits = await _context.UnitChargesMappings.FirstOrDefaultAsync(u => u.unitMapID == id);
-            if (updateUnits == null) return false;
-
-            updateUnits.frequency = units.frequency;
-            updateUnits.amount = units.amount;
-
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<Models.Units> CreateUnitCharges(UnitCharges dto)
-        {
-            var unit = new Models.Units
-            {
-                UnitName = dto.Unit.UnitName,
-                PropID = dto.Unit.PropID,
-                UnitType = dto.Unit.UnitType,
-                CompanyId = dto.Unit.CompanyId,
-                IsActive = dto.Unit.IsActive,
-                Area = dto.Unit.Area,
-                FloorNo = dto.Unit.FloorNo,
-                Remarks = dto.Unit.Remarks,
-                escalationper = dto.Unit.escalationper,
-                DefaultRent = dto.Unit.DefaultRent,
-                CatID = dto.Unit.CatID,
-
-            };
-
-            _context.Units.Add(unit);
-            await _context.SaveChangesAsync(); // Get TenantId
-
-            foreach (var charges in dto.Charges)
-            {
-
-                var unitCharges = new Models.UnitChargesMapping
-                {
-                    unitID = unit.UnitId,
-                    propID = charges.propID,
-                    amount = charges.amount,
-                    chargeID = charges.chargeID,
-                    frequency = charges.frequency,
-                    isActive = charges.isActive,
-                    companyID = charges.companyID,
-                };
-
-                _context.UnitChargesMappings.Add(unitCharges);
-                await _context.SaveChangesAsync();
-
-            }
-
-            return unit;
-        }
     }
+ 
 }

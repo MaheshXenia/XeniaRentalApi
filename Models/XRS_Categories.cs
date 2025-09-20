@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_Category")]
-    public class Category
+    public class XRS_Categories
     {
         [Key]
         public int CatID { get; set; }
@@ -14,6 +14,7 @@ namespace XeniaRentalApi.Models
         public string CategoryName { get; set; }
 
         public bool IsActive { get; set; }
+        public virtual ICollection<XRS_Units> Units { get; set; }
 
     }
 }

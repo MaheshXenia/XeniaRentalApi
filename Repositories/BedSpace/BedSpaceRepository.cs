@@ -102,7 +102,7 @@ namespace XeniaRentalApi.Repositories.BedSpace
      .ToListAsync();
             return new PagedResultDto<Models.BedSpace>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -282,7 +282,7 @@ namespace XeniaRentalApi.Repositories.BedSpace
 
             return new PagedResultDto<Models.BedSpace>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
