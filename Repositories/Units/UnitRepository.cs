@@ -61,7 +61,7 @@ namespace XeniaRentalApi.Repositories.Unit
             var query = _context.Units
                 .Include(u => u.Property)
                 .Include(u => u.Category)
-                .Where(u => u.CompanyId == companyId && u.IsActive)
+                .Where(u => u.CompanyId == companyId)
                 .AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(search))

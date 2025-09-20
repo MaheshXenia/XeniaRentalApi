@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using XeniaRentalApi.Dictionnary;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Documents;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -24,10 +21,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/documents")]
-        public async Task<ActionResult<IEnumerable<Documents>>> Get()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<XRS_Documents>>> Get(int companyId)
         {
-            var documents = await _documentRepository.GetDocuments();
+            var documents = await _documentRepository.GetDocuments(companyId);
             if (documents == null || !documents.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No documents found." });
@@ -35,13 +32,12 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = documents });
         }
 
-        // GET api/<AccountGroupController>/5
-        [HttpGet("documents/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Documents>>> GetDocumentsByCompanyId(int companyId, int pageNumber = 1,
+        [HttpGet("{companyId}")]
+        public async Task<ActionResult<PagedResultDto<XRS_Documents>>> GetDocumentsByCompanyId(int companyId, string? search = null, int pageNumber = 1,
             int pageSize = 10)
         {
 
-            var documents = await _documentRepository.GetDocumentsCompanyId(companyId, pageNumber, pageSize);
+            var documents = await _documentRepository.GetDocumentsCompanyId(companyId, search, pageNumber, pageSize);
             if (documents == null)
             {
                 return NotFound(new { Status = "Error", Message = "No documents found the given Company ID." });
@@ -51,7 +47,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAccounts([FromBody] DTOs.CreateDocuments documents)
+        public async Task<IActionResult> CreateAccounts([FromBody] XRS_Documents documents)
         {
             if (documents == null)
             {
@@ -62,9 +58,9 @@ namespace XeniaRentalApi.Controllers
             return CreatedAtAction(nameof(GetDocuments), new { id = createdDocuments }, new { Status = "Success", Data = createdDocuments });
         }
 
-        //[Authorize(Roles = "Admin,SuperAdmin")]
+       
         [HttpGet("{id}")]
-        public async Task<ActionResult<Documents>> GetDocuments(int id)
+        public async Task<ActionResult<XRS_Documents>> GetDocuments(int id)
         {
             var createdDocuments = await _documentRepository.GetDocumentsbyId(id);
             if (createdDocuments == null)
@@ -75,10 +71,8 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-
-
-        [HttpPut("UpdateDocuments/{id}")]
-        public async Task<IActionResult> UpdateDocuments(int id, [FromBody] Models.Documents documents)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateDocuments(int id, [FromBody] Models.XRS_Documents documents)
         {
             if (documents == null)
             {
@@ -94,7 +88,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "Documents updated successfully." });
         }
 
-        // DELETE api/<AccountGroupController>/5
+  
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDocument(int id)
         {
@@ -107,20 +101,6 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "createdDocuments deleted successfully." });
         }
 
-        [HttpGet("applicableTotypes")]
-        public IActionResult GetApplicableToTypes()
-        {
-            return Ok(DocumentApplicableToTypeProvider.ApplicableTypes);
-        }
-
-        [HttpGet("UpdateDocuments/search")]
-        public async Task<ActionResult<PagedResultDto<Documents>>> Get(
-           string? search,
-           int pageNumber = 1,
-           int pageSize = 10)
-        {
-            var result = await _documentRepository.GetDocumentsAsync(search, pageNumber, pageSize);
-            return Ok(result);
-        }
+      
     }
 }

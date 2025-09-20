@@ -1967,6 +1967,21 @@
             }
           },
           {
+            "name": "propertyId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "pageNumber",
             "in": "query",
             "schema": {
@@ -1991,17 +2006,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
+                  "$ref": "#/components/schemas/PagedResultDtoOfChargesDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
+                  "$ref": "#/components/schemas/PagedResultDtoOfChargesDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
+                  "$ref": "#/components/schemas/PagedResultDtoOfChargesDto"
                 }
               }
             }
@@ -2139,69 +2154,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Charges/charges/search": {
-      "get": {
-        "tags": [
-          "Charges"
-        ],
-        "parameters": [
-          {
-            "name": "chargeName",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "PropertyName",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Charges"
-                }
-              }
-            }
           }
         }
       }
@@ -2492,10 +2444,20 @@
         }
       }
     },
-    "/api/Documents/all/documents": {
+    "/api/Documents/all": {
       "get": {
         "tags": [
           "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2505,7 +2467,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                   }
                 }
               },
@@ -2513,7 +2475,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                   }
                 }
               },
@@ -2521,7 +2483,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                   }
                 }
               }
@@ -2530,7 +2492,7 @@
         }
       }
     },
-    "/api/Documents/documents/{companyId}": {
+    "/api/Documents/{companyId}": {
       "get": {
         "tags": [
           "Documents"
@@ -2543,6 +2505,13 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -2570,17 +2539,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Documents"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Documents"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Documents"
                 }
               }
             }
@@ -2597,17 +2566,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateDocuments"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateDocuments"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateDocuments"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
               }
             }
           }
@@ -2641,20 +2610,60 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
                 }
               }
             }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Documents"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -2676,116 +2685,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Documents/UpdateDocuments/{id}": {
-      "put": {
-        "tags": [
-          "Documents"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Documents/applicableTotypes": {
-      "get": {
-        "tags": [
-          "Documents"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Documents/UpdateDocuments/search": {
-      "get": {
-        "tags": [
-          "Documents"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfDocuments"
-                }
-              }
-            }
           }
         }
       }
@@ -6730,13 +6629,13 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfCompany": {
+      "PagedResultDtoOfChargesDto": {
         "type": "object",
         "properties": {
           "Data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.Company"
+              "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
             },
             "nullable": true
           },
@@ -6768,13 +6667,13 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfDocuments": {
+      "PagedResultDtoOfCompany": {
         "type": "object",
         "properties": {
           "Data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.Documents"
+              "$ref": "#/components/schemas/XeniaRentalApi.Models.Company"
             },
             "nullable": true
           },
@@ -7072,13 +6971,13 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfXRS_Charges": {
+      "PagedResultDtoOfXRS_Documents": {
         "type": "object",
         "properties": {
           "Data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Charges"
+              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Documents"
             },
             "nullable": true
           },
@@ -9912,45 +9811,6 @@
         },
         "additionalProperties": false
       },
-      "XeniaRentalApi.DTOs.CreateDocuments": {
-        "type": "object",
-        "properties": {
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "docName": {
-            "type": "string",
-            "nullable": true
-          },
-          "docPurpose": {
-            "type": "string",
-            "nullable": true
-          },
-          "isAlphanumeric": {
-            "type": "boolean"
-          },
-          "isExpiry": {
-            "type": "boolean"
-          },
-          "isMandatory": {
-            "type": "boolean"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "ExpiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "XeniaRentalApi.DTOs.CreateMessTypes": {
         "required": [
           "MessName"
@@ -10986,53 +10846,6 @@
         },
         "additionalProperties": false
       },
-      "XeniaRentalApi.Models.Documents": {
-        "type": "object",
-        "properties": {
-          "docTypeId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "docName": {
-            "type": "string",
-            "nullable": true
-          },
-          "docPurpose": {
-            "type": "string",
-            "nullable": true
-          },
-          "isAlphanumeric": {
-            "type": "boolean"
-          },
-          "isExpiry": {
-            "type": "boolean"
-          },
-          "isMandatory": {
-            "type": "boolean"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "ExpiryDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "propName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "XeniaRentalApi.Models.Ledger": {
         "type": "object",
         "properties": {
@@ -11591,6 +11404,53 @@
           },
           "Property": {
             "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Properties"
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Models.XRS_Documents": {
+        "type": "object",
+        "properties": {
+          "docTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "docName": {
+            "type": "string",
+            "nullable": true
+          },
+          "docPurpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAlphanumeric": {
+            "type": "boolean"
+          },
+          "isExpiry": {
+            "type": "boolean"
+          },
+          "isMandatory": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "propName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

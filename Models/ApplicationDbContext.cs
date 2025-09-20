@@ -23,7 +23,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<Company> Company { get; set; }
 
-        public DbSet<Documents> Documents { get; set; }
+        public DbSet<XRS_Documents> Documents { get; set; }
 
         public DbSet<Ledger> Ledgers { get; set; }
 

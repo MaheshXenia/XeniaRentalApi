@@ -5,7 +5,6 @@ using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Charges;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -61,7 +60,6 @@ namespace XeniaRentalApi.Controllers
             return CreatedAtAction(nameof(GetChargesById), new { id = createdAccount }, new { Status = "Success", Data = createdAccount });
         }
 
-        //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Charges>> GetChargesById(int id)
         {

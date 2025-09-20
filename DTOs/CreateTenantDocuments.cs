@@ -40,6 +40,6 @@ namespace XeniaRentalApi.DTOs
 
         [ForeignKey("DocTypeId")]
         [JsonIgnore]
-        public virtual Documents? Documents { get; set; }
+        public virtual XRS_Documents? Documents { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_Documents")]
-    public class Documents
+    public class XRS_Documents
     {
         [Key]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -14,8 +14,6 @@ namespace XeniaRentalApi.Models
         public int docTypeId { get; set; }
 
         public int companyID { get; set; }
-
-        public int propID { get; set; }
 
         public string  docName { get; set; }
 
@@ -31,12 +29,6 @@ namespace XeniaRentalApi.Models
 
         public DateTime? ExpiryDate { get; set; }
 
-        [NotMapped]
-        public string? propName {  get; set; }
-
-        [ForeignKey("propID")]
-        [JsonIgnore]
-        public virtual XRS_Properties? Properties { get; set; }
     }
 
 }

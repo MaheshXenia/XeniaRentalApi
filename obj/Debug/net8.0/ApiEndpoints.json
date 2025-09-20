@@ -1218,43 +1218,12 @@
         "IsRequired": true
       },
       {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
+        "Name": "propertyId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       },
       {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Charges, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.ChargesController",
-    "Method": "Get",
-    "RelativePath": "api/Charges/charges/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "chargeName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "PropertyName",
+        "Name": "search",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -1271,7 +1240,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Charges, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.DTOs.ChargesDto, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1483,11 +1452,52 @@
     "Parameters": [
       {
         "Name": "documents",
-        "Type": "XeniaRentalApi.DTOs.CreateDocuments",
+        "Type": "XeniaRentalApi.Models.XRS_Documents",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
+    "Method": "GetDocumentsByCompanyId",
+    "RelativePath": "api/Documents/{companyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Documents, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
@@ -1505,7 +1515,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Documents",
+        "Type": "XeniaRentalApi.Models.XRS_Documents",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1514,6 +1524,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
+    "Method": "UpdateDocuments",
+    "RelativePath": "api/Documents/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "documents",
+        "Type": "XeniaRentalApi.Models.XRS_Documents",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
@@ -1534,37 +1565,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
     "Method": "Get",
-    "RelativePath": "api/Documents/all/documents",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Documents, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
-    "Method": "GetApplicableToTypes",
-    "RelativePath": "api/Documents/applicableTotypes",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
-    "Method": "GetDocumentsByCompanyId",
-    "RelativePath": "api/Documents/documents/{companyId}",
+    "RelativePath": "api/Documents/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1572,79 +1573,12 @@
       {
         "Name": "companyId",
         "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Documents, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
-    "Method": "UpdateDocuments",
-    "RelativePath": "api/Documents/UpdateDocuments/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "documents",
-        "Type": "XeniaRentalApi.Models.Documents",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.DocumentsController",
-    "Method": "Get",
-    "RelativePath": "api/Documents/UpdateDocuments/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Documents, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Documents, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -56,7 +56,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("DocTypeId")]
         [JsonIgnore]
-        public virtual Documents? Documents { get; set; }
+        public virtual XRS_Documents? Documents { get; set; }
 
         [NotMapped]
         public string? DocumentName { get; set; }

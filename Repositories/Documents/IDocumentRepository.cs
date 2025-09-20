@@ -1,20 +1,20 @@
 ﻿using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Documents
 {
     public interface IDocumentRepository
     {
-        Task<IEnumerable<Models.Documents>> GetDocuments();
-        Task<PagedResultDto<Models.Documents>> GetDocumentsCompanyId(int companyId, int pageNumber, int pageSize);
+        Task<IEnumerable<XRS_Documents>> GetDocuments(int companyId);
+        Task<PagedResultDto<XRS_Documents>> GetDocumentsCompanyId(int companyId, string? search = null,int pageNumber = 1, int pageSize = 10);
 
-        Task<Models.Documents> CreateDocuments(DTOs.CreateDocuments documents);
+        Task<XRS_Documents> CreateDocuments(XRS_Documents documents);
 
         Task<bool> DeleteDocumentType(int id);
 
-        Task<IEnumerable<Models.Documents>> GetDocumentsbyId(int documentId);
+        Task<IEnumerable<XRS_Documents>> GetDocumentsbyId(int documentId);
 
-        Task<bool> UpdateDocuments(int id, Models.Documents documents);
+        Task<bool> UpdateDocuments(int id, XRS_Documents documents);
 
-        Task<PagedResultDto<Models.Documents>> GetDocumentsAsync(string? search, int pageNumber, int pageSize);
     }
 }
