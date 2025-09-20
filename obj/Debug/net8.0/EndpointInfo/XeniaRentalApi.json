@@ -2492,7 +2492,7 @@
         }
       }
     },
-    "/api/Documents/{companyId}": {
+    "/api/Documents/company/{companyId}": {
       "get": {
         "tags": [
           "Documents"
@@ -2509,6 +2509,13 @@
           },
           {
             "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "docPurpose",
             "in": "query",
             "schema": {
               "type": "string"

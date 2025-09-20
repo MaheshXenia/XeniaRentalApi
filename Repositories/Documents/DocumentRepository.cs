@@ -31,7 +31,7 @@ namespace XeniaRentalApi.Repositories.Documents
                 .ToListAsync();
         }
 
-        public async Task<PagedResultDto<XRS_Documents>> GetDocumentsCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
+        public async Task<PagedResultDto<XRS_Documents>> GetDocumentsCompanyId(int companyId, string? search = null, string? docPurpose = null, int pageNumber = 1, int pageSize = 10)
         {
             var query = _context.Documents
                 .Where(u => u.companyID == companyId); 
@@ -40,6 +40,11 @@ namespace XeniaRentalApi.Repositories.Documents
             {
                 string lowerSearch = search.ToLower();
                 query = query.Where(u => u.docName.ToLower().Contains(lowerSearch));
+            }
+
+            if (!string.IsNullOrWhiteSpace(docPurpose))
+            {
+                query = query.Where(u => u.docPurpose.ToLower().Contains(docPurpose));
             }
 
             var totalRecords = await query.CountAsync();

@@ -22,7 +22,6 @@ namespace XeniaRentalApi.Models
         public string propertyType { get; set; }
 
         public bool IsActive { get; set; }
-        public virtual ICollection<XRS_Units> Units { get; set; }
 
 
     }

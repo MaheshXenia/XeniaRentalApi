@@ -33,11 +33,10 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<XRS_Documents>>> GetDocumentsByCompanyId(int companyId, string? search = null, int pageNumber = 1,
-            int pageSize = 10)
+        public async Task<ActionResult<PagedResultDto<XRS_Documents>>> GetDocumentsByCompanyId(int companyId, string? search = null, string? docPurpose = null, int pageNumber = 1, int pageSize = 10)
         {
 
-            var documents = await _documentRepository.GetDocumentsCompanyId(companyId, search, pageNumber, pageSize);
+            var documents = await _documentRepository.GetDocumentsCompanyId(companyId, search, docPurpose, pageNumber, pageSize);
             if (documents == null)
             {
                 return NotFound(new { Status = "Error", Message = "No documents found the given Company ID." });
