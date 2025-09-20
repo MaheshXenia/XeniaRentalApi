@@ -1,20 +1,24 @@
 ﻿using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.BedSpacePlan
 {
     public interface IBedSpacePlanRepository
     {
-        Task<IEnumerable<Models.BedSpacePlan>> GetBedSpacePlans();
-        Task<PagedResultDto<Models.BedSpacePlan>> GetBedSpacePlanbyCompanyId(int companyId, int pageNumber, int pageSize);
+        Task<IEnumerable<XRS_BedSpacePlan>> GetBedSpacePlans(int companyId);
 
-        Task<Models.BedSpacePlan> CreateBedSpacePlan(DTOs.CreateBedSpacePlan bedSpacePlan);
+        Task<PagedResultDto<XRS_BedSpacePlan>> GetBedSpacePlanByCompanyId(int companyId, string? search = null,int pageNumber = 1, int pageSize = 10);
+
+        Task<XRS_BedSpacePlan> GetBedSpacePlanById(int bedSpacePlanId);
+
+        Task<XRS_BedSpacePlan> CreateBedSpacePlan(XRS_BedSpacePlan bedSpacePlan);
+
+        Task<bool> UpdateBedSpacePlan(int id, XRS_BedSpacePlan bedSpace);
 
         Task<bool> DeleteBedSpacePlan(int id);
 
-        Task<IEnumerable<Models.BedSpacePlan>> GetBedSpacePlanbyId(int bedSpacePlanId);
 
-        Task<bool> UpdateBedSpacePlan(int id, Models.BedSpacePlan bedSpace);
+    
 
-        Task<PagedResultDto<Models.BedSpacePlan>> GetBedSpacePlanAsync(string? search, int pageNumber, int pageSize);
     }
 }

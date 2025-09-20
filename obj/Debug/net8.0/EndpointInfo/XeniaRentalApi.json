@@ -683,10 +683,28 @@
         }
       }
     },
-    "/api/BedSpace/all/bedspaces": {
+    "/api/BedSpace/all": {
       "get": {
         "tags": [
           "BedSpace"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "unitId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -696,7 +714,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
                   }
                 }
               },
@@ -704,7 +722,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
                   }
                 }
               },
@@ -712,7 +730,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
                   }
                 }
               }
@@ -721,7 +739,7 @@
         }
       }
     },
-    "/api/BedSpace/bedpaces/{companyId}": {
+    "/api/BedSpace/company/{companyId}": {
       "get": {
         "tags": [
           "BedSpace"
@@ -736,229 +754,6 @@
               "format": "int32"
             }
           },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BedSpace": {
-      "post": {
-        "tags": [
-          "BedSpace"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpace"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpace"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpace"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/BedSpace/{id}": {
-      "get": {
-        "tags": [
-          "BedSpace"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "BedSpace"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/BedSpace/GetBedSpaceBYUnitId/{unitId}": {
-      "get": {
-        "tags": [
-          "BedSpace"
-        ],
-        "parameters": [
-          {
-            "name": "unitId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/BedSpace/UpdateBedSpace/{id}": {
-      "put": {
-        "tags": [
-          "BedSpace"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/BedSpace/bedspaces/search": {
-      "get": {
-        "tags": [
-          "BedSpace"
-        ],
-        "parameters": [
           {
             "name": "search",
             "in": "query",
@@ -991,17 +786,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Bedspace"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Bedspace"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpace"
+                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Bedspace"
                 }
               }
             }
@@ -1009,10 +804,152 @@
         }
       }
     },
-    "/api/BedSpacePlan/all/bedspacePlans": {
+    "/api/BedSpace/{id}": {
+      "get": {
+        "tags": [
+          "BedSpace"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BedSpace"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BedSpace"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BedSpace": {
+      "post": {
+        "tags": [
+          "BedSpace"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.BedSpaceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BedSpacePlan/all": {
       "get": {
         "tags": [
           "BedSpacePlan"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1047,7 +984,7 @@
         }
       }
     },
-    "/api/BedSpacePlan/bedpacePlans/{companyId}": {
+    "/api/BedSpacePlan/company/{companyId}": {
       "get": {
         "tags": [
           "BedSpacePlan"
@@ -1060,6 +997,13 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           },
           {
@@ -1101,37 +1045,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/BedSpacePlan": {
-      "post": {
-        "tags": [
-          "BedSpacePlan"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpacePlan"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpacePlan"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateBedSpacePlan"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -1175,6 +1088,46 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "BedSpacePlan"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "BedSpacePlan"
@@ -1197,37 +1150,26 @@
         }
       }
     },
-    "/api/BedSpacePlan/UpdateBedSpacePlan/{id}": {
-      "put": {
+    "/api/BedSpacePlan": {
+      "post": {
         "tags": [
           "BedSpacePlan"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpacePlan"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpacePlan"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpacePlan"
+                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_BedSpacePlan"
               }
             }
           }
@@ -1235,62 +1177,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/BedSpacePlan/bedspaceplan/search": {
-      "get": {
-        "tags": [
-          "BedSpacePlan"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpacePlan"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpacePlan"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfBedSpacePlan"
-                }
-              }
-            }
           }
         }
       }
@@ -6522,44 +6408,6 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfBedSpace": {
-        "type": "object",
-        "properties": {
-          "Data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.BedSpace"
-            },
-            "nullable": true
-          },
-          "PageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalRecords": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "HasPreviousPage": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "HasNextPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PagedResultDtoOfBedSpaceAssignemnt": {
         "type": "object",
         "properties": {
@@ -6909,6 +6757,44 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/XeniaRentalApi.Models.Voucher"
+            },
+            "nullable": true
+          },
+          "PageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalRecords": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "HasPreviousPage": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "HasNextPage": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PagedResultDtoOfXRS_Bedspace": {
+        "type": "object",
+        "properties": {
+          "Data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Bedspace"
             },
             "nullable": true
           },
@@ -9675,43 +9561,7 @@
         },
         "additionalProperties": false
       },
-      "XeniaRentalApi.DTOs.ChargesDto": {
-        "type": "object",
-        "properties": {
-          "chargeID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "chargeName": {
-            "type": "string",
-            "nullable": true
-          },
-          "PropID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "chargeAmt": {
-            "type": "number",
-            "format": "double"
-          },
-          "isVariable": {
-            "type": "boolean"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "PropName": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.DTOs.CreateBedSpace": {
+      "XeniaRentalApi.DTOs.BedSpaceDto": {
         "type": "object",
         "properties": {
           "companyID": {
@@ -9744,59 +9594,38 @@
         },
         "additionalProperties": false
       },
-      "XeniaRentalApi.DTOs.CreateBedSpacePlan": {
+      "XeniaRentalApi.DTOs.ChargesDto": {
         "type": "object",
         "properties": {
+          "chargeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chargeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropID": {
+            "type": "integer",
+            "format": "int32"
+          },
           "companyID": {
             "type": "integer",
             "format": "int32"
           },
-          "planName": {
-            "type": "string",
-            "nullable": true
+          "chargeAmt": {
+            "type": "number",
+            "format": "double"
           },
-          "enableTax": {
+          "isVariable": {
             "type": "boolean"
-          },
-          "calculatedays": {
-            "type": "string",
-            "nullable": true
-          },
-          "enableAdjustRent": {
-            "type": "boolean"
-          },
-          "calculateAdjustRent": {
-            "type": "string",
-            "nullable": true
-          },
-          "enablePartialRent": {
-            "type": "boolean"
-          },
-          "calculatePartialRent": {
-            "type": "string",
-            "nullable": true
-          },
-          "enableMess": {
-            "type": "boolean"
-          },
-          "messCharge": {
-            "type": "string",
-            "nullable": true
-          },
-          "includeMess": {
-            "type": "string",
-            "nullable": true
-          },
-          "messChargeDays": {
-            "type": "string",
-            "nullable": true
-          },
-          "consumedDays": {
-            "type": "string",
-            "nullable": true
           },
           "isActive": {
             "type": "boolean"
+          },
+          "PropName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -10603,51 +10432,6 @@
         },
         "additionalProperties": false
       },
-      "XeniaRentalApi.Models.BedSpace": {
-        "type": "object",
-        "properties": {
-          "bedID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unitID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "planID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bedSpaceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "rentAmt": {
-            "type": "number",
-            "format": "double"
-          },
-          "PropName": {
-            "type": "string",
-            "nullable": true
-          },
-          "UnitName": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
       "XeniaRentalApi.Models.BedSpaceAssignemnt": {
         "type": "object",
         "properties": {
@@ -10748,67 +10532,6 @@
           "BedSpaceName": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.Models.BedSpacePlan": {
-        "type": "object",
-        "properties": {
-          "bedPlanID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "planName": {
-            "type": "string",
-            "nullable": true
-          },
-          "enableTax": {
-            "type": "boolean"
-          },
-          "calculatedays": {
-            "type": "string",
-            "nullable": true
-          },
-          "enableAdjustRent": {
-            "type": "boolean"
-          },
-          "calculateAdjustRent": {
-            "type": "string",
-            "nullable": true
-          },
-          "enablePartialRent": {
-            "type": "boolean"
-          },
-          "calculatePartialRent": {
-            "type": "string",
-            "nullable": true
-          },
-          "enableMess": {
-            "type": "boolean"
-          },
-          "messCharge": {
-            "type": "string",
-            "nullable": true
-          },
-          "includeMess": {
-            "type": "string",
-            "nullable": true
-          },
-          "messChargeDays": {
-            "type": "string",
-            "nullable": true
-          },
-          "consumedDays": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -11352,6 +11075,112 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.Models.XRS_BedSpacePlan": {
+        "type": "object",
+        "properties": {
+          "bedPlanID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "planName": {
+            "type": "string",
+            "nullable": true
+          },
+          "enableTax": {
+            "type": "boolean"
+          },
+          "calculatedays": {
+            "type": "string",
+            "nullable": true
+          },
+          "enableAdjustRent": {
+            "type": "boolean"
+          },
+          "calculateAdjustRent": {
+            "type": "string",
+            "nullable": true
+          },
+          "enablePartialRent": {
+            "type": "boolean"
+          },
+          "calculatePartialRent": {
+            "type": "string",
+            "nullable": true
+          },
+          "enableMess": {
+            "type": "boolean"
+          },
+          "messCharge": {
+            "type": "string",
+            "nullable": true
+          },
+          "includeMess": {
+            "type": "string",
+            "nullable": true
+          },
+          "messChargeDays": {
+            "type": "string",
+            "nullable": true
+          },
+          "consumedDays": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Models.XRS_Bedspace": {
+        "type": "object",
+        "properties": {
+          "bedID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "planID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bedSpaceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "rentAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "PropName": {
+            "type": "string",
+            "nullable": true
+          },
+          "UnitName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.Models.XRS_Categories": {
         "type": "object",
         "properties": {
@@ -11479,13 +11308,6 @@
           },
           "IsActive": {
             "type": "boolean"
-          },
-          "Units": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Units"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

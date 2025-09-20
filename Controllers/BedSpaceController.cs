@@ -23,10 +23,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/bedspaces")]
-        public async Task<ActionResult<IEnumerable<BedSpace>>> Get()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<XRS_Bedspace>>> Get(int companyId, int? unitId = null)
         {
-            var bedSpaces = await _bedSpaceRepository.GetBedSpaces();
+            var bedSpaces = await _bedSpaceRepository.GetBedSpaces(companyId, unitId);
             if (bedSpaces == null || !bedSpaces.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No bespaces found." });
@@ -34,13 +34,12 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = bedSpaces });
         }
 
-        // GET api/<AccountGroupController>/5
-        [HttpGet("bedpaces/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<BedSpace>>> GetBedSpacesByCompanyId(int companyId, int pageNumber = 1,
-            int pageSize = 10)
+
+        [HttpGet("company/{companyId}")]
+        public async Task<ActionResult<PagedResultDto<XRS_Bedspace>>> GetBedSpacesByCompanyId(int companyId, string? search = null, int pageNumber = 1,int pageSize = 10)
         {
 
-            var bedSpaces = await _bedSpaceRepository.GetBedSpacebyCompanyId(companyId,pageNumber,pageSize);
+            var bedSpaces = await _bedSpaceRepository.GetBedSpacesByCompanyId(companyId, search, pageNumber,pageSize);
             if (bedSpaces == null)
             {
                 return NotFound(new { Status = "Error", Message = "No bedspaces found the given Company ID." });
@@ -49,8 +48,20 @@ namespace XeniaRentalApi.Controllers
         }
 
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<XRS_Bedspace>> GetBedSpace(int id)
+        {
+            var accountGroup = await _bedSpaceRepository.GetBedSpaceById(id);
+            if (accountGroup == null)
+            {
+                return NotFound(new { Status = "Error", Message = "BedSpace not found." });
+            }
+            return Ok(new { Status = "Success", Data = accountGroup });
+        }
+
+
         [HttpPost]
-        public async Task<IActionResult> CreateBedSpaces([FromBody] DTOs.CreateBedSpace bedSpace)
+        public async Task<IActionResult> CreateBedSpaces([FromBody] BedSpaceDto bedSpace)
         {
             if (bedSpace == null)
             {
@@ -61,33 +72,9 @@ namespace XeniaRentalApi.Controllers
             return CreatedAtAction(nameof(GetBedSpace), new { id = createdbedSpace }, new { Status = "Success", Data = createdbedSpace });
         }
         
-        //[Authorize(Roles = "Admin,SuperAdmin")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<BedSpace>> GetBedSpace(int id)
-        {
-            var accountGroup = await _bedSpaceRepository.GetBedSpacebyId(id);
-            if (accountGroup == null)
-            {
-                return NotFound(new { Status = "Error", Message = "BedSpace not found." });
-            }
-            return Ok(new { Status = "Success", Data = accountGroup });
-        }
 
-        [HttpGet("GetBedSpaceBYUnitId/{unitId}")]
-        public async Task<ActionResult<BedSpace>> GetBedSpaceByUnitId(int unitId)
-        {
-            var accountGroup = await _bedSpaceRepository.GetBedSpacebyUnitId(unitId);
-            if (accountGroup == null)
-            {
-                return NotFound(new { Status = "Error", Message = "BedSpace not found." });
-            }
-            return Ok(new { Status = "Success", Data = accountGroup });
-        }
-
-
-
-        [HttpPut("UpdateBedSpace/{id}")]
-        public async Task<IActionResult> UpdateBedSpace(int id, [FromBody] Models.BedSpace account)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBedSpace(int id, [FromBody] BedSpaceDto account)
         {
             if (account == null)
             {
@@ -103,7 +90,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "Bedspace updated successfully." });
         }
 
-        // DELETE api/<AccountGroupController>/5
+       
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBedSpace(int id)
         {
@@ -115,15 +102,6 @@ namespace XeniaRentalApi.Controllers
 
             return Ok(new { Status = "Success", Message = "BedSpace deleted successfully." });
         }
-
-        [HttpGet("bedspaces/search")]
-        public async Task<ActionResult<PagedResultDto<BedSpace>>> Get(
-            string? search,
-            int pageNumber = 1,
-            int pageSize = 10)
-        {
-            var result = await _bedSpaceRepository.GetBedSpaceAsync(search, pageNumber, pageSize);
-            return Ok(result);
-        }
+     
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace XeniaRentalApi.DTOs
 {
-    public class CreateBedSpace
+    public class BedSpaceDto
     {
         public int companyID { get; set; }
 

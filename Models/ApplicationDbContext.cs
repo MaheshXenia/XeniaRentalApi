@@ -13,11 +13,11 @@ namespace XeniaRentalApi.Models
 
         public DbSet<Accounts> Accounts { get; set; }
 
-        public DbSet<BedSpace> BedSpaces { get; set; }
+        public DbSet<XRS_Bedspace> BedSpaces { get; set; }
 
         public DbSet<BedSpaceAssignemnt> BedSpaceAssignemnt { get; set; }
 
-        public DbSet<BedSpacePlan> BedSpacePlans { get; set; }
+        public DbSet<XRS_BedSpacePlan> BedSpacePlans { get; set; }
 
         public DbSet<XRS_Charges> Charges { get; set; }
 

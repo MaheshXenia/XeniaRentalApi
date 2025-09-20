@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.Design;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
@@ -14,68 +13,69 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
         }
 
-        public async Task<IEnumerable<Models.BedSpacePlan>> GetBedSpacePlans()
+        public async Task<IEnumerable<XRS_BedSpacePlan>> GetBedSpacePlans(int companyId)
         {
-
             return await _context.BedSpacePlans
-                 .ToListAsync();
-
+                .Where(bsp => bsp.companyID == companyId)
+                .ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<Models.BedSpacePlan>> GetBedSpacePlanbyCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_BedSpacePlan>> GetBedSpacePlanByCompanyId(int companyId,string? search = null, int pageNumber = 1,int pageSize = 10)
         {
+            var query = _context.BedSpacePlans
+                .Where(bsp => bsp.companyID == companyId)
+                .AsQueryable();
 
-            var query = _context.BedSpacePlans.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+   
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
+                string lowerSearch = search.ToLower();
+                query = query.Where(bsp => bsp.planName.ToLower().Contains(lowerSearch));
             }
 
             var totalRecords = await query.CountAsync();
+
+ 
             var items = await query
+                .OrderBy(bsp => bsp.planName) 
                 .Skip((pageNumber - 1) * pageSize)
-              .Take(pageSize)
-           .Select(u => new Models.BedSpacePlan
-           {
-               bedPlanID = u.bedPlanID,
-               planName = u.planName,
-               calculateAdjustRent = u.calculateAdjustRent,
-               consumedDays = u.consumedDays,
-               calculatedays = u.calculatedays,
-               calculatePartialRent = u.calculatePartialRent,
-               companyID = u.companyID,
-               isActive = u.isActive,
-               includeMess=u.includeMess,
-               messCharge=u.messCharge,
-               messChargeDays = u.messChargeDays,
-               enableMess=u.enableMess,
-           })
+                .Take(pageSize)
+                .Select(u => new XRS_BedSpacePlan
+                {
+                    bedPlanID = u.bedPlanID,
+                    planName = u.planName,
+                    calculateAdjustRent = u.calculateAdjustRent,
+                    consumedDays = u.consumedDays,
+                    calculatedays = u.calculatedays,
+                    calculatePartialRent = u.calculatePartialRent,
+                    companyID = u.companyID,
+                    isActive = u.isActive,
+                    includeMess = u.includeMess,
+                    messCharge = u.messCharge,
+                    messChargeDays = u.messChargeDays,
+                    enableMess = u.enableMess,
+                })
                 .ToListAsync();
-                    return new PagedResultDto<Models.BedSpacePlan>
-                 {
-                     Data = items,
-                     PageNumber = pageNumber,
-                     PageSize = pageSize,
-                     TotalRecords = totalRecords
-                 };
 
+            return new PagedResultDto<XRS_BedSpacePlan>
+            {
+                Data = items,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                TotalRecords = totalRecords
+            };
         }
 
-        public async Task<IEnumerable<Models.BedSpacePlan>> GetBedSpacePlanbyId(int bedSpacePlanId)
+        public async Task<XRS_BedSpacePlan> GetBedSpacePlanById(int bedSpacePlanId)
         {
-
             return await _context.BedSpacePlans
-                .Where(u => u.bedPlanID == bedSpacePlanId)
-                 .ToListAsync();
-
+                .FirstOrDefaultAsync(u => u.bedPlanID == bedSpacePlanId);
         }
 
-        public async Task<Models.BedSpacePlan> CreateBedSpacePlan(DTOs.CreateBedSpacePlan createBedSpacePlan)
+        public async Task<XRS_BedSpacePlan> CreateBedSpacePlan(XRS_BedSpacePlan createBedSpacePlan)
         {
 
-            var bedSpace = new Models.BedSpacePlan
+            var bedSpace = new Models.XRS_BedSpacePlan
             {
                 companyID = createBedSpacePlan.companyID,
                 planName = createBedSpacePlan.planName,
@@ -98,17 +98,7 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
         }
 
-        public async Task<bool> DeleteBedSpacePlan(int id)
-        {
-            var bedspacesettings = await _context.BedSpacePlans.FirstOrDefaultAsync(u => u.bedPlanID == id);
-            if (bedspacesettings == null) return false;
-           bedspacesettings.isActive=false;
-            //. = DateTime.UtcNow;
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> UpdateBedSpacePlan(int id, Models.BedSpacePlan bedSpacePlan )
+        public async Task<bool> UpdateBedSpacePlan(int id, XRS_BedSpacePlan bedSpacePlan)
         {
             var updatebedSpacePlan = await _context.BedSpacePlans.FirstOrDefaultAsync(u => u.bedPlanID == id);
             if (updatebedSpacePlan == null) return false;
@@ -132,42 +122,14 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
             return true;
         }
 
-        public async Task<PagedResultDto<Models.BedSpacePlan>> GetBedSpacePlanAsync(string? search, int pageNumber, int pageSize)
+        public async Task<bool> DeleteBedSpacePlan(int id)
         {
-            var query = _context.BedSpacePlans.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.planName.Contains(search)); // Adjust property as needed
-                
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.BedSpacePlan
-                {
-                    bedPlanID=u.bedPlanID,
-                    planName=u.planName,
-                    calculateAdjustRent=u.calculateAdjustRent,
-                    consumedDays=u.consumedDays,
-                    calculatedays=u.calculatedays,
-                    calculatePartialRent=u.calculatePartialRent,
-                    companyID=u.companyID,
-                    isActive=u.isActive,
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.BedSpacePlan>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
+            var bedspacesettings = await _context.BedSpacePlans.FirstOrDefaultAsync(u => u.bedPlanID == id);
+            if (bedspacesettings == null) return false;
+           bedspacesettings.isActive=false;
+            await _context.SaveChangesAsync();
+            return true;
         }
+
     }
 }

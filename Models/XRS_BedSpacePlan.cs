@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_BedSpacePlan")]
-    public class BedSpacePlan
+    public class XRS_BedSpacePlan
     {
         [Key]
         public int bedPlanID { get; set; }

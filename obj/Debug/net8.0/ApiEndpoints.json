@@ -395,7 +395,7 @@
     "Parameters": [
       {
         "Name": "bedSpace",
-        "Type": "XeniaRentalApi.DTOs.CreateBedSpace",
+        "Type": "XeniaRentalApi.DTOs.BedSpaceDto",
         "IsRequired": true
       }
     ],
@@ -417,7 +417,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.BedSpace",
+        "Type": "XeniaRentalApi.Models.XRS_Bedspace",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -426,6 +426,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
+    "Method": "UpdateBedSpace",
+    "RelativePath": "api/BedSpace/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "XeniaRentalApi.DTOs.BedSpaceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
@@ -446,14 +467,25 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
     "Method": "Get",
-    "RelativePath": "api/BedSpace/all/bedspaces",
+    "RelativePath": "api/BedSpace/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "unitId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.BedSpace, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Bedspace, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -466,7 +498,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
     "Method": "GetBedSpacesByCompanyId",
-    "RelativePath": "api/BedSpace/bedpaces/{companyId}",
+    "RelativePath": "api/BedSpace/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -476,37 +508,6 @@
         "Type": "System.Int32",
         "IsRequired": true
       },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.BedSpace, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
-    "Method": "Get",
-    "RelativePath": "api/BedSpace/bedspaces/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
       {
         "Name": "search",
         "Type": "System.String",
@@ -525,7 +526,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.BedSpace, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Bedspace, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -534,53 +535,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
-    "Method": "GetBedSpaceByUnitId",
-    "RelativePath": "api/BedSpace/GetBedSpaceBYUnitId/{unitId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "unitId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.BedSpace",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpaceController",
-    "Method": "UpdateBedSpace",
-    "RelativePath": "api/BedSpace/UpdateBedSpace/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "XeniaRentalApi.Models.BedSpace",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
@@ -592,7 +546,7 @@
     "Parameters": [
       {
         "Name": "bedSpacePlan",
-        "Type": "XeniaRentalApi.DTOs.CreateBedSpacePlan",
+        "Type": "XeniaRentalApi.Models.XRS_BedSpacePlan",
         "IsRequired": true
       }
     ],
@@ -626,6 +580,27 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
+    "Method": "UpdateBedSpacePlan",
+    "RelativePath": "api/BedSpacePlan/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bedSpacePlan",
+        "Type": "XeniaRentalApi.Models.XRS_BedSpacePlan",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
     "Method": "DeletePlan",
     "RelativePath": "api/BedSpacePlan/{id}",
     "HttpMethod": "DELETE",
@@ -643,11 +618,17 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
     "Method": "Get",
-    "RelativePath": "api/BedSpacePlan/all/bedspacePlans",
+    "RelativePath": "api/BedSpacePlan/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Controllers.BedSpacePlan, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -663,7 +644,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
     "Method": "GetPlansByCompanyId",
-    "RelativePath": "api/BedSpacePlan/bedpacePlans/{companyId}",
+    "RelativePath": "api/BedSpacePlan/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -673,37 +654,6 @@
         "Type": "System.Int32",
         "IsRequired": true
       },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Controllers.BedSpacePlan, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "Get",
-    "RelativePath": "api/BedSpacePlan/bedspaceplan/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
       {
         "Name": "search",
         "Type": "System.String",
@@ -731,27 +681,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "UpdateBedSpacePlan",
-    "RelativePath": "api/BedSpacePlan/UpdateBedSpacePlan/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "XeniaRentalApi.Models.BedSpacePlan",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",

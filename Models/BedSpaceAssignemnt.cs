@@ -78,7 +78,7 @@ namespace XeniaRentalApi.Models
         public virtual Tenant? Tenant { get; set; }
 
         [JsonIgnore]
-        public virtual BedSpace? BedSpace { get; set; }
+        public virtual XRS_Bedspace? BedSpace { get; set; }
 
     }
 }

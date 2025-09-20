@@ -14,184 +14,87 @@ namespace XeniaRentalApi.Repositories.BedSpace
 
         }
 
-        public async Task<IEnumerable<Models.BedSpace>> GetBedSpaces()
+        public async Task<IEnumerable<XRS_Bedspace>> GetBedSpaces(int companyId, int? unitId)
         {
-
             return await _context.BedSpaces
-                .GroupJoin(
-         _context.Properties,
-         doc => doc.propID,
-         prop => prop.PropID,
-         (doc, props) => new { doc, prop = props.FirstOrDefault() }
-     )
-     .Join(
-         _context.Units,
-         combined => combined.doc.unitID,
-         unit => unit.UnitId,
-         (combined, unit) => new
-         {
-             Document = combined.doc,
-             Property = combined.prop,
-             Unit = unit
-         }
-     )
-                 .Select(u => new Models.BedSpace
-                 {
-                     bedID = u.Document.bedID,
-                     bedSpaceName = u.Document.bedSpaceName,
-                     propID = u.Document.propID,
-                     unitID = u.Document.unitID,
-                     planID = u.Document.planID,
-                     UnitName = u.Unit != null ? u.Unit.UnitName : null,
-                     companyID = u.Document.companyID,
-                     rentAmt = u.Document.rentAmt,
-                     PropName = u.Property != null ? u.Property.propertyName : null,
-                     isActive = u.Document.isActive,
-
-                 }).ToListAsync();
-               
-
+                .AsNoTracking() 
+                .Where(b => b.companyID == companyId && b.unitID == unitId)
+                .ToListAsync();
         }
 
-        public async Task<PagedResultDto<Models.BedSpace>> GetBedSpacebyCompanyId(int companyId, int pageNumber, int pageSize)
+
+        public async Task<PagedResultDto<XRS_Bedspace>> GetBedSpacesByCompanyId(int companyId, string? search = null,int pageNumber = 1,int pageSize = 10)
         {
+            var query = _context.BedSpaces
+                .Where(b => b.companyID == companyId)
+                .AsNoTracking();
 
-            var query = _context.BedSpaces.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
+                string lowerSearch = search.ToLower();
+                query = query.Where(b => b.bedSpaceName.ToLower().Contains(lowerSearch));
             }
+
 
             var totalRecords = await query.CountAsync();
 
+
             var items = await query
-     .GroupJoin(
-         _context.Properties,
-         doc => doc.propID,
-         prop => prop.PropID,
-         (doc, props) => new { doc, prop = props.FirstOrDefault() }
-     )
-     .Join(
-         _context.Units,
-         combined => combined.doc.unitID,
-         unit => unit.UnitId,
-         (combined, unit) => new
-         {
-             Document = combined.doc,
-             Property = combined.prop,
-             Unit = unit
-         }
-     )
-       .OrderBy(x => x.Document.bedSpaceName)
-     .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-     .Select(u => new Models.BedSpace
-     {
-         bedID = u.Document.bedID,
-         bedSpaceName = u.Document.bedSpaceName,
-         companyID = u.Document.companyID,
-         planID = u.Document.planID,
-         propID = u.Document.propID,
-         rentAmt = u.Document.rentAmt,
-         unitID = u.Document.unitID,
-         UnitName = u.Unit != null ? u.Unit.UnitName : null,
-         PropName = u.Property != null ? u.Property.propertyName : null,
-         isActive = u.Document.isActive,
-     })
-     .ToListAsync();
-            return new PagedResultDto<Models.BedSpace>
+                .OrderBy(b => b.bedSpaceName)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(b => new XRS_Bedspace
+                {
+                    bedID = b.bedID,
+                    bedSpaceName = b.bedSpaceName,
+                    companyID = b.companyID,
+                    planID = b.planID,
+                    propID = b.propID,
+                    unitID = b.unitID,
+                    rentAmt = b.rentAmt,
+                    isActive = b.isActive,
+                    PropName = b.Properties != null ? b.Properties.propertyName : null,
+                    UnitName = b.Units != null ? b.Units.UnitName : null
+                })
+                .ToListAsync();
+
+            return new PagedResultDto<XRS_Bedspace>
             {
                 Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
             };
-
         }
 
-        public async Task<IEnumerable<Models.BedSpace>> GetBedSpacebyId(int bedSpaceId)
+
+        public async Task<XRS_Bedspace> GetBedSpaceById(int bedSpaceId)
         {
+            var bedSpace = await _context.BedSpaces
+                .Where(b => b.bedID == bedSpaceId)
+                .Select(b => new XRS_Bedspace
+                {
+                    bedID = b.bedID,
+                    bedSpaceName = b.bedSpaceName,
+                    companyID = b.companyID,
+                    planID = b.planID,
+                    propID = b.propID,
+                    unitID = b.unitID,
+                    rentAmt = b.rentAmt,
+                    isActive = b.isActive,
+                    PropName = b.Properties != null ? b.Properties.propertyName : null,
+                    UnitName = b.Units != null ? b.Units.UnitName : null
+                })
+                .FirstOrDefaultAsync();
 
-            return await _context.BedSpaces
-                .Where(u => u.bedID == bedSpaceId)
-                .GroupJoin(
-         _context.Properties,
-         doc => doc.propID,
-         prop => prop.PropID,
-         (doc, props) => new { doc, prop = props.FirstOrDefault() }
-     )
-     .Join(
-         _context.Units,
-         combined => combined.doc.unitID,
-         unit => unit.UnitId,
-         (combined, unit) => new
-         {
-             Document = combined.doc,
-             Property = combined.prop,
-             Unit = unit
-         }
-     )
-                 .Select(u => new Models.BedSpace
-                 {
-                     bedID = u.Document.bedID,
-                     bedSpaceName = u.Document.bedSpaceName,
-                     propID = u.Document.propID,
-                     unitID = u.Document.unitID,
-                     planID = u.Document.planID,
-                     UnitName = u.Unit != null ? u.Unit.UnitName : null,
-                     companyID = u.Document.companyID,
-                     rentAmt = u.Document.rentAmt,
-                     PropName = u.Property != null ? u.Property.propertyName : null,
-                     isActive = u.Document.isActive,
-
-                 }).ToListAsync();
-
+            return bedSpace;
         }
 
-        public async Task<IEnumerable<Models.BedSpace>> GetBedSpacebyUnitId(int unitId)
+  
+        public async Task<XRS_Bedspace> CreateBedSpaces(BedSpaceDto dtoBedSpace)
         {
 
-            return await _context.BedSpaces
-                .Where(u => u.unitID == unitId)
-                .GroupJoin(
-         _context.Properties,
-         doc => doc.propID,
-         prop => prop.PropID,
-         (doc, props) => new { doc, prop = props.FirstOrDefault() }
-     )
-     .Join(
-         _context.Units,
-         combined => combined.doc.unitID,
-         unit => unit.UnitId,
-         (combined, unit) => new
-         {
-             Document = combined.doc,
-             Property = combined.prop,
-             Unit = unit
-         }
-     )
-                 .Select(u => new Models.BedSpace
-                 {
-                     bedID = u.Document.bedID,
-                     bedSpaceName = u.Document.bedSpaceName,
-                     propID = u.Document.propID,
-                     unitID = u.Document.unitID,
-                     planID = u.Document.planID,
-                     UnitName = u.Unit != null ? u.Unit.UnitName : null,
-                     companyID = u.Document.companyID,
-                     rentAmt = u.Document.rentAmt,
-                     PropName = u.Property != null ? u.Property.propertyName : null,
-                     isActive = u.Document.isActive,
-
-                 }).ToListAsync();
-
-        }
-
-        public async Task<Models.BedSpace> CreateBedSpaces(DTOs.CreateBedSpace dtoBedSpace)
-        {
-
-            var bedSpace = new Models.BedSpace
+            var bedSpace = new XRS_Bedspace
             {
                companyID = dtoBedSpace.companyID,
                propID = dtoBedSpace.propID,
@@ -208,16 +111,7 @@ namespace XeniaRentalApi.Repositories.BedSpace
 
         }
 
-        public async Task<bool> DeleteBedSpace(int id)
-        {
-            var bedspacesettings = await _context.BedSpaces.FirstOrDefaultAsync(u => u.bedID == id);
-            if (bedspacesettings == null) return false;
-            bedspacesettings.isActive = false;
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> UpdateBedSpace(int id, Models.BedSpace bedSpace)
+        public async Task<bool> UpdateBedSpace(int id, BedSpaceDto bedSpace)
         {
             var updatebedSpace = await _context.BedSpaces.FirstOrDefaultAsync(u => u.bedID == id);
             if (updatebedSpace == null) return false;
@@ -233,60 +127,14 @@ namespace XeniaRentalApi.Repositories.BedSpace
             return true;
         }
 
-        public async Task<PagedResultDto<Models.BedSpace>> GetBedSpaceAsync(string? search, int pageNumber, int pageSize)
+        public async Task<bool> DeleteBedSpace(int id)
         {
-            var query = _context.BedSpaces.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.bedSpaceName.Contains(search)); // Adjust property as needed
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                 .GroupJoin(
-                 _context.Properties,
-                 doc => doc.propID,
-                prop => prop.PropID,
-                (doc, props) => new { doc, prop = props.FirstOrDefault() }
-             )
-        .Join(
-         _context.Units,
-         combined => combined.doc.unitID,
-         unit => unit.UnitId,
-         (combined, unit) => new
-         {
-             Document = combined.doc,
-             Property = combined.prop,
-             Unit = unit
-         }
-        )
-                .OrderBy(u => u.Document.bedSpaceName) // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.BedSpace
-                {
-                    bedID = u.Document.bedID,
-                    bedSpaceName = u.Document.bedSpaceName,
-                    companyID = u.Document.companyID,
-                    planID = u.Document.planID,
-                    propID = u.Document.propID,
-                    rentAmt = u.Document.rentAmt,
-                    unitID = u.Document.unitID,
-                    UnitName = u.Unit!= null ? u.Unit.UnitName.ToString() : null,
-                    PropName = u.Property != null ? u.Property.propertyName : null,
-                    isActive = u.Document.isActive,
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.BedSpace>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
+            var bedspacesettings = await _context.BedSpaces.FirstOrDefaultAsync(u => u.bedID == id);
+            if (bedspacesettings == null) return false;
+            bedspacesettings.isActive = false;
+            await _context.SaveChangesAsync();
+            return true;
         }
+
     }
 }
