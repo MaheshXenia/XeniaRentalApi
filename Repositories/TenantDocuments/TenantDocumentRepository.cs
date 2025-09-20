@@ -47,7 +47,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
                   TenantID = u.TenantID,
                   CompanyID = companyId,
                   isActive = true,
-                  Docmenturl = u.Docmenturl,
+                  Documenturl = u.Documenturl,
                   DocTypeId = u.DocTypeId,
                   DocumentsNo = u.DocumentsNo,
 
@@ -79,7 +79,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
             {
                DocTypeId = documentsDTO.DocTypeId,
                TenantID = documentsDTO.TenantID,
-               Docmenturl=documentsDTO.Documenturl,
+               Documenturl=documentsDTO.Documenturl,
                CompanyID = documentsDTO.CompanyID,
                DocumentsNo = documentsDTO.DocumentsNo,
                isActive = documentsDTO.isActive
@@ -122,7 +122,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
                    DocTypeId = u.DocTypeId,
                    CompanyID=u.CompanyID,
                    DocumentsNo = u.DocumentsNo,
-                   Docmenturl = u.Docmenturl,
+                   Documenturl = u.Documenturl,
                    isActive = u.isActive
                 })
                 .ToListAsync();
@@ -185,7 +185,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
 
             updateassignemnts.DocumentsNo = documents.DocumentsNo;
             updateassignemnts.TenantDocId = documents.TenantDocId;
-            updateassignemnts.Docmenturl = documents.Docmenturl;
+            updateassignemnts.Documenturl = documents.Documenturl;
             updateassignemnts.TenantID = documents.TenantID;
             updateassignemnts.CompanyID = documents.CompanyID;
             updateassignemnts.DocTypeId= documents.DocTypeId;

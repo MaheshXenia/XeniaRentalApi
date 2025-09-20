@@ -285,7 +285,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                    TenantID = u.TenantID,
                    DocTypeId = u.DocTypeId,
                    DocumentsNo = u.DocumentsNo,
-                   Docmenturl = u.Docmenturl,
+                   Documenturl = u.Documenturl,
                    isActive = u.isActive,
                    CompanyID = u.CompanyID,
                    DocumentName = u.Documents.docName,
@@ -379,7 +379,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
                     if (existingDoc != null)
                     {
-                        existingDoc.Docmenturl = docDto.Documenturl;
+                        existingDoc.Documenturl = docDto.Documenturl;
                         existingDoc.DocumentsNo = docDto.DocumentsNo;
                         existingDoc.DocTypeId = docDto.DocTypeId;
                         existingDoc.isActive = docDto.isActive;
@@ -399,7 +399,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                         DocumentsNo = docDto.DocumentsNo,
                         TenantID = docDto.TenantID,
                         DocTypeId = docDto.DocTypeId,
-                        Docmenturl = docDto.Documenturl,
+                        Documenturl = docDto.Documenturl,
                         isActive = docDto.isActive
 
                     };
@@ -516,7 +516,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                     DocumentsNo = doc.DocumentsNo,
                     TenantID = tenantAssignment.tenantID,
                     DocTypeId = doc.DocTypeId,
-                    Docmenturl = doc.Documenturl,
+                    Documenturl = doc.Documenturl,
                     isActive = doc.isActive
 
                 };
@@ -674,7 +674,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                     TenantID = u.TenantID,
                     DocTypeId = u.DocTypeId,
                     DocumentsNo = u.DocumentsNo,
-                    Documenturl = u.Docmenturl,
+                    Documenturl = u.Documenturl,
                     isActive = u.isActive,
                     CompanyID = u.CompanyID
                 })

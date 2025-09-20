@@ -174,7 +174,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                     TenantID = u.TenantID,
                     DocTypeId = u.DocTypeId,
                     DocumentsNo = u.DocumentsNo,
-                    Docmenturl = u.Docmenturl,
+                    Documenturl = u.Documenturl,
                     isActive = u.isActive,
                     CompanyID = u.CompanyID,
                     DocumentName = u.Documents.docName,
@@ -249,7 +249,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                     DocumentsNo = doc.DocumentsNo,
                     TenantID = tenant.tenantID,
                     DocTypeId = doc.DocTypeId,
-                    Docmenturl = doc.Documenturl,
+                    Documenturl = doc.Documenturl,
                     isActive = doc.isActive
 
                 };
@@ -366,7 +366,7 @@ namespace XeniaRentalApi.Repositories.Tenant
 
                     if (existingDoc != null)
                     {
-                        existingDoc.Docmenturl = docDto.Documenturl;
+                        existingDoc.Documenturl = docDto.Documenturl;
                         existingDoc.DocumentsNo = docDto.DocumentsNo;
                         existingDoc.DocTypeId = docDto.DocTypeId;
                         existingDoc.isActive = docDto.isActive;
@@ -385,7 +385,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                         DocumentsNo = docDto.DocumentsNo,
                         TenantID = updateTenant.tenantID,
                         DocTypeId = docDto.DocTypeId,
-                        Docmenturl = docDto.Documenturl,
+                        Documenturl = docDto.Documenturl,
                         isActive = docDto.isActive
 
                     };

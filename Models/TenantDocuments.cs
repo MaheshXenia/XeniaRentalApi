@@ -46,7 +46,7 @@ namespace XeniaRentalApi.Models
         /// documents url
         /// optional
         /// </summary>
-        public string Docmenturl  {get;set;}
+        public string Documenturl  {get;set;}
 
         public bool isActive { get; set; }
 
