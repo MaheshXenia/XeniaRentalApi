@@ -14,7 +14,7 @@
         public string address { get; set; }
         public bool isActive { get; set; }
 
-        public List<TenantCreateDocumentDto>? TenantDocuments { get; set; }
+        public List<TenantCreateDocumentDto>? Documents { get; set; }
     }
 
     // DTO for TenantDocuments

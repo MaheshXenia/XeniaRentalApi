@@ -31,6 +31,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(data);
         }
 
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -39,12 +40,14 @@ namespace XeniaRentalApi.Controllers
             return Ok(item);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] TenantAssignmentCreateDto dto)
         {
             var created = await _tenantAssignmentRepository.CreateAsync(dto);
             return Ok(new { Message = "Tenant Assignment created successfully", Data = created });
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] TenantAssignmentCreateDto dto)
@@ -56,6 +59,7 @@ namespace XeniaRentalApi.Controllers
 
             return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
