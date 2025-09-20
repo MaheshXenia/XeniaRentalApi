@@ -30,7 +30,7 @@ namespace XeniaRentalApi.Repositories.Charges
                     PropID = u.charges.PropID,
                     companyID = u.charges.companyID,
                     chargeAmt = u.charges.chargeAmt,
-                    PropName = u.prop != null ? u.prop.propertyName : null,
+                   // PropName = u.prop != null ? u.prop.propertyName : null,
                    isActive = u.charges.isActive,
                    isVariable = u.charges.isVariable,
 
@@ -67,7 +67,7 @@ namespace XeniaRentalApi.Repositories.Charges
                     PropID = u.charges.PropID,
                     companyID = u.charges.companyID,
                     chargeAmt = u.charges.chargeAmt,
-                    PropName = u.prop != null ? u.prop.propertyName : null,
+                    //PropName = u.prop != null ? u.prop.propertyName : null,
                     isActive = u.charges.isActive,
                     isVariable = u.charges.isVariable,
 
@@ -100,7 +100,7 @@ namespace XeniaRentalApi.Repositories.Charges
                     PropID = u.charges.PropID,
                     companyID = u.charges.companyID,
                     chargeAmt = u.charges.chargeAmt,
-                    PropName = u.prop != null ? u.prop.propertyName : null,
+                    //PropName = u.prop != null ? u.prop.propertyName : null,
                     isActive = u.charges.isActive,
                     isVariable = u.charges.isVariable,
 
@@ -183,7 +183,7 @@ namespace XeniaRentalApi.Repositories.Charges
                     chargeAmt=u.chargeAmt,
                     isActive=u.isActive,
                     PropID=u.PropID,
-                    PropName = u.Property != null ? u.Property.propertyName : null
+                    //PropName = u.Property != null ? u.Property.propertyName : null
                 })
                 .ToListAsync();
 

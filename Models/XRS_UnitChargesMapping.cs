@@ -8,14 +8,11 @@ namespace XeniaRentalApi.Models
     public class XRS_UnitChargesMapping
     {
         [Key]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonInclude]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int unitMapID { get; set; }
 
         public int chargeID { get; set; }
 
-        public int unitID {  get; set; }
+        public int unitID { get; set; }
 
         public int propID { get; set; }
 
@@ -27,16 +24,12 @@ namespace XeniaRentalApi.Models
 
         public bool isActive { get; set; }
 
-        [NotMapped]
-        public string? ChargeName { get; set; }
-
-        [NotMapped]
-        public string? ChargeType { get; set; }
-
-
+        [ForeignKey(nameof(unitID))]
         public virtual XRS_Units? Unit { get; set; }
+
+        [ForeignKey(nameof(chargeID))]
         public virtual XRS_Charges? Charges { get; set; }
-
-
     }
+
 }
+

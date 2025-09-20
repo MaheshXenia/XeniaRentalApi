@@ -2439,7 +2439,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.TenantAssignemnt",
+        "Type": "XeniaRentalApi.DTOs.TenantAssignmentDocumentGetDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2935,89 +2935,22 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "XeniaRentalApi.Models.XRS_Units",
+        "Type": "XeniaRentalApi.DTOs.UnitDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.XRS_Units",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
     "Method": "GetUnit",
-    "RelativePath": "api/Units/{id}",
+    "RelativePath": "api/Units/{unitId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.XRS_Units",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
-    "Method": "UpdateUnit",
-    "RelativePath": "api/Units/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "model",
-        "Type": "XeniaRentalApi.Models.XRS_Units",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.XRS_Units",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
-    "Method": "DeleteUnit",
-    "RelativePath": "api/Units/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
+        "Name": "unitId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -3026,8 +2959,45 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
-    "Method": "Get",
-    "RelativePath": "api/Units/all",
+    "Method": "UpdateUnit",
+    "RelativePath": "api/Units/{unitId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "unitId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "XeniaRentalApi.DTOs.UnitDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
+    "Method": "DeleteUnit",
+    "RelativePath": "api/Units/{unitId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "unitId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
+    "Method": "GetUnits",
+    "RelativePath": "api/Units/all/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -3035,7 +3005,7 @@
       {
         "Name": "companyId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "propertyId",
@@ -3043,21 +3013,11 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Units, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.UnitsController",
-    "Method": "GetUnitByCompanyId",
+    "Method": "GetUnitsByCompany",
     "RelativePath": "api/Units/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -3084,17 +3044,7 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Units, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.UserController",

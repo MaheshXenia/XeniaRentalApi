@@ -33,6 +33,7 @@ using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Product;
 using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Category;
+using XeniaRentalApi.Repositories.Unit;
 
 
 var builder = WebApplication.CreateBuilder(args);

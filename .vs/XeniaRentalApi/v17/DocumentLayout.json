@@ -3,96 +3,40 @@
   "WorkspaceRootPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\voucher\\voucherrrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\voucher\\voucherrrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\tenant\\tenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenant\\tenantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\tenantdocuments\\tenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantdocuments\\tenantdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\messtypes\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messtypes\\messtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\messdetails\\messdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messdetails\\messdetailsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\ledger\\ledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\ledger\\ledgerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\documents\\documentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\documents\\documentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\company\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\company\\companyrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\account\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\account\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\models\\xrs_charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\xrs_charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\models\\xrs_units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\xrs_units.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\category\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\category\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\bedspace\\bedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspace\\bedspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\bedspaceplan\\bedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceplan\\bedspaceplanrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\bedspaceassignemnt\\bedspaceassigmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\bedspaceassignemnt\\bedspaceassigmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\accountgroups\\accountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\accountgroups\\accountgrouprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\charges\\chargesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\models\\xrs_charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\xrs_charges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\models\\xrs_unitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\xrs_unitchargesmapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\dtos\\unitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\unitdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -102,309 +46,127 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "VoucherRrepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Voucher\\VoucherRrepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Voucher\\VoucherRrepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Voucher\\VoucherRrepository.cs",
-              "RelativeToolTip": "Repositories\\Voucher\\VoucherRrepository.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAMwJEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:53.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TenantRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Tenant\\TenantRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Tenant\\TenantRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Tenant\\TenantRepository.cs",
-              "RelativeToolTip": "Repositories\\Tenant\\TenantRepository.cs",
-              "ViewState": "AgIAAJcBAAAAAAAAAAAMwKwBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:42.384Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TenantDocumentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
-              "RelativeToolTip": "Repositories\\TenantDocuments\\TenantDocumentRepository.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAMwDgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:35.406Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TenantAssignmentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "RelativeToolTip": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "ViewState": "AgIAACQCAAAAAAAAAAAMwDkCAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:29.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PropertiesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Properties\\PropertiesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
-              "RelativeToolTip": "Repositories\\Properties\\PropertiesRepository.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAMwDcAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:26.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MessTypes.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessTypes\\MessTypes.cs",
-              "RelativeDocumentMoniker": "Repositories\\MessTypes\\MessTypes.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessTypes\\MessTypes.cs",
-              "RelativeToolTip": "Repositories\\MessTypes\\MessTypes.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAMwDMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:22.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MessDetailsRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessDetails\\MessDetailsRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\MessDetails\\MessDetailsRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessDetails\\MessDetailsRepository.cs",
-              "RelativeToolTip": "Repositories\\MessDetails\\MessDetailsRepository.cs",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAMwH4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:17.766Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LedgerRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Ledger\\LedgerRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Ledger\\LedgerRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Ledger\\LedgerRepository.cs",
-              "RelativeToolTip": "Repositories\\Ledger\\LedgerRepository.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAMwF8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:13.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DocumentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\DocumentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Documents\\DocumentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Documents\\DocumentRepository.cs",
-              "RelativeToolTip": "Repositories\\Documents\\DocumentRepository.cs",
-              "ViewState": "AgIAAKwAAAAAAAAAAAAMwMEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:53:05.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CompanyRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Company\\CompanyRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Company\\CompanyRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Company\\CompanyRepository.cs",
-              "RelativeToolTip": "Repositories\\Company\\CompanyRepository.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAMwIsAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:52:59.077Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "XRS_Charges.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Charges.cs",
-              "RelativeDocumentMoniker": "Models\\XRS_Charges.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Charges.cs",
-              "RelativeToolTip": "Models\\XRS_Charges.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:51:59.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "XRS_Units.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Units.cs",
-              "RelativeDocumentMoniker": "Models\\XRS_Units.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Units.cs",
-              "RelativeToolTip": "Models\\XRS_Units.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAzwCgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:52:16.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ChargesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Charges\\ChargesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
-              "RelativeToolTip": "Repositories\\Charges\\ChargesRepository.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAMwL8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:51:31.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Category\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Category\\CategoryRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Category\\CategoryRepository.cs",
-              "RelativeToolTip": "Repositories\\Category\\CategoryRepository.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAMwJMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:51:24.261Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BedSpaceRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpace\\BedSpaceRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\BedSpace\\BedSpaceRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpace\\BedSpaceRepository.cs",
-              "RelativeToolTip": "Repositories\\BedSpace\\BedSpaceRepository.cs",
-              "ViewState": "AgIAAAcBAAAAAAAAAAAMwBwBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:51:16.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "BedSpacePlanRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
-              "RelativeToolTip": "Repositories\\BedSpacePlan\\BedSpacePlanRepository.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAMwKUAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:51:01.236Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BedSpaceAssigmentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
-              "RelativeToolTip": "Repositories\\BedSpaceAssignemnt\\BedSpaceAssigmentRepository.cs",
-              "ViewState": "AgIAAEYBAAAAAAAAAAAMwFsBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:50:52.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Account\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Account\\AccountRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Account\\AccountRepository.cs",
-              "RelativeToolTip": "Repositories\\Account\\AccountRepository.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAIAwwG8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:50:50.014Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AccountGroupRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\AccountGroups\\AccountGroupRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\AccountGroups\\AccountGroupRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\AccountGroups\\AccountGroupRepository.cs",
-              "RelativeToolTip": "Repositories\\AccountGroups\\AccountGroupRepository.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAIAwwGoAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:50:41.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "PropertiesController.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PropertiesController.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
-              "RelativeToolTip": "Controllers\\PropertiesController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:43:26.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IUnitRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Units\\IUnitRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
-              "RelativeToolTip": "Repositories\\Units\\IUnitRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:39:28.123Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UnitRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Units\\UnitRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
-              "RelativeToolTip": "Repositories\\Units\\UnitRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAqwAYAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:36:29.451Z",
+              "DocumentIndex": 3,
+              "Title": ".gitignore",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-09-20T09:31:47.884Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 4,
+              "Title": "ChargesRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Charges\\ChargesRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Charges\\ChargesRepository.cs",
+              "RelativeToolTip": "Repositories\\Charges\\ChargesRepository.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAMwLkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:31:28.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "XRS_Charges.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Charges.cs",
+              "RelativeDocumentMoniker": "Models\\XRS_Charges.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_Charges.cs",
+              "RelativeToolTip": "Models\\XRS_Charges.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:31:14.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "XRS_UnitChargesMapping.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_UnitChargesMapping.cs",
+              "RelativeDocumentMoniker": "Models\\XRS_UnitChargesMapping.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\XRS_UnitChargesMapping.cs",
+              "RelativeToolTip": "Models\\XRS_UnitChargesMapping.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:30:57.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAMwJUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:29:27.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UnitDto.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\DTOs\\UnitDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UnitDto.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\DTOs\\UnitDto.cs",
+              "RelativeToolTip": "DTOs\\UnitDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:27:43.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "UnitsController.cs",
               "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\UnitsController.cs",
               "RelativeDocumentMoniker": "Controllers\\UnitsController.cs",
               "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\UnitsController.cs",
               "RelativeToolTip": "Controllers\\UnitsController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwE0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwBUAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T06:36:21.817Z",
+              "WhenOpened": "2025-09-20T09:09:29.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUnitRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\IUnitRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\IUnitRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T09:09:15.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\UnitRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\UnitRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T08:02:21.728Z",
               "EditorCaption": ""
             }
           ]
