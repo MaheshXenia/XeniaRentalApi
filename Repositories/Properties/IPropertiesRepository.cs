@@ -1,21 +1,22 @@
 ﻿using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Properties
 {
     public interface IPropertiesRepository
     {
-        Task<IEnumerable<Models.Properties>> GetProperties();
-        Task<PagedResultDto<Models.Properties>> GetPropertiesByCompanyId(int companyId, int pageNumber, int pageSize);
-
-        Task<Models.Properties> CreateProperties(DTOs.CreateProperties property);
-
+        Task<IEnumerable<XRS_Properties>> GetProperties(int companyId);
+        Task<PagedResultDto<XRS_Properties>> GetPropertiesByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10);
+        Task<IEnumerable<XRS_Properties>> GetPrpoertiesbyId(int propertyId);
+        Task<bool> UpDateProperties(int id, XRS_Properties properties);
+        Task<XRS_Properties> CreateProperties(XRS_Properties property);
         Task<bool> DeleteProperty(int id);
 
-        Task<IEnumerable<Models.Properties>> GetPrpoertiesbyId(int propertyId);
+     
 
-        Task<bool> UpDateProperties(int id, Models.Properties properties);
+  
 
-        Task<PagedResultDto<Models.Properties>> GetPropertiesAsync(string? search, int pageNumber, int pageSize);
+ 
 
 
     }

@@ -30,12 +30,12 @@ namespace XeniaRentalApi.Models
 
         public  bool isActive  {get; set; }
 
-            [ForeignKey("propID")]
-            [JsonIgnore]
-            public virtual Properties? Properties { get; set; }
+        [ForeignKey("propID")]
+        [JsonIgnore]
+        public virtual XRS_Properties? Properties { get; set; }
 
-            [ForeignKey("unitID")]
-            [JsonIgnore]
-            public virtual Units? Units { get; set; }
-        }
+        [ForeignKey("unitID")]
+        [JsonIgnore]
+        public virtual Units? Units { get; set; }
+    }
 }

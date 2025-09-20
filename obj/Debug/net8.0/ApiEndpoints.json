@@ -2052,7 +2052,7 @@
     "Parameters": [
       {
         "Name": "properties",
-        "Type": "XeniaRentalApi.DTOs.CreateProperties",
+        "Type": "XeniaRentalApi.Models.XRS_Properties",
         "IsRequired": true
       }
     ],
@@ -2077,14 +2077,20 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",
     "Method": "Get",
-    "RelativePath": "api/Properties/all/properties",
+    "RelativePath": "api/Properties/all/properties/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Properties, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Properties, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2110,7 +2116,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Properties",
+        "Type": "XeniaRentalApi.Models.XRS_Properties",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2122,7 +2128,7 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",
-    "Method": "GetAccountsByCompanyId",
+    "Method": "GetPropertyByCompanyId",
     "RelativePath": "api/Properties/properties/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -2133,37 +2139,6 @@
         "Type": "System.Int32",
         "IsRequired": true
       },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Properties, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",
-    "Method": "Get",
-    "RelativePath": "api/Properties/Properties/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
       {
         "Name": "search",
         "Type": "System.String",
@@ -2182,7 +2157,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Properties, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Properties, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2191,16 +2166,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",
-    "Method": "GetPropertyTypes",
-    "RelativePath": "api/Properties/propertytypes",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",
@@ -2217,7 +2182,7 @@
       },
       {
         "Name": "property",
-        "Type": "XeniaRentalApi.Models.Properties",
+        "Type": "XeniaRentalApi.Models.XRS_Properties",
         "IsRequired": true
       }
     ],
@@ -2620,7 +2585,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
     "Method": "CreateTenantAssignmentWithDocument",
-    "RelativePath": "api/TenantAssignement/create-tenant-assignment -document",
+    "RelativePath": "api/TenantAssignement/create-tenant-assignment-document",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

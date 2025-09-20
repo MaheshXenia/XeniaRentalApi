@@ -14,51 +14,53 @@ namespace XeniaRentalApi.Repositories.Properties
 
         }
 
-        public async Task<IEnumerable<Models.Properties>> GetProperties()
+        public async Task<IEnumerable<XRS_Properties>> GetProperties(int companyId)
         {
-
-            return await _context.Properties.ToListAsync();
-
+            return await _context.Properties
+                .Where(p => p.CompanyId == companyId) 
+                .ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<Models.Properties>> GetPropertiesByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_Properties>> GetPropertiesByCompanyId(int companyId,string? search = null, int pageNumber = 1,int pageSize = 10)
         {
-
             var query = _context.Properties.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+            query = query.Where(u => u.CompanyId == companyId);
+
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.CompanyId.Equals(companyId)); // Adjust property as needed
+                string lowerSearch = search.ToLower();
+                query = query.Where(u =>
+                    u.propertyName.ToLower().Contains(lowerSearch) ||
+                    u.propertyType.ToLower().Contains(lowerSearch));
             }
 
             var totalRecords = await query.CountAsync();
 
             var items = await query
-               .Skip((pageNumber - 1) * pageSize)
-             .Take(pageSize)
-                .Select(u => new Models.Properties
+                .OrderBy(u => u.propertyName) 
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(u => new XRS_Properties
                 {
                     PropID = u.PropID,
                     propertyName = u.propertyName,
                     propertyType = u.propertyType,
                     IsActive = u.IsActive,
                     CompanyId = u.CompanyId
+                })
+                .ToListAsync();
 
-                }).ToListAsync();
-            return new PagedResultDto<Models.Properties>
+            return new PagedResultDto<XRS_Properties>
             {
                 Items = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
             };
-
-
-
         }
 
-        public async Task<IEnumerable<Models.Properties>> GetPrpoertiesbyId(int propertyId)
+        public async Task<IEnumerable<XRS_Properties>> GetPrpoertiesbyId(int propertyId)
         {
 
             return await _context.Properties
@@ -67,10 +69,10 @@ namespace XeniaRentalApi.Repositories.Properties
 
         }
 
-        public async Task<Models.Properties> CreateProperties(DTOs.CreateProperties dtoProperties)
+        public async Task<XRS_Properties> CreateProperties(XRS_Properties dtoProperties)
         {
 
-            var properties = new Models.Properties
+            var properties = new XRS_Properties
             {
                 propertyName = dtoProperties.propertyName,
                 propertyType = dtoProperties.propertyType,
@@ -85,6 +87,20 @@ namespace XeniaRentalApi.Repositories.Properties
 
         }
 
+        public async Task<bool> UpDateProperties(int id, XRS_Properties properties)
+        {
+            var updateProperties = await _context.Properties.FirstOrDefaultAsync(u => u.PropID == id);
+            if (updateProperties == null) return false;
+
+            updateProperties.propertyName = properties.propertyName;
+            updateProperties.propertyType = properties.propertyType;
+            updateProperties.CompanyId = properties.CompanyId;
+            updateProperties.IsActive = properties.IsActive;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<bool> DeleteProperty(int id)
         {
             var bedspacesettings = await _context.Properties.FirstOrDefaultAsync(u => u.PropID == id);
@@ -94,55 +110,5 @@ namespace XeniaRentalApi.Repositories.Properties
             return true;
         }
 
-        public async Task<bool> UpDateProperties(int id, Models.Properties properties)
-        {
-            var updateProperties = await _context.Properties.FirstOrDefaultAsync(u => u.PropID == id);
-            if (updateProperties == null) return false;
-
-            updateProperties.propertyName = properties.propertyName;
-            updateProperties.propertyType = properties.propertyType;
-            updateProperties.CompanyId = properties.CompanyId;
-            updateProperties.IsActive = properties.IsActive;
-          
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<PagedResultDto<Models.Properties>> GetPropertiesAsync(string? search, int pageNumber, int pageSize)
-        {
-            var query = _context.Properties.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.propertyName.Contains(search)); // Adjust property as needed
-
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.Properties
-                {
-                    PropID = u.PropID,
-                    propertyName= u.propertyName,
-                    propertyType=u.propertyType,
-                    CompanyId = u.CompanyId,
-                    IsActive = u.IsActive,
-
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.Properties>
-            {
-                Items = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
     }
 }

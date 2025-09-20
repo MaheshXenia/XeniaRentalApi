@@ -24,10 +24,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/properties")]
-        public async Task<ActionResult<IEnumerable<Properties>>> Get()
+        [HttpGet("all/properties/{companyId}")]
+        public async Task<ActionResult<IEnumerable<XRS_Properties>>> Get(int companyId)
         {
-            var properties = await _propertyRepository.GetProperties();
+            var properties = await _propertyRepository.GetProperties(companyId);
             if (properties == null || !properties.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No properties found." });
@@ -35,12 +35,12 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = properties });
         }
 
-        // GET api/<AccountGroupController>/5
+        
         [HttpGet("properties/company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Properties>>> GetAccountsByCompanyId(int companyId, int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<PagedResultDto<XRS_Properties>>> GetPropertyByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
 
-            var accounts = await _propertyRepository.GetPropertiesByCompanyId(companyId, pageNumber, pageSize);
+            var accounts = await _propertyRepository.GetPropertiesByCompanyId(companyId, search, pageNumber, pageSize);
             if (accounts == null)
             {
                 return NotFound(new { Status = "Error", Message = "No properties found the given Company ID." });
@@ -50,7 +50,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateProperties([FromBody] DTOs.CreateProperties properties)
+        public async Task<IActionResult> CreateProperties([FromBody] XRS_Properties properties)
         {
             if (properties == null)
             {
@@ -61,9 +61,9 @@ namespace XeniaRentalApi.Controllers
             return CreatedAtAction(nameof(GetPropertyById), new { id = createdProperty }, new { Status = "Success", Data = createdProperty });
         }
 
-        //[Authorize(Roles = "Admin,SuperAdmin")]
+      
         [HttpGet("GetPropertyById/{id}")]
-        public async Task<ActionResult<Properties>> GetPropertyById(int id)
+        public async Task<ActionResult<XRS_Properties>> GetPropertyById(int id)
         {
             var properties = await _propertyRepository.GetPrpoertiesbyId(id);
             if (properties == null)
@@ -76,7 +76,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPut("UpdateProperties/{id}")]
-        public async Task<IActionResult> UpdateProperties(int id, [FromBody] Models.Properties property)
+        public async Task<IActionResult> UpdateProperties(int id, [FromBody] XRS_Properties property)
         {
             if (property == null)
             {
@@ -92,7 +92,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "Properties updated successfully." });
         }
 
-        // DELETE api/<AccountGroupController>/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProperty(int id)
         {
@@ -104,21 +104,6 @@ namespace XeniaRentalApi.Controllers
 
             return Ok(new { Status = "Success", Message = "Property deleted successfully." });
         }
-
-        [HttpGet("propertytypes")]
-        public IActionResult GetPropertyTypes()
-        {
-            return Ok(PropertyTypeProvider.PropertyTypes);
-        }
-
-        [HttpGet("Properties/search")]
-        public async Task<ActionResult<PagedResultDto<Properties>>> Get(
-          string? search,
-          int pageNumber = 1,
-          int pageSize = 10)
-        {
-            var result = await _propertyRepository.GetPropertiesAsync(search, pageNumber, pageSize);
-            return Ok(result);
-        }
+     
     }
 }

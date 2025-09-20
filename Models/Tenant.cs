@@ -86,7 +86,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("propID")]
         [JsonIgnore]
-        public virtual Properties? Properties { get; set; }
+        public virtual XRS_Properties? Properties { get; set; }
 
         [ForeignKey("unitID")]
         [JsonIgnore]

@@ -31,7 +31,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<MessTypes> MessTypes { get; set; }
 
-        public DbSet<Properties> Properties { get; set; }
+        public DbSet<XRS_Properties> Properties { get; set; }
 
         public DbSet<Tenant> Tenants { get; set; }
 
