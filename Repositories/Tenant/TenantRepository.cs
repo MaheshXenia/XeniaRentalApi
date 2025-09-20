@@ -180,7 +180,9 @@ namespace XeniaRentalApi.Repositories.Tenant
                     DocumentName = u.Documents.docName,
                     IsAlphaNumeric = u.Documents.isAlphanumeric,
                     IsMandatory = u.Documents.isMandatory,
-                   IsExpiry = u.Documents.isExpiry
+                   IsExpiry = u.Documents.isExpiry,
+                   DocPurpose = u.Documents.docPurpose,
+                   ExpiryDate = u.Documents.ExpiryDate
 
                 })
                 .ToListAsync();

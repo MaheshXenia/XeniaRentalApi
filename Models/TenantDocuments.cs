@@ -70,5 +70,11 @@ namespace XeniaRentalApi.Models
         [NotMapped]
         public bool? IsMandatory { get; set; }
 
+        [NotMapped]
+        public DateTime? ExpiryDate { get; set; }
+
+        [NotMapped]
+        public string? DocPurpose { get; set; }
+
     }
 }
