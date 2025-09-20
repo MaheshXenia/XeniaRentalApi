@@ -883,7 +883,7 @@
     "Parameters": [
       {
         "Name": "category",
-        "Type": "XeniaRentalApi.DTOs.CreateCategory",
+        "Type": "XeniaRentalApi.DTOs.CategoryDto",
         "IsRequired": true
       }
     ],
@@ -917,6 +917,27 @@
   },
   {
     "ContainingType": "CategoryController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Category/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "category",
+        "Type": "XeniaRentalApi.DTOs.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CategoryController",
     "Method": "DeleteCategory",
     "RelativePath": "api/Category/{id}",
     "HttpMethod": "DELETE",
@@ -934,7 +955,7 @@
   {
     "ContainingType": "CategoryController",
     "Method": "Get",
-    "RelativePath": "api/Category/all/categories",
+    "RelativePath": "api/Category/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -954,7 +975,7 @@
   {
     "ContainingType": "CategoryController",
     "Method": "GetCategoryByCompanyId",
-    "RelativePath": "api/Category/categories/{companyId}",
+    "RelativePath": "api/Category/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -986,63 +1007,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "CategoryController",
-    "Method": "Get",
-    "RelativePath": "api/Category/category/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Categories, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CategoryController",
-    "Method": "UpdateCategory",
-    "RelativePath": "api/Category/UpdateCategory/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "category",
-        "Type": "XeniaRentalApi.Models.XRS_Categories",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.ChargesController",

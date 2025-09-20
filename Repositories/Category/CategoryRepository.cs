@@ -13,7 +13,7 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<IEnumerable<Models.XRS_Categories>> GetCategories()
+        public async Task<IEnumerable<XRS_Categories>> GetCategories()
         {
 
             return await _context.Category
@@ -30,7 +30,7 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<PagedResultDto<Models.XRS_Categories>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_Categories>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize)
         {
 
             var query = _context.Category.AsQueryable();
@@ -66,7 +66,7 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<IEnumerable<Models.XRS_Categories>> GetCategorybyId(int categoryId)
+        public async Task<IEnumerable<XRS_Categories>> GetCategorybyId(int categoryId)
         {
 
             return await _context.Category
@@ -82,7 +82,7 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<Models.XRS_Categories> CreateCategory(DTOs.CreateCategory dtoCategory)
+        public async Task<XRS_Categories> CreateCategory(CategoryDto dtoCategory)
         {
 
             var category = new Models.XRS_Categories
@@ -97,17 +97,8 @@ namespace XeniaRentalApi.Repositories.Category
             return category;
 
         }
-
-        public async Task<bool> DeleteCategory(int id)
-        {
-            var category = await _context.Category.FirstOrDefaultAsync(u => u.CatID == id);
-            if (category == null) return false;
-            category.IsActive = false;
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> UpdateCategory(int id, Models.XRS_Categories category)
+   
+        public async Task<bool> UpdateCategory(int id, CategoryDto category)
         {
             var updatebedSpace = await _context.Category.FirstOrDefaultAsync(u => u.CatID == id);
             if (updatebedSpace == null) return false;
@@ -119,37 +110,14 @@ namespace XeniaRentalApi.Repositories.Category
             return true;
         }
 
-        public async Task<PagedResultDto<Models.XRS_Categories>> GetCategoriesAsync(string? search, int pageNumber, int pageSize)
+        public async Task<bool> DeleteCategory(int id)
         {
-            var query = _context.Category.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.CategoryName.Contains(search)); // Adjust property as needed
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                .OrderBy(u => u.CategoryName) // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.XRS_Categories
-                {
-                    CategoryName = u.CategoryName,
-                    CatID = u.CatID,
-                    CompanyID = u.CompanyID,
-                    IsActive = u.IsActive,
-
-                }).ToListAsync();
-
-            return new PagedResultDto<Models.XRS_Categories>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
+            var category = await _context.Category.FirstOrDefaultAsync(u => u.CatID == id);
+            if (category == null) return false;
+            category.IsActive = false;
+            await _context.SaveChangesAsync();
+            return true;
         }
+    
     }
 }

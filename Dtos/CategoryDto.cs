@@ -2,7 +2,7 @@
 
 namespace XeniaRentalApi.DTOs
 {
-    public class CreateCategory
+    public class CategoryDto
     {
         public int CompanyID { get; set; }
 

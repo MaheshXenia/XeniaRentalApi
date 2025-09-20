@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.BedSpace;
 using XeniaRentalApi.Repositories.Category;
 
 [AllowAnonymous]
@@ -18,7 +16,7 @@ public class CategoryController : ControllerBase
     }
 
 
-    [HttpGet("all/categories")]
+    [HttpGet("all")]
     public async Task<ActionResult<IEnumerable<XRS_Categories>>> Get()
     {
         var categories = await _categoryRepository.GetCategories();
@@ -29,10 +27,9 @@ public class CategoryController : ControllerBase
         return Ok(new { Status = "Success", Data = categories });
     }
 
-    // GET api/<AccountGroupController>/5
-    [HttpGet("categories/{companyId}")]
-    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> GetCategoryByCompanyId(int companyId, int pageNumber = 1,
-        int pageSize = 10)
+ 
+    [HttpGet("company/{companyId}")]
+    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> GetCategoryByCompanyId(int companyId, int pageNumber = 1,int pageSize = 10)
     {
 
         var categories = await _categoryRepository.GetCategorybyCompanyId(companyId, pageNumber, pageSize);
@@ -44,19 +41,6 @@ public class CategoryController : ControllerBase
     }
 
 
-    [HttpPost]
-    public async Task<IActionResult> CreateCategories([FromBody] XeniaRentalApi.DTOs.CreateCategory category)
-    {
-        if (category == null)
-        {
-            return BadRequest(new { Status = "Error", Message = "Invalid category." });
-        }
-
-        var createdCategory = await _categoryRepository.CreateCategory(category);
-        return CreatedAtAction(nameof(GetCategory), new { id = createdCategory }, new { Status = "Success", Data = createdCategory });
-    }
-
-    //[Authorize(Roles = "Admin,SuperAdmin")]
     [HttpGet("{id}")]
     public async Task<ActionResult<XRS_Categories>> GetCategory(int id)
     {
@@ -70,8 +54,22 @@ public class CategoryController : ControllerBase
 
 
 
-    [HttpPut("UpdateCategory/{id}")]
-    public async Task<IActionResult> UpdateCategory(int id, [FromBody] XeniaRentalApi.Models.XRS_Categories category)
+    [HttpPost]
+    public async Task<IActionResult> CreateCategories([FromBody] CategoryDto category)
+    {
+        if (category == null)
+        {
+            return BadRequest(new { Status = "Error", Message = "Invalid category." });
+        }
+
+        var createdCategory = await _categoryRepository.CreateCategory(category);
+        return CreatedAtAction(nameof(GetCategory), new { id = createdCategory }, new { Status = "Success", Data = createdCategory });
+    }
+
+
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryDto category)
     {
         if (category == null)
         {
@@ -87,7 +85,7 @@ public class CategoryController : ControllerBase
         return Ok(new { Status = "Success", Message = "Category updated successfully." });
     }
 
-    // DELETE api/<AccountGroupController>/5
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCategory(int id)
     {
@@ -100,13 +98,5 @@ public class CategoryController : ControllerBase
         return Ok(new { Status = "Success", Message = "Category deleted successfully." });
     }
 
-    [HttpGet("category/search")]
-    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> Get(
-        string? search,
-        int pageNumber = 1,
-        int pageSize = 10)
-    {
-        var result = await _categoryRepository.GetCategoriesAsync(search, pageNumber, pageSize);
-        return Ok(result);
-    }
+   
 }

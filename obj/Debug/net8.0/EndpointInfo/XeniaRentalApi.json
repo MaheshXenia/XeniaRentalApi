@@ -1495,7 +1495,7 @@
         }
       }
     },
-    "/api/Category/all/categories": {
+    "/api/Category/all": {
       "get": {
         "tags": [
           "Category"
@@ -1533,7 +1533,7 @@
         }
       }
     },
-    "/api/Category/categories/{companyId}": {
+    "/api/Category/company/{companyId}": {
       "get": {
         "tags": [
           "Category"
@@ -1591,37 +1591,6 @@
         }
       }
     },
-    "/api/Category": {
-      "post": {
-        "tags": [
-          "Category"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCategory"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCategory"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCategory"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Category/{id}": {
       "get": {
         "tags": [
@@ -1661,6 +1630,46 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Category"
@@ -1683,37 +1692,26 @@
         }
       }
     },
-    "/api/Category/UpdateCategory/{id}": {
-      "put": {
+    "/api/Category": {
+      "post": {
         "tags": [
           "Category"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Categories"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Categories"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Categories"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CategoryDto"
               }
             }
           }
@@ -1721,62 +1719,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Category/category/search": {
-      "get": {
-        "tags": [
-          "Category"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Categories"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Categories"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Categories"
-                }
-              }
-            }
           }
         }
       }
@@ -9594,6 +9536,23 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.DTOs.CategoryDto": {
+        "type": "object",
+        "properties": {
+          "CompanyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CategoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.DTOs.ChargesDto": {
         "type": "object",
         "properties": {
@@ -9626,23 +9585,6 @@
           "PropName": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.DTOs.CreateCategory": {
-        "type": "object",
-        "properties": {
-          "CompanyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "CategoryName": {
-            "type": "string",
-            "nullable": true
-          },
-          "IsActive": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
