@@ -32,7 +32,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = documents });
         }
 
-        [HttpGet("{companyId}")]
+        [HttpGet("company/{companyId}")]
         public async Task<ActionResult<PagedResultDto<XRS_Documents>>> GetDocumentsByCompanyId(int companyId, string? search = null, int pageNumber = 1,
             int pageSize = 10)
         {
