@@ -195,9 +195,9 @@ namespace XeniaRentalApi.Repositories.Tenant
                 isActive = tenantDto.isActive,
             };
 
-            if (tenantDto.TenantDocuments != null && tenantDto.TenantDocuments.Any())
+            if (tenantDto.Documents != null && tenantDto.Documents.Any())
             {
-                tenant.TenantDocuments = tenantDto.TenantDocuments.Select(td => new XRS_TenantDocuments
+                tenant.TenantDocuments = tenantDto.Documents.Select(td => new XRS_TenantDocuments
                 {
                     DocTypeId = td.docTypeId,
                     DocumentsNo = td.documentsNo,
@@ -232,9 +232,9 @@ namespace XeniaRentalApi.Repositories.Tenant
             tenant.address = tenantDto.address;
             tenant.isActive = tenantDto.isActive;
 
-            if (tenantDto.TenantDocuments != null)
+            if (tenantDto.Documents != null)
             {
-                foreach (var tdDto in tenantDto.TenantDocuments)
+                foreach (var tdDto in tenantDto.Documents)
                 {
                     var existingDoc = tenant.TenantDocuments.FirstOrDefault(d => d.DocTypeId == tdDto.docTypeId);
                     if (existingDoc != null)

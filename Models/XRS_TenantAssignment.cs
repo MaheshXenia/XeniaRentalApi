@@ -90,8 +90,8 @@ namespace XeniaRentalApi.Models
         [ForeignKey("unitID")]
         [JsonIgnore]
         public virtual XRS_Units? Unit { get; set; }
-/*
-        [JsonIgnore]
+
+   /*     [JsonIgnore]
         public virtual ICollection<XRS_TenantDocuments>? TenantDocuments { get; set; }*/
 
     }
