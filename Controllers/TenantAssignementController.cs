@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.Dtos;
-using XeniaRentalApi.DTOs;
-using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.TenantAssignment;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -16,7 +11,6 @@ namespace XeniaRentalApi.Controllers
     public class TenantAssignementController : ControllerBase
     {
         private readonly ITenantAssignmentRepository _tenantAssignmentRepository;
-
 
         public TenantAssignementController(ITenantAssignmentRepository tenantAssignmentRepository)
         {
@@ -54,7 +48,7 @@ namespace XeniaRentalApi.Controllers
         {
             if (id != 1) return BadRequest("ID mismatch.");
 
-            var updated = await _tenantAssignmentRepository.UpdateAsync(dto);
+            var updated = await _tenantAssignmentRepository.UpdateAsync(id,dto);
             if (updated == null) return NotFound(new { Message = "Tenant Assignment not found." });
 
             return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });

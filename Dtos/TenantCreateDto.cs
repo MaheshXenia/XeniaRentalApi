@@ -17,7 +17,7 @@
         public List<TenantCreateDocumentDto>? Documents { get; set; }
     }
 
-    // DTO for TenantDocuments
+
     public class TenantCreateDocumentDto
     {
         public int docTypeId { get; set; }

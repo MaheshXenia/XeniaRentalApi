@@ -18,64 +18,117 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
         public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId)
         {
-            return await _context.TenantAssignemnts
+            var assignments = await _context.TenantAssignemnts
                 .Include(t => t.Properties)
-                .Include(t => t.Tenant)
                 .Include(t => t.Unit)
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                        .ThenInclude(td => td.Documents)
                 .Where(t => t.companyID == companyId)
-                .Select(t => new TenantAssignmentGetDto
-                {
-                    tenantAssignId = t.tenantAssignId,
-                    propID = t.propID,
-                    PropName = t.Properties.propertyName,
-                    unitID = t.unitID,
-                    UnitName = t.Unit.UnitName,
-                    tenantID = t.tenantID,
-                    TenantName = t.Tenant.tenantName,
-                    TenantContactNo = t.Tenant.phoneNumber,
-                    rentAmt = t.rentAmt,
-                    rentConcession = t.rentConcession,
-                    messConcession = t.messConcession,
-                    agreementStartDate = t.agreementStartDate,
-                    agreementEndDate = t.agreementEndDate,
-                    isActive = t.isActive,
-                    isClosure = t.isClosure,
-                    notes = t.notes
-                })
+                .AsNoTracking()
                 .ToListAsync();
+
+     
+            var result = assignments.Select(t => new TenantAssignmentGetDto
+            {
+                tenantAssignId = t.tenantAssignId,
+                propID = t.propID,
+                PropName = t.Properties?.propertyName,
+                unitID = t.unitID,
+                UnitName = t.Unit?.UnitName,
+                tenantID = t.tenantID,
+                TenantName = t.Tenant?.tenantName,
+                TenantContactNo = t.Tenant?.phoneNumber,
+                rentAmt = t.rentAmt,
+                rentConcession = t.rentConcession,
+                messConcession = t.messConcession,
+                agreementStartDate = t.agreementStartDate,
+                agreementEndDate = t.agreementEndDate,
+                isActive = t.isActive,
+                isClosure = t.isClosure,
+                notes = t.notes,
+
+       
+                Documents = t.Tenant?.TenantDocuments?
+                    .Select(td => new TenantDocumentDto
+                    {
+                        TenantID = td.TenantID,
+                        DocTypeId = td.DocTypeId,
+                        CompanyID = td.CompanyID,
+                        DocumentsNo = td.DocumentsNo,
+                        DocumentUrl = td.Documenturl,
+                        IsActive = td.isActive,
+                        DocumentName = td.Documents?.docName ?? td.DocumentName,
+                        IsAlphaNumeric = td.Documents?.isAlphanumeric ?? td.IsAlphaNumeric ?? false,
+                        IsMandatory = td.Documents?.isMandatory ?? td.IsMandatory ?? false,
+                        IsExpiry = td.Documents?.isExpiry ?? td.IsExpiry ?? false,
+                        DocPurpose = td.Documents?.docPurpose ?? td.DocPurpose,
+                        ExpiryDate = td.Documents?.ExpiryDate ?? td.ExpiryDate
+                    })
+                    .ToList() ?? new List<TenantDocumentDto>()
+            }).ToList();
+
+            return result;
         }
+
 
         public async Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId)
         {
-            return await _context.TenantAssignemnts
+            var assignment = await _context.TenantAssignemnts
                 .Include(t => t.Properties)
-                .Include(t => t.Tenant)
                 .Include(t => t.Unit)
-                .Where(t => t.tenantAssignId == tenantAssignId)
-                .Select(t => new TenantAssignmentGetDto
-                {
-                    tenantAssignId = t.tenantAssignId,
-                    propID = t.propID,
-                    PropName = t.Properties.propertyName,
-                    unitID = t.unitID,
-                    UnitName = t.Unit.UnitName,
-                    tenantID = t.tenantID,
-                    TenantName = t.Tenant.tenantName,
-                    TenantContactNo = t.Tenant.phoneNumber,
-                    rentAmt = t.rentAmt,
-                    rentConcession = t.rentConcession,
-                    messConcession = t.messConcession,
-                    agreementStartDate = t.agreementStartDate,
-                    agreementEndDate = t.agreementEndDate,
-                    isActive = t.isActive,
-                    isClosure = t.isClosure,
-                    notes = t.notes
-                })
-                .FirstOrDefaultAsync();
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                        .ThenInclude(td => td.Documents)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(t => t.tenantAssignId == tenantAssignId);
+
+            if (assignment == null)
+                return null;
+
+            return new TenantAssignmentGetDto
+            {
+                tenantAssignId = assignment.tenantAssignId,
+                propID = assignment.propID,
+                PropName = assignment.Properties?.propertyName,
+                unitID = assignment.unitID,
+                UnitName = assignment.Unit?.UnitName,
+                tenantID = assignment.tenantID,
+                TenantName = assignment.Tenant?.tenantName,
+                TenantContactNo = assignment.Tenant?.phoneNumber,
+                rentAmt = assignment.rentAmt,
+                rentConcession = assignment.rentConcession,
+                messConcession = assignment.messConcession,
+                agreementStartDate = assignment.agreementStartDate,
+                agreementEndDate = assignment.agreementEndDate,
+                isActive = assignment.isActive,
+                isClosure = assignment.isClosure,
+                notes = assignment.notes,
+
+                Documents = assignment.Tenant?.TenantDocuments?
+                    .Select(td => new TenantDocumentDto
+                    {
+                        TenantID = td.TenantID,
+                        DocTypeId = td.DocTypeId,
+                        CompanyID = td.CompanyID,
+                        DocumentsNo = td.DocumentsNo,
+                        DocumentUrl = td.Documenturl,
+                        IsActive = td.isActive,
+                        DocumentName = td.Documents?.docName ?? td.DocumentName,
+                        IsAlphaNumeric = td.Documents?.isAlphanumeric ?? td.IsAlphaNumeric ?? false,
+                        IsMandatory = td.Documents?.isMandatory ?? td.IsMandatory ?? false,
+                        IsExpiry = td.Documents?.isExpiry ?? td.IsExpiry ?? false,
+                        DocPurpose = td.Documents?.docPurpose ?? td.DocPurpose,
+                        ExpiryDate = td.Documents?.ExpiryDate ?? td.ExpiryDate
+                    })
+                    .ToList() ?? new List<TenantDocumentDto>()
+            };
         }
+
 
         public async Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto)
         {
+            // 1️⃣ Create TenantAssignment
             var entity = new XRS_TenantAssignment
             {
                 propID = dto.propID,
@@ -102,14 +155,39 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             _context.TenantAssignemnts.Add(entity);
             await _context.SaveChangesAsync();
+
+            // 2️⃣ Add TenantDocuments if provided
+            if (dto.Documents != null && dto.Documents.Any())
+            {
+                var tenantDocs = dto.Documents.Select(doc => new XRS_TenantDocuments
+                {
+                    TenantID = dto.tenantID, // Link to Tenant
+                    CompanyID = dto.companyID,
+                    DocTypeId = doc.docTypeId,
+                    DocumentsNo = doc.documentsNo,
+                    Documenturl = doc.documenturl,
+                    isActive = doc.isActive
+                }).ToList();
+
+                _context.TenantDocuments.AddRange(tenantDocs);
+                await _context.SaveChangesAsync();
+            }
+
             return entity;
         }
 
-        public async Task<XRS_TenantAssignment?> UpdateAsync(TenantAssignmentCreateDto dto)
-        {
-            var entity = await _context.TenantAssignemnts.FindAsync(1);
-            if (entity == null) return null;
 
+
+        public async Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto)
+        {
+            var entity = await _context.TenantAssignemnts
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                .FirstOrDefaultAsync(t => t.tenantAssignId == tenantAssignId);
+
+            if (entity == null) return false;
+
+            // Update assignment properties
             entity.securityAmt = dto.securityAmt;
             entity.isTaxable = dto.isTaxable;
             entity.rentAmt = dto.rentAmt;
@@ -124,15 +202,34 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.nextescalationDate = dto.nextescalationDate;
             entity.rentDueDate = dto.rentDueDate;
             entity.notes = dto.notes;
-           /* entity.isActive = dto.isa;
-            entity.isClosure = dto.isClosure;
-            entity.closureReason = dto.closureReason;
-            entity.closureDate = dto.closureDate;
-            entity.refundAmount = dto.refundAmount;*/
 
-            await _context.SaveChangesAsync();
-            return entity;
+            // Update TenantDocuments
+            if (dto.Documents != null && dto.Documents.Any())
+            {
+                if (entity.Tenant?.TenantDocuments != null)
+                {
+                    _context.TenantDocuments.RemoveRange(entity.Tenant.TenantDocuments);
+                }
+
+                var newDocs = dto.Documents.Select(doc => new XRS_TenantDocuments
+                {
+                    TenantID = entity.tenantID,
+                    CompanyID = entity.companyID,
+                    DocTypeId = doc.docTypeId,
+                    DocumentsNo = doc.documentsNo,
+                    Documenturl = doc.documenturl,
+                    isActive = doc.isActive
+                }).ToList();
+
+                _context.TenantDocuments.AddRange(newDocs);
+            }
+
+            // Save changes
+            var saved = await _context.SaveChangesAsync();
+            return saved > 0; // returns true if any rows were affected
         }
+
+
 
         public async Task<bool> DeleteAsync(int tenantAssignId)
         {

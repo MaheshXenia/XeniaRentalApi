@@ -10,7 +10,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
         Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId);
         Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId);
         Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto);
-        Task<XRS_TenantAssignment?> UpdateAsync(TenantAssignmentCreateDto dto);
+        Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto);
         Task<bool> DeleteAsync(int tenantAssignId);
     }
 }

@@ -128,7 +128,6 @@ namespace XeniaRentalApi.Repositories.Tenant
             };
         }
 
-
         public async Task<TenantGetDto> GetTenantWithDocumentsById(int tenantId)
         {
             var tenant = await _context.Tenants
@@ -176,7 +175,6 @@ namespace XeniaRentalApi.Repositories.Tenant
                     .ToList() ?? new List<TenantDocumentDto>()
             };
         }
-
 
         public async Task<XRS_Tenant> CreateTenant(TenantCreateDto tenantDto)
         {

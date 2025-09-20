@@ -8590,6 +8590,13 @@
           "notes": {
             "type": "string",
             "nullable": true
+          },
+          "Documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantCreateDocumentDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -8661,7 +8668,7 @@
           "isActive": {
             "type": "boolean"
           },
-          "TenantDocuments": {
+          "Documents": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantCreateDocumentDto"

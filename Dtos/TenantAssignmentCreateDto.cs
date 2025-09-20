@@ -21,5 +21,6 @@
         public DateTime? nextescalationDate { get; set; }
         public DateTime? rentDueDate { get; set; }
         public string? notes { get; set; }
+        public List<TenantCreateDocumentDto>? Documents { get; set; }
     }
 }
