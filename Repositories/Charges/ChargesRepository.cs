@@ -13,10 +13,18 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<IEnumerable<ChargesDto>> GetCharges()
+        public async Task<IEnumerable<ChargesDto>> GetCharges(int companyId, int? propertyId = null)
         {
-            return await _context.Charges
+            var query = _context.Charges
                 .AsNoTracking()
+                .Where(c => c.companyID == companyId);
+
+            if (propertyId.HasValue)
+            {
+                query = query.Where(c => c.PropID == propertyId.Value); 
+            }
+
+            return await query
                 .Select(c => new ChargesDto
                 {
                     chargeID = c.chargeID,
@@ -31,73 +39,72 @@ namespace XeniaRentalApi.Repositories.Charges
                 .ToListAsync();
         }
 
-        public async Task<PagedResultDto<Models.XRS_Charges>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
+
+        public async Task<PagedResultDto<ChargesDto>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
         {
-
-            var query = _context.Charges.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
-            {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
-            }
+            var query = _context.Charges
+                .Where(c => c.companyID == companyId)
+                .AsQueryable();
 
             var totalRecords = await query.CountAsync();
+
+ 
             var items = await query
                 .GroupJoin(
-                 _context.Properties,
-                 charges => charges.PropID,
-                prop => prop.PropID,
-                (charges, props) => new { charges, prop = props.FirstOrDefault() }
+                    _context.Properties,
+                    charges => charges.PropID,
+                    prop => prop.PropID,
+                    (charges, props) => new { charges, prop = props.FirstOrDefault() }
                 )
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-                .Select(u => new Models.XRS_Charges
+                .OrderBy(x => x.charges.chargeName) 
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(u => new ChargesDto
                 {
                     chargeID = u.charges.chargeID,
                     chargeName = u.charges.chargeName,
                     PropID = u.charges.PropID,
                     companyID = u.charges.companyID,
                     chargeAmt = u.charges.chargeAmt,
-                    //PropName = u.prop != null ? u.prop.propertyName : null,
                     isActive = u.charges.isActive,
                     isVariable = u.charges.isVariable,
+                    PropName = u.prop != null ? u.prop.propertyName : null
+                })
+                .ToListAsync();
 
-                }).ToListAsync();
-            return new PagedResultDto<Models.XRS_Charges>
+            return new PagedResultDto<ChargesDto>
             {
                 Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
             };
-
         }
 
-        public async Task<IEnumerable<Models.XRS_Charges>> GetChargesbyId(int chargeId)
+        public async Task<ChargesDto?> GetChargesById(int chargeId)
         {
-
             return await _context.Charges
-                .Where(u => u.chargeID == chargeId)
-                   .GroupJoin(
-                 _context.Properties,
-                 charges => charges.PropID,
-                prop => prop.PropID,
-                 (charges, props) => new { charges, prop = props.FirstOrDefault() }
+                .Where(c => c.chargeID == chargeId)
+                .GroupJoin(
+                    _context.Properties,
+                    charges => charges.PropID,
+                    prop => prop.PropID,
+                    (charges, props) => new { charges, prop = props.FirstOrDefault() }
                 )
-                .Select(u => new Models.XRS_Charges
+                .Select(u => new ChargesDto
                 {
                     chargeID = u.charges.chargeID,
                     chargeName = u.charges.chargeName,
                     PropID = u.charges.PropID,
                     companyID = u.charges.companyID,
                     chargeAmt = u.charges.chargeAmt,
-                    //PropName = u.prop != null ? u.prop.propertyName : null,
                     isActive = u.charges.isActive,
                     isVariable = u.charges.isVariable,
-
-                }).ToListAsync();
-
+                    PropName = u.prop != null ? u.prop.propertyName : null
+                })
+                .FirstOrDefaultAsync();
         }
+
 
         public async Task<Models.XRS_Charges> CreateCharges(DTOs.ChargesDto createCharges)
         {

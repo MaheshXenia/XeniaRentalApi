@@ -24,9 +24,9 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all")]
-        public async Task<ActionResult<IEnumerable<ChargesDto>>> Get()
+        public async Task<ActionResult<IEnumerable<ChargesDto>>> Get(int companyId, int? propertyId = null)
         {
-            var charges = await _chargesRepository.GetCharges();
+            var charges = await _chargesRepository.GetCharges(companyId);
             if (charges == null || !charges.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No charges found." });
@@ -65,7 +65,7 @@ namespace XeniaRentalApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Charges>> GetChargesById(int id)
         {
-            var charges = await _chargesRepository.GetChargesbyId(id);
+            var charges = await _chargesRepository.GetChargesById(id);
             if (charges == null)
             {
                 return NotFound(new { Status = "Error", Message = "charges not found." });

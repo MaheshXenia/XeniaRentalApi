@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
-using XeniaRentalApi.Repositories.Unit;
 using XeniaRentalApi.Repositories.Units;
 
 namespace XeniaRentalApi.Controllers

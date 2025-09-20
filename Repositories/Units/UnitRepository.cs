@@ -133,20 +133,23 @@ namespace XeniaRentalApi.Repositories.Unit
             };
         }
 
-        public async Task<UnitDto> GetUnitById(int unitId)
+        public async Task<UnitDto?> GetUnitById(int unitId)
         {
             var unit = await _context.Units
                 .Include(u => u.Property)
                 .Include(u => u.Category)
-                .Include(u => u.UnitCharges)
-                    .ThenInclude(uc => uc.Charges)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.UnitId == unitId);
 
             if (unit == null)
                 return null;
 
-            var charges = unit.UnitCharges?.Select(uc => new UnitChargeDto
+            var unitCharges = await _context.UnitChargesMappings
+                .Where(uc => uc.unitID == unit.UnitId)
+                .Include(uc => uc.Charges)
+                .ToListAsync();
+
+            var chargesDto = unitCharges.Select(uc => new UnitChargeDto
             {
                 unitMapID = uc.unitMapID,
                 chargeID = uc.chargeID,
@@ -173,7 +176,7 @@ namespace XeniaRentalApi.Repositories.Unit
                 FloorNo = unit.FloorNo,
                 DefaultRent = unit.DefaultRent,
                 escalationper = unit.escalationper,
-                UnitCharges = charges
+                UnitCharges = chargesDto
             };
         }
 
@@ -236,18 +239,19 @@ namespace XeniaRentalApi.Repositories.Unit
         }
 
 
-        public async Task<UnitDto> UpdateUnit(UnitDto model)
+        public async Task<UnitDto?> UpdateUnit(UnitDto model)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
 
-            var unit = await _context.Units
-                .Include(u => u.UnitCharges)
-                .FirstOrDefaultAsync(u => u.UnitId == model.UnitId);
+            var unit = await _context.Units.FirstOrDefaultAsync(u => u.UnitId == model.UnitId);
 
             if (unit == null)
                 return null;
 
+            var existingCharges = await _context.UnitChargesMappings
+                .Where(uc => uc.unitID == unit.UnitId)
+                .ToListAsync();
 
             unit.UnitName = model.UnitName;
             unit.PropID = model.PropID;
@@ -264,16 +268,16 @@ namespace XeniaRentalApi.Repositories.Unit
 
             if (model.UnitCharges != null)
             {
-                var chargesToRemove = unit.UnitCharges
+                var chargesToRemove = existingCharges
                     .Where(uc => !model.UnitCharges.Any(m => m.unitMapID == uc.unitMapID))
                     .ToList();
+
                 if (chargesToRemove.Any())
                     _context.UnitChargesMappings.RemoveRange(chargesToRemove);
 
                 foreach (var ucDto in model.UnitCharges)
                 {
-                    var existingCharge = unit.UnitCharges
-                        .FirstOrDefault(uc => uc.unitMapID == ucDto.unitMapID);
+                    var existingCharge = existingCharges.FirstOrDefault(uc => uc.unitMapID == ucDto.unitMapID);
 
                     if (existingCharge != null)
                     {
@@ -283,8 +287,8 @@ namespace XeniaRentalApi.Repositories.Unit
                         existingCharge.isActive = ucDto.isActive;
                     }
                     else
-                    {       
-                        unit.UnitCharges.Add(new XRS_UnitChargesMapping
+                    {
+                        _context.UnitChargesMappings.Add(new XRS_UnitChargesMapping
                         {
                             unitID = unit.UnitId,
                             propID = unit.PropID,
@@ -300,23 +304,9 @@ namespace XeniaRentalApi.Repositories.Unit
 
             await _context.SaveChangesAsync();
 
-            return new UnitDto
-            {
-                UnitId = unit.UnitId,
-                UnitName = unit.UnitName,
-                PropID = unit.PropID,
-                CompanyId = unit.CompanyId,
-                UnitType = unit.UnitType,
-                CatID = unit.CatID,
-                IsActive = unit.IsActive,
-                Area = unit.Area,
-                Remarks = unit.Remarks,
-                FloorNo = unit.FloorNo,
-                DefaultRent = unit.DefaultRent,
-                escalationper = unit.escalationper,
-                UnitCharges = model.UnitCharges 
-            };
+            return model; 
         }
+
 
 
         public async Task<bool> DeleteUnit(int unitId)
