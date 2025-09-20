@@ -7,17 +7,13 @@ namespace XeniaRentalApi.Repositories.Units
 {
     public interface IUnitRepository
     {
-        Task<IEnumerable<XRS_Units>> GetUnits(int companyId, int? propertyId = null);
 
-        Task<PagedResultDto<XRS_Units>> GetUnitByCompanyId(int companyId,string? search = null,int pageNumber = 1,int pageSize = 10);
-
-        Task<XRS_Units> GetUnitById(int unitId);
-
-        Task<XRS_Units> CreateUnit(XRS_Units model);
-
-        Task<XRS_Units> UpdateUnit(XRS_Units model);
-
-        Task<bool> DeleteUnit(int id);
+        Task<List<UnitDto>> GetUnits(int companyId, int? propertyId = null);
+        Task<PagedResultDto<UnitDto>> GetUnitByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10);
+        Task<UnitDto> GetUnitById(int unitId);
+        Task<UnitDto> CreateUnit(UnitDto model);
+        Task<UnitDto> UpdateUnit(UnitDto model);
+        Task<bool> DeleteUnit(int unitId);
 
 
     }

@@ -7,10 +7,7 @@ namespace XeniaRentalApi.Models
     public class XRS_Charges
     {
         [Key]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        [JsonInclude]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int chargeID {  get; set; }
+        public int chargeID { get; set; }
 
         public int PropID { get; set; }
 
@@ -18,18 +15,17 @@ namespace XeniaRentalApi.Models
 
         public string? chargeName { get; set; }
 
-        [NotMapped]
-        public string? PropName { get; set; }
-
         [Column(TypeName = "decimal(18,3)")]
         public decimal chargeAmt { get; set; }
 
         public bool isVariable { get; set; }
 
-        public bool isActive {  get; set; }
+        public bool isActive { get; set; }
 
+        [ForeignKey(nameof(PropID))]
         public virtual XRS_Properties? Property { get; set; }
 
         public virtual ICollection<XRS_UnitChargesMapping>? UnitCharges { get; set; }
     }
+
 }
