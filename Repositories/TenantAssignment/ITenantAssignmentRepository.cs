@@ -12,7 +12,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
         Task<bool> DeleteTenantAssignment(int id);
 
-        Task<IEnumerable<Models.TenantAssignemnt>> GetTenantAssignemntsbyId(int documassignmentId);
+        Task<IEnumerable<DTOs.TenantAssignmentDTO>> GetTenantAssignemntsbyId(int documassignmentId);
 
         Task<bool> UpDateTenantAssignment(TenantAssignmentUpdateDTO assignemnt);
 

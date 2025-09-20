@@ -216,7 +216,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
         }
 
-        public async Task<IEnumerable<Models.TenantAssignemnt>> GetTenantAssignemntsbyId(int documassignmentId)
+        public async Task<IEnumerable<DTOs.TenantAssignmentDTO>> GetTenantAssignemntsbyId(int documassignmentId)
         {
 
             return await _context.TenantAssignemnts
@@ -245,7 +245,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                     full => full.tenants.DefaultIfEmpty(),
                     (full, tenant) => new { full.ta, full.Property, full.Unit, Tenant = tenant }
                 )
-                .Select(u => new Models.TenantAssignemnt
+                .Select(u => new DTOs.TenantAssignmentDTO
                 {
                     tenantAssignId = u.ta.tenantAssignId,
                     tenantID = u.ta.tenantID,
@@ -260,15 +260,11 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                     rentCollection = u.ta.rentCollection,
                     escalationPer = u.ta.escalationPer,
                     nextescalationDate = u.ta.nextescalationDate,
-                    closureDate = u.ta.closureDate,
-                    closureReason = u.ta.closureReason,
-                    isClosure = u.ta.isClosure,
                     PropName = u.Property != null ? u.Property.propertyName : null,
                     UnitName = u.Unit != null ? u.Unit.UnitName : null,
                     TenantName = u.Tenant != null ? u.Tenant.tenantName : null,
                     isActive = u.ta.isActive,
                     notes = u.ta.notes,
-                    refundAmount = u.ta.refundAmount,
                     TenantContactNo = u.Tenant != null ? u.Tenant.emergencyContactNo : null
                 }).ToListAsync();
 
