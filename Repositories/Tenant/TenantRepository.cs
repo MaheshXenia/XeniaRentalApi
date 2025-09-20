@@ -190,7 +190,7 @@ namespace XeniaRentalApi.Repositories.Tenant
 
             TenantDocumentGetDTO dtotenantDocs = new TenantDocumentGetDTO();
             dtotenantDocs.Tenant = tenant;
-            dtotenantDocs.Documents = assignmentDocs;
+            dtotenantDocs.Documents = assignmentDocs.Where(u =>u.DocPurpose == "Tenant").ToList();
 
             return dtotenantDocs;
 
