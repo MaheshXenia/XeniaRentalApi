@@ -58,7 +58,12 @@ namespace XeniaRentalApi.Controllers
                 return BadRequest(ModelState);
 
             var createdTenant = await _tenantRepository.CreateTenant(dto);
-            return CreatedAtAction(nameof(GetById), new { tenantId = createdTenant.tenantID }, createdTenant);
+
+            return Ok(new
+            {
+                Message = "Tenant created successfully",
+                TenantId = createdTenant.tenantID
+            });
         }
 
         [HttpPut("{id}")]

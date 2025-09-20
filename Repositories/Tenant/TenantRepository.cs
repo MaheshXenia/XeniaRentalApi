@@ -5,7 +5,7 @@ using System.Net;
 using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Product;
+using XeniaRentalApi.Service.Common;
 using static System.Net.WebRequestMethods;
 
 namespace XeniaRentalApi.Repositories.Tenant

@@ -26,7 +26,6 @@ using XeniaRentalApi.Repositories.Voucher;
 using XeniaRentalApi.Service.Common;
 using XeniaRentalApi.Service.Notification;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Product;
 using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Category;
 using XeniaRentalApi.Repositories.Unit;

@@ -1,4 +1,4 @@
-﻿namespace XeniaRentalApi.Repositories.Product
+﻿namespace XeniaRentalApi.Service.Common
 {
     public class FtpSettings
     {
@@ -7,4 +7,5 @@
         public string Password { get; set; } = string.Empty;
         public string PublicBaseUrl { get; set; } = string.Empty;
     }
+
 }
