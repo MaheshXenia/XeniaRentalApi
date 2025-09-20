@@ -54,7 +54,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
               }).ToListAsync();
             return new PagedResultDto<Models.TenantDocuments>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -129,7 +129,7 @@ namespace XeniaRentalApi.Repositories.TenantDocuments
 
             return new PagedResultDto<Models.TenantDocuments>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

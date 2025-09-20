@@ -93,7 +93,7 @@ namespace XeniaRentalApi.Repositories.Ledger
 
             return new PagedResultDto<Models.Ledger>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

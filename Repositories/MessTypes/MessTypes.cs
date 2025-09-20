@@ -49,7 +49,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
 
             return new PagedResultDto<Models.MessTypes>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

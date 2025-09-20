@@ -58,7 +58,7 @@ namespace XeniaRentalApi.Repositories.Category
 
             return new PagedResultDto<Models.XRS_Categories>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
@@ -145,7 +145,7 @@ namespace XeniaRentalApi.Repositories.Category
 
             return new PagedResultDto<Models.XRS_Categories>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

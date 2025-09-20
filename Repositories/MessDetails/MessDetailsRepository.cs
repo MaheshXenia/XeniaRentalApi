@@ -124,7 +124,7 @@ var items = await query
     .ToListAsync();
             return new PagedResultDto<Models.MessDetails>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

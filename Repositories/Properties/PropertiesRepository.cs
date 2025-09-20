@@ -53,7 +53,7 @@ namespace XeniaRentalApi.Repositories.Properties
 
             return new PagedResultDto<XRS_Properties>
             {
-                Items = items,
+                Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords

@@ -28,6 +28,8 @@ namespace XeniaRentalApi.Models
 
         public bool isActive {  get; set; }
 
+        public virtual XRS_Properties? Property { get; set; }
+
         public virtual ICollection<XRS_UnitChargesMapping>? UnitCharges { get; set; }
     }
 }
