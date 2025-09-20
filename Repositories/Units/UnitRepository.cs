@@ -238,7 +238,6 @@ namespace XeniaRentalApi.Repositories.Unit
             };
         }
 
-
         public async Task<UnitDto?> UpdateUnit(UnitDto model)
         {
             if (model == null)
@@ -306,8 +305,6 @@ namespace XeniaRentalApi.Repositories.Unit
 
             return model; 
         }
-
-
 
         public async Task<bool> DeleteUnit(int unitId)
         {

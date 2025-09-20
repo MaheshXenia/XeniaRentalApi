@@ -36,11 +36,11 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("charges/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<XRS_Charges>>> GetChargesByCompanyId(int companyId, int pageNumber = 1,
+        public async Task<ActionResult<PagedResultDto<ChargesDto>>> GetChargesByCompanyId(int companyId, int? propertyId = null, string? search = null, int pageNumber = 1,
             int pageSize = 10)
         {
 
-            var charges = await _chargesRepository.GetChargesByCompanyId(companyId, pageNumber, pageSize);
+            var charges = await _chargesRepository.GetChargesByCompanyId(companyId, propertyId, search,pageNumber, pageSize);
             if (charges == null)
             {
                 return NotFound(new { Status = "Error", Message = "No charges found the given Company ID." });
@@ -105,15 +105,5 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "Charges deleted successfully." });
         }
 
-        [HttpGet("charges/search")]
-        public async Task<ActionResult<PagedResultDto<XRS_Charges>>> Get(
-           string? chargeName,
-           string? PropertyName,
-           int pageNumber = 1,
-           int pageSize = 10)
-        {
-            var result = await _chargesRepository.GetChargesAsync(chargeName, PropertyName, pageNumber, pageSize);
-            return Ok(result);
-        }
     }
 }

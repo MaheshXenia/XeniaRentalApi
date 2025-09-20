@@ -39,16 +39,29 @@ namespace XeniaRentalApi.Repositories.Charges
                 .ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<ChargesDto>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<ChargesDto>> GetChargesByCompanyId(int companyId,int? propertyId = null,string? search = null,int pageNumber = 1,int pageSize = 10)
         {
+
             var query = _context.Charges
                 .Where(c => c.companyID == companyId)
                 .AsQueryable();
 
+            if (propertyId.HasValue)
+            {
+                query = query.Where(c => c.PropID == propertyId.Value);
+            }
+
+   
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                string lowerSearch = search.ToLower();
+                query = query.Where(c =>
+                    c.chargeName.ToLower().Contains(lowerSearch)
+                );
+            }
+
             var totalRecords = await query.CountAsync();
 
- 
             var items = await query
                 .GroupJoin(
                     _context.Properties,
@@ -56,7 +69,7 @@ namespace XeniaRentalApi.Repositories.Charges
                     prop => prop.PropID,
                     (charges, props) => new { charges, prop = props.FirstOrDefault() }
                 )
-                .OrderBy(x => x.charges.chargeName) 
+                .OrderBy(x => x.charges.chargeName)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(u => new ChargesDto
@@ -105,8 +118,7 @@ namespace XeniaRentalApi.Repositories.Charges
                 .FirstOrDefaultAsync();
         }
 
-
-        public async Task<Models.XRS_Charges> CreateCharges(DTOs.ChargesDto createCharges)
+        public async Task<XRS_Charges> CreateCharges(ChargesDto createCharges)
         {
 
             var charge = new Models.XRS_Charges
@@ -134,7 +146,7 @@ namespace XeniaRentalApi.Repositories.Charges
             return true;
         }
 
-        public async Task<bool> UpdateCharges(int id, Models.XRS_Charges charges)
+        public async Task<bool> UpdateCharges(int id, XRS_Charges charges)
         {
             var updatedCharges = await _context.Charges.FirstOrDefaultAsync(u => u.chargeID == id);
             if (updatedCharges == null) return false;
@@ -149,49 +161,5 @@ namespace XeniaRentalApi.Repositories.Charges
             return true;
         }
 
-        public async Task<PagedResultDto<Models.XRS_Charges>> GetChargesAsync(string? chargeName,string? propertyName, int pageNumber, int pageSize)
-        {
-            var query = _context.Charges
-                 .Include(u => u.Property)
-                .AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(chargeName))
-            {
-                query = query.Where(u => u.chargeName.Contains(chargeName)); // Adjust property as needed
-
-            }
-
-            if (!string.IsNullOrWhiteSpace(propertyName))
-            {
-                query = query.Where(u => u.Property.propertyName.Contains(propertyName));
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.XRS_Charges
-                {
-                    chargeID=u.chargeID,
-                    chargeName=u.chargeName,
-                    companyID=u.companyID,
-                    isVariable=u.isVariable,
-                    chargeAmt=u.chargeAmt,
-                    isActive=u.isActive,
-                    PropID=u.PropID,
-                    //PropName = u.Property != null ? u.Property.propertyName : null
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.XRS_Charges>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
     }
 }
