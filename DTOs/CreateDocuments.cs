@@ -17,5 +17,7 @@
         public bool isMandatory { get; set; }
 
         public bool isActive { get; set; }
+
+        public DateTime? ExpiryDate { get; set; }
     }
 }

@@ -29,6 +29,8 @@ namespace XeniaRentalApi.Models
 
         public bool isActive { get; set; }
 
+        public DateTime? ExpiryDate { get; set; }
+
         [NotMapped]
         public string? propName {  get; set; }
 
