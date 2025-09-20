@@ -1,35 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.Design;
 using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Units
 {
     public interface IUnitRepository
     {
-        Task<IEnumerable<Models.Units>> GetUnits();
-        Task<PagedResultDto<Models.Units>> GetUnitByCompanyId(int companyId, int pageNumber, int pageSize);
+        Task<IEnumerable<XRS_Units>> GetUnits(int companyId, int? propertyId = null);
 
-        Task<Models.Units> CreateUnit(DTOs.CreateUnit unit);
+        Task<PagedResultDto<XRS_Units>> GetUnitByCompanyId(int companyId,string? search = null,int pageNumber = 1,int pageSize = 10);
+
+        Task<XRS_Units> GetUnitById(int unitId);
+
+        Task<XRS_Units> CreateUnit(XRS_Units model);
+
+        Task<XRS_Units> UpdateUnit(XRS_Units model);
 
         Task<bool> DeleteUnit(int id);
-
-        Task<DTOs.UnitChargesDTO> GetUnitsByUnitId(int unitId);
-
-        Task<bool> UpdateUnit(DTOs.UnitChargesDTO unitCharges);
-
-        Task<PagedResultDto<Models.Units>> GetUnitsAsync(string? unitName,string? propetyName, int pageNumber, int pageSize);
-
-        Task<IEnumerable<Models.UnitChargesMapping>> GetUnitChargesMapping();
-
-        Task<Models.UnitChargesMapping> CreateUnitChargesMapping(DTOs.CreateUnitChargesMapping unit);
-
-        Task<bool> UpdateUnitChargesMapping(int id, Models.UnitChargesMapping units);
-
-        Task<IEnumerable<Models.UnitChargesMapping>> GetUnitChargesByUnitId(int unitId);
-
-        Task<Models.Units> CreateUnitCharges(DTOs.UnitCharges unit);
-
-        Task<DTOs.UnitChargesDTO> GetUnitsByPropertyId(int propertyId);
 
 
     }

@@ -19,7 +19,7 @@ public class CategoryController : ControllerBase
 
 
     [HttpGet("all/categories")]
-    public async Task<ActionResult<IEnumerable<Category>>> Get()
+    public async Task<ActionResult<IEnumerable<XRS_Categories>>> Get()
     {
         var categories = await _categoryRepository.GetCategories();
         if (categories == null || !categories.Any())
@@ -31,7 +31,7 @@ public class CategoryController : ControllerBase
 
     // GET api/<AccountGroupController>/5
     [HttpGet("categories/{companyId}")]
-    public async Task<ActionResult<PagedResultDto<Category>>> GetCategoryByCompanyId(int companyId, int pageNumber = 1,
+    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> GetCategoryByCompanyId(int companyId, int pageNumber = 1,
         int pageSize = 10)
     {
 
@@ -58,7 +58,7 @@ public class CategoryController : ControllerBase
 
     //[Authorize(Roles = "Admin,SuperAdmin")]
     [HttpGet("{id}")]
-    public async Task<ActionResult<Category>> GetCategory(int id)
+    public async Task<ActionResult<XRS_Categories>> GetCategory(int id)
     {
         var category = await _categoryRepository.GetCategorybyId(id);
         if (category == null)
@@ -71,7 +71,7 @@ public class CategoryController : ControllerBase
 
 
     [HttpPut("UpdateCategory/{id}")]
-    public async Task<IActionResult> UpdateCategory(int id, [FromBody] XeniaRentalApi.Models.Category category)
+    public async Task<IActionResult> UpdateCategory(int id, [FromBody] XeniaRentalApi.Models.XRS_Categories category)
     {
         if (category == null)
         {
@@ -101,7 +101,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpGet("category/search")]
-    public async Task<ActionResult<PagedResultDto<Category>>> Get(
+    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> Get(
         string? search,
         int pageNumber = 1,
         int pageSize = 10)

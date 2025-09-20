@@ -23,10 +23,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/units")]
-        public async Task<ActionResult<IEnumerable<Units>>> Get()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<XRS_Units>>> Get(int companyId, int? propertyId = null)
         {
-            var units = await _unitRepository.GetUnits();
+            var units = await _unitRepository.GetUnits(companyId, propertyId);
             if (units == null || !units.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No Units found." });
@@ -34,160 +34,56 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = units });
         }
 
-        [HttpGet("all/unitChargesMapping")]
-        public async Task<ActionResult<IEnumerable<UnitChargesMapping>>> GetUnitChargesMapping()
+
+        [HttpGet("company/{companyId}")]
+        public async Task<ActionResult<PagedResultDto<XRS_Units>>> GetUnitByCompanyId(int companyId,[FromQuery] string? search = null,[FromQuery] int pageNumber = 1,[FromQuery] int pageSize = 10)
         {
-            var units = await _unitRepository.GetUnitChargesMapping();
-            if (units == null || !units.Any())
-            {
-                return NotFound(new { Status = "Error", Message = "No Unit Charges Mapping found." });
-            }
-            return Ok(new { Status = "Success", Data = units });
+            var result = await _unitRepository.GetUnitByCompanyId(companyId, search, pageNumber, pageSize);
+            return Ok(result);
         }
 
-        // GET api/<AccountGroupController>/5
-        [HttpGet("units/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Units>>> GetUnitsByCompanyId(int companyId, int pageNumber = 1, int pageSize = 10)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<XRS_Units>> GetUnit(int id)
         {
-
-            var units = await _unitRepository.GetUnitByCompanyId(companyId,pageNumber,pageSize);
-            
-            if (units == null)
-            {
-                return NotFound(new { Status = "Error", Message = "No units found the given Company ID." });
-            }
-            return Ok(new { Status = "Success", Data = units });
+            var unit = await _unitRepository.GetUnitById(id);
+            if (unit == null)
+                return NotFound();
+            return Ok(unit);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateUnits([FromBody] DTOs.CreateUnit units)
+        public async Task<ActionResult<XRS_Units>> CreateUnit([FromBody] XRS_Units model)
         {
-            if (units == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid unit." });
-            }
+            if (model == null)
+                return BadRequest();
 
-            var createdUnits = await _unitRepository.CreateUnit(units);
-            return CreatedAtAction(nameof(GetUnitById), new { id = createdUnits }, new { Status = "Success", Data = createdUnits });
+            var createdUnit = await _unitRepository.CreateUnit(model);
+            return CreatedAtAction(nameof(GetUnit), new { id = createdUnit.UnitId }, createdUnit);
         }
 
-        [HttpPost("UnitChargesMapping")]
-        public async Task<IActionResult> CreateUnitCharges([FromBody] DTOs.UnitCharges units)
+       
+        [HttpPut("{id}")]
+        public async Task<ActionResult<XRS_Units>> UpdateUnit(int id, [FromBody] XRS_Units model)
         {
-            if (units == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid unit." });
-            }
+            if (model == null || id != model.UnitId)
+                return BadRequest();
 
-            var createdUnits = await _unitRepository.CreateUnitCharges(units);
-            return CreatedAtAction(nameof(GetUnitById), new { id = createdUnits }, new { Status = "Success", Data = createdUnits });
+            var updatedUnit = await _unitRepository.UpdateUnit(model);
+            if (updatedUnit == null)
+                return NotFound();
+
+            return Ok(updatedUnit);
         }
 
-        [HttpPost("units/CreateUnitChargesMapping")]
-        public async Task<IActionResult> CreateUnitChargesMapping([FromBody] DTOs.CreateUnitChargesMapping units)
-        {
-            if (units == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid unit charges group." });
-            }
-
-            var createdUnits = await _unitRepository.CreateUnitChargesMapping(units);
-            return CreatedAtAction(nameof(GetUnitById), new { id = createdUnits }, new { Status = "Success", Data = createdUnits });
-        }
-
-        //[Authorize(Roles = "Admin,SuperAdmin")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<DTOs.UnitChargesDTO>> GetUnitById(int id)
-        {
-            var units = await _unitRepository.GetUnitsByUnitId(id);
-            if (units == null)
-            {
-                return NotFound(new { Status = "Error", Message = "units not found." });
-            }
-            return Ok(new { Status = "Success", Data = units });
-        }
-
-        [HttpGet("GetUnitsByProprtyId/{id}")]
-        public async Task<ActionResult<DTOs.UnitChargesDTO>> GetUnitBypropertyId(int id)
-        {
-            var units = await _unitRepository.GetUnitsByPropertyId(id);
-            if (units == null)
-            {
-                return NotFound(new { Status = "Error", Message = "units not found." });
-            }
-            return Ok(new { Status = "Success", Data = units });
-        }
-
-        [HttpGet("unitcharges/{unitChargeId}")]
-        public async Task<ActionResult<Units>> GetUnitChargeById(int unitChargeId)
-        {
-            var units = await _unitRepository.GetUnitChargesByUnitId(unitChargeId);
-            if (units == null)
-            {
-                return NotFound(new { Status = "Error", Message = "units not found." });
-            }
-            return Ok(new { Status = "Success", Data = units });
-        }
-
-
-
-        [HttpPut("UpdateUnits")]
-        public async Task<IActionResult> UpdateUnits([FromBody] DTOs.UnitChargesDTO unit)
-        {
-            if (unit == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid units  data" });
-            }
-
-            var updated = await _unitRepository.UpdateUnit(unit);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "units not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Units updated successfully." });
-        }
-
-        [HttpPut("UpdateUnitChargesMapping/{id}")]
-        public async Task<IActionResult> UpdateUnitChargesMapping(int id, [FromBody] Models.UnitChargesMapping units)
-        {
-            if (units == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid units  data" });
-            }
-
-            var updated = await _unitRepository.UpdateUnitChargesMapping(id, units);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "units not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Units updated successfully." });
-        }
-
-        // DELETE api/<AccountGroupController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUnits(int id)
+        public async Task<ActionResult> DeleteUnit(int id)
         {
-            var deleted = await _unitRepository.DeleteUnit(id);
-            if (!deleted)
-            {
-                return NotFound(new { Status = "Error", Message = "Unit not found or delete failed." });
-            }
+            var result = await _unitRepository.DeleteUnit(id);
+            if (!result)
+                return NotFound();
 
-            return Ok(new { Status = "Success", Message = "Unit deleted successfully." });
-        }
-
-        [HttpGet("Units/search")]
-        public async Task<ActionResult<PagedResultDto<Units>>> Get(
-          string? unitName,
-          string? propertyName,
-          int pageNumber = 1,
-          int pageSize = 10)
-        {
-            var result = await _unitRepository.GetUnitsAsync(unitName, propertyName, pageNumber, pageSize);
-            return Ok(result);
+            return NoContent();
         }
     }
 }

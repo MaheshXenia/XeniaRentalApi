@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_Charges")]
-    public class Charges
+    public class XRS_Charges
     {
         [Key]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -28,8 +28,6 @@ namespace XeniaRentalApi.Models
 
         public bool isActive {  get; set; }
 
-        [ForeignKey("PropID")]
-        //[JsonIgnore]
-        public virtual XRS_Properties? Properties { get; set; }
+        public virtual ICollection<XRS_UnitChargesMapping>? UnitCharges { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all/charges")]
-        public async Task<ActionResult<IEnumerable<Charges>>> Get()
+        public async Task<ActionResult<IEnumerable<XRS_Charges>>> Get()
         {
             var charges = await _chargesRepository.GetCharges();
             if (charges == null || !charges.Any())
@@ -36,7 +36,7 @@ namespace XeniaRentalApi.Controllers
 
         // GET api/<AccountGroupController>/5
         [HttpGet("charges/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Charges>>> GetChargesByCompanyId(int companyId, int pageNumber = 1,
+        public async Task<ActionResult<PagedResultDto<XRS_Charges>>> GetChargesByCompanyId(int companyId, int pageNumber = 1,
             int pageSize = 10)
         {
 
@@ -63,7 +63,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Charges>> GetChargesById(int id)
+        public async Task<ActionResult<XRS_Charges>> GetChargesById(int id)
         {
             var charges = await _chargesRepository.GetChargesbyId(id);
             if (charges == null)
@@ -76,7 +76,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPut("UpdateCharges/{id}")]
-        public async Task<IActionResult> UpdateCharges(int id, [FromBody] Models.Charges charges)
+        public async Task<IActionResult> UpdateCharges(int id, [FromBody] Models.XRS_Charges charges)
         {
             if (charges == null)
             {
@@ -106,7 +106,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("charges/search")]
-        public async Task<ActionResult<PagedResultDto<Charges>>> Get(
+        public async Task<ActionResult<PagedResultDto<XRS_Charges>>> Get(
            string? chargeName,
            string? PropertyName,
            int pageNumber = 1,

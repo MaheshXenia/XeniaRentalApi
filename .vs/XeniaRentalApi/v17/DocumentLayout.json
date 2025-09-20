@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\unitscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\properties\\ipropertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\properties\\ipropertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\iunitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\properties\\propertiesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\units\\unitrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,49 +26,62 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PropertiesController.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PropertiesController.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
+              "RelativeToolTip": "Controllers\\PropertiesController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T06:43:26.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IUnitRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\IUnitRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\IUnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\IUnitRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T06:39:28.123Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PropertiesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Properties\\PropertiesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\PropertiesRepository.cs",
-              "RelativeToolTip": "Repositories\\Properties\\PropertiesRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAABJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UnitRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Units\\UnitRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Units\\UnitRepository.cs",
+              "RelativeToolTip": "Repositories\\Units\\UnitRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwAYAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T04:56:47.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IPropertiesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\IPropertiesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Properties\\IPropertiesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\Properties\\IPropertiesRepository.cs",
-              "RelativeToolTip": "Repositories\\Properties\\IPropertiesRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T04:56:25.054Z",
+              "WhenOpened": "2025-09-20T06:36:29.451Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PropertiesController.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\PropertiesController.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\PropertiesController.cs",
-              "RelativeToolTip": "Controllers\\PropertiesController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAADsAAABMAAAAAAAAAA==",
+              "Title": "UnitsController.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\UnitsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UnitsController.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\UnitsController.cs",
+              "RelativeToolTip": "Controllers\\UnitsController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T04:55:31.575Z",
+              "WhenOpened": "2025-09-20T06:36:21.817Z",
               "EditorCaption": ""
             }
           ]

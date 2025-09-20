@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_UnitChargesMapping")]
-    public class UnitChargesMapping
+    public class XRS_UnitChargesMapping
     {
         [Key]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -34,13 +34,8 @@ namespace XeniaRentalApi.Models
         public string? ChargeType { get; set; }
 
 
-        [ForeignKey("chargeID")]
-        [JsonIgnore]
-        public virtual Charges? Charges { get; set; }
-
-        [ForeignKey("unitID")]
-        [JsonIgnore]
-        public virtual Units? Units { get; set; }
+        public virtual XRS_Units? Unit { get; set; }
+        public virtual XRS_Charges? Charges { get; set; }
 
 
     }
