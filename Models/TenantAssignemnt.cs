@@ -119,7 +119,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("unitID")]
         [JsonIgnore]
-        public virtual Units? Unit { get; set; }
+        public virtual XRS_Units? Unit { get; set; }
 
     }
 }

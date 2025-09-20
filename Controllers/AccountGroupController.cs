@@ -107,7 +107,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("accountGroups/search")]
-        public async Task<ActionResult<PagedResultDto<Units>>> Get(
+        public async Task<ActionResult<PagedResultDto<XRS_Units>>> Get(
             string? search,
             int pageNumber = 1,
             int pageSize = 10)

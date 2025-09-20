@@ -36,6 +36,6 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("unitID")]
         [JsonIgnore]
-        public virtual Units? Units { get; set; }
+        public virtual XRS_Units? Units { get; set; }
     }
 }
