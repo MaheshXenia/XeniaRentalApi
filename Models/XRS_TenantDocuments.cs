@@ -8,7 +8,7 @@ namespace XeniaRentalApi.Models
     /// 
     /// </summary>
     [Table("XRS_TenantDocuments")]
-    public class TenantDocuments
+    public class XRS_TenantDocuments
     {
         /// <summary>
         /// TenantDocId
@@ -52,7 +52,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("TenantID")]
         [JsonIgnore]
-        public virtual Tenant? Tenant { get; set; }
+        public virtual XRS_Tenant? Tenant { get; set; }
 
         [ForeignKey("DocTypeId")]
         [JsonIgnore]

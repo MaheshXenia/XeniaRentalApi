@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using Stripe;
 using System.Net;
+using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Product;
@@ -19,247 +20,239 @@ namespace XeniaRentalApi.Repositories.Tenant
             _ftp = ftpOptions.Value;
         }
 
-        public async Task<IEnumerable<Models.Tenant>> GetTenants()
+        public async Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId)
         {
             return await _context.Tenants
-                   .GroupJoin(_context.Properties,
-        t => t.propID,
-        p => p.PropID,
-        (t, props) => new { t, props })
-    .SelectMany(
-        tp => tp.props.DefaultIfEmpty(),
-        (tp, prop) => new { Tenant = tp.t, Property = prop }
-    )
-    .GroupJoin(_context.Units,
-        tp => tp.Tenant.unitID,
-        u => u.UnitId,
-        (tp, units) => new { tp.Tenant, tp.Property, units })
-    .SelectMany(
-        tpu => tpu.units.DefaultIfEmpty(),
-        (tpu, unit) => new { tpu.Tenant, tpu.Property, Unit = unit })
-                .Select(u => new Models.Tenant
+                .AsNoTracking()
+                .Where(t => t.companyID == companyId)
+                .Include(t => t.Properties) 
+                .Include(t => t.Units)     
+                .Select(t => new XRS_Tenant
                 {
-                    tenantID = u.Tenant.tenantID,
-                    tenantName = u.Tenant.tenantName,
-                    propID = u.Tenant.propID,
-                    companyID = u.Tenant.companyID,
-                    email = u.Tenant.email,
-                    PropName = u.Property != null ? u.Property.propertyName : null,
-                    UnitName = u.Unit != null ? u.Unit.UnitName: null,
-                    isActive = u.Tenant.isActive,
-                    address = u.Tenant.address,
-                    concessionper = u.Tenant.concessionper,
-                    emergencyContactNo = u.Tenant.emergencyContactNo,
-                    note = u.Tenant.note,
-                    unitID = u.Tenant.unitID,
-                    phoneNumber = u.Tenant.phoneNumber,
-
-                }).ToListAsync();
+                    tenantID = t.tenantID,
+                    tenantName = t.tenantName,
+                    propID = t.propID,
+                    companyID = t.companyID,
+                    unitID = t.unitID,
+                    phoneNumber = t.phoneNumber,
+                    email = t.email,
+                    emergencyContactNo = t.emergencyContactNo,
+                    concessionper = t.concessionper,
+                    note = t.note,
+                    address = t.address,
+                    isActive = t.isActive,
+                    PropName = t.Properties != null ? t.Properties.propertyName : null,
+                    UnitName = t.Units != null ? t.Units.UnitName : null
+                })
+                .ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<Models.Tenant>> GetTenantsByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId(int companyId,bool? status = null,string? search = null,int pageNumber = 1, int pageSize = 1)
         {
+            var query = _context.Tenants
+                .Include(t => t.Properties)
+                .Include(t => t.Units)
+                .Include(t => t.TenantDocuments)
+                    .ThenInclude(td => td.Documents)
+                .Where(t => t.companyID == companyId)
+                .AsNoTracking();
 
-            var query = _context.Tenants.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+            // Apply status filter
+            if (status.HasValue)
             {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
+                query = query.Where(t => t.isActive == status.Value);
+            }
+
+            // Apply search filter
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                string lowerSearch = search.ToLower();
+                query = query.Where(t =>
+                    t.tenantName.ToLower().Contains(lowerSearch) ||
+                    t.phoneNumber.ToLower().Contains(lowerSearch) ||
+                    t.email.ToLower().Contains(lowerSearch)
+                );
             }
 
             var totalRecords = await query.CountAsync();
 
             var items = await query
-             .GroupJoin(_context.Properties,
-        t => t.propID,
-        p => p.PropID,
-        (t, props) => new { t, props })
-    .SelectMany(
-        tp => tp.props.DefaultIfEmpty(),
-        (tp, prop) => new { Tenant = tp.t, Property = prop }
-    )
-    .GroupJoin(_context.Units,
-        tp => tp.Tenant.unitID,
-        u => u.UnitId,
-        (tp, units) => new { tp.Tenant, tp.Property, units })
-    .SelectMany(
-        tpu => tpu.units.DefaultIfEmpty(),
-        (tpu, unit) => new { tpu.Tenant, tpu.Property, Unit = unit })
+                .OrderBy(t => t.tenantName)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(t => new TenantGetDto
+                {
+                    Tenant = new XRS_Tenant
+                    {
+                        tenantID = t.tenantID,
+                        tenantName = t.tenantName,
+                        companyID = t.companyID,
+                        propID = t.propID,
+                        unitID = t.unitID,
+                        email = t.email,
+                        phoneNumber = t.phoneNumber,
+                        emergencyContactNo = t.emergencyContactNo,
+                        address = t.address,
+                        note = t.note,
+                        concessionper = t.concessionper,
+                        isActive = t.isActive,
+                        PropName = t.Properties != null ? t.Properties.propertyName : null,
+                        UnitName = t.Units != null ? t.Units.UnitName : null
+                    },
+                    Documents = t.TenantDocuments
+                        .Select(td => new TenantDocumentDto
+                        {
+                            TenantID = td.TenantID,
+                            DocTypeId = td.DocTypeId,
+                            CompanyID = td.CompanyID,
+                            DocumentsNo = td.DocumentsNo,
+                            DocumentUrl = td.Documenturl,
+                            IsActive = td.isActive,
+                            DocumentName = td.Documents.docName,
+                            IsAlphaNumeric = td.Documents.isAlphanumeric,
+                            IsMandatory = td.Documents.isMandatory,
+                            IsExpiry = td.Documents.isExpiry,
+                            DocPurpose = td.Documents.docPurpose,
+                            ExpiryDate = td.Documents.ExpiryDate
+                        })
+                        .ToList()
+                })
+                .ToListAsync();
 
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-    .Select(x => new Models.Tenant
-    {
-        tenantID = x.Tenant.tenantID,
-        tenantName = x.Tenant.tenantName,
-        propID = x.Tenant.propID,
-        companyID = x.Tenant.companyID,
-        email = x.Tenant.email,
-        PropName = x.Property != null ? x.Property.propertyName : null,
-        UnitName = x.Unit!= null? x.Unit.UnitName: null,
-        isActive = x.Tenant.isActive,
-        address = x.Tenant.address,
-        concessionper = x.Tenant.concessionper,
-        emergencyContactNo = x.Tenant.emergencyContactNo,
-        note = x.Tenant.note,
-        unitID = x.Tenant.unitID,
-        phoneNumber = x.Tenant.phoneNumber,
-    })
-    .ToListAsync();
-
-            return new PagedResultDto<Models.Tenant>
+            return new PagedResultDto<TenantGetDto>
             {
                 Data = items,
                 PageNumber = pageNumber,
                 PageSize = pageSize,
                 TotalRecords = totalRecords
             };
-
         }
 
-        public async Task<TenantDocumentGetDTO> GetTenantsbyId(int tenantId)
+        public async Task<TenantGetDto> GetTenantWithDocumentsById(int tenantId)
         {
-
-            var tenant =  await _context.Tenants.Where(u => u.tenantID == tenantId)
-                  .GroupJoin(_context.Properties,
-        t => t.propID,
-        p => p.PropID,
-        (t, props) => new { t, props })
-    .SelectMany(
-        tp => tp.props.DefaultIfEmpty(),
-        (tp, prop) => new { Tenant = tp.t, Property = prop }
-    )
-    .GroupJoin(_context.Units,
-        tp => tp.Tenant.unitID,
-        u => u.UnitId,
-        (tp, units) => new { tp.Tenant, tp.Property, units })
-    .SelectMany(
-        tpu => tpu.units.DefaultIfEmpty(),
-        (tpu, unit) => new { tpu.Tenant, tpu.Property, Unit = unit })
-                 .Select(u => new Models.Tenant
-                 {
-                     tenantID = u.Tenant.tenantID,
-                     tenantName = u.Tenant.tenantName,
-                     propID = u.Tenant.propID,
-                     companyID = u.Tenant.companyID,
-                     email = u.Tenant.email,
-                     PropName = u.Property != null ? u.Property.propertyName : null,
-                     UnitName = u.Unit != null ? u.Unit.UnitName : null,
-                     isActive = u.Tenant.isActive,
-                     address = u.Tenant.address,
-                     concessionper = u.Tenant.concessionper,
-                     emergencyContactNo = u.Tenant.emergencyContactNo,
-                     note = u.Tenant.note,
-                     unitID = u.Tenant.unitID,
-                     phoneNumber = u.Tenant.phoneNumber,
-                     
-                 }).FirstOrDefaultAsync();
+            var tenant = await _context.Tenants
+                .Include(t => t.Properties)
+                .Include(t => t.Units)
+                .Where(t => t.tenantID == tenantId)
+                .FirstOrDefaultAsync();
 
             if (tenant == null)
             {
-                return new TenantDocumentGetDTO
+                return new TenantGetDto
                 {
                     Tenant = null,
-                    Documents = new List<Models.TenantDocuments>()
+                    Documents = new List<TenantDocumentDto>()
                 };
             }
 
-
-            var assignmentDocs = await _context.TenantDocuments
-                .Where(u => u.TenantID == tenant.tenantID)
-                .Include(u => u.Documents)
-                .Select(u => new Models.TenantDocuments
+            var documents = await _context.TenantDocuments
+                .Include(td => td.Documents)
+                .Where(td => td.TenantID == tenantId)
+                .Select(td => new TenantDocumentDto
                 {
-                    TenantID = u.TenantID,
-                    DocTypeId = u.DocTypeId,
-                    DocumentsNo = u.DocumentsNo,
-                    Documenturl = u.Documenturl,
-                    isActive = u.isActive,
-                    CompanyID = u.CompanyID,
-                    DocumentName = u.Documents.docName,
-                    IsAlphaNumeric = u.Documents.isAlphanumeric,
-                    IsMandatory = u.Documents.isMandatory,
-                   IsExpiry = u.Documents.isExpiry,
-                   DocPurpose = u.Documents.docPurpose,
-                   ExpiryDate = u.Documents.ExpiryDate
+                    TenantID = td.TenantID,
+                    DocTypeId = td.DocTypeId,
+                    CompanyID = td.CompanyID,
+                    DocumentsNo = td.DocumentsNo,
+                    DocumentUrl = td.Documenturl,
+                    IsActive = td.isActive,
+                    DocumentName = td.Documents.docName,
+                    IsAlphaNumeric = td.Documents.isAlphanumeric,
+                    IsMandatory = td.Documents.isMandatory,
+                    IsExpiry = td.Documents.isExpiry,
+                    DocPurpose = td.Documents.docPurpose,
+                    ExpiryDate = td.Documents.ExpiryDate
+                }).ToListAsync();
 
-                })
-                .ToListAsync();
-
-
-            TenantDocumentGetDTO dtotenantDocs = new TenantDocumentGetDTO();
-            dtotenantDocs.Tenant = tenant;
-            dtotenantDocs.Documents = assignmentDocs.Where(u =>u.DocPurpose == "Tenant").ToList();
-
-            return dtotenantDocs;
-
+            return new TenantGetDto
+            {
+                Tenant = tenant,
+                Documents = documents
+            };
         }
 
-        public async Task<Models.Tenant> CreateTenant(DTOs.CreateTenant dtoTenant)
+        public async Task<XRS_Tenant> CreateTenant(TenantCreateDto tenantDto)
         {
-            var tenant = new  Models.Tenant
+            var tenant = new XRS_Tenant
             {
-                unitID = dtoTenant.unitID,
-                propID = dtoTenant.propID,
-                companyID = dtoTenant.companyID,
-                tenantName = dtoTenant.tenantName,
-                phoneNumber = dtoTenant.phoneNumber,
-                email = dtoTenant.email,
-                emergencyContactNo = dtoTenant.emergencyContactNo,
-                concessionper = dtoTenant.concessionper,
-                note = dtoTenant.note,
-                address = dtoTenant.address,
-                isActive = dtoTenant.isActive,
+                tenantName = tenantDto.tenantName,
+                unitID = tenantDto.unitID,
+                propID = tenantDto.propID,
+                companyID = tenantDto.companyID,
+                phoneNumber = tenantDto.phoneNumber,
+                email = tenantDto.email,
+                emergencyContactNo = tenantDto.emergencyContactNo,
+                concessionper = tenantDto.concessionper,
+                note = tenantDto.note,
+                address = tenantDto.address,
+                isActive = tenantDto.isActive,
             };
+
+            if (tenantDto.TenantDocuments != null && tenantDto.TenantDocuments.Any())
+            {
+                tenant.TenantDocuments = tenantDto.TenantDocuments.Select(td => new XRS_TenantDocuments
+                {
+                    DocTypeId = td.docTypeId,
+                    DocumentsNo = td.documentsNo,
+                    Documenturl = td.documenturl,
+                    isActive = td.isActive,
+                    CompanyID = tenantDto.companyID
+                }).ToList();
+            }
 
             await _context.Tenants.AddAsync(tenant);
             await _context.SaveChangesAsync();
             return tenant;
-
         }
 
-        public async Task<Models.Tenant> AddTenantWithDocumentsAsync(TenantWithDocumentsDto dto)
+        public async Task<bool> UpdateTenant(int tenantId, TenantCreateDto tenantDto)
         {
-            var tenant = new Models.Tenant
+            var tenant = await _context.Tenants
+                .Include(t => t.TenantDocuments)
+                .FirstOrDefaultAsync(t => t.tenantID == tenantId);
+
+            if (tenant == null) return false;
+
+            tenant.tenantName = tenantDto.tenantName;
+            tenant.unitID = tenantDto.unitID;
+            tenant.propID = tenantDto.propID;
+            tenant.companyID = tenantDto.companyID;
+            tenant.phoneNumber = tenantDto.phoneNumber;
+            tenant.email = tenantDto.email;
+            tenant.emergencyContactNo = tenantDto.emergencyContactNo;
+            tenant.concessionper = tenantDto.concessionper;
+            tenant.note = tenantDto.note;
+            tenant.address = tenantDto.address;
+            tenant.isActive = tenantDto.isActive;
+
+            if (tenantDto.TenantDocuments != null)
             {
-                unitID = dto.Tenant.unitID,
-                propID = dto.Tenant.propID,
-                companyID = dto.Tenant.companyID,
-                tenantName = dto.Tenant.tenantName,
-                phoneNumber = dto.Tenant.phoneNumber,
-                email = dto.Tenant.email,
-                emergencyContactNo = dto.Tenant.emergencyContactNo,
-                concessionper = dto.Tenant.concessionper,
-                note = dto.Tenant.note,
-                address = dto.Tenant.address,
-                isActive = dto.Tenant.isActive
-
-            };
-
-            _context.Tenants.Add(tenant);
-            await _context.SaveChangesAsync(); // Get TenantId
-
-            foreach (var doc in dto.Documents)
-            {
-                
-                var tenantdoc = new Models.TenantDocuments
+                foreach (var tdDto in tenantDto.TenantDocuments)
                 {
-                    CompanyID = doc.CompanyID,
-                    DocumentsNo = doc.DocumentsNo,
-                    TenantID = tenant.tenantID,
-                    DocTypeId = doc.DocTypeId,
-                    Documenturl = doc.Documenturl,
-                    isActive = doc.isActive
-
-                };
-
-                 _context.TenantDocuments.Add(tenantdoc);
-                await _context.SaveChangesAsync();
-
+                    var existingDoc = tenant.TenantDocuments.FirstOrDefault(d => d.DocTypeId == tdDto.docTypeId);
+                    if (existingDoc != null)
+                    {
+                        existingDoc.DocumentsNo = tdDto.documentsNo;
+                        existingDoc.Documenturl = tdDto.documenturl;
+                        existingDoc.isActive = tdDto.isActive;
+                    }
+                    else
+                    {
+                        tenant.TenantDocuments.Add(new XRS_TenantDocuments
+                        {
+                            DocTypeId = tdDto.docTypeId,
+                            DocumentsNo = tdDto.documentsNo,
+                            Documenturl = tdDto.documenturl,
+                            isActive = tdDto.isActive,
+                            CompanyID = tenantDto.companyID,
+                            TenantID = tenantId
+                        });
+                    }
+                }
             }
 
-            return tenant;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Dictionary<string, string>> UploadFilesAsync(List<IFormFile> files)
@@ -309,130 +302,8 @@ namespace XeniaRentalApi.Repositories.Tenant
             var tenants = await _context.Tenants.FirstOrDefaultAsync(u => u.tenantID == id);
             if (tenants == null) return false;
             tenants.isActive = false;
-            //. = DateTime.UtcNow;
             await _context.SaveChangesAsync();
             return true;
-        }
-
-        public async Task<bool> UpDateTenant(int id, Models.Tenant tenant)
-        {
-            var updateTenant = await _context.Tenants.FirstOrDefaultAsync(u => u.tenantID == id);
-            if (updateTenant == null) return false;
-
-            updateTenant.tenantName = tenant.tenantName;
-            updateTenant.companyID = tenant.companyID;
-            updateTenant.email = tenant.email;
-            updateTenant.address = tenant.address;
-            updateTenant.unitID = tenant.unitID;
-            updateTenant.concessionper = tenant.concessionper;
-            updateTenant.phoneNumber = tenant.phoneNumber;
-            updateTenant.propID = tenant.propID;
-            updateTenant.emergencyContactNo = tenant.emergencyContactNo;
-            updateTenant.note = tenant.note;
-            updateTenant.isActive = tenant.isActive;
-
-
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> UpDateTenantDocuments(DTOs.TenantDocumentDTO documentDTO)
-        {
-            var updateTenant = await _context.Tenants
-       .FirstOrDefaultAsync(t => t.tenantID == documentDTO.Tenant.tenantID);
-
-            if (updateTenant == null) return false;
-
-            updateTenant.tenantName = documentDTO.Tenant.tenantName;
-            updateTenant.companyID = documentDTO.Tenant.companyID;
-            updateTenant.email = documentDTO.Tenant.email;
-            updateTenant.address = documentDTO.Tenant.address;
-            updateTenant.unitID = documentDTO.Tenant.unitID;
-            updateTenant.concessionper = documentDTO.Tenant.concessionper;
-            updateTenant.phoneNumber = documentDTO.Tenant.phoneNumber;
-            updateTenant.propID = documentDTO.Tenant.propID;
-            updateTenant.emergencyContactNo = documentDTO.Tenant.emergencyContactNo;
-            updateTenant.note = documentDTO.Tenant.note;
-            updateTenant.isActive = documentDTO.Tenant.isActive;
-            await _context.SaveChangesAsync();
-
-            foreach (var docDto in documentDTO.Documents)
-            {
-                if (docDto.tenantDocId > 0)
-                {
-                    // Update existing document
-                    var existingDoc = await _context.TenantDocuments
-                        .Where(d => d.TenantDocId == docDto.tenantDocId).FirstOrDefaultAsync();
-
-                    if (existingDoc != null)
-                    {
-                        existingDoc.Documenturl = docDto.Documenturl;
-                        existingDoc.DocumentsNo = docDto.DocumentsNo;
-                        existingDoc.DocTypeId = docDto.DocTypeId;
-                        existingDoc.isActive = docDto.isActive;
-                        existingDoc.CompanyID = docDto.CompanyID;
-                        // ... other fields
-                    }
-
-                    await _context.SaveChangesAsync();
-                }
-                else
-                {
-                    // Insert new document
-                    var tenantdoc = new Models.TenantDocuments
-                    {
-                        CompanyID = docDto.CompanyID,
-                        DocumentsNo = docDto.DocumentsNo,
-                        TenantID = updateTenant.tenantID,
-                        DocTypeId = docDto.DocTypeId,
-                        Documenturl = docDto.Documenturl,
-                        isActive = docDto.isActive
-
-                    };
-
-                    _context.TenantDocuments.Add(tenantdoc);
-                    await _context.SaveChangesAsync();
-                }
-            }
-
-            
-            return true;
-        }
-
-        public async Task<PagedResultDto<Models.Tenant>> GetTenantAsync(string? search, int pageNumber, int pageSize)
-        {
-            var query = _context.Tenants.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.tenantName.Contains(search)); // Adjust property as needed
-
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.Tenant
-                {
-                    tenantName = u.tenantName,
-                    email = u.email,
-                    emergencyContactNo=u.emergencyContactNo,
-                    isActive = u.isActive,
-                    
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.Tenant>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
         }
 
         

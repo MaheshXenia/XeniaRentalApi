@@ -273,14 +273,14 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 return new TenantAssignmentDocumentGetDTO
                 {
                     Tenant = null,
-                    Documents = new List<Models.TenantDocuments>()
+                    Documents = new List<Models.XRS_TenantDocuments>()
                 };
             }
 
             var assignmentDocs = await _context.TenantDocuments
                .Where(u => u.TenantID == assignment.tenantID)
                .Include(u => u.Documents)
-               .Select(u => new Models.TenantDocuments
+               .Select(u => new Models.XRS_TenantDocuments
                {
                    TenantID = u.TenantID,
                    DocTypeId = u.DocTypeId,
@@ -393,7 +393,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 else
                 {
                     // Insert new document
-                    var tenantdoc = new Models.TenantDocuments
+                    var tenantdoc = new Models.XRS_TenantDocuments
                     {
                         CompanyID = docDto.CompanyID,
                         DocumentsNo = docDto.DocumentsNo,
@@ -510,7 +510,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             foreach (var doc in dto.Documents)
             {
 
-                var tenantdoc = new Models.TenantDocuments
+                var tenantdoc = new Models.XRS_TenantDocuments
                 {
                     CompanyID = doc.CompanyID,
                     DocumentsNo = doc.DocumentsNo,

@@ -46,7 +46,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("tenantID")]
         [JsonIgnore]
-        public virtual Tenant? Tenant { get; set; }
+        public virtual XRS_Tenant? Tenant { get; set; }
 
         [ForeignKey("messID")]
         [JsonIgnore]

@@ -683,197 +683,6 @@
     ]
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "CreateBedSpaceAssignemnt",
-    "RelativePath": "api/BedSpacsAssignement",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "assignment",
-        "Type": "XeniaRentalApi.DTOs.BedSpaceAssignment",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "GetBedSpaceAssigmentByID",
-    "RelativePath": "api/BedSpacsAssignement/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.BedSpaceAssignemnt",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "DeleteBranch",
-    "RelativePath": "api/BedSpacsAssignement/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "Get",
-    "RelativePath": "api/BedSpacsAssignement/all/bedspaceassignments",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.BedSpaceAssignemnt, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "Get",
-    "RelativePath": "api/BedSpacsAssignement/bedspaceassignment/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "propertyName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "unitName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "tenantName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "contactNo",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.BedSpaceAssignemnt, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "GetBedSpaceAssignemntsByCompanyId",
-    "RelativePath": "api/BedSpacsAssignement/bedspaceassignments/{companyId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "srch",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.BedSpaceAssignemnt, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacsAssignement",
-    "Method": "UpdateBedSpaceAssignment",
-    "RelativePath": "api/BedSpacsAssignement/UpdateBedSpaceAssignment/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "assignemnt",
-        "Type": "XeniaRentalApi.Models.BedSpaceAssignemnt",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "CategoryController",
     "Method": "CreateCategories",
     "RelativePath": "api/Category",
@@ -2033,15 +1842,15 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "CreateTenants",
+    "Method": "Create",
     "RelativePath": "api/Tenant",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "tenant",
-        "Type": "XeniaRentalApi.DTOs.CreateTenant",
+        "Name": "dto",
+        "Type": "XeniaRentalApi.Dtos.TenantCreateDto",
         "IsRequired": true
       }
     ],
@@ -2049,7 +1858,7 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "GetTenantById",
+    "Method": "GetById",
     "RelativePath": "api/Tenant/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -2061,21 +1870,32 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.TenantDocumentGetDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "DeleteTenant",
+    "Method": "Update",
+    "RelativePath": "api/Tenant/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "XeniaRentalApi.Dtos.TenantCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
+    "Method": "Delete",
     "RelativePath": "api/Tenant/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -2092,14 +1912,20 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
     "Method": "Get",
-    "RelativePath": "api/Tenant/all/tenants",
+    "RelativePath": "api/Tenant/all/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Tenant, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Tenant, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2111,44 +1937,22 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "CreateTenantWithDocument",
-    "RelativePath": "api/Tenant/create-tenant-document",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "XeniaRentalApi.DTOs.TenantWithDocumentsDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "UploadTenantimages",
-    "RelativePath": "api/Tenant/images",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "files",
-        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "Get",
-    "RelativePath": "api/Tenant/Tenant/search",
+    "Method": "GetByCompany",
+    "RelativePath": "api/Tenant/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
       {
         "Name": "search",
         "Type": "System.String",
@@ -2165,87 +1969,20 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Tenant, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "GetTenantsByCompanyId",
-    "RelativePath": "api/Tenant/tenants/{companyId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Tenant, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "UpdateTenant",
-    "RelativePath": "api/Tenant/UpdateTenant/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "tenant",
-        "Type": "XeniaRentalApi.Models.Tenant",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "UpdateTenantDocuments",
-    "RelativePath": "api/Tenant/UpdateTenantDocuments",
-    "HttpMethod": "PUT",
+    "Method": "UploadFiles",
+    "RelativePath": "api/Tenant/UploadFiles",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "documents",
-        "Type": "XeniaRentalApi.DTOs.TenantDocumentDTO",
-        "IsRequired": true
+        "Name": "files",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

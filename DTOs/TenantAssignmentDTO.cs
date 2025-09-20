@@ -98,7 +98,7 @@ namespace XeniaRentalApi.DTOs
 
         [ForeignKey("tenantID")]
         [JsonIgnore]
-        public virtual Tenant? Tenant { get; set; }
+        public virtual XRS_Tenant? Tenant { get; set; }
 
         [ForeignKey("unitID")]
         [JsonIgnore]

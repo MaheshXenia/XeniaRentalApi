@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Account;
@@ -23,10 +24,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/tenants")]
-        public async Task<ActionResult<IEnumerable<Tenant>>> Get()
+        [HttpGet("all/{companyId}")]
+        public async Task<ActionResult<IEnumerable<XRS_Tenant>>> Get(int companyId)
         {
-            var tenants = await _tenantRepository.GetTenants();
+            var tenants = await _tenantRepository.GetTenants(companyId);
             if (tenants == null || !tenants.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No tenants  found." });
@@ -34,130 +35,63 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = tenants });
         }
 
-        // GET api/<AccountGroupController>/5
-        [HttpGet("tenants/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Tenant>>> GetTenantsByCompanyId(int companyId, int pageNumber = 1, int pageSize = 10)
+        [HttpGet("company/{companyId}")]
+        public async Task<IActionResult> GetByCompany(int companyId, [FromQuery] bool? status, [FromQuery] string? search, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-
-            var tenants = await _tenantRepository.GetTenantsByCompanyId(companyId,pageNumber,pageSize);
-            if (tenants == null)
-            {
-                return NotFound(new { Status = "Error", Message = "No tenants found the given Company ID." });
-            }
-            return Ok(new { Status = "Success", Data = tenants });
+            var tenants = await _tenantRepository.GetTenantsByCompanyId(companyId, status, search, pageNumber, pageSize);
+            return Ok(tenants);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var tenant = await _tenantRepository.GetTenantWithDocumentsById(id);
+            if (tenant.Tenant == null)
+                return NotFound();
+            return Ok(tenant);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTenants([FromBody] DTOs.CreateTenant tenant)
+        public async Task<IActionResult> Create([FromBody] TenantCreateDto dto)
         {
-            if (tenant == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid tenant." });
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var createdTenant = await _tenantRepository.CreateTenant(tenant);
-            return CreatedAtAction(nameof(GetTenantById), new { id = createdTenant }, new { Status = "Success", Data = createdTenant });
+            var createdTenant = await _tenantRepository.CreateTenant(dto);
+            return CreatedAtAction(nameof(GetById), new { tenantId = createdTenant.tenantID }, createdTenant);
         }
 
-        [HttpPost("create-tenant-document")]
-        public async Task<IActionResult> CreateTenantWithDocument([FromBody] TenantWithDocumentsDto dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] TenantCreateDto dto)
         {
-            if (dto == null || dto.Tenant == null || dto.Documents == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid tenant." });
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var createdTenant = await _tenantRepository.AddTenantWithDocumentsAsync(dto);
-            return CreatedAtAction(nameof(GetTenantById), new { id = createdTenant }, new { Status = "Success", Data = createdTenant });
+            var result = await _tenantRepository.UpdateTenant(id, dto);
+            if (!result)
+                return NotFound();
 
+            return NoContent();
         }
 
-
-        //[Authorize(Roles = "Admin,SuperAdmin")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<DTOs.TenantDocumentGetDTO>> GetTenantById(int id)
-        {
-            var response = await _tenantRepository.GetTenantsbyId(id);
-            if (response.Tenant == null)
-            {
-                return NotFound(new { Status = "Error", Message = "Tenant not found." });
-            }
-            return Ok(new { Status = "Success", Data = response });
-        }
-
-
-
-        [HttpPut("UpdateTenant/{id}")]
-        public async Task<IActionResult> UpdateTenant(int id, [FromBody] Models.Tenant tenant)  
-        {
-            if (tenant == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid tenant data" });
-            }
-
-            var updated = await _tenantRepository.UpDateTenant(id, tenant);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "tenant not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Tenant updated successfully." });
-        }
-
-        [HttpPut("UpdateTenantDocuments")]
-        public async Task<IActionResult> UpdateTenantDocuments([FromBody] DTOs.TenantDocumentDTO documents)
-        {
-            if (documents == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid tenant data" });
-            }
-
-            var updated = await _tenantRepository.UpDateTenantDocuments(documents);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "tenant not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Tenant updated successfully." });
-        }
-
-        // DELETE api/<AccountGroupController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTenant(int id)
-        {
-            var deleted = await _tenantRepository.DeleteTenant(id);
-            if (!deleted)
-            {
-                return NotFound(new { Status = "Error", Message = "Tenant not found or delete failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Tenant deleted successfully." });
-        }
-
-        //[Authorize]
-        [HttpPost("images")]
-        [RequestSizeLimit(10_000_000)]
-        public async Task<IActionResult> UploadTenantimages([FromForm] List<IFormFile> files)
+        [HttpPost("UploadFiles")]
+        public async Task<IActionResult> UploadFiles([FromForm] List<IFormFile> files)
         {
             if (files == null || files.Count == 0)
-            {
-                return BadRequest("No files selected.");
-            }
+                return BadRequest("No files uploaded.");
 
-            var result = await _tenantRepository.UploadFilesAsync(files);
-
-            return Ok(result);
+            var uploaded = await _tenantRepository.UploadFilesAsync(files);
+            return Ok(uploaded);
         }
 
-        [HttpGet("Tenant/search")]
-        public async Task<ActionResult<PagedResultDto<Tenant>>> Get(
-          string? search,
-          int pageNumber = 1,
-          int pageSize = 10)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await _tenantRepository.GetTenantAsync(search, pageNumber, pageSize);
-            return Ok(result);
+            var result = await _tenantRepository.DeleteTenant(id);
+            if (!result)
+                return NotFound();
+
+            return NoContent();
         }
     }
 }

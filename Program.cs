@@ -11,7 +11,6 @@ using XeniaRentalApi.Repositories.UserRole;
 using XeniaRentalApi.Repositories.AccountGroups;
 using XeniaRentalApi.Repositories.Auth;
 using XeniaRentalApi.Repositories.BedSpace;
-using XeniaRentalApi.Repositories.BedSpaceAssignemnt;
 using XeniaRentalApi.Repositories.BedSpacePlan;
 using XeniaRentalApi.Repositories.Charges;
 using XeniaRentalApi.Repositories.Company;
@@ -22,13 +21,10 @@ using XeniaRentalApi.Repositories.MessTypes;
 using XeniaRentalApi.Repositories.Properties;
 using XeniaRentalApi.Repositories.Tenant;
 using XeniaRentalApi.Repositories.TenantAssignment;
-using XeniaRentalApi.Repositories.TenantDocuments;
 using XeniaRentalApi.Repositories.Units;
 using XeniaRentalApi.Repositories.Voucher;
 using XeniaRentalApi.Service.Common;
 using XeniaRentalApi.Service.Notification;
-using XeniaRentalApi.Service.Payment;
-using XeniaRentalApi.Service.Socket;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Product;
 using XeniaRentalApi.Repositories.Account;
@@ -102,15 +98,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         builder =>
         {
-            builder.WithOrigins(
-                       "https://demo.xeniacatalogue.info",
-                       "https://betademo.xeniacatalogue.info",
-                       "https://demoweb.xeniacatalogue.info",
-                       "https://mathaweb.xeniacatalogue.info",
-                       "https://dashboard.xeniacatalogue.info",
-                       "https://cartinomart.com",
-                       "https://tastebuds.indiantastebuds.co.uk",
-                       "https://indiantastebuds.co.uk",
+            builder.WithOrigins(                    
                        "https://rental.xeniapos.com"
                    )
                    .AllowAnyHeader()
@@ -135,7 +123,6 @@ builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IBedSpaceRepository, BedSpaceRepository>();
-builder.Services.AddScoped<IBedSpaceAssignmentRepository,BedSpaceAssigmentRepository>();
 builder.Services.AddScoped<IBedSpacePlanRepository, BedSpacePlanRepository>();
 builder.Services.AddScoped<IChargesRepository, ChargesRepository>();
 builder.Services.AddScoped<ICompanyRepsitory, CompanyRepository>();
@@ -146,7 +133,6 @@ builder.Services.AddScoped<IMessTypes, XeniaRentalApi.Repositories.MessTypes.Mes
 builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 builder.Services.AddScoped<ITenantAssignmentRepository, TenantAssignmentRepository>();
-builder.Services.AddScoped<ITenantDocumentRepository, TenantDocumentRepository>();
 builder.Services.AddScoped<IUnitRepository, UnitRepository>();
 builder.Services.AddScoped<IVoucherRepository,VoucherRrepository>();
 builder.Services.AddScoped<INotificationService, OTPService>();
@@ -224,7 +210,6 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("AllowAnonymous", policy => policy.RequireAssertion(_ => true));
 });
 
-StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
 var app = builder.Build();
 
@@ -244,13 +229,6 @@ app.UseCors("AllowSpecificOrigin");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseWebSockets(new WebSocketOptions
-{
-    KeepAliveInterval = TimeSpan.FromSeconds(120),
-    AllowedOrigins = { "*" }
-});
-
-app.MapHub<CatalogueHub>("/catalogueHub");
 
 app.MapControllers();
 app.MapFallbackToFile("index.html");

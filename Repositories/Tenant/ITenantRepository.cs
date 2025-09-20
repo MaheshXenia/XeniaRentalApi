@@ -1,27 +1,18 @@
-﻿using XeniaRentalApi.DTOs;
+﻿using XeniaRentalApi.Dtos;
+using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Tenant
 {
     public interface ITenantRepository
     {
-        Task<IEnumerable<Models.Tenant>> GetTenants();
-        Task<PagedResultDto<Models.Tenant>> GetTenantsByCompanyId(int companyId, int pageNumber, int pageSize);
-
-        Task<Models.Tenant> CreateTenant(XeniaRentalApi.DTOs.CreateTenant tenant);
-
-        Task<TenantDocumentGetDTO> GetTenantsbyId(int tenantId);
-
-        Task<bool> DeleteTenant(int id);
-
-        Task<bool> UpDateTenant(int id, Models.Tenant tenant);
-
-        Task<PagedResultDto<Models.Tenant>> GetTenantAsync(string? search, int pageNumber, int pageSize);
-
+        Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId);
+        Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId(int companyId, bool? status = null, string? search = null, int pageNumber = 1, int pageSize = 10);
+        Task<TenantGetDto> GetTenantWithDocumentsById(int tenantId);
+        Task<XRS_Tenant> CreateTenant(TenantCreateDto tenantDto);
+        Task<bool> UpdateTenant(int tenantId, TenantCreateDto tenantDto);
         Task<Dictionary<string, string>> UploadFilesAsync(List<IFormFile> files);
-
-        Task<Models.Tenant> AddTenantWithDocumentsAsync(TenantWithDocumentsDto dto);
-
-        Task<bool> UpDateTenantDocuments(DTOs.TenantDocumentDTO documentDTO);
+        Task<bool> DeleteTenant(int id);
 
 
 
