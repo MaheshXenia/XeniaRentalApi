@@ -1125,7 +1125,7 @@
     "Parameters": [
       {
         "Name": "charges",
-        "Type": "XeniaRentalApi.DTOs.CreateCharges",
+        "Type": "XeniaRentalApi.DTOs.ChargesDto",
         "IsRequired": true
       }
     ],
@@ -1176,14 +1176,14 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.ChargesController",
     "Method": "Get",
-    "RelativePath": "api/Charges/all/charges",
+    "RelativePath": "api/Charges/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Charges, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.DTOs.ChargesDto, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

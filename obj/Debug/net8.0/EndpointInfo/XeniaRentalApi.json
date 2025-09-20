@@ -1895,7 +1895,7 @@
         }
       }
     },
-    "/api/Charges/all/charges": {
+    "/api/Charges/all": {
       "get": {
         "tags": [
           "Charges"
@@ -1908,7 +1908,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Charges"
+                    "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
                   }
                 }
               },
@@ -1916,7 +1916,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Charges"
+                    "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
                   }
                 }
               },
@@ -1924,7 +1924,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Charges"
+                    "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
                   }
                 }
               }
@@ -2000,17 +2000,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCharges"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCharges"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateCharges"
+                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.ChargesDto"
               }
             }
           }
@@ -9751,6 +9751,42 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.DTOs.ChargesDto": {
+        "type": "object",
+        "properties": {
+          "chargeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chargeName": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chargeAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "isVariable": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "PropName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.DTOs.CreateBedSpace": {
         "type": "object",
         "properties": {
@@ -9853,34 +9889,6 @@
             "nullable": true
           },
           "IsActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.DTOs.CreateCharges": {
-        "type": "object",
-        "properties": {
-          "PropID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "chargeName": {
-            "type": "string",
-            "nullable": true
-          },
-          "chargeAmt": {
-            "type": "number",
-            "format": "double"
-          },
-          "isVariable": {
-            "type": "boolean"
-          },
-          "isActive": {
             "type": "boolean"
           }
         },
@@ -11565,13 +11573,6 @@
           },
           "Property": {
             "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Properties"
-          },
-          "UnitCharges": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_UnitChargesMapping"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false

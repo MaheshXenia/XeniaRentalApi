@@ -4,10 +4,10 @@ namespace XeniaRentalApi.Repositories.Charges
 {
     public interface IChargesRepository
     {
-        Task<IEnumerable<Models.XRS_Charges>> GetCharges();
+        Task<IEnumerable<ChargesDto>> GetCharges();
         Task<PagedResultDto<Models.XRS_Charges>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize);
 
-        Task<Models.XRS_Charges> CreateCharges(DTOs.CreateCharges charges);
+        Task<Models.XRS_Charges> CreateCharges(DTOs.ChargesDto charges);
 
         Task<bool> DeleteCharges(int id);
 

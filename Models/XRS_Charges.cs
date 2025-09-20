@@ -24,8 +24,6 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey(nameof(PropID))]
         public virtual XRS_Properties? Property { get; set; }
-
-        public virtual ICollection<XRS_UnitChargesMapping>? UnitCharges { get; set; }
     }
 
 }

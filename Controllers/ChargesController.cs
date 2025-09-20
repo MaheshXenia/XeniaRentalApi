@@ -23,8 +23,8 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/charges")]
-        public async Task<ActionResult<IEnumerable<XRS_Charges>>> Get()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<ChargesDto>>> Get()
         {
             var charges = await _chargesRepository.GetCharges();
             if (charges == null || !charges.Any())
@@ -34,7 +34,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = charges });
         }
 
-        // GET api/<AccountGroupController>/5
+
         [HttpGet("charges/{companyId}")]
         public async Task<ActionResult<PagedResultDto<XRS_Charges>>> GetChargesByCompanyId(int companyId, int pageNumber = 1,
             int pageSize = 10)
@@ -50,7 +50,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateCharges([FromBody] DTOs.CreateCharges charges)
+        public async Task<IActionResult> CreateCharges([FromBody] DTOs.ChargesDto charges)
         {
             if (charges == null)
             {

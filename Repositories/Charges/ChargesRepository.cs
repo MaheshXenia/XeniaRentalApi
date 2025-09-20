@@ -13,32 +13,23 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<IEnumerable<Models.XRS_Charges>> GetCharges()
+        public async Task<IEnumerable<ChargesDto>> GetCharges()
         {
-
             return await _context.Charges
-                .GroupJoin(
-                 _context.Properties,
-                 charges => charges.PropID,
-                prop => prop.PropID,
-                (charges, props) => new { charges, prop = props.FirstOrDefault() }
-                )
-                .Select(u => new Models.XRS_Charges
+                .AsNoTracking()
+                .Select(c => new ChargesDto
                 {
-                    chargeID = u.charges.chargeID,
-                    chargeName = u.charges.chargeName,
-                    PropID = u.charges.PropID,
-                    companyID = u.charges.companyID,
-                    chargeAmt = u.charges.chargeAmt,
-                   // PropName = u.prop != null ? u.prop.propertyName : null,
-                   isActive = u.charges.isActive,
-                   isVariable = u.charges.isVariable,
-
-                }).ToListAsync();
-
-
+                    chargeID = c.chargeID,
+                    chargeName = c.chargeName,
+                    PropID = c.PropID,
+                    companyID = c.companyID,
+                    chargeAmt = c.chargeAmt,
+                    isVariable = c.isVariable,
+                    isActive = c.isActive,
+                    PropName = c.Property != null ? c.Property.propertyName : null
+                })
+                .ToListAsync();
         }
-
 
         public async Task<PagedResultDto<Models.XRS_Charges>> GetChargesByCompanyId(int companyId, int pageNumber, int pageSize)
         {
@@ -108,7 +99,7 @@ namespace XeniaRentalApi.Repositories.Charges
 
         }
 
-        public async Task<Models.XRS_Charges> CreateCharges(DTOs.CreateCharges createCharges)
+        public async Task<Models.XRS_Charges> CreateCharges(DTOs.ChargesDto createCharges)
         {
 
             var charge = new Models.XRS_Charges

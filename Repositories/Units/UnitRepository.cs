@@ -56,7 +56,6 @@ namespace XeniaRentalApi.Repositories.Unit
             return unitsDto;
         }
 
-
         public async Task<PagedResultDto<UnitDto>> GetUnitByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
             var query = _context.Units
@@ -199,7 +198,7 @@ namespace XeniaRentalApi.Repositories.Unit
             };
 
             _context.Units.Add(unit);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); 
 
             if (model.UnitCharges != null && model.UnitCharges.Any())
             {
@@ -215,11 +214,27 @@ namespace XeniaRentalApi.Repositories.Unit
                 }).ToList();
 
                 _context.UnitChargesMappings.AddRange(unitCharges);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); 
             }
 
-            return await GetUnitById(unit.UnitId);
+            return new UnitDto
+            {
+                UnitId = unit.UnitId,
+                UnitName = unit.UnitName,
+                PropID = unit.PropID,
+                CompanyId = unit.CompanyId,
+                UnitType = unit.UnitType,
+                CatID = unit.CatID,
+                IsActive = unit.IsActive,
+                Area = unit.Area,
+                Remarks = unit.Remarks,
+                FloorNo = unit.FloorNo,
+                DefaultRent = unit.DefaultRent,
+                escalationper = unit.escalationper,
+                UnitCharges = model.UnitCharges
+            };
         }
+
 
         public async Task<UnitDto> UpdateUnit(UnitDto model)
         {
@@ -233,6 +248,7 @@ namespace XeniaRentalApi.Repositories.Unit
             if (unit == null)
                 return null;
 
+
             unit.UnitName = model.UnitName;
             unit.PropID = model.PropID;
             unit.CompanyId = model.CompanyId;
@@ -245,44 +261,63 @@ namespace XeniaRentalApi.Repositories.Unit
             unit.DefaultRent = model.DefaultRent;
             unit.escalationper = model.escalationper;
 
+
             if (model.UnitCharges != null)
             {
                 var chargesToRemove = unit.UnitCharges
                     .Where(uc => !model.UnitCharges.Any(m => m.unitMapID == uc.unitMapID))
                     .ToList();
-                _context.UnitChargesMappings.RemoveRange(chargesToRemove);
+                if (chargesToRemove.Any())
+                    _context.UnitChargesMappings.RemoveRange(chargesToRemove);
 
-                foreach (var ucModel in model.UnitCharges)
+                foreach (var ucDto in model.UnitCharges)
                 {
-                    var existing = unit.UnitCharges
-                        .FirstOrDefault(uc => uc.unitMapID == ucModel.unitMapID);
+                    var existingCharge = unit.UnitCharges
+                        .FirstOrDefault(uc => uc.unitMapID == ucDto.unitMapID);
 
-                    if (existing != null)
+                    if (existingCharge != null)
                     {
-                        existing.chargeID = ucModel.chargeID;
-                        existing.amount = ucModel.amount;
-                        existing.frequency = ucModel.frequency;
-                        existing.isActive = ucModel.isActive;
+                        existingCharge.chargeID = ucDto.chargeID;
+                        existingCharge.amount = ucDto.amount;
+                        existingCharge.frequency = ucDto.frequency;
+                        existingCharge.isActive = ucDto.isActive;
                     }
                     else
-                    {
+                    {       
                         unit.UnitCharges.Add(new XRS_UnitChargesMapping
                         {
                             unitID = unit.UnitId,
                             propID = unit.PropID,
                             companyID = unit.CompanyId,
-                            chargeID = ucModel.chargeID,
-                            amount = ucModel.amount,
-                            frequency = ucModel.frequency,
-                            isActive = ucModel.isActive
+                            chargeID = ucDto.chargeID,
+                            amount = ucDto.amount,
+                            frequency = ucDto.frequency,
+                            isActive = ucDto.isActive
                         });
                     }
                 }
             }
 
             await _context.SaveChangesAsync();
-            return await GetUnitById(unit.UnitId);
+
+            return new UnitDto
+            {
+                UnitId = unit.UnitId,
+                UnitName = unit.UnitName,
+                PropID = unit.PropID,
+                CompanyId = unit.CompanyId,
+                UnitType = unit.UnitType,
+                CatID = unit.CatID,
+                IsActive = unit.IsActive,
+                Area = unit.Area,
+                Remarks = unit.Remarks,
+                FloorNo = unit.FloorNo,
+                DefaultRent = unit.DefaultRent,
+                escalationper = unit.escalationper,
+                UnitCharges = model.UnitCharges 
+            };
         }
+
 
         public async Task<bool> DeleteUnit(int unitId)
         {
