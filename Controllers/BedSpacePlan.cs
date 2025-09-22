@@ -54,18 +54,27 @@ namespace XeniaRentalApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] XRS_BedSpacePlan model)
         {
-            if (id != model.bedPlanID) return BadRequest("Bed ID mismatch");
+            if (id != model.bedPlanID)
+                return BadRequest("Bed ID mismatch");
+
             var updated = await _bedSpacePlanRepository.UpdateAsync(model);
-            if (!updated) return NotFound();
-            return NoContent();
+
+            if (!updated)
+                return NotFound();
+         
+            return Ok(new { Message = "Bed Space Plan updated successfully" });
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var deleted = await _bedSpacePlanRepository.DeleteAsync(id);
-            if (!deleted) return NotFound();
-            return NoContent();
+
+            if (!deleted)
+                return NotFound();
+
+
+            return Ok(new { Message = "Bed Space Plan deleted successfully" });
         }
 
     }

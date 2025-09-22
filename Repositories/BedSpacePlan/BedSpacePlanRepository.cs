@@ -118,6 +118,8 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
             return result;
         }
+
+
         public async Task<XRS_BedSpacePlan> CreateAsync(XRS_BedSpacePlan entity)
         {
             _context.BedSpacePlans.Add(entity);
