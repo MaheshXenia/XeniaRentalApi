@@ -125,7 +125,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
         public async Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto)
         {
-            // 1️⃣ Create TenantAssignment
             var entity = new XRS_TenantAssignment
             {
                 propID = dto.propID,
@@ -171,7 +170,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             return entity;
         }
-
 
 
         public async Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto)
@@ -224,7 +222,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             var saved = await _context.SaveChangesAsync();
             return saved > 0; // returns true if any rows were affected
         }
-
 
 
         public async Task<bool> DeleteAsync(int tenantAssignId)

@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "accountGroup",
-        "Type": "XeniaRentalApi.Models.AccountGroups",
+        "Type": "XeniaRentalApi.Models.XRS_AccountGroup",
         "IsRequired": true
       }
     ],
@@ -31,7 +31,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.AccountGroups",
+        "Type": "XeniaRentalApi.Models.XRS_AccountGroup",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -40,6 +40,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
+    "Method": "UpdateAccountGroup",
+    "RelativePath": "api/AccountGroup/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "XeniaRentalApi.Models.XRS_AccountGroup",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
@@ -59,8 +80,28 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
+    "Method": "Get",
+    "RelativePath": "api/AccountGroup/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_AccountGroup, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
     "Method": "GetAccountGroupsByCompanyId",
-    "RelativePath": "api/AccountGroup/accountGroups/{companyId}",
+    "RelativePath": "api/AccountGroup/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -73,7 +114,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.AccountGroups, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_AccountGroup, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -84,102 +125,25 @@
     ]
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
-    "Method": "Get",
-    "RelativePath": "api/AccountGroup/accountGroups/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Units, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
-    "Method": "Get",
-    "RelativePath": "api/AccountGroup/all/accountGroups",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.AccountGroups, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountGroupController",
-    "Method": "UpdateAccountGroup",
-    "RelativePath": "api/AccountGroup/UpdateAccountGroup/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "XeniaRentalApi.Models.AccountGroups",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "CreateAccounts",
-    "RelativePath": "api/Accounts",
+    "ContainingType": "XeniaRentalApi.Controllers.AccountLedgerController",
+    "Method": "CreateLedgers",
+    "RelativePath": "api/AccountLedger",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "account",
-        "Type": "XeniaRentalApi.Models.Accounts",
+        "Name": "ledger",
+        "Type": "XeniaRentalApi.Models.XRS_AccountLedger",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "Getaccount",
-    "RelativePath": "api/Accounts/{id}",
+    "ContainingType": "XeniaRentalApi.Controllers.AccountLedgerController",
+    "Method": "GetLedgerAccount",
+    "RelativePath": "api/AccountLedger/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -192,7 +156,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Accounts",
+        "Type": "XeniaRentalApi.Models.XRS_AccountLedger",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -203,10 +167,10 @@
     ]
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "DeleteBranch",
-    "RelativePath": "api/Accounts/{id}",
-    "HttpMethod": "DELETE",
+    "ContainingType": "XeniaRentalApi.Controllers.AccountLedgerController",
+    "Method": "UpdateLedger",
+    "RelativePath": "api/AccountLedger/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -214,14 +178,39 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "ledger",
+        "Type": "XeniaRentalApi.Models.XRS_AccountLedger",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "GetAccountsByCompanyId",
-    "RelativePath": "api/Accounts/accounts/{companyId}",
+    "ContainingType": "XeniaRentalApi.Controllers.AccountLedgerController",
+    "Method": "Get",
+    "RelativePath": "api/AccountLedger/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Accounts, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.AccountLedgerController",
+    "Method": "GetLedgersByCompanyId",
+    "RelativePath": "api/AccountLedger/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -234,7 +223,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Accounts, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_AccountLedger, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -243,83 +232,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "Get",
-    "RelativePath": "api/Accounts/accounts/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Accounts, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "Get",
-    "RelativePath": "api/Accounts/all/accounts",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Accounts, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.AccountsController",
-    "Method": "UpdateAccount",
-    "RelativePath": "api/Accounts/UpdateAccount/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "XeniaRentalApi.Models.Accounts",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.AuthController",
@@ -932,7 +844,7 @@
     "Parameters": [
       {
         "Name": "company",
-        "Type": "XeniaRentalApi.Models.Company",
+        "Type": "XeniaRentalApi.Models.XRS_Company",
         "IsRequired": true
       }
     ],
@@ -954,7 +866,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Company",
+        "Type": "XeniaRentalApi.Models.XRS_Company",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -990,7 +902,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1026,7 +938,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1062,7 +974,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Company, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1087,7 +999,7 @@
       },
       {
         "Name": "company",
-        "Type": "XeniaRentalApi.Models.Company",
+        "Type": "XeniaRentalApi.Models.XRS_Company",
         "IsRequired": true
       }
     ],
@@ -1245,151 +1157,6 @@
     ]
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "CreateLedgers",
-    "RelativePath": "api/Ledger",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "ledger",
-        "Type": "XeniaRentalApi.Models.Ledger",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "GetLedgerAccount",
-    "RelativePath": "api/Ledger/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.Ledger",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "Get",
-    "RelativePath": "api/Ledger/all/ledgers",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Accounts, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "GetLedgersByCompanyId",
-    "RelativePath": "api/Ledger/ledgers/{companyId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Ledger, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "UpdateLedger",
-    "RelativePath": "api/Ledger/UpdateLedger/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "ledger",
-        "Type": "XeniaRentalApi.Models.Ledger",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.LedgerController",
-    "Method": "Get",
-    "RelativePath": "api/Ledger/UpdateLedger/search",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Ledger, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
     "Method": "CreateAccounts",
     "RelativePath": "api/MessDetails",
@@ -1399,7 +1166,7 @@
     "Parameters": [
       {
         "Name": "messDetails",
-        "Type": "XeniaRentalApi.Models.MessDetails",
+        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
         "IsRequired": true
       }
     ],
@@ -1421,7 +1188,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.MessDetails",
+        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1441,7 +1208,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1477,7 +1244,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1502,7 +1269,7 @@
       },
       {
         "Name": "details",
-        "Type": "XeniaRentalApi.Models.MessDetails",
+        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
         "IsRequired": true
       }
     ],
@@ -2180,7 +1947,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Users",
+        "Type": "XeniaRentalApi.Models.XRS_Users",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2205,7 +1972,7 @@
       },
       {
         "Name": "user",
-        "Type": "XeniaRentalApi.Models.Users",
+        "Type": "XeniaRentalApi.Models.XRS_Users",
         "IsRequired": true
       }
     ],
@@ -2243,7 +2010,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Users, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Users, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2295,7 +2062,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.Voucher",
+        "Type": "XeniaRentalApi.Models.XRS_Voucher",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2321,7 +2088,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2341,7 +2108,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2361,7 +2128,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -2386,7 +2153,7 @@
       },
       {
         "Name": "voucher",
-        "Type": "XeniaRentalApi.Models.Voucher",
+        "Type": "XeniaRentalApi.Models.XRS_Voucher",
         "IsRequired": true
       }
     ],
@@ -2418,7 +2185,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

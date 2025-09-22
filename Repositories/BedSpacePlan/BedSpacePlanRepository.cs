@@ -16,70 +16,104 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
         public async Task<IEnumerable<object>> GetAllAsync()
         {
-            var result = await (from plan in _context.BedSpacePlans
-                                join mapping in _context.BedspacePlanMessMappings
-                                    on plan.bedPlanID equals mapping.bedPlanID into pm
-                                from mapping in pm.DefaultIfEmpty()
-                                join mess in _context.MessTypes
-                                    on mapping.messID equals mess.messID into mm
-                                from mess in mm.DefaultIfEmpty()
-                                select new
-                                {
-                                    plan.bedPlanID,
-                                    plan.companyID,
-                                    plan.planName,
-                                    plan.enableTax,
-                                    plan.calculatedays,
-                                    plan.enableAdjustRent,
-                                    plan.calculateAdjustRent,
-                                    plan.calculatePartialRent,
-                                    plan.enableMess,
-                                    plan.messCharge,
-                                    plan.includeMess,
-                                    plan.messChargeDays,
-                                    plan.consumedDays,
-                                    plan.isActive,
-                                    bpmID = mapping != null ? mapping.bpmID : 0,
-                                    messID = mapping != null ? mapping.messID : 0,
-                                    messTypeName = mess != null ? mess.MessName : string.Empty,
-                                    active = mapping != null ? mapping.active : false
-                                }).ToListAsync();
+            var result = await _context.BedSpacePlans
+                .Select(plan => new
+                {
+                    plan.bedPlanID,
+                    plan.companyID,
+                    plan.planName,
+                    plan.enableTax,
+                    plan.calculatedays,
+                    plan.enableAdjustRent,
+                    plan.calculateAdjustRent,
+                    plan.calculatePartialRent,
+                    plan.enableMess,
+                    plan.messCharge,
+                    plan.includeMess,
+                    plan.messChargeDays,
+                    plan.consumedDays,
+                    plan.isActive
+                })
+                .ToListAsync();
 
             return result;
         }
 
-   
+
         public async Task<object?> GetByIdAsync(int bedPlanID)
         {
-            var result = await (from plan in _context.BedSpacePlans
-                                where plan.bedPlanID == bedPlanID
-                                join mapping in _context.BedspacePlanMessMappings
-                                    on plan.bedPlanID equals mapping.bedPlanID into pm
-                                from mapping in pm.DefaultIfEmpty()
-                                join mess in _context.MessTypes
-                                    on mapping.messID equals mess.messID into mm
-                                from mess in mm.DefaultIfEmpty()
-                                select new
-                                {
-                                    plan.bedPlanID,
-                                    plan.companyID,
-                                    plan.planName,
-                                    plan.enableTax,
-                                    plan.calculatedays,
-                                    plan.enableAdjustRent,
-                                    plan.calculateAdjustRent,
-                                    plan.calculatePartialRent,
-                                    plan.enableMess,
-                                    plan.messCharge,
-                                    plan.includeMess,
-                                    plan.messChargeDays,
-                                    plan.consumedDays,
-                                    plan.isActive,
-                                    bpmID = mapping != null ? mapping.bpmID : 0,
-                                    messID = mapping != null ? mapping.messID : 0,
-                                    messTypeName = mess != null ? mess.MessName : string.Empty,
-                                    active = mapping != null ? mapping.active : false
-                                }).FirstOrDefaultAsync();
+            var resultList = await (from plan in _context.BedSpacePlans
+                                    where plan.bedPlanID == bedPlanID
+                                    join mapping in _context.BedspacePlanMessMappings
+                                        on plan.bedPlanID equals mapping.bedPlanID into pm
+                                    from mapping in pm.DefaultIfEmpty()
+                                    join mess in _context.MessTypes
+                                        on mapping.messID equals mess.messID into mm
+                                    from mess in mm.DefaultIfEmpty()
+                                    select new
+                                    {
+                                        plan.bedPlanID,
+                                        plan.companyID,
+                                        plan.planName,
+                                        plan.enableTax,
+                                        plan.calculatedays,
+                                        plan.enableAdjustRent,
+                                        plan.calculateAdjustRent,
+                                        plan.calculatePartialRent,
+                                        plan.enableMess,
+                                        plan.messCharge,
+                                        plan.includeMess,
+                                        plan.messChargeDays,
+                                        plan.consumedDays,
+                                        plan.isActive,
+                                        Mess = mapping != null
+                                            ? new
+                                            {
+                                                mapping.bpmID,
+                                                mapping.messID,
+                                                messTypeName = mess != null ? mess.MessName : string.Empty,
+                                                mapping.active
+                                            }
+                                            : null
+                                    }).ToListAsync();
+
+            var result = resultList
+                .GroupBy(r => new
+                {
+                    r.bedPlanID,
+                    r.companyID,
+                    r.planName,
+                    r.enableTax,
+                    r.calculatedays,
+                    r.enableAdjustRent,
+                    r.calculateAdjustRent,
+                    r.calculatePartialRent,
+                    r.enableMess,
+                    r.messCharge,
+                    r.includeMess,
+                    r.messChargeDays,
+                    r.consumedDays,
+                    r.isActive
+                })
+                .Select(g => new
+                {
+                    g.Key.bedPlanID,
+                    g.Key.companyID,
+                    g.Key.planName,
+                    g.Key.enableTax,
+                    g.Key.calculatedays,
+                    g.Key.enableAdjustRent,
+                    g.Key.calculateAdjustRent,
+                    g.Key.calculatePartialRent,
+                    g.Key.enableMess,
+                    g.Key.messCharge,
+                    g.Key.includeMess,
+                    g.Key.messChargeDays,
+                    g.Key.consumedDays,
+                    g.Key.isActive,
+                    Mess = g.Where(x => x.Mess != null).Select(x => x.Mess).ToList()
+                })
+                .FirstOrDefault();
 
             return result;
         }
@@ -110,15 +144,40 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
                                     plan.messChargeDays,
                                     plan.consumedDays,
                                     plan.isActive,
-                                    bpmID = mapping != null ? mapping.bpmID : 0,
-                                    messID = mapping != null ? mapping.messID : 0,
-                                    messTypeName = mess != null ? mess.MessName : string.Empty,
-                                    active = mapping != null ? mapping.active : false
-                                }).ToListAsync();
+                                    Mess = mapping != null
+                                        ? new
+                                        {
+                                            mapping.bpmID,
+                                            mapping.messID,
+                                            messTypeName = mess != null ? mess.MessName : string.Empty,
+                                            mapping.active
+                                        }
+                                        : null
+                                })
+                                .ToListAsync();
+            var grouped = result
+                .GroupBy(r => new { r.bedPlanID, r.planName, r.companyID, r.enableTax, r.calculatedays, r.enableAdjustRent, r.calculateAdjustRent, r.calculatePartialRent, r.enableMess, r.messCharge, r.includeMess, r.messChargeDays, r.consumedDays, r.isActive })
+                .Select(g => new
+                {
+                    g.Key.bedPlanID,
+                    g.Key.companyID,
+                    g.Key.planName,
+                    g.Key.enableTax,
+                    g.Key.calculatedays,
+                    g.Key.enableAdjustRent,
+                    g.Key.calculateAdjustRent,
+                    g.Key.calculatePartialRent,
+                    g.Key.enableMess,
+                    g.Key.messCharge,
+                    g.Key.includeMess,
+                    g.Key.messChargeDays,
+                    g.Key.consumedDays,
+                    g.Key.isActive,
+                    Mess = g.Where(x => x.Mess != null).Select(x => x.Mess).ToList()
+                });
 
-            return result;
+            return grouped;
         }
-
 
         public async Task<XRS_BedSpacePlan> CreateAsync(XRS_BedSpacePlan entity)
         {

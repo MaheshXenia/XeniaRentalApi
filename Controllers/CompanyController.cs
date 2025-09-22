@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Company;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -24,7 +23,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all/companies")]
-        public async Task<ActionResult<IEnumerable<Company>>> Get()
+        public async Task<ActionResult<IEnumerable<XRS_Company>>> Get()
         {
             var companies = await _companyRepository.GetCompanies();
             if (companies == null || !companies.Any())
@@ -36,7 +35,7 @@ namespace XeniaRentalApi.Controllers
 
         // GET api/<AccountGroupController>/5
         [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<Company>>> GetCompanyByCompanyId(int companyId, int pageNumber = 1,
+        public async Task<ActionResult<PagedResultDto<XRS_Company>>> GetCompanyByCompanyId(int companyId, int pageNumber = 1,
             int pageSize = 10)
         {
 
@@ -50,7 +49,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateCompanies([FromBody] Models.Company company)
+        public async Task<IActionResult> CreateCompanies([FromBody] Models.XRS_Company company)
         {
             if (company == null)
             {
@@ -63,7 +62,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompanyById(int id)
+        public async Task<ActionResult<XRS_Company>> GetCompanyById(int id)
         {
             var company = await _companyRepository.GetCompanybyId(id);
             if (company == null)
@@ -77,7 +76,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPut("UpdateCompany/{id}")]
-        public async Task<IActionResult> UpdateCompany(int id, [FromBody] Models.Company company)
+        public async Task<IActionResult> UpdateCompany(int id, [FromBody] Models.XRS_Company company)
         {
             if (company == null)
             {
@@ -107,7 +106,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("company/search")]
-        public async Task<ActionResult<PagedResultDto<Company>>> Get(
+        public async Task<ActionResult<PagedResultDto<XRS_Company>>> Get(
            string? search,
            int pageNumber = 1,
            int pageSize = 10)

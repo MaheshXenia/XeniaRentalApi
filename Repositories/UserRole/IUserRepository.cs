@@ -4,14 +4,14 @@ namespace XeniaRentalApi.Repositories.UserRole
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<Users>> GetUsers();
-        Task<IEnumerable<UserRoles>> GetUserRoles();
+        Task<IEnumerable<XRS_Users>> GetUsers();
+        Task<IEnumerable<XRS_UserRole>> GetUserRoles();
 
-        Task<IEnumerable<Models.Users>> GetUserByCompanyId(int companyId);
-        Task<IEnumerable<Models.Users>> GetUserById(int Id);
+        Task<IEnumerable<Models.XRS_Users>> GetUserByCompanyId(int companyId);
+        Task<IEnumerable<Models.XRS_Users>> GetUserById(int Id);
 
-        Task<Models.Users> CreateUser(DTOs.CreateUser userSettings);
-        Task<bool> UpdateUserSetting(int id, Users userSettings);
+        Task<Models.XRS_Users> CreateUser(DTOs.CreateUser userSettings);
+        Task<bool> UpdateUserSetting(int id, XRS_Users userSettings);
         Task<bool> DeleteUserSetting(int id);
 
     }

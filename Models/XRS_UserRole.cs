@@ -8,7 +8,7 @@ namespace XeniaRentalApi.Models
     /// </summary>
     [Table("XRS_UserRole")]
 
-    public class UserRoles
+    public class XRS_UserRole
     {
         /// <summary>
         /// User roleId

@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Voucher;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -24,7 +22,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all/accounts")]
-        public async Task<ActionResult<IEnumerable<Voucher>>> Get()
+        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> Get()
         {
             var vouchers = await _voucherRepository.GetVouchers();
             if (vouchers == null || !vouchers.Any())
@@ -35,7 +33,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("all/paymentStatus")]
-        public async Task<ActionResult<IEnumerable<Voucher>>> GetPaymentStatus()
+        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetPaymentStatus()
         {
             var vouchers = await _voucherRepository.GetPaymentStatus();
             if (vouchers == null || !vouchers.Any())
@@ -45,9 +43,9 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = vouchers });
         }
 
-        // GET api/<AccountGroupController>/5
+
         [HttpGet("accounts/{companyId}")]
-        public async Task<ActionResult<IEnumerable<Voucher>>> GetVouchersByCompanyId(int companyId)
+        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetVouchersByCompanyId(int companyId)
         {
 
             var vouchers = await _voucherRepository.GetVoucherByCompanyId(companyId);
@@ -60,7 +58,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateVouchers([FromBody] DTOs.CreateVoucher voucher)
+        public async Task<IActionResult> CreateVouchers([FromBody] CreateVoucher voucher)
         {
             if (voucher == null)
             {
@@ -73,7 +71,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Voucher>> GetVoucher(int id)
+        public async Task<ActionResult<XRS_Voucher>> GetVoucher(int id)
         {
             var vouchers = await _voucherRepository.GetVoucherIdById(id);
             if (vouchers == null)
@@ -86,7 +84,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPut("UpdateVoucher/{id}")]
-        public async Task<IActionResult> UpdateVoucher(int id, [FromBody] Models.Voucher voucher)
+        public async Task<IActionResult> UpdateVoucher(int id, [FromBody] Models.XRS_Voucher voucher)
         {
             if (voucher == null)
             {
@@ -103,7 +101,7 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("Vouchers/search")]
-        public async Task<ActionResult<PagedResultDto<Voucher>>> Get(
+        public async Task<ActionResult<PagedResultDto<XRS_Voucher>>> Get(
          string? search,
          int pageNumber = 1,
          int pageSize = 10)

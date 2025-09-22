@@ -14,11 +14,11 @@ namespace XeniaRentalApi.Repositories.UserRole
         }
 
 
-        public async Task<IEnumerable<Users>> GetUsers()
+        public async Task<IEnumerable<XRS_Users>> GetUsers()
         {
             
             return await _context.Users.Where(u => u.IsActive == true)
-                .Select(u => new Models.Users
+                .Select(u => new Models.XRS_Users
                 {
                     UserId = u.UserId,
                      UserType= u.UserType,
@@ -34,17 +34,17 @@ namespace XeniaRentalApi.Repositories.UserRole
 
 
         }
-        public async Task<IEnumerable<UserRoles>> GetUserRoles()
+        public async Task<IEnumerable<XRS_UserRole>> GetUserRoles()
         {
             return await _context.UserRoles.ToListAsync();
         }
 
-        public async Task<IEnumerable<Models.Users>> GetUserByCompanyId(int companyId)
+        public async Task<IEnumerable<Models.XRS_Users>> GetUserByCompanyId(int companyId)
         {
 
             return await _context.Users
                 .Where(u => u.CompanyId == companyId)
-                .Select(u => new Models.Users
+                .Select(u => new Models.XRS_Users
                 {
                     UserId = u.UserId,
                     UserType = u.UserType,
@@ -60,12 +60,12 @@ namespace XeniaRentalApi.Repositories.UserRole
 
         }
 
-        public async Task<IEnumerable<Models.Users>> GetUserById(int Id)
+        public async Task<IEnumerable<Models.XRS_Users>> GetUserById(int Id)
         {
 
             return await _context.Users
                 .Where(u => u.UserId == Id)
-                .Select(u => new Models.Users
+                .Select(u => new Models.XRS_Users
                 {
                     UserId = u.UserId,
                     UserType = u.UserType,
@@ -81,10 +81,10 @@ namespace XeniaRentalApi.Repositories.UserRole
 
         }
 
-        public async Task<Models.Users> CreateUser(DTOs.CreateUser dtoUsers)
+        public async Task<Models.XRS_Users> CreateUser(DTOs.CreateUser dtoUsers)
         {
 
-            var users = new Models.Users
+            var users = new Models.XRS_Users
             {
               UserName = dtoUsers.UserName,
               Password = dtoUsers.Password,
@@ -103,7 +103,7 @@ namespace XeniaRentalApi.Repositories.UserRole
 
         }
 
-        public async Task<bool> UpdateUserSetting(int id, Users updatedUser)
+        public async Task<bool> UpdateUserSetting(int id, XRS_Users updatedUser)
         {
             var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
             if (existingUser == null) return false;

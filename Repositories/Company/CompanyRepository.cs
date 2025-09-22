@@ -15,7 +15,7 @@ namespace XeniaRentalApi.Repositories.Company
 
         }
 
-        public async Task<IEnumerable<Models.Company>> GetCompanies()
+        public async Task<IEnumerable<Models.XRS_Company>> GetCompanies()
         {
 
             return await _context.Company.ToListAsync();
@@ -23,7 +23,7 @@ namespace XeniaRentalApi.Repositories.Company
         }
 
 
-        public async Task<PagedResultDto<Models.Company>> GetCompanybyCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Company>> GetCompanybyCompanyId(int companyId, int pageNumber, int pageSize)
         {
 
             var query = _context.Company.AsQueryable();
@@ -37,7 +37,7 @@ namespace XeniaRentalApi.Repositories.Company
             var items = await query
                .Skip((pageNumber - 1) * pageSize)
              .Take(pageSize)
-            .Select(u => new Models.Company
+            .Select(u => new Models.XRS_Company
             {
                 companyID = companyId,
                 companyName = u.companyName,
@@ -50,7 +50,7 @@ namespace XeniaRentalApi.Repositories.Company
 
             })
                 .ToListAsync();
-            return new PagedResultDto<Models.Company>
+            return new PagedResultDto<Models.XRS_Company>
             {
                 Data = items,
                 PageNumber = pageNumber,
@@ -60,7 +60,7 @@ namespace XeniaRentalApi.Repositories.Company
 
         }
 
-        public async Task<IEnumerable<Models.Company>> GetCompanybyId(int companyId)
+        public async Task<IEnumerable<Models.XRS_Company>> GetCompanybyId(int companyId)
         {
 
             return await _context.Company
@@ -69,7 +69,7 @@ namespace XeniaRentalApi.Repositories.Company
 
         }
 
-        public async Task<Models.Company> CreateCompany(Models.Company company)
+        public async Task<Models.XRS_Company> CreateCompany(Models.XRS_Company company)
         {
 
             await _context.Company.AddAsync(company);
@@ -88,7 +88,7 @@ namespace XeniaRentalApi.Repositories.Company
             return true;
         }
 
-        public async Task<bool> UpdateCompany(int id, Models.Company company)
+        public async Task<bool> UpdateCompany(int id, Models.XRS_Company company)
         {
             var updatedCompany = await _context.Company.FirstOrDefaultAsync(u => u.companyID == id);
             if (updatedCompany == null) return false;
@@ -104,7 +104,7 @@ namespace XeniaRentalApi.Repositories.Company
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<PagedResultDto<Models.Company>> GetCompanyAsync(string? search, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Company>> GetCompanyAsync(string? search, int pageNumber, int pageSize)
         {
             var query = _context.Company.AsQueryable();
 
@@ -120,7 +120,7 @@ namespace XeniaRentalApi.Repositories.Company
                 // Optional: add sorting
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(u => new Models.Company
+                .Select(u => new Models.XRS_Company
                 {
                    companyID = u.companyID,
                    companyName = u.companyName,
@@ -135,7 +135,7 @@ namespace XeniaRentalApi.Repositories.Company
                 })
                 .ToListAsync();
 
-            return new PagedResultDto<Models.Company>
+            return new PagedResultDto<Models.XRS_Company>
             {
                 Data = items,
                 PageNumber = pageNumber,

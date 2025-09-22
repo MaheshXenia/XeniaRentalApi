@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_Ledger")]
-    public class Ledger
+    public class XRS_AccountLedger
     {
         [Key]
         public int ledgerID { get; set; }

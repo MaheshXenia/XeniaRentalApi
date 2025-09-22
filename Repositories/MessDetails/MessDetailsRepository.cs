@@ -13,7 +13,7 @@ namespace XeniaRentalApi.Repositories.MessDetails
 
         }
 
-        public async Task<IEnumerable<Models.MessDetails>> GetMessDetails()
+        public async Task<IEnumerable<Models.XRS_MessDetails>> GetMessDetails()
         {
 
             return await _context.MessDetails
@@ -44,7 +44,7 @@ namespace XeniaRentalApi.Repositories.MessDetails
             x.MessType,
             Tenant = tenant
         })
-         .Select(x => new Models.MessDetails
+         .Select(x => new Models.XRS_MessDetails
          {
              messdtsID = x.md.messdtsID,
              messID = x.md.messID,
@@ -64,7 +64,7 @@ namespace XeniaRentalApi.Repositories.MessDetails
         }
 
 
-        public async Task<PagedResultDto<Models.MessDetails>> GetMessDetailsByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_MessDetails>> GetMessDetailsByCompanyId(int companyId, int pageNumber, int pageSize)
         {
             var query = _context.MessDetails.AsQueryable();
 
@@ -105,7 +105,7 @@ var items = await query
         })
     .Skip((pageNumber - 1) * pageSize)
     .Take(pageSize)
-    .Select(x => new Models.MessDetails
+    .Select(x => new Models.XRS_MessDetails
     {
         messdtsID = x.md.messdtsID,
         messID = x.md.messID,
@@ -122,7 +122,7 @@ var items = await query
         TenantName = x.Tenant != null ? x.Tenant.tenantName : null,
     })
     .ToListAsync();
-            return new PagedResultDto<Models.MessDetails>
+            return new PagedResultDto<Models.XRS_MessDetails>
             {
                 Data = items,
                 PageNumber = pageNumber,
@@ -131,7 +131,7 @@ var items = await query
             };
         }
 
-        public async Task<IEnumerable<Models.MessDetails>> GetMessDetailsbyId(int messdetailId)
+        public async Task<IEnumerable<Models.XRS_MessDetails>> GetMessDetailsbyId(int messdetailId)
         {
 
             return await _context.MessDetails
@@ -163,7 +163,7 @@ var items = await query
             x.MessType,
             Tenant = tenant
         })
-         .Select(x => new Models.MessDetails
+         .Select(x => new Models.XRS_MessDetails
          {
              messdtsID = x.md.messdtsID,
              messID = x.md.messID,
@@ -183,7 +183,7 @@ var items = await query
 
         }
 
-        public async Task<Models.MessDetails> CreateMessDetails(Models.MessDetails details)
+        public async Task<Models.XRS_MessDetails> CreateMessDetails(Models.XRS_MessDetails details)
         {
 
             await _context.MessDetails.AddAsync(details);
@@ -192,7 +192,7 @@ var items = await query
 
         }
 
-        public async Task<bool> UpdateMessDetails(int id, Models.MessDetails details)
+        public async Task<bool> UpdateMessDetails(int id, Models.XRS_MessDetails details)
         {
             var updatedMessDetails = await _context.MessDetails.FirstOrDefaultAsync(u => u.messdtsID == id);
             if (updatedMessDetails == null) return false;

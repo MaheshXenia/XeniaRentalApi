@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.MessDetails;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -25,7 +24,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all/messdetails")]
-        public async Task<ActionResult<IEnumerable<MessDetails>>> Get()
+        public async Task<ActionResult<IEnumerable<XRS_MessDetails>>> Get()
         {
             var messDetails = await _messDetailsRepository.GetMessDetails();
             if (messDetails == null || !messDetails.Any())
@@ -37,7 +36,7 @@ namespace XeniaRentalApi.Controllers
 
         // GET api/<AccountGroupController>/5
         [HttpGet("messdetails/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<MessDetails>>> GetMessDetailsByCompanyId(int companyId, int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<PagedResultDto<XRS_MessDetails>>> GetMessDetailsByCompanyId(int companyId, int pageNumber = 1, int pageSize = 10)
         {
 
             var messDetails = await _messDetailsRepository.GetMessDetailsByCompanyId(companyId,pageNumber,pageSize);
@@ -50,7 +49,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateAccounts([FromBody] Models.MessDetails messDetails)
+        public async Task<IActionResult> CreateAccounts([FromBody] Models.XRS_MessDetails messDetails)
         {
             if (messDetails == null)
             {
@@ -63,7 +62,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<MessDetails>> GetMessDetails(int id)
+        public async Task<ActionResult<XRS_MessDetails>> GetMessDetails(int id)
         {
             var messdetails = await _messDetailsRepository.GetMessDetailsbyId(id);
             if (messdetails == null)
@@ -76,7 +75,7 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpPut("UpdateMessDetails/{id}")]
-        public async Task<IActionResult> UpdateMessDetails(int id, [FromBody] Models.MessDetails details)
+        public async Task<IActionResult> UpdateMessDetails(int id, [FromBody] Models.XRS_MessDetails details)
         {
             if (details == null)
             {

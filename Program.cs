@@ -24,7 +24,6 @@ using XeniaRentalApi.Repositories.Voucher;
 using XeniaRentalApi.Service.Common;
 using XeniaRentalApi.Service.Notification;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Category;
 using XeniaRentalApi.Repositories.Unit;
 
@@ -108,14 +107,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAccountGroupRepository, AccountGroupRepository>();
-builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IBedSpaceRepository, BedSpaceRepository>();
 builder.Services.AddScoped<IBedSpacePlanRepository, BedSpacePlanRepository>();
 builder.Services.AddScoped<IChargesRepository, ChargesRepository>();
 builder.Services.AddScoped<ICompanyRepsitory, CompanyRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
-builder.Services.AddScoped<ILedgerRepository, LedgerRepository>();
+builder.Services.AddScoped<IAccountLedgerRepository, AccountLedgerRepository>();
 builder.Services.AddScoped<IMessDetailsRepository, MessDetailsRepository>();
 builder.Services.AddScoped<IMessTypes, XeniaRentalApi.Repositories.MessTypes.MessTypes>();
 builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();

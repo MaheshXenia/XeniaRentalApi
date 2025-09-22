@@ -23,7 +23,7 @@ namespace XeniaRentalApi.Controllers
                
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<IEnumerable<Users>>> GetUserByCompanyId(int companyId)
+        public async Task<ActionResult<IEnumerable<XRS_Users>>> GetUserByCompanyId(int companyId)
 
         {
             var branches = await _userRepository.GetUserByCompanyId(companyId);
@@ -38,7 +38,7 @@ namespace XeniaRentalApi.Controllers
        
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetUserById(int id)
+        public async Task<ActionResult<XRS_Users>> GetUserById(int id)
         {
             var user = await _userRepository.GetUserById(id);
             if (user == null)
@@ -69,7 +69,7 @@ namespace XeniaRentalApi.Controllers
 
         //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUserSetting(int id, [FromBody] Users user)
+        public async Task<IActionResult> UpdateUserSetting(int id, [FromBody] XRS_Users user)
         {
             if (user == null)
             {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_NotificationSettings")]
-    public class TblNotification
+    public class XRS_NotificationSettings
     {
         [Key]
         public int NotificationId { get; set; }

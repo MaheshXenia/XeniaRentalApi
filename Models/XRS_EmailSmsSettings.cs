@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_EmailSmsSettings")]
-    public class TblEmailSmsSettings
+    public class XRS_EmailSmsSettings
     {
         [Key]
         public int Id { get; set; }

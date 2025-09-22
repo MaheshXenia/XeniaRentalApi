@@ -5,9 +5,9 @@ namespace XeniaRentalApi.Repositories.Auth
 {
     public interface IAuthRepository
     {
-        Task<Users?> AuthenticateAdminUser(DTOs.LoginRequest request);
+        Task<XRS_Users?> AuthenticateAdminUser(DTOs.LoginRequest request);
         
-        string GenerateJwtAdminToken(Users user);
+        string GenerateJwtAdminToken(XRS_Users user);
 
         Task<IActionResult> GenerateLoginOTPAsync(DTOs.LoginOTPDTO request);
 

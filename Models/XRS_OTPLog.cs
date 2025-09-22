@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_OTPLog")]
-    public class TblOTPLog
+    public class XRS_OTPLog
     {
         [Key]
         public int OTPId { get; set; }

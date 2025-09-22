@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace XeniaRentalApi.Models
 {
     [Table("XRS_MessDetails")]
-    public class MessDetails
+    public class XRS_MessDetails
     {
         [Key]
         public int messdtsID { get; set; }

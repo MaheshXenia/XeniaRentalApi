@@ -14,14 +14,14 @@ namespace XeniaRentalApi.Repositories.Voucher
 
         }
 
-        public async Task<IEnumerable<Models.Voucher>> GetVouchers()
+        public async Task<IEnumerable<Models.XRS_Voucher>> GetVouchers()
         {
 
             return await _context.Vouchers.ToListAsync();
 
         }
 
-        public async Task<IEnumerable<Models.Voucher>> GetPaymentStatus()
+        public async Task<IEnumerable<Models.XRS_Voucher>> GetPaymentStatus()
         {
 
             return await _context.Vouchers.ToListAsync();
@@ -29,7 +29,7 @@ namespace XeniaRentalApi.Repositories.Voucher
         }
 
 
-        public async Task<IEnumerable<Models.Voucher>> GetVoucherByCompanyId(int companyId)
+        public async Task<IEnumerable<Models.XRS_Voucher>> GetVoucherByCompanyId(int companyId)
         {
 
             return await _context.Vouchers
@@ -38,7 +38,7 @@ namespace XeniaRentalApi.Repositories.Voucher
 
         }
 
-        public async Task<IEnumerable<Models.Voucher>> GetVoucherIdById(int voucherId)
+        public async Task<IEnumerable<Models.XRS_Voucher>> GetVoucherIdById(int voucherId)
         {
 
             return await _context.Vouchers
@@ -47,10 +47,10 @@ namespace XeniaRentalApi.Repositories.Voucher
 
         }
 
-        public async Task<Models.Voucher> CreateVoucher(DTOs.CreateVoucher dtoVoucher)
+        public async Task<Models.XRS_Voucher> CreateVoucher(DTOs.CreateVoucher dtoVoucher)
         {
 
-            var voucher = new Models.Voucher
+            var voucher = new Models.XRS_Voucher
             {
                 unitID = dtoVoucher.unitID,
                 CompanyID = dtoVoucher.CompanyID,
@@ -84,7 +84,7 @@ namespace XeniaRentalApi.Repositories.Voucher
 
 
        
-        public async Task<bool> UpdateVoucher(int id, Models.Voucher voucher)
+        public async Task<bool> UpdateVoucher(int id, Models.XRS_Voucher voucher)
         {
             var updateVoucher = await _context.Vouchers.FirstOrDefaultAsync(u => u.VoucherID == id);
             if (updateVoucher == null) return false;
@@ -113,7 +113,7 @@ namespace XeniaRentalApi.Repositories.Voucher
             return true;
         }
 
-        public async Task<PagedResultDto<Models.Voucher>> GetVochersAsync(string? search, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<Models.XRS_Voucher>> GetVochersAsync(string? search, int pageNumber, int pageSize)
         {
             var query = _context.Vouchers.AsQueryable();
 
@@ -129,7 +129,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 // Optional: add sorting
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(u => new Models.Voucher
+                .Select(u => new Models.XRS_Voucher
                 {
                     PropID = u.PropID,
                     VoucherNo = u.VoucherNo,
@@ -141,7 +141,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 })
                 .ToListAsync();
 
-            return new PagedResultDto<Models.Voucher>
+            return new PagedResultDto<Models.XRS_Voucher>
             {
                 Data = items,
                 PageNumber = pageNumber,

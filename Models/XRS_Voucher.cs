@@ -7,7 +7,7 @@ namespace XeniaRentalApi.Models
     /// Voucher class
     /// </summary>
     [Table("XRS_Voucher")]
-    public class Voucher
+    public class XRS_Voucher
     {
         /// <summary>
         /// VoucherId

@@ -6,17 +6,17 @@ namespace XeniaRentalApi.Repositories.Voucher
 {
     public interface IVoucherRepository
     {
-        Task<IEnumerable<Models.Voucher>> GetVouchers();
-        Task<IEnumerable<Models.Voucher>> GetVoucherByCompanyId(int companyId);
+        Task<IEnumerable<Models.XRS_Voucher>> GetVouchers();
+        Task<IEnumerable<Models.XRS_Voucher>> GetVoucherByCompanyId(int companyId);
         
-        Task<Models.Voucher> CreateVoucher(XeniaRentalApi.DTOs.CreateVoucher voucher);
+        Task<Models.XRS_Voucher> CreateVoucher(XeniaRentalApi.DTOs.CreateVoucher voucher);
 
-        Task<IEnumerable<Models.Voucher>> GetVoucherIdById(int voucherId);
+        Task<IEnumerable<Models.XRS_Voucher>> GetVoucherIdById(int voucherId);
 
-        Task<bool> UpdateVoucher(int id, Models.Voucher voucher);
-        Task<IEnumerable<Models.Voucher>> GetPaymentStatus();
+        Task<bool> UpdateVoucher(int id, Models.XRS_Voucher voucher);
+        Task<IEnumerable<Models.XRS_Voucher>> GetPaymentStatus();
 
-        Task<PagedResultDto<Models.Voucher>> GetVochersAsync(string? search, int pageNumber, int pageSize);
+        Task<PagedResultDto<Models.XRS_Voucher>> GetVochersAsync(string? search, int pageNumber, int pageSize);
 
 
     }

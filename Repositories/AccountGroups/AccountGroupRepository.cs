@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.UserRole;
+
 
 namespace XeniaRentalApi.Repositories.AccountGroups
 {
-    /// <summary>
-    /// Account Group Repository for Adding,updating,creating and displaying accountGroups
-    /// </summary>
     public class AccountGroupRepository: IAccountGroupRepository
     {
         private readonly ApplicationDbContext _context;
@@ -17,14 +14,14 @@ namespace XeniaRentalApi.Repositories.AccountGroups
 
         }
 
-        public async Task<IEnumerable<Models.AccountGroups>> GetAccountGroups()
+        public async Task<IEnumerable<XRS_AccountGroup>> GetAccountGroups()
         {
 
             return await _context.AccountGroups.ToListAsync();
 
         }
 
-        public async Task<IEnumerable<Models.AccountGroups>> GetAccountGroupsByCompanyId(int companyId)
+        public async Task<IEnumerable<XRS_AccountGroup>> GetAccountGroupsByCompanyId(int companyId)
         {
 
             return await _context.AccountGroups
@@ -33,7 +30,7 @@ namespace XeniaRentalApi.Repositories.AccountGroups
 
         }
 
-        public async Task<IEnumerable<Models.AccountGroups>> GetAccountGroupById(int accountGroupId)
+        public async Task<IEnumerable<XRS_AccountGroup>> GetAccountGroupById(int accountGroupId)
         {
 
             return await _context.AccountGroups
@@ -42,7 +39,7 @@ namespace XeniaRentalApi.Repositories.AccountGroups
 
         }
 
-        public async Task<Models.AccountGroups> CreateAccountGroups(Models.AccountGroups accountgroups)
+        public async Task<XRS_AccountGroup> CreateAccountGroups(XRS_AccountGroup accountgroups)
         {
 
             await _context.AccountGroups.AddAsync(accountgroups);
@@ -61,7 +58,7 @@ namespace XeniaRentalApi.Repositories.AccountGroups
             return true;
         }
 
-        public async Task<bool> UpdateAccountGroup(int id, Models.AccountGroups updatedUser)
+        public async Task<bool> UpdateAccountGroup(int id, XRS_AccountGroup updatedUser)
         {
             var updatedAccountGroup = await _context.AccountGroups.FirstOrDefaultAsync(u => u.groupID == id);
             if (updatedAccountGroup == null) return false;
@@ -75,40 +72,5 @@ namespace XeniaRentalApi.Repositories.AccountGroups
             return true;
         }
 
-        public async Task<PagedResultDto<Models.AccountGroups>> GetAccountGroupsAsync(string? search, int pageNumber, int pageSize)
-        {
-            var query = _context.AccountGroups.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.groupName.Contains(search)); // Adjust property as needed
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                .OrderBy(u => u.groupName) // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.AccountGroups
-                {
-                    groupID = u.groupID,
-                    groupName = u.groupName,
-                    companyID = u.companyID,
-                    groupCode = u.groupCode,
-                    isActive = u.isActive,
-                    modifiedOn = DateTime.UtcNow
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.AccountGroups>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
     }
 }

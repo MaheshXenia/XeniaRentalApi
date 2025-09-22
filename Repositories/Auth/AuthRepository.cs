@@ -24,11 +24,11 @@ namespace XeniaRentalApi.Repositories.Auth
         }
 
         #region ADMIN
-        public async Task<Users?> AuthenticateAdminUser(DTOs.LoginRequest request)
+        public async Task<XRS_Users?> AuthenticateAdminUser(DTOs.LoginRequest request)
         {
             var user = await _context.Users
                 .Where(u => u.UserName == request.Username)
-                .Select(u => new Users
+                .Select(u => new XRS_Users
                 {
                     UserId = u.UserId,
                     CompanyId = u.CompanyId,
@@ -53,7 +53,7 @@ namespace XeniaRentalApi.Repositories.Auth
             return user;
         }
 
-        public string GenerateJwtAdminToken(Users user)
+        public string GenerateJwtAdminToken(XRS_Users user)
         {
             var keyString = _configuration["JwtSettings:Key"]
                 ?? throw new InvalidOperationException("JWT key is not configured.");
@@ -134,7 +134,7 @@ namespace XeniaRentalApi.Repositories.Auth
 
             var isExistingUser = existingUser != null;
 
-            var otpLog = new TblOTPLog
+            var otpLog = new XRS_OTPLog
             {
                 Type = isExistingUser ? (int)OTPType.LOGIN : (int)OTPType.REGISTRATION,
                 MobileNo = request.MobileNo,
@@ -174,7 +174,7 @@ namespace XeniaRentalApi.Repositories.Auth
 
 
 
-            var otpLog = new TblOTPLog
+            var otpLog = new XRS_OTPLog
             {
                 Type = (int)OTPType.FORGOT_PASSWORD,
                 MobileNo = request.MobileNo,

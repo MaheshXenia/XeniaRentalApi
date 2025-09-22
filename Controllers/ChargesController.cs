@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.Charges;
 
 
