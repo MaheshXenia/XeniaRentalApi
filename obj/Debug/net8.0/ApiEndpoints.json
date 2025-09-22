@@ -538,14 +538,24 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "CreateBedSpacePlan",
+    "Method": "GetAll",
+    "RelativePath": "api/BedSpacePlan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
+    "Method": "Create",
     "RelativePath": "api/BedSpacePlan",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "bedSpacePlan",
+        "Name": "model",
         "Type": "XeniaRentalApi.Models.XRS_BedSpacePlan",
         "IsRequired": true
       }
@@ -554,7 +564,7 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "GetBedSpacePlanbyId",
+    "Method": "GetById",
     "RelativePath": "api/BedSpacePlan/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -566,21 +576,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Controllers.BedSpacePlan",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "UpdateBedSpacePlan",
+    "Method": "Update",
     "RelativePath": "api/BedSpacePlan/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -592,7 +592,7 @@
         "IsRequired": true
       },
       {
-        "Name": "bedSpacePlan",
+        "Name": "model",
         "Type": "XeniaRentalApi.Models.XRS_BedSpacePlan",
         "IsRequired": true
       }
@@ -601,7 +601,7 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "DeletePlan",
+    "Method": "Delete",
     "RelativePath": "api/BedSpacePlan/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -617,33 +617,7 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "Get",
-    "RelativePath": "api/BedSpacePlan/all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Controllers.BedSpacePlan, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.BedSpacePlan",
-    "Method": "GetPlansByCompanyId",
+    "Method": "GetByCompanyId",
     "RelativePath": "api/BedSpacePlan/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -653,34 +627,9 @@
         "Name": "companyId",
         "Type": "System.Int32",
         "IsRequired": true
-      },
-      {
-        "Name": "search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageNumber",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Controllers.BedSpacePlan, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "CategoryController",
@@ -1569,7 +1518,7 @@
     "Parameters": [
       {
         "Name": "messtypes",
-        "Type": "XeniaRentalApi.DTOs.CreateMessTypes",
+        "Type": "XeniaRentalApi.Models.XRS_Messtypes",
         "IsRequired": true
       }
     ],
@@ -1591,7 +1540,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "XeniaRentalApi.Models.MessTypes",
+        "Type": "XeniaRentalApi.Models.XRS_Messtypes",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1600,6 +1549,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.MessTypesController",
+    "Method": "UpdateMessTypes",
+    "RelativePath": "api/MessTypes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "messTypes",
+        "Type": "XeniaRentalApi.Models.XRS_Messtypes",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.MessTypesController",
@@ -1620,14 +1590,20 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.MessTypesController",
     "Method": "GetMessTypes",
-    "RelativePath": "api/MessTypes/all/messtypes",
+    "RelativePath": "api/MessTypes/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.MessTypes, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Messtypes, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1640,7 +1616,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.MessTypesController",
     "Method": "GetMesstypesByCompanyId",
-    "RelativePath": "api/MessTypes/messtypes/{companyId}",
+    "RelativePath": "api/MessTypes/company/{companyId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1663,7 +1639,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.MessTypes, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Messtypes, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1672,27 +1648,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.MessTypesController",
-    "Method": "UpdateMessTypes",
-    "RelativePath": "api/MessTypes/UpdateMessTypes/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "messTypes",
-        "Type": "XeniaRentalApi.Models.MessTypes",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.PropertiesController",

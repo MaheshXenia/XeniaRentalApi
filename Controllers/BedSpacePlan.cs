@@ -2,10 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.BedSpacePlan;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -23,87 +21,52 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all")]
-        public async Task<ActionResult<IEnumerable<BedSpacePlan>>> Get(int companyId)
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
-            var bedSpacePlans = await _bedSpacePlanRepository.GetBedSpacePlans(companyId);
-            if (bedSpacePlans == null || !bedSpacePlans.Any())
-            {
-                return NotFound(new { Status = "Error", Message = "No BedpacePlans found." });
-            }
-            return Ok(new { Status = "Success", Data = bedSpacePlans });
+            var data = await _bedSpacePlanRepository.GetAllAsync();
+            return Ok(data);
         }
-
-
-
-        [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<BedSpacePlan>>> GetPlansByCompanyId(int companyId, string? search = null, int pageNumber = 1,int pageSize = 10)
-        {
-
-            var plans = await _bedSpacePlanRepository.GetBedSpacePlanByCompanyId(companyId, search,pageNumber, pageSize);
-            if (plans == null)
-            {
-                return NotFound(new { Status = "Error", Message = "No plans found the given Company ID." });
-            }
-            return Ok(new { Status = "Success", Data = plans });
-        }
-
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BedSpacePlan>> GetBedSpacePlanbyId(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var bedSpacePlan = await _bedSpacePlanRepository.GetBedSpacePlanById(id);
-            if (bedSpacePlan == null)
-            {
-                return NotFound(new { Status = "Error", Message = "Plan not found." });
-            }
-            return Ok(new { Status = "Success", Data = bedSpacePlan });
+            var data = await _bedSpacePlanRepository.GetByIdAsync(id);
+            if (data == null) return NotFound();
+            return Ok(data);
         }
 
+        [HttpGet("company/{companyId}")]
+        public async Task<IActionResult> GetByCompanyId(int companyId)
+        {
+            var data = await _bedSpacePlanRepository.GetByCompanyIdAsync(companyId);
+            return Ok(data);
+        }
 
         [HttpPost]
-        public async Task<IActionResult> CreateBedSpacePlan([FromBody] XRS_BedSpacePlan bedSpacePlan)
+        public async Task<IActionResult> Create([FromBody] XRS_BedSpacePlan model)
         {
-            if (bedSpacePlan == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid bedpaceplan." });
-            }
-
-            var createdPlan = await _bedSpacePlanRepository.CreateBedSpacePlan(bedSpacePlan);
-            return CreatedAtAction(nameof(GetBedSpacePlanbyId), new { id = createdPlan }, new { Status = "Success", Data = createdPlan });
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var created = await _bedSpacePlanRepository.CreateAsync(model);
+            return CreatedAtAction(nameof(GetById), new { id = created.bedPlanID }, created);
         }
-
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBedSpacePlan(int id, [FromBody] XRS_BedSpacePlan bedSpacePlan)
+        public async Task<IActionResult> Update(int id, [FromBody] XRS_BedSpacePlan model)
         {
-            if (bedSpacePlan == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid bedspaceplan data" });
-            }
-
-            var updated = await _bedSpacePlanRepository.UpdateBedSpacePlan(id, bedSpacePlan);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "bedspaceplan not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "BedSpacePlan updated successfully." });
+            if (id != model.bedPlanID) return BadRequest("Bed ID mismatch");
+            var updated = await _bedSpacePlanRepository.UpdateAsync(model);
+            if (!updated) return NotFound();
+            return NoContent();
         }
-
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePlan(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var deleted = await _bedSpacePlanRepository.DeleteBedSpacePlan(id);
-            if (!deleted)
-            {
-                return NotFound(new { Status = "Error", Message = "Plan not found or delete failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Plan deleted successfully." });
+            var deleted = await _bedSpacePlanRepository.DeleteAsync(id);
+            if (!deleted) return NotFound();
+            return NoContent();
         }
 
-        
     }
 }

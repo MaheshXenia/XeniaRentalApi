@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Emit;
+﻿
 using Microsoft.EntityFrameworkCore;
 namespace XeniaRentalApi.Models
 {
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
         public DbSet<Users> Users { get; set; }
         public DbSet<UserRoles> UserRoles { get; set; }
 
@@ -15,9 +15,9 @@ namespace XeniaRentalApi.Models
 
         public DbSet<XRS_Bedspace> BedSpaces { get; set; }
 
-        public DbSet<BedSpaceAssignemnt> BedSpaceAssignemnt { get; set; }
-
         public DbSet<XRS_BedSpacePlan> BedSpacePlans { get; set; }
+
+        public DbSet<XRS_BedspacePlanMessMapping> BedspacePlanMessMappings { get; set; }
 
         public DbSet<XRS_Charges> Charges { get; set; }
 
@@ -29,7 +29,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<MessDetails> MessDetails { get; set; }
 
-        public DbSet<MessTypes> MessTypes { get; set; }
+        public DbSet<XRS_Messtypes> MessTypes { get; set; }
 
         public DbSet<XRS_Properties> Properties { get; set; }
 

@@ -13,22 +13,21 @@ namespace XeniaRentalApi.Repositories.MessTypes
 
         }
 
-        public async Task<IEnumerable<Models.MessTypes>> GetMessTypes()
+        public async Task<IEnumerable<XRS_Messtypes>> GetMessTypes(int companyId)
         {
-
-            return await _context.MessTypes.ToListAsync();
-
+            return await _context.MessTypes
+                                 .Where(m => m.CompanyId == companyId)
+                                 .ToListAsync();
         }
 
-
-        public async Task<PagedResultDto<Models.MessTypes>> GetMessTypesByCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_Messtypes>> GetMessTypesByCompanyId(int companyId, int pageNumber, int pageSize)
         {
 
             var query = _context.MessTypes.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(companyId.ToString()))
             {
-                query = query.Where(u => u.CompanyId == companyId); // Adjust property as needed
+                query = query.Where(u => u.CompanyId == companyId);
             }
 
             var totalRecords = await query.CountAsync();
@@ -37,7 +36,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
             .OrderBy(u => u.MessName)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
-            .Select(u => new Models.MessTypes
+            .Select(u => new XRS_Messtypes
             {
               messID = u.messID,
               MessName=u.MessName,
@@ -47,7 +46,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
             })
             .ToListAsync();
 
-            return new PagedResultDto<Models.MessTypes>
+            return new PagedResultDto<XRS_Messtypes>
             {
                 Data = items,
                 PageNumber = pageNumber,
@@ -56,7 +55,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
             };
         }
 
-        public async Task<IEnumerable<Models.MessTypes>> GetMessTypesbyId(int messTypeId)
+        public async Task<IEnumerable<XRS_Messtypes>> GetMessTypesbyId(int messTypeId)
         {
 
             return await _context.MessTypes
@@ -65,14 +64,14 @@ namespace XeniaRentalApi.Repositories.MessTypes
 
         }
 
-        public async Task<Models.MessTypes> CreateMessTypes(DTOs.CreateMessTypes messTypes)
+        public async Task<XRS_Messtypes> CreateMessTypes(XRS_Messtypes messTypes)
         {
 
-            var messTypesInsert = new Models.MessTypes
+            var messTypesInsert = new XRS_Messtypes
             {
                 MessName = messTypes.MessName,
                 IsActive = messTypes.IsActive,
-                CompanyId= messTypes.CompanyId,
+                CompanyId = messTypes.CompanyId,
 
             };
 
@@ -82,17 +81,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
 
         }
 
-        public async Task<bool> DeleteMessType(int id)
-        {
-            var bedspacesettings = await _context.Documents.FirstOrDefaultAsync(u => u.companyID == id);
-            if (bedspacesettings == null) return false;
-            bedspacesettings.isActive = false;
-            //. = DateTime.UtcNow;
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> UpdatMessTypes(int id, Models.MessTypes types)
+        public async Task<bool> UpdatMessTypes(int id, XRS_Messtypes types)
         {
             var updatedMessTypes = await _context.MessTypes.FirstOrDefaultAsync(u => u.messID == id);
             if (updatedMessTypes == null) return false;
@@ -104,5 +93,16 @@ namespace XeniaRentalApi.Repositories.MessTypes
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> DeleteMessType(int id)
+        {
+            var bedspacesettings = await _context.Documents.FirstOrDefaultAsync(u => u.companyID == id);
+            if (bedspacesettings == null) return false;
+            bedspacesettings.isActive = false;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+ 
     }
 }

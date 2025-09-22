@@ -9,24 +9,20 @@ namespace XeniaRentalApi.Models
         [Key]
         public int bedPlanID { get; set; }
         public int companyID { get; set; }
-        public string planName { get; set; }
+        public string planName { get; set; } = string.Empty;
         public bool enableTax { get; set; }
-        public string calculatedays { get; set; }
+        public int calculatedays { get; set; }
         public bool enableAdjustRent { get; set; }
-        public string calculateAdjustRent { get; set; }
-        public bool enablePartialRent { get; set; }
-        public string calculatePartialRent { get; set; }
+        public decimal calculateAdjustRent { get; set; }
+        public decimal calculatePartialRent { get; set; }
         public bool enableMess { get; set; }
-
-        public string messCharge { get; set; }
-        public string includeMess { get; set; }
-
-
-        public string messChargeDays { get; set; }
-
-        public string consumedDays { get; set; }
-
+        public decimal messCharge { get; set; }
+        public bool includeMess { get; set; }
+        public int messChargeDays { get; set; }
+        public int consumedDays { get; set; }
         public bool isActive { get; set; }
-
+        public ICollection<XRS_BedspacePlanMessMapping> BedspacePlanMessMappings { get; set; }
+            = new List<XRS_BedspacePlanMessMapping>();
     }
+
 }

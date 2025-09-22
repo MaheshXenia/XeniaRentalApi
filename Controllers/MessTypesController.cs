@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.Models;
-using XeniaRentalApi.Repositories.Account;
 using XeniaRentalApi.Repositories.MessTypes;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -22,10 +20,10 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/messtypes")]
-        public async Task<ActionResult<IEnumerable<Models.MessTypes>>> GetMessTypes()
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<XRS_Messtypes>>> GetMessTypes(int companyId)
         {
-            var messTypes = await _messTypesRepository.GetMessTypes();
+            var messTypes = await _messTypesRepository.GetMessTypes(companyId);
             if (messTypes == null || !messTypes.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No messtypes found." });
@@ -33,9 +31,9 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = messTypes });
         }
 
-        // GET api/<AccountGroupController>/5
-        [HttpGet("messtypes/{companyId}")]
-        public async Task<ActionResult<IEnumerable<Models.MessTypes>>> GetMesstypesByCompanyId(int companyId,int pageNumber = 1,int pageSize = 10)
+
+        [HttpGet("company/{companyId}")]
+        public async Task<ActionResult<IEnumerable<XRS_Messtypes>>> GetMesstypesByCompanyId(int companyId,int pageNumber = 1,int pageSize = 10)
         {
 
             var messtypes = await _messTypesRepository.GetMessTypesByCompanyId(companyId,pageNumber,pageSize);
@@ -46,22 +44,8 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = messtypes });
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> CreateMesstypes([FromBody] DTOs.CreateMessTypes messtypes)
-        {
-            if (messtypes == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid mess types." });
-            }
-
-            var createdAccount = await _messTypesRepository.CreateMessTypes(messtypes);
-            return CreatedAtAction(nameof(GetMessTypesById), new { id = createdAccount }, new { Status = "Success", Data = createdAccount });
-        }
-
-        //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Models.MessTypes>> GetMessTypesById(int id)
+        public async Task<ActionResult<XRS_Messtypes>> GetMessTypesById(int id)
         {
             var messTypes = await _messTypesRepository.GetMessTypesbyId(id);
             if (messTypes == null)
@@ -72,9 +56,21 @@ namespace XeniaRentalApi.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> CreateMesstypes([FromBody] XRS_Messtypes messtypes)
+        {
+            if (messtypes == null)
+            {
+                return BadRequest(new { Status = "Error", Message = "Invalid mess types." });
+            }
 
-        [HttpPut("UpdateMessTypes/{id}")]
-        public async Task<IActionResult> UpdateMessTypes(int id, [FromBody] Models.MessTypes messTypes)
+            var createdAccount = await _messTypesRepository.CreateMessTypes(messtypes);
+            return CreatedAtAction(nameof(GetMessTypesById), new { id = createdAccount }, new { Status = "Success", Data = createdAccount });
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateMessTypes(int id, [FromBody] XRS_Messtypes messTypes)
         {
             if (messTypes == null)
             {
@@ -90,7 +86,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "MessTypes updated successfully." });
         }
 
-        // DELETE api/<AccountGroupController>/5
+    
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMesstypes(int id)
         {

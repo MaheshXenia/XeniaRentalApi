@@ -1,17 +1,18 @@
 ﻿using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.MessTypes
 {
     public interface IMessTypes
     {
-        Task<IEnumerable<Models.MessTypes>> GetMessTypes();
-        Task<PagedResultDto<Models.MessTypes>> GetMessTypesByCompanyId(int companyId, int pageNumber, int pageSize);
+        Task<IEnumerable<XRS_Messtypes>> GetMessTypes(int companyId);
+        Task<PagedResultDto<XRS_Messtypes>> GetMessTypesByCompanyId(int companyId, int pageNumber, int pageSize);
 
-        Task<Models.MessTypes> CreateMessTypes(DTOs.CreateMessTypes messTypes);
+        Task<XRS_Messtypes> CreateMessTypes(XRS_Messtypes messTypes);
 
         Task<bool> DeleteMessType(int id);
-        Task<IEnumerable<Models.MessTypes>> GetMessTypesbyId(int messTypeId);
+        Task<IEnumerable<XRS_Messtypes>> GetMessTypesbyId(int messTypeId);
 
-        Task<bool> UpdatMessTypes(int id, Models.MessTypes types);
+        Task<bool> UpdatMessTypes(int id, XRS_Messtypes types);
     }
 }

@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Stripe;
-using System.ComponentModel.Design;
 using XeniaRentalApi.Dtos;
-using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.TenantAssignment

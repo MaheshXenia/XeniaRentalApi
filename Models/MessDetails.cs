@@ -50,7 +50,7 @@ namespace XeniaRentalApi.Models
 
         [ForeignKey("messID")]
         [JsonIgnore]
-        public virtual MessTypes? MessTypes { get; set; }
+        public virtual XRS_Messtypes? MessTypes { get; set; }
 
     }
 }

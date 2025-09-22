@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using XeniaRentalApi.Controllers;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
@@ -13,120 +14,133 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
         }
 
-        public async Task<IEnumerable<XRS_BedSpacePlan>> GetBedSpacePlans(int companyId)
+        public async Task<IEnumerable<object>> GetAllAsync()
         {
-            return await _context.BedSpacePlans
-                .Where(bsp => bsp.companyID == companyId)
-                .ToListAsync();
-        }
+            var result = await (from plan in _context.BedSpacePlans
+                                join mapping in _context.BedspacePlanMessMappings
+                                    on plan.bedPlanID equals mapping.bedPlanID into pm
+                                from mapping in pm.DefaultIfEmpty()
+                                join mess in _context.MessTypes
+                                    on mapping.messID equals mess.messID into mm
+                                from mess in mm.DefaultIfEmpty()
+                                select new
+                                {
+                                    plan.bedPlanID,
+                                    plan.companyID,
+                                    plan.planName,
+                                    plan.enableTax,
+                                    plan.calculatedays,
+                                    plan.enableAdjustRent,
+                                    plan.calculateAdjustRent,
+                                    plan.calculatePartialRent,
+                                    plan.enableMess,
+                                    plan.messCharge,
+                                    plan.includeMess,
+                                    plan.messChargeDays,
+                                    plan.consumedDays,
+                                    plan.isActive,
+                                    bpmID = mapping != null ? mapping.bpmID : 0,
+                                    messID = mapping != null ? mapping.messID : 0,
+                                    messTypeName = mess != null ? mess.MessName : string.Empty,
+                                    active = mapping != null ? mapping.active : false
+                                }).ToListAsync();
 
-        public async Task<PagedResultDto<XRS_BedSpacePlan>> GetBedSpacePlanByCompanyId(int companyId,string? search = null, int pageNumber = 1,int pageSize = 10)
-        {
-            var query = _context.BedSpacePlans
-                .Where(bsp => bsp.companyID == companyId)
-                .AsQueryable();
+            return result;
+        }
 
    
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                string lowerSearch = search.ToLower();
-                query = query.Where(bsp => bsp.planName.ToLower().Contains(lowerSearch));
-            }
+        public async Task<object?> GetByIdAsync(int bedPlanID)
+        {
+            var result = await (from plan in _context.BedSpacePlans
+                                where plan.bedPlanID == bedPlanID
+                                join mapping in _context.BedspacePlanMessMappings
+                                    on plan.bedPlanID equals mapping.bedPlanID into pm
+                                from mapping in pm.DefaultIfEmpty()
+                                join mess in _context.MessTypes
+                                    on mapping.messID equals mess.messID into mm
+                                from mess in mm.DefaultIfEmpty()
+                                select new
+                                {
+                                    plan.bedPlanID,
+                                    plan.companyID,
+                                    plan.planName,
+                                    plan.enableTax,
+                                    plan.calculatedays,
+                                    plan.enableAdjustRent,
+                                    plan.calculateAdjustRent,
+                                    plan.calculatePartialRent,
+                                    plan.enableMess,
+                                    plan.messCharge,
+                                    plan.includeMess,
+                                    plan.messChargeDays,
+                                    plan.consumedDays,
+                                    plan.isActive,
+                                    bpmID = mapping != null ? mapping.bpmID : 0,
+                                    messID = mapping != null ? mapping.messID : 0,
+                                    messTypeName = mess != null ? mess.MessName : string.Empty,
+                                    active = mapping != null ? mapping.active : false
+                                }).FirstOrDefaultAsync();
 
-            var totalRecords = await query.CountAsync();
-
- 
-            var items = await query
-                .OrderBy(bsp => bsp.planName) 
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new XRS_BedSpacePlan
-                {
-                    bedPlanID = u.bedPlanID,
-                    planName = u.planName,
-                    calculateAdjustRent = u.calculateAdjustRent,
-                    consumedDays = u.consumedDays,
-                    calculatedays = u.calculatedays,
-                    calculatePartialRent = u.calculatePartialRent,
-                    companyID = u.companyID,
-                    isActive = u.isActive,
-                    includeMess = u.includeMess,
-                    messCharge = u.messCharge,
-                    messChargeDays = u.messChargeDays,
-                    enableMess = u.enableMess,
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<XRS_BedSpacePlan>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
+            return result;
         }
 
-        public async Task<XRS_BedSpacePlan> GetBedSpacePlanById(int bedSpacePlanId)
+        public async Task<IEnumerable<object>> GetByCompanyIdAsync(int companyID)
         {
-            return await _context.BedSpacePlans
-                .FirstOrDefaultAsync(u => u.bedPlanID == bedSpacePlanId);
+            var result = await (from plan in _context.BedSpacePlans
+                                where plan.companyID == companyID
+                                join mapping in _context.BedspacePlanMessMappings
+                                    on plan.bedPlanID equals mapping.bedPlanID into pm
+                                from mapping in pm.DefaultIfEmpty()
+                                join mess in _context.MessTypes
+                                    on mapping.messID equals mess.messID into mm
+                                from mess in mm.DefaultIfEmpty()
+                                select new
+                                {
+                                    plan.bedPlanID,
+                                    plan.companyID,
+                                    plan.planName,
+                                    plan.enableTax,
+                                    plan.calculatedays,
+                                    plan.enableAdjustRent,
+                                    plan.calculateAdjustRent,
+                                    plan.calculatePartialRent,
+                                    plan.enableMess,
+                                    plan.messCharge,
+                                    plan.includeMess,
+                                    plan.messChargeDays,
+                                    plan.consumedDays,
+                                    plan.isActive,
+                                    bpmID = mapping != null ? mapping.bpmID : 0,
+                                    messID = mapping != null ? mapping.messID : 0,
+                                    messTypeName = mess != null ? mess.MessName : string.Empty,
+                                    active = mapping != null ? mapping.active : false
+                                }).ToListAsync();
+
+            return result;
         }
-
-        public async Task<XRS_BedSpacePlan> CreateBedSpacePlan(XRS_BedSpacePlan createBedSpacePlan)
+        public async Task<XRS_BedSpacePlan> CreateAsync(XRS_BedSpacePlan entity)
         {
-
-            var bedSpace = new Models.XRS_BedSpacePlan
-            {
-                companyID = createBedSpacePlan.companyID,
-                planName = createBedSpacePlan.planName,
-                enableTax = createBedSpacePlan.enableTax,
-                calculatedays = createBedSpacePlan.calculatedays,
-                calculateAdjustRent = createBedSpacePlan.calculateAdjustRent,
-                enableAdjustRent=createBedSpacePlan.enableAdjustRent,
-                enableMess=createBedSpacePlan.enableMess,
-                enablePartialRent=createBedSpacePlan.enablePartialRent,
-                calculatePartialRent= createBedSpacePlan.calculatePartialRent,
-                includeMess=createBedSpacePlan.includeMess,
-                messCharge=createBedSpacePlan.messCharge,
-                messChargeDays=createBedSpacePlan.messChargeDays,
-                consumedDays=createBedSpacePlan.consumedDays,
-                isActive=createBedSpacePlan.isActive,
-            };
-            await _context.BedSpacePlans.AddAsync(bedSpace);
+            _context.BedSpacePlans.Add(entity);
             await _context.SaveChangesAsync();
-            return bedSpace;
-
+            return entity;
         }
 
-        public async Task<bool> UpdateBedSpacePlan(int id, XRS_BedSpacePlan bedSpacePlan)
+        public async Task<bool> UpdateAsync(XRS_BedSpacePlan entity)
         {
-            var updatebedSpacePlan = await _context.BedSpacePlans.FirstOrDefaultAsync(u => u.bedPlanID == id);
-            if (updatebedSpacePlan == null) return false;
+            var existing = await _context.BedSpacePlans.FindAsync(entity.bedPlanID);
+            if (existing == null) return false;
 
-            updatebedSpacePlan.planName = bedSpacePlan.planName ?? bedSpacePlan.planName;
-            updatebedSpacePlan.companyID = bedSpacePlan.companyID;
-            updatebedSpacePlan.includeMess = bedSpacePlan.includeMess;
-            updatebedSpacePlan.enableMess = bedSpacePlan.enableMess;
-            updatebedSpacePlan.calculatePartialRent = bedSpacePlan.calculatePartialRent;
-            updatebedSpacePlan.calculatedays = bedSpacePlan.calculatedays;
-            updatebedSpacePlan.calculateAdjustRent = bedSpacePlan.calculateAdjustRent;
-            updatebedSpacePlan.consumedDays = bedSpacePlan.consumedDays;
-            updatebedSpacePlan.enableAdjustRent = bedSpacePlan.enableAdjustRent;
-            updatebedSpacePlan.enableTax = bedSpacePlan.enableTax;
-            updatebedSpacePlan.isActive = bedSpacePlan.isActive;
-            updatebedSpacePlan.enablePartialRent = bedSpacePlan.enablePartialRent;
-            updatebedSpacePlan.includeMess = bedSpacePlan.includeMess;
-            updatebedSpacePlan.messCharge = bedSpacePlan.messCharge;
-            updatebedSpacePlan.messChargeDays = bedSpacePlan.messChargeDays;
+            _context.Entry(existing).CurrentValues.SetValues(entity);
             await _context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> DeleteBedSpacePlan(int id)
+        public async Task<bool> DeleteAsync(int bedID)
         {
-            var bedspacesettings = await _context.BedSpacePlans.FirstOrDefaultAsync(u => u.bedPlanID == id);
-            if (bedspacesettings == null) return false;
-           bedspacesettings.isActive=false;
+            var entity = await _context.BedSpacePlans.FindAsync(bedID);
+            if (entity == null) return false;
+
+            _context.BedSpacePlans.Remove(entity);
             await _context.SaveChangesAsync();
             return true;
         }
