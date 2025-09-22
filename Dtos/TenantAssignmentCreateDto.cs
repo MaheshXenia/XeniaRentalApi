@@ -10,17 +10,23 @@
         public bool isTaxable { get; set; }
         public int bedSpaceID { get; set; }
         public decimal rentAmt { get; set; }
-        public decimal rentConcession { get; set; }
-        public decimal messConcession { get; set; }
+        public int rentConcession { get; set; }
+        public int messConcession { get; set; }
         public string frequency { get; set; }
         public string collectionType { get; set; }
         public DateTime agreementStartDate { get; set; }
         public DateTime agreementEndDate { get; set; }
-        public string rentCollection { get; set; }
-        public decimal escalationPer { get; set; }
+        public int   rentCollection { get; set; }
+        public int escalationPer { get; set; }
         public DateTime? nextescalationDate { get; set; }
         public DateTime? rentDueDate { get; set; }
+        public decimal refundAmount { get; set; }
+        public decimal Charges { get; set; }
+        public decimal amount { get; set; }
         public string? notes { get; set; }
+        public bool isClosure { get; set; }
+        public bool isActive { get; set; }
+
         public List<TenantCreateDocumentDto>? Documents { get; set; }
     }
 }
