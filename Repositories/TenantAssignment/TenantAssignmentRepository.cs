@@ -153,12 +153,11 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             _context.TenantAssignemnts.Add(entity);
             await _context.SaveChangesAsync();
 
-            // 2️⃣ Add TenantDocuments if provided
             if (dto.Documents != null && dto.Documents.Any())
             {
                 var tenantDocs = dto.Documents.Select(doc => new XRS_TenantDocuments
                 {
-                    TenantID = dto.tenantID, // Link to Tenant
+                    TenantID = dto.tenantID, 
                     CompanyID = dto.companyID,
                     DocTypeId = doc.docTypeId,
                     DocumentsNo = doc.documentsNo,

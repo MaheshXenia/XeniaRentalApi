@@ -5048,12 +5048,12 @@
             "format": "double"
           },
           "rentConcession": {
-            "type": "number",
-            "format": "double"
+            "type": "integer",
+            "format": "int32"
           },
           "messConcession": {
-            "type": "number",
-            "format": "double"
+            "type": "integer",
+            "format": "int32"
           },
           "frequency": {
             "type": "string",
@@ -5072,12 +5072,12 @@
             "format": "date-time"
           },
           "rentCollection": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "escalationPer": {
-            "type": "number",
-            "format": "double"
+            "type": "integer",
+            "format": "int32"
           },
           "nextescalationDate": {
             "type": "string",
@@ -5089,9 +5089,27 @@
             "format": "date-time",
             "nullable": true
           },
+          "refundAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "Charges": {
+            "type": "number",
+            "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
           "notes": {
             "type": "string",
             "nullable": true
+          },
+          "isClosure": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
           },
           "Documents": {
             "type": "array",
