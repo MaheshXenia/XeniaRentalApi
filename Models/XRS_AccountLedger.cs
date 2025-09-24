@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace XeniaRentalApi.Models
 {
-    [Table("XRS_Ledger")]
+    [Table("XRS_AccountLedger")]
     public class XRS_AccountLedger
     {
         [Key]

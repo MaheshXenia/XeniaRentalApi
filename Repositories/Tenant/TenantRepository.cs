@@ -65,8 +65,6 @@ namespace XeniaRentalApi.Repositories.Tenant
             }
         }
 
-
-
         public async Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId( int companyId,bool? status = null,string? search = null,int pageNumber = 1, int pageSize = 10)
         {
             var query = _context.Tenants         

@@ -34,10 +34,10 @@ namespace XeniaRentalApi.Controllers
         
 
         [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<IEnumerable<XRS_AccountLedger>>> GetLedgersByCompanyId(int companyId)
+        public async Task<ActionResult<IEnumerable<XRS_AccountLedger>>> GetLedgersByCompanyId(int companyId, [FromQuery] bool isgroup = false)
         {
 
-            var ledgers = await _ledgerRepository.GetLedgerDetails(companyId);
+            var ledgers = await _ledgerRepository.GetLedgerDetails(companyId, isgroup);
             if (ledgers == null || !ledgers.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No ledgers found the given Company ID." });

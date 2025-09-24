@@ -21,14 +21,32 @@ namespace XeniaRentalApi.Repositories.Ledger
         }
 
 
-        public async Task<IEnumerable<XRS_AccountLedger>> GetLedgerDetails(int companyId)
+        public async Task<IEnumerable<XRS_AccountLedger>> GetLedgerDetails(int companyId, bool isgroup)
         {
+            var query = _context.Ledgers
+                .AsNoTracking()
+                .Where(u => u.companyID == companyId);
 
-            return await _context.Ledgers
-                .Where(u => u.companyID == companyId)
-                 .ToListAsync();
+            if (isgroup)
+            {
+                var indirectGroup = await _context.AccountGroups
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(g => g.groupCode == "INDIRECT EXPENSES" && g.companyID == companyId);
 
+                if (indirectGroup != null)
+                {
+                    int indirectExpensesGroupId = indirectGroup.groupID;
+                    query = query.Where(l => l.groupID == indirectExpensesGroupId);
+                }
+                else
+                {
+                    return new List<XRS_AccountLedger>();
+                }
+            }
+
+            return await query.ToListAsync();
         }
+
 
         public async Task<IEnumerable<XRS_AccountLedger>> GetLedgerbyId(int ledgerId)
         {

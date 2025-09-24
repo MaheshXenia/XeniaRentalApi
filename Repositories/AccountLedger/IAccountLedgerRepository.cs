@@ -6,7 +6,7 @@ namespace XeniaRentalApi.Repositories.Ledger
     {
         Task<IEnumerable<XRS_AccountLedger>> GetLedgers();
 
-        Task<IEnumerable<XRS_AccountLedger>> GetLedgerDetails(int companyId);
+        Task<IEnumerable<XRS_AccountLedger>> GetLedgerDetails(int companyId, bool isgroup);
 
         Task<IEnumerable<XRS_AccountLedger>> GetLedgerbyId(int ledgerId);
 

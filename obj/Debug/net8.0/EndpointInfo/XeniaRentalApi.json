@@ -276,6 +276,14 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "isgroup",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
