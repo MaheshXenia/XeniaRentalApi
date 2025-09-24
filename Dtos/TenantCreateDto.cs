@@ -2,8 +2,6 @@
 {
     public class TenantCreateDto
     {
-        public int unitID { get; set; }
-        public int propID { get; set; }
         public int companyID { get; set; }
         public string tenantName { get; set; }
         public string phoneNumber { get; set; }

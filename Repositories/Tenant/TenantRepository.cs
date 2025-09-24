@@ -20,56 +20,67 @@ namespace XeniaRentalApi.Repositories.Tenant
 
         public async Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId, int? unitId = null)
         {
-            var query = _context.Tenants
-                .AsNoTracking()
-                .Where(t => t.companyID == companyId);
             if (unitId.HasValue)
             {
-                query = query.Where(t => t.unitID == unitId.Value);
-            }
+                var query = from t in _context.Tenants.AsNoTracking()
+                            join a in _context.TenantAssignemnts.AsNoTracking()
+                                on t.tenantID equals a.tenantID
+                            where t.companyID == companyId
+                                  && a.unitID == unitId.Value
+                            select new XRS_Tenant
+                            {
+                                tenantID = t.tenantID,
+                                tenantName = t.tenantName,              
+                                companyID = t.companyID,
+                                phoneNumber = t.phoneNumber,
+                                email = t.email,
+                                emergencyContactNo = t.emergencyContactNo,
+                                concessionper = t.concessionper,
+                                note = t.note,
+                                address = t.address,
+                                isActive = t.isActive
+                            };
 
-            return await query
-                .Include(t => t.Properties)
-                .Include(t => t.Units)
-                .Select(t => new XRS_Tenant
-                {
-                    tenantID = t.tenantID,
-                    tenantName = t.tenantName,
-                    propID = t.propID,
-                    companyID = t.companyID,
-                    unitID = t.unitID,
-                    phoneNumber = t.phoneNumber,
-                    email = t.email,
-                    emergencyContactNo = t.emergencyContactNo,
-                    concessionper = t.concessionper,
-                    note = t.note,
-                    address = t.address,
-                    isActive = t.isActive,
-                    PropName = t.Properties != null ? t.Properties.propertyName : null,
-                    UnitName = t.Units != null ? t.Units.UnitName : null
-                })
-                .ToListAsync();
+                return await query.ToListAsync();
+            }
+            else
+            {
+                return await _context.Tenants
+                    .AsNoTracking()
+                    .Where(t => t.companyID == companyId)
+                    .Select(t => new XRS_Tenant
+                    {
+                        tenantID = t.tenantID,
+                        tenantName = t.tenantName,
+                        companyID = t.companyID,
+                        phoneNumber = t.phoneNumber,
+                        email = t.email,
+                        emergencyContactNo = t.emergencyContactNo,
+                        concessionper = t.concessionper,
+                        note = t.note,
+                        address = t.address,
+                        isActive = t.isActive
+                    })
+                    .ToListAsync();
+            }
         }
+
 
 
         public async Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId( int companyId,bool? status = null,string? search = null,int pageNumber = 1, int pageSize = 10)
         {
-            // Base query with related entities
-            var query = _context.Tenants
-                .Include(t => t.Properties)
-                .Include(t => t.Units)
+            var query = _context.Tenants         
                 .Include(t => t.TenantDocuments)
                     .ThenInclude(td => td.Documents)
                 .Where(t => t.companyID == companyId)
                 .AsNoTracking();
 
-            // Filter by status if provided
+
             if (status.HasValue)
             {
                 query = query.Where(t => t.isActive == status.Value);
             }
 
-            // Filter by search term if provided
             if (!string.IsNullOrWhiteSpace(search))
             {
                 string lowerSearch = search.ToLower();
@@ -82,21 +93,17 @@ namespace XeniaRentalApi.Repositories.Tenant
 
             var totalRecords = await query.CountAsync();
 
-            // Fetch paged tenants
             var tenants = await query
                 .OrderBy(t => t.tenantName)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
 
-            // Map to TenantGetDto
             var items = tenants.Select(t => new TenantGetDto
             {
                 TenantID = t.tenantID,
                 TenantName = t.tenantName,
                 CompanyID = t.companyID,
-                PropID = t.propID,
-                UnitID = t.unitID,
                 Email = t.email,
                 PhoneNumber = t.phoneNumber,
                 EmergencyContactNo = t.emergencyContactNo,
@@ -104,8 +111,6 @@ namespace XeniaRentalApi.Repositories.Tenant
                 Note = t.note,
                 ConcessionPer = t.concessionper,
                 IsActive = t.isActive,
-                PropName = t.Properties?.propertyName,
-                UnitName = t.Units?.UnitName,
                 Documents = t.TenantDocuments?
                     .Select(td => new TenantDocumentDto
                     {
@@ -137,9 +142,7 @@ namespace XeniaRentalApi.Repositories.Tenant
 
         public async Task<TenantGetDto> GetTenantWithDocumentsById(int tenantId)
         {
-            var tenant = await _context.Tenants
-                .Include(t => t.Properties)
-                .Include(t => t.Units)
+            var tenant = await _context.Tenants      
                 .Include(t => t.TenantDocuments)
                     .ThenInclude(td => td.Documents)
                 .FirstOrDefaultAsync(t => t.tenantID == tenantId);
@@ -152,8 +155,6 @@ namespace XeniaRentalApi.Repositories.Tenant
                 TenantID = tenant.tenantID,
                 TenantName = tenant.tenantName,
                 CompanyID = tenant.companyID,
-                PropID = tenant.propID,
-                UnitID = tenant.unitID,
                 Email = tenant.email,
                 PhoneNumber = tenant.phoneNumber,
                 EmergencyContactNo = tenant.emergencyContactNo,
@@ -161,8 +162,6 @@ namespace XeniaRentalApi.Repositories.Tenant
                 Note = tenant.note,
                 ConcessionPer = tenant.concessionper,
                 IsActive = tenant.isActive,
-                PropName = tenant.Properties?.propertyName,
-                UnitName = tenant.Units?.UnitName,
                 Documents = tenant.TenantDocuments?
                     .Select(td => new TenantDocumentDto
                     {
@@ -187,9 +186,7 @@ namespace XeniaRentalApi.Repositories.Tenant
         {
             var tenant = new XRS_Tenant
             {
-                tenantName = tenantDto.tenantName,
-                unitID = tenantDto.unitID,
-                propID = tenantDto.propID,
+                tenantName = tenantDto.tenantName,        
                 companyID = tenantDto.companyID,
                 phoneNumber = tenantDto.phoneNumber,
                 email = tenantDto.email,
@@ -226,8 +223,6 @@ namespace XeniaRentalApi.Repositories.Tenant
             if (tenant == null) return false;
 
             tenant.tenantName = tenantDto.tenantName;
-            tenant.unitID = tenantDto.unitID;
-            tenant.propID = tenantDto.propID;
             tenant.companyID = tenantDto.companyID;
             tenant.phoneNumber = tenantDto.phoneNumber;
             tenant.email = tenantDto.email;

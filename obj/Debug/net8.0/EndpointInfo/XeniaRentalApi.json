@@ -4424,14 +4424,6 @@
       "XeniaRentalApi.Dtos.TenantCreateDto": {
         "type": "object",
         "properties": {
-          "unitID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
           "companyID": {
             "type": "integer",
             "format": "int32"
@@ -5111,14 +5103,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "unitID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
           "companyID": {
             "type": "integer",
             "format": "int32"
@@ -5153,14 +5137,6 @@
           },
           "isActive": {
             "type": "boolean"
-          },
-          "PropName": {
-            "type": "string",
-            "nullable": true
-          },
-          "UnitName": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
