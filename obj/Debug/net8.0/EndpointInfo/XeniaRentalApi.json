@@ -2970,6 +2970,29 @@
         }
       }
     },
+    "/api/TenantAssignement/company/all/{companyId}": {
+      "get": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TenantAssignement/company/{companyId}": {
       "get": {
         "tags": [
@@ -2983,6 +3006,14 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "isBedSpace",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],

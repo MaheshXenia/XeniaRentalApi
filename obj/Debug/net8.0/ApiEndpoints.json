@@ -1837,6 +1837,27 @@
         "Name": "companyId",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "isBedSpace",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
+    "Method": "GetByCompanyAllId",
+    "RelativePath": "api/TenantAssignement/company/all/{companyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

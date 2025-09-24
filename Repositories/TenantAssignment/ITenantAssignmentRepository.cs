@@ -6,7 +6,9 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 {
     public interface ITenantAssignmentRepository
     {
-        Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId);
+
+        Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId);
+        Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId, bool isBedSpace = false);
         Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId);
         Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto);
         Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto);

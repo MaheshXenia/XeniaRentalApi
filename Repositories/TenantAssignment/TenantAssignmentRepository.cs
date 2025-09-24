@@ -12,20 +12,21 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             _context = context;
 
         }
-
-        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId)
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId)
         {
-            var assignments = await _context.TenantAssignemnts
+            IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
                 .Include(t => t.Properties)
                 .Include(t => t.Unit)
                 .Include(t => t.Tenant)
                     .ThenInclude(tenant => tenant.TenantDocuments)
                         .ThenInclude(td => td.Documents)
-                .Where(t => t.companyID == companyId)
                 .AsNoTracking()
-                .ToListAsync();
+                .Where(t => t.companyID == companyId && t.isClosure == false);
 
-     
+
+
+            var assignments = await query.ToListAsync();
+
             var result = assignments.Select(t => new TenantAssignmentGetDto
             {
                 tenantAssignId = t.tenantAssignId,
@@ -44,8 +45,56 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 isActive = t.isActive,
                 isClosure = t.isClosure,
                 notes = t.notes,
+                BedSpaceID = t.bedSpaceID
+            }).ToList();
 
-       
+            return result;
+        }
+
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId, bool isBedSpace = false)
+        {
+            IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
+                .Include(t => t.Properties)
+                .Include(t => t.Unit)
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                        .ThenInclude(td => td.Documents)
+                .AsNoTracking()
+                .Where(t => t.companyID == companyId && t.isClosure == false);
+
+
+            if (isBedSpace)
+            {
+                query = query.Where(t => t.bedSpaceID > 0)
+                             .Include(t => t.BedSpace); 
+            }
+            else
+            {
+                query = query.Where(t => t.bedSpaceID == 0 || t.bedSpaceID == null);
+            }
+
+            var assignments = await query.ToListAsync();
+
+            var result = assignments.Select(t => new TenantAssignmentGetDto
+            {
+                tenantAssignId = t.tenantAssignId,
+                propID = t.propID,
+                PropName = t.Properties?.propertyName,
+                unitID = t.unitID,
+                UnitName = t.Unit?.UnitName,
+                tenantID = t.tenantID,
+                TenantName = t.Tenant?.tenantName,
+                TenantContactNo = t.Tenant?.phoneNumber,
+                rentAmt = t.rentAmt,
+                rentConcession = t.rentConcession,
+                messConcession = t.messConcession,
+                agreementStartDate = t.agreementStartDate,
+                agreementEndDate = t.agreementEndDate,
+                isActive = t.isActive,
+                isClosure = t.isClosure,
+                notes = t.notes,
+                BedSpaceID = t.bedSpaceID,
+                BedSpaceName = isBedSpace ? t.BedSpace?.bedSpaceName : null,
                 Documents = t.Tenant?.TenantDocuments?
                     .Select(td => new TenantDocumentDto
                     {

@@ -18,6 +18,8 @@
         public bool isActive { get; set; }
         public bool isClosure { get; set; }
         public string? notes { get; set; }
+        public int? BedSpaceID { get; set; }
+        public string? BedSpaceName { get; set; }
         public List<TenantDocumentDto> Documents { get; set; }
     }
 }
