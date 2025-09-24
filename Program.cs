@@ -120,7 +120,7 @@ builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 builder.Services.AddScoped<ITenantAssignmentRepository, TenantAssignmentRepository>();
 builder.Services.AddScoped<IUnitRepository, UnitRepository>();
-builder.Services.AddScoped<IVoucherRepository,VoucherRrepository>();
+builder.Services.AddScoped<IVoucherRepository,VoucherRepository>();
 builder.Services.AddScoped<INotificationService, OTPService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 

@@ -3457,83 +3457,53 @@
         }
       }
     },
-    "/api/Voucher/all/accounts": {
-      "get": {
+    "/api/Voucher": {
+      "post": {
         "tags": [
           "Voucher"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
                 }
               }
             }
           }
         }
-      }
-    },
-    "/api/Voucher/all/paymentStatus": {
-      "get": {
-        "tags": [
-          "Voucher"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Voucher/accounts/{companyId}": {
+      },
       "get": {
         "tags": [
           "Voucher"
@@ -3541,8 +3511,7 @@
         "parameters": [
           {
             "name": "companyId",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -3578,37 +3547,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Voucher": {
-      "post": {
-        "tags": [
-          "Voucher"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateVoucher"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateVoucher"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.DTOs.CreateVoucher"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -3651,9 +3589,7 @@
             }
           }
         }
-      }
-    },
-    "/api/Voucher/UpdateVoucher/{id}": {
+      },
       "put": {
         "tags": [
           "Voucher"
@@ -3673,80 +3609,62 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDto"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
+                }
+              }
+            }
           }
         }
-      }
-    },
-    "/api/Voucher/Vouchers/search": {
-      "get": {
+      },
+      "delete": {
         "tags": [
           "Voucher"
         ],
         "parameters": [
           {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
+            "name": "id",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
+              "format": "int32"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Voucher"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Voucher"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Voucher"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -4059,44 +3977,6 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfXRS_Voucher": {
-        "type": "object",
-        "properties": {
-          "Data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Voucher"
-            },
-            "nullable": true
-          },
-          "PageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalRecords": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "HasPreviousPage": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "HasNextPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "XeniaRentalApi.DTOs.BedSpaceDto": {
         "type": "object",
         "properties": {
@@ -4226,108 +4106,6 @@
           "Modifieddate": {
             "type": "string",
             "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.DTOs.CreateVoucher": {
-        "type": "object",
-        "properties": {
-          "CompanyID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PropID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "unitID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "VoucherNo": {
-            "type": "string",
-            "nullable": true
-          },
-          "VoucherDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "VoucherType": {
-            "type": "string",
-            "nullable": true
-          },
-          "DrID": {
-            "type": "string",
-            "nullable": true
-          },
-          "CrID": {
-            "type": "string",
-            "nullable": true
-          },
-          "Amount": {
-            "type": "string",
-            "nullable": true
-          },
-          "RefNo": {
-            "type": "string",
-            "nullable": true
-          },
-          "Remarks": {
-            "type": "string",
-            "nullable": true
-          },
-          "IssueingBank": {
-            "type": "string",
-            "nullable": true
-          },
-          "ChequeNo": {
-            "type": "string",
-            "nullable": true
-          },
-          "Cancelled": {
-            "type": "boolean"
-          },
-          "CrAmount": {
-            "type": "number",
-            "format": "double"
-          },
-          "IsReconcil": {
-            "type": "boolean"
-          },
-          "ChequeStatus": {
-            "type": "boolean"
-          },
-          "ReconcilDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "CreatedOn": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "CreatedBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedOn": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "ModificationBy": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "paidByUser": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isActive": {
-            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -4691,6 +4469,99 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.Dtos.VoucherDto": {
+        "type": "object",
+        "properties": {
+          "UnitID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CompanyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PropID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "VoucherNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "VoucherDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "VoucherType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DrID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CrID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "RefNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssuingBank": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChequeNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Cancelled": {
+            "type": "boolean"
+          },
+          "CrAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "IsReconcil": {
+            "type": "boolean"
+          },
+          "ChequeStatus": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ReconcilDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModificationBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaidByUser": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.Models.XRS_AccountGroup": {
         "type": "object",
         "properties": {
@@ -4788,6 +4659,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "GroupId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "invType": {
             "type": "string",
             "nullable": true
@@ -4801,12 +4676,12 @@
             "format": "date-time"
           },
           "ledgerDr": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "ledgerCr": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "amountDr": {
             "type": "number",
@@ -5487,24 +5362,23 @@
           },
           "VoucherDate": {
             "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "VoucherType": {
             "type": "string",
             "nullable": true
           },
           "DrID": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "CrID": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "Amount": {
-            "type": "string",
-            "nullable": true
+            "type": "number",
+            "format": "double"
           },
           "RefNo": {
             "type": "string",
@@ -5557,7 +5431,6 @@
           },
           "ModificationBy": {
             "type": "string",
-            "format": "date-time",
             "nullable": true
           },
           "paidByUser": {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Voucher;
@@ -21,93 +22,45 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("all/accounts")]
-        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> Get()
-        {
-            var vouchers = await _voucherRepository.GetVouchers();
-            if (vouchers == null || !vouchers.Any())
-            {
-                return NotFound(new { Status = "Error", Message = "No Vouchers found." });
-            }
-            return Ok(new { Status = "Success", Data = vouchers });
-        }
-
-        [HttpGet("all/paymentStatus")]
-        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetPaymentStatus()
-        {
-            var vouchers = await _voucherRepository.GetPaymentStatus();
-            if (vouchers == null || !vouchers.Any())
-            {
-                return NotFound(new { Status = "Error", Message = "No Vouchers found." });
-            }
-            return Ok(new { Status = "Success", Data = vouchers });
-        }
-
-
-        [HttpGet("accounts/{companyId}")]
-        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetVouchersByCompanyId(int companyId)
-        {
-
-            var vouchers = await _voucherRepository.GetVoucherByCompanyId(companyId);
-            if (vouchers == null || !vouchers.Any())
-            {
-                return NotFound(new { Status = "Error", Message = "No vouchers found the given Company ID." });
-            }
-            return Ok(new { Status = "Success", Data = vouchers });
-        }
-
-
         [HttpPost]
-        public async Task<IActionResult> CreateVouchers([FromBody] CreateVoucher voucher)
+        public async Task<ActionResult<XRS_Voucher>> CreateVoucher([FromBody] VoucherDto dto)
         {
-            if (voucher == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid voucher." });
-            }
-
-            var createdVoucher   = await _voucherRepository.CreateVoucher(voucher);
-            return CreatedAtAction(nameof(GetVoucher), new { id = createdVoucher }, new { Status = "Success", Data = createdVoucher });
+            var voucher = await _voucherRepository.CreateVoucherAsync(dto);
+            return CreatedAtAction(nameof(GetVoucherById), new { id = voucher.VoucherID }, voucher);
         }
 
-        //[Authorize(Roles = "Admin,SuperAdmin")]
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<XRS_Voucher>> GetVoucher(int id)
+        public async Task<ActionResult<XRS_Voucher>> GetVoucherById(int id)
         {
-            var vouchers = await _voucherRepository.GetVoucherIdById(id);
-            if (vouchers == null)
-            {
-                return NotFound(new { Status = "Error", Message = "Voucher not found." });
-            }
-            return Ok(new { Status = "Success", Data = vouchers });
+            var voucher = await _voucherRepository.GetVoucherByIdAsync(id);
+            if (voucher == null) return NotFound();
+            return Ok(voucher);
         }
 
 
-
-        [HttpPut("UpdateVoucher/{id}")]
-        public async Task<IActionResult> UpdateVoucher(int id, [FromBody] Models.XRS_Voucher voucher)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetAllVouchers(int companyId)
         {
-            if (voucher == null)
-            {
-                return BadRequest(new { Status = "Error", Message = "Invalid voucher data" });
-            }
-
-            var updated = await _voucherRepository.UpdateVoucher(id, voucher);
-            if (!updated)
-            {
-                return NotFound(new { Status = "Error", Message = "voucher not found or update failed." });
-            }
-
-            return Ok(new { Status = "Success", Message = "Voucher updated successfully." });
+            var vouchers = await _voucherRepository.GetAllVouchersAsync(companyId);
+            return Ok(vouchers);
         }
 
-        [HttpGet("Vouchers/search")]
-        public async Task<ActionResult<PagedResultDto<XRS_Voucher>>> Get(
-         string? search,
-         int pageNumber = 1,
-         int pageSize = 10)
+        [HttpPut("{id}")]
+        public async Task<ActionResult<XRS_Voucher>> UpdateVoucher(int id, [FromBody] VoucherDto dto)
         {
-            var result = await _voucherRepository.GetVochersAsync(search, pageNumber, pageSize);
-            return Ok(result);
+            var updatedVoucher = await _voucherRepository.UpdateVoucherAsync(id, dto);
+            if (updatedVoucher == null) return NotFound();
+            return Ok(updatedVoucher);
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteVoucher(int id)
+        {
+            var deleted = await _voucherRepository.DeleteVoucherAsync(id);
+            if (!deleted) return NotFound();
+            return NoContent();
         }
     }
 }

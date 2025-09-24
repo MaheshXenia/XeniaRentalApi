@@ -12,6 +12,7 @@ namespace XeniaRentalApi.Models
         public int companyID { get; set; }
 
         public int VoucherId { get; set; }
+        public int GroupId { get; set; }
 
         public string invType { get; set; }
 
@@ -19,9 +20,9 @@ namespace XeniaRentalApi.Models
 
         public DateTime invDate { get; set; }
 
-        public string ledgerDr { get; set; }
+        public int ledgerDr { get; set; }
 
-        public string ledgerCr { get; set; }
+        public int ledgerCr { get; set; }
 
         public decimal amountDr { get; set; }
 

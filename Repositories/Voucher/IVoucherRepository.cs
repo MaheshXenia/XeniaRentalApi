@@ -1,22 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.Design;
+using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
+using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Voucher
 {
     public interface IVoucherRepository
     {
-        Task<IEnumerable<Models.XRS_Voucher>> GetVouchers();
-        Task<IEnumerable<Models.XRS_Voucher>> GetVoucherByCompanyId(int companyId);
-        
-        Task<Models.XRS_Voucher> CreateVoucher(XeniaRentalApi.DTOs.CreateVoucher voucher);
-
-        Task<IEnumerable<Models.XRS_Voucher>> GetVoucherIdById(int voucherId);
-
-        Task<bool> UpdateVoucher(int id, Models.XRS_Voucher voucher);
-        Task<IEnumerable<Models.XRS_Voucher>> GetPaymentStatus();
-
-        Task<PagedResultDto<Models.XRS_Voucher>> GetVochersAsync(string? search, int pageNumber, int pageSize);
+        Task<XRS_Voucher> CreateVoucherAsync(VoucherDto dto);
+        Task<XRS_Voucher?> GetVoucherByIdAsync(int id);
+        Task<IEnumerable<XRS_Voucher>> GetAllVouchersAsync(int companyId);
+        Task<XRS_Voucher?> UpdateVoucherAsync(int id, VoucherDto dto);
+        Task<bool> DeleteVoucherAsync(int id);
 
 
     }
