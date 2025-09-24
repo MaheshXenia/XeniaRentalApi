@@ -54,6 +54,7 @@ namespace XeniaRentalApi.Models
         public DateTime? ModifiedOn { get; set; }
 
         public string? ModificationBy { get; set; }
+        public string? VoucherStatus { get; set; }
 
         public bool isActive {  get; set; }
 

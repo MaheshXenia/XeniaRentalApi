@@ -126,15 +126,16 @@ namespace XeniaRentalApi.Repositories.Voucher
                     ChequeStatus = dto.ChequeStatus,
                     ReconcilDate = dto.ReconcilDate,
                     CreatedOn = now,
+                    ModifiedOn = now,
                     CreatedBy = dto.CreatedBy ?? "System",
                     ModificationBy = dto.ModificationBy,
+                    VoucherStatus = "PAID",
                     isActive = dto.IsActive
                 };
 
                 _context.Vouchers.Add(voucher);
                 await _context.SaveChangesAsync();
 
-                // Debit Entry
                 var debitEntry = new XRS_Accounts
                 {
                     companyID = dto.CompanyID,
@@ -155,7 +156,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     isActive = true
                 };
 
-                // Credit Entry
+
                 var creditEntry = new XRS_Accounts
                 {
                     companyID = dto.CompanyID,
@@ -307,11 +308,21 @@ namespace XeniaRentalApi.Repositories.Voucher
                     tenant.collectionType
                 );
 
+                var voucher = await _context.Vouchers
+                    .Where(v => v.DrID == tenant.tenantID
+                                && v.VoucherDate.Month == month
+                                && v.VoucherDate.Year == year
+                                && v.VoucherType == "Pay Rent")
+                    .FirstOrDefaultAsync();
+
+                string status = voucher != null ? voucher.VoucherStatus : "Not Initiated";
+
+ 
                 var chargeIds = await _context.UnitChargesMappings
                     .Where(m => m.unitID == tenant.unitID)
                     .Select(m => m.chargeID)
                     .ToListAsync();
-
+         
                 var charges = await _context.Charges
                     .Where(c => chargeIds.Contains(c.chargeID))
                     .Select(c => new
@@ -341,7 +352,9 @@ namespace XeniaRentalApi.Repositories.Voucher
                     NextRentDueDate = nextDueDate,
                     VariableCharges = variableCharges,
                     FixedCharges = fixedCharges,
-                    TotalCharges = totalCharges
+                    RentAmount = tenant.rentAmt,
+                    TotalCharges = totalCharges,
+                    Status = status
                 });
             }
 

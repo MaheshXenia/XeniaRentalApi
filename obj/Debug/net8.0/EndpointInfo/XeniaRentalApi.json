@@ -5482,6 +5482,10 @@
             "type": "string",
             "nullable": true
           },
+          "VoucherStatus": {
+            "type": "string",
+            "nullable": true
+          },
           "isActive": {
             "type": "boolean"
           }
