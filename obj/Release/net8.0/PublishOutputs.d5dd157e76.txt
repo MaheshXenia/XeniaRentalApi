@@ -35,6 +35,7 @@ D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Micr
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Stripe.net.dll
+D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Annotations.dll
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

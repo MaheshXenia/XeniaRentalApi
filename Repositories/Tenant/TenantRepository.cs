@@ -18,13 +18,19 @@ namespace XeniaRentalApi.Repositories.Tenant
             _ftp = ftpOptions.Value;
         }
 
-        public async Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId)
+        public async Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId, int? unitId = null)
         {
-            return await _context.Tenants
+            var query = _context.Tenants
                 .AsNoTracking()
-                .Where(t => t.companyID == companyId)
-                .Include(t => t.Properties) 
-                .Include(t => t.Units)     
+                .Where(t => t.companyID == companyId);
+            if (unitId.HasValue)
+            {
+                query = query.Where(t => t.unitID == unitId.Value);
+            }
+
+            return await query
+                .Include(t => t.Properties)
+                .Include(t => t.Units)
                 .Select(t => new XRS_Tenant
                 {
                     tenantID = t.tenantID,
@@ -44,6 +50,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                 })
                 .ToListAsync();
         }
+
 
         public async Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId( int companyId,bool? status = null,string? search = null,int pageNumber = 1, int pageSize = 10)
         {

@@ -55,8 +55,6 @@ namespace XeniaRentalApi.Models
 
         public string? ModificationBy { get; set; }
 
-        public int paidByUser { get; set; }
-
         public bool isActive {  get; set; }
 
     }

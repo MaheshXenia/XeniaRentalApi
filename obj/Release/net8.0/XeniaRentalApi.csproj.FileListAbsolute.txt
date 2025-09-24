@@ -81,3 +81,5 @@ D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\refint\XeniaRen
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\XeniaRentalApi.pdb
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\XeniaRentalApi.genruntimeconfig.cache
 D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\ref\XeniaRentalApi.dll
+D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\bin\Release\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\XENIA\GITHUB\WEBAPI\ASP.NET\XeniaRentalApi\obj\Release\net8.0\XeniaRentalApi.sourcelink.json

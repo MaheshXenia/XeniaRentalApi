@@ -6,7 +6,7 @@ namespace XeniaRentalApi.Repositories.Tenant
 {
     public interface ITenantRepository
     {
-        Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId);
+        Task<IEnumerable<XRS_Tenant>> GetTenants(int companyId, int? unitId = null);
         Task<PagedResultDto<TenantGetDto>> GetTenantsByCompanyId(int companyId, bool? status = null, string? search = null, int pageNumber = 1, int pageSize = 10);
         Task<TenantGetDto> GetTenantWithDocumentsById(int tenantId);
         Task<XRS_Tenant> CreateTenant(TenantCreateDto tenantDto);
