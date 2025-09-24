@@ -30,6 +30,13 @@ namespace XeniaRentalApi.Repositories.Voucher
 
             try
             {
+
+                var indirectExpensesGroup = await _context.AccountGroups
+                .FirstOrDefaultAsync(g => g.groupName == "Indirect Expenses" && g.companyID == dto.CompanyID);
+
+                var drLedger = await _context.Ledgers
+                 .FirstOrDefaultAsync(g => g.ledgerName == dto.DrID && g.companyID == dto.CompanyID);
+
                 var voucher = new XRS_Voucher
                 {
                     unitID = dto.UnitID,
@@ -38,7 +45,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     VoucherNo = dto.VoucherNo,
                     VoucherDate = dto.VoucherDate,
                     VoucherType = dto.VoucherType,
-                    DrID = dto.DrID,
+                    DrID = drLedger.ledgerID,
                     CrID = dto.CrID,
                     Amount = dto.Amount,
                     RefNo = dto.RefNo,
@@ -59,8 +66,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 _context.Vouchers.Add(voucher);
                 await _context.SaveChangesAsync();
            
-                var indirectExpensesGroup = await _context.AccountGroups
-                    .FirstOrDefaultAsync(g => g.groupName == "Indirect Expenses" && g.companyID == dto.CompanyID);
+            
 
                 if (indirectExpensesGroup == null)
                     throw new Exception("Indirect Expenses account group not found.");
@@ -73,7 +79,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     invType = voucher.VoucherType,
                     invNo = voucher.VoucherNo,
                     invDate = voucher.VoucherDate,
-                    ledgerDr = dto.DrID,   
+                    ledgerDr = drLedger.ledgerID,   
                     ledgerCr = dto.CrID,
                     amountDr = 0,
                     amountCr = voucher.Amount,
@@ -95,7 +101,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     invNo = voucher.VoucherNo,
                     invDate = voucher.VoucherDate,
                     ledgerDr = dto.CrID,
-                    ledgerCr = dto.DrID,  
+                    ledgerCr = drLedger.ledgerID,  
                     amountDr = voucher.Amount,
                     amountCr = 0,
                     remarks = "Indirect Expenses Voucher",
@@ -130,10 +136,14 @@ namespace XeniaRentalApi.Repositories.Voucher
                 if (voucher == null)
                     return null;
 
+
+                var drLedger = await _context.Ledgers
+                               .FirstOrDefaultAsync(g => g.ledgerName == dto.DrID && g.companyID == dto.CompanyID);
+
                 voucher.VoucherNo = dto.VoucherNo ?? voucher.VoucherNo;
                 voucher.VoucherDate = dto.VoucherDate;
                 voucher.VoucherType = dto.VoucherType;
-                voucher.DrID = dto.DrID;
+                voucher.DrID = drLedger.ledgerID;
                 voucher.CrID = dto.CrID;
                 voucher.Amount = dto.Amount;
                 voucher.RefNo = dto.RefNo;
@@ -156,7 +166,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 var debitEntry = accounts.FirstOrDefault(a => a.amountDr > 0);
                 if (debitEntry != null)
                 {
-                    debitEntry.ledgerDr = dto.DrID;
+                    debitEntry.ledgerDr = drLedger.ledgerID;
                     debitEntry.ledgerCr = dto.CrID;
                     debitEntry.amountDr = dto.Amount;
                     debitEntry.amountCr = 0;
@@ -170,7 +180,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 if (creditEntry != null)
                 {
                     creditEntry.ledgerDr = dto.CrID;
-                    creditEntry.ledgerCr = dto.DrID;
+                    creditEntry.ledgerCr = drLedger.ledgerID;
                     creditEntry.amountDr = 0;
                     creditEntry.amountCr = dto.Amount;
                     creditEntry.remarks = "Cash/Bank Credit Entry (Updated)";
