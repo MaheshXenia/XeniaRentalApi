@@ -326,7 +326,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 var variableCharges = charges.Where(c => c.isVariable).ToList();
                 var fixedCharges = charges.Where(c => !c.isVariable).ToList();
 
-                decimal totalCharges = variableCharges.Sum(c => c.chargeAmt) + fixedCharges.Sum(c => c.chargeAmt);
+                decimal totalCharges = tenant.rentAmt + variableCharges.Sum(c => c.chargeAmt) + fixedCharges.Sum(c => c.chargeAmt);
 
                 result.Add(new
                 {
