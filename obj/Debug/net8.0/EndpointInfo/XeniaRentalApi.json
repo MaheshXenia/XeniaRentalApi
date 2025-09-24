@@ -4425,8 +4425,8 @@
             "nullable": true
           },
           "rentDueDate": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "format": "date-time"
           },
           "refundAmount": {
             "type": "number",
