@@ -1,6 +1,5 @@
 ﻿using Stripe;
 using XeniaRentalApi.Dtos;
-using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.TenantAssignment
@@ -11,6 +10,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
         Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId);
         Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto);
         Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto);
+        Task<bool> UpdateClosureAsync(int tenantAssignId, TenantClosureCreateDto dto);
         Task<bool> DeleteAsync(int tenantAssignId);
     }
 }

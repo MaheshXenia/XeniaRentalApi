@@ -47,8 +47,6 @@ namespace XeniaRentalApi.Repositories.Voucher
             return await query.AsNoTracking().ToListAsync<object>();
         }
 
-
-
         public async Task<object?> GetVoucherByIdAsync(int id)
         {
             var query = from v in _context.Vouchers
@@ -276,6 +274,7 @@ namespace XeniaRentalApi.Repositories.Voucher
             return true;
         }
 
+
         public async Task<object> GetTenantChargesByMonthAsync(int month, int year)
         {
             var tenants = await _context.TenantAssignemnts
@@ -360,7 +359,6 @@ namespace XeniaRentalApi.Repositories.Voucher
 
             return result;
         }
-
 
 
         private DateTime CalculateNextRentDueDate(DateTime agreementStart, int dueDay, string frequency)

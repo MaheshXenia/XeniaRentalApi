@@ -55,6 +55,18 @@ namespace XeniaRentalApi.Controllers
         }
 
 
+        [HttpPut("closure/{id}")]
+        public async Task<IActionResult> CloseUpdate(int id, [FromBody] TenantClosureCreateDto dto)
+        {
+            if (id != 1) return BadRequest("ID mismatch.");
+
+            var updated = await _tenantAssignmentRepository.UpdateClosureAsync(id, dto);
+            if (updated == null) return NotFound(new { Message = "Tenant Assignment not found." });
+
+            return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });
+        }
+
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

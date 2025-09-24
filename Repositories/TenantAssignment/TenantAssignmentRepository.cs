@@ -68,7 +68,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             return result;
         }
 
-
         public async Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId)
         {
             var assignment = await _context.TenantAssignemnts
@@ -122,7 +121,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             };
         }
 
-
         public async Task<XRS_TenantAssignment> CreateAsync(TenantAssignmentCreateDto dto)
         {
             var entity = new XRS_TenantAssignment
@@ -169,7 +167,6 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             return entity;
         }
-
 
         public async Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto)
         {
@@ -219,6 +216,22 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             return saved > 0; 
         }
 
+        public async Task<bool> UpdateClosureAsync(int tenantAssignId, TenantClosureCreateDto dto)
+        {
+            var entity = await _context.TenantAssignemnts
+                .FirstOrDefaultAsync(t => t.tenantAssignId == tenantAssignId);
+
+            if (entity == null) return false;
+
+            entity.isClosure = dto.isClosure;
+            entity.closureDate = dto.closureDate;
+            entity.closureReason = dto.closureReason;
+
+            _context.TenantAssignemnts.Update(entity);
+
+            var saved = await _context.SaveChangesAsync();
+            return saved > 0;
+        }
 
         public async Task<bool> DeleteAsync(int tenantAssignId)
         {

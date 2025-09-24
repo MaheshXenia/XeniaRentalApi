@@ -12,10 +12,10 @@
         public decimal rentAmt { get; set; }
         public int rentConcession { get; set; }
         public int messConcession { get; set; }
-        public string collectionType { get; set; }
+        public string? collectionType { get; set; }
         public DateTime agreementStartDate { get; set; }
         public DateTime agreementEndDate { get; set; }
-        public int   rentCollection { get; set; }
+        public int rentCollection { get; set; }
         public int escalationPer { get; set; }
         public DateTime? nextescalationDate { get; set; }
         public DateTime rentDueDate { get; set; }
