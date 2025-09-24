@@ -283,8 +283,8 @@ namespace XeniaRentalApi.Repositories.Voucher
                     t.tenantID,
                     t.unitID,
                     t.agreementStartDate,
-                    t.rentDueDate,
-                    t.frequency,
+                    t.rentCollection,
+                    t.collectionType,
                     t.rentAmt
                 })
                 .ToListAsync();
@@ -296,8 +296,8 @@ namespace XeniaRentalApi.Repositories.Voucher
                 // 🔹 Calculate Next Rent Due Date
                 DateTime nextDueDate = CalculateNextRentDueDate(
                     tenant.agreementStartDate,
-                    tenant.rentDueDate,
-                    tenant.frequency
+                    tenant.rentCollection,
+                    tenant.collectionType
                 );
 
                 // 🔹 Get ChargeIDs for the Unit from UnitChargeMap
@@ -325,8 +325,8 @@ namespace XeniaRentalApi.Repositories.Voucher
                 {
                     tenant.tenantID,
                     tenant.unitID,
-                    tenant.rentDueDate,
-                    Frequency = tenant.frequency,
+                    tenant.rentCollection,
+                    Frequency = tenant.collectionType,
                     NextRentDueDate = nextDueDate,
                     VariableCharges = variableCharges,
                     FixedCharges = fixedCharges
