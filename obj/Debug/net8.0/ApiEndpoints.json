@@ -1806,6 +1806,27 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
+    "Method": "CloseUpdate",
+    "RelativePath": "api/TenantAssignement/closure/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "XeniaRentalApi.Dtos.TenantClosureCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
     "Method": "GetByCompanyId",
     "RelativePath": "api/TenantAssignement/company/{companyId}",
     "HttpMethod": "GET",
@@ -2184,7 +2205,7 @@
   {
     "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
     "Method": "GetTenantCharges",
-    "RelativePath": "api/Voucher/rent/initiate{month}/{year}",
+    "RelativePath": "api/Voucher/rent/initiate/{month}/{year}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

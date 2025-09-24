@@ -131,6 +131,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 companyID = dto.companyID,
                 securityAmt = dto.securityAmt,
                 isTaxable = dto.isTaxable,
+                taxPercentage = dto.taxPercentage,
                 bedSpaceID = dto.bedSpaceID,
                 rentAmt = dto.rentAmt,
                 rentConcession = dto.rentConcession,
@@ -179,6 +180,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             entity.securityAmt = dto.securityAmt;
             entity.isTaxable = dto.isTaxable;
+            entity.taxPercentage = dto.taxPercentage;
             entity.rentAmt = dto.rentAmt;
             entity.rentConcession = dto.rentConcession;
             entity.messConcession = dto.messConcession;

@@ -3108,6 +3108,48 @@
         }
       }
     },
+    "/api/TenantAssignement/closure/{id}": {
+      "put": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantClosureCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantClosureCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantClosureCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Units/all/{companyId}": {
       "get": {
         "tags": [
@@ -3710,7 +3752,7 @@
         }
       }
     },
-    "/api/Voucher/rent/initiate{month}/{year}": {
+    "/api/Voucher/rent/initiate/{month}/{year}": {
       "get": {
         "tags": [
           "Voucher"
@@ -4383,6 +4425,10 @@
           "isTaxable": {
             "type": "boolean"
           },
+          "taxPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
           "bedSpaceID": {
             "type": "integer",
             "format": "int32"
@@ -4455,6 +4501,23 @@
             "items": {
               "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantCreateDocumentDto"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Dtos.TenantClosureCreateDto": {
+        "type": "object",
+        "properties": {
+          "isClosure": {
+            "type": "boolean"
+          },
+          "closureDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "closureReason": {
+            "type": "string",
             "nullable": true
           }
         },

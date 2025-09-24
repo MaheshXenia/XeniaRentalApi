@@ -19,6 +19,7 @@ namespace XeniaRentalApi.Models
         public int companyID { get; set; }
         public decimal securityAmt { get; set; }
         public bool isTaxable { get; set; }
+        public int taxPercentage { get; set; }
         public int? bedSpaceID { get; set; }
         public decimal rentAmt { get; set; }
         public int rentConcession { get; set; }
