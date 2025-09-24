@@ -12,6 +12,7 @@ namespace XeniaRentalApi.Repositories.Tenant
         Task<XRS_Tenant> CreateTenant(TenantCreateDto tenantDto);
         Task<bool> UpdateTenant(int tenantId, TenantCreateDto tenantDto);
         Task<Dictionary<string, string>> UploadFilesAsync(List<IFormFile> files);
+        Task<(byte[] FileContent, string ContentType)?> GetImageFromFtpAsync(string fileName);
         Task<bool> DeleteTenant(int id);
 
 

@@ -1705,8 +1705,24 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.TenantController",
-    "Method": "UploadFiles",
-    "RelativePath": "api/Tenant/UploadFiles",
+    "Method": "GetFtpImage",
+    "RelativePath": "api/Tenant/image/{fileName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantController",
+    "Method": "UploadImages",
+    "RelativePath": "api/Tenant/images",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

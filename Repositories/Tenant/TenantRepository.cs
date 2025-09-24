@@ -263,7 +263,7 @@ namespace XeniaRentalApi.Repositories.Tenant
         public async Task<Dictionary<string, string>> UploadFilesAsync(List<IFormFile> files)
         {
             var uploaded = new Dictionary<string, string>();
-            string folderName = "Rental/images";
+            string folderName = "images";
             string uploadFolderPath = $"{_ftp.BaseUrl}/{folderName}";
             try
             {
@@ -302,6 +302,31 @@ namespace XeniaRentalApi.Repositories.Tenant
             return uploaded;
         }
 
+        public async Task<(byte[] FileContent, string ContentType)?> GetImageFromFtpAsync(string fileName)
+        {
+            string folderName = "images";
+            string ftpUrl = $"{_ftp.BaseUrl}/{folderName}/{fileName}";
+
+            try
+            {
+                var request = (FtpWebRequest)WebRequest.Create(ftpUrl);
+                request.Method = WebRequestMethods.Ftp.DownloadFile;
+                request.Credentials = new NetworkCredential(_ftp.Username, _ftp.Password);
+
+                using var response = (FtpWebResponse)await request.GetResponseAsync();
+                using var stream = response.GetResponseStream();
+                using var memory = new MemoryStream();
+                await stream.CopyToAsync(memory);
+
+                string contentType = GetContentType(fileName);
+                return (memory.ToArray(), contentType);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public async Task<bool> DeleteTenant(int id)
         {
             var tenants = await _context.Tenants.FirstOrDefaultAsync(u => u.tenantID == id);
@@ -311,6 +336,16 @@ namespace XeniaRentalApi.Repositories.Tenant
             return true;
         }
 
-        
+        private static string GetContentType(string fileName)
+        {
+            var ext = Path.GetExtension(fileName).ToLowerInvariant();
+            return ext switch
+            {
+                ".png" => "image/png",
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".gif" => "image/gif",
+                _ => "application/octet-stream"
+            };
+        }
     }
 }

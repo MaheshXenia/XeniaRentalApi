@@ -2913,7 +2913,7 @@
         }
       }
     },
-    "/api/Tenant/UploadFiles": {
+    "/api/Tenant/images": {
       "post": {
         "tags": [
           "Tenant"
@@ -2941,6 +2941,28 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Tenant/image/{fileName}": {
+      "get": {
+        "tags": [
+          "Tenant"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -4505,8 +4527,8 @@
             "nullable": true
           },
           "DrID": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "CrID": {
             "type": "integer",

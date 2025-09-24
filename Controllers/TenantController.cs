@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 using XeniaRentalApi.Dtos;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
@@ -77,16 +78,31 @@ namespace XeniaRentalApi.Controllers
 
             return NoContent();
         }
-
-        [HttpPost("UploadFiles")]
-        public async Task<IActionResult> UploadFiles([FromForm] List<IFormFile> files)
+     
+        [HttpPost("images")]
+        [RequestSizeLimit(10_000_000)]
+        public async Task<IActionResult> UploadImages([FromForm] List<IFormFile> files)
         {
             if (files == null || files.Count == 0)
-                return BadRequest("No files uploaded.");
+            {
+                return BadRequest("No files selected.");
+            }
 
-            var uploaded = await _tenantRepository.UploadFilesAsync(files);
-            return Ok(uploaded);
+            var result = await _tenantRepository.UploadFilesAsync(files);
+
+            return Ok(result);
         }
+
+        [HttpGet("image/{fileName}")]
+        public async Task<IActionResult> GetFtpImage(string fileName)
+        {
+            var result = await _tenantRepository.GetImageFromFtpAsync(fileName);
+            if (result == null)
+                return NotFound();
+
+            return File(result.Value.FileContent, result.Value.ContentType);
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
