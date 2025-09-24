@@ -12,15 +12,76 @@ namespace XeniaRentalApi.Repositories.Voucher
             _context = context;
 
         }
-        public async Task<IEnumerable<XRS_Voucher>> GetAllVouchersAsync(int companyId)
+        public async Task<IEnumerable<object>> GetAllVouchersAsync(int companyId)
         {
-            return await _context.Vouchers.ToListAsync();
+            var query = from v in _context.Vouchers
+                        where v.CompanyID == companyId
+                        join dr in _context.Ledgers on v.DrID equals dr.ledgerID
+                        join cr in _context.Ledgers on v.CrID equals cr.ledgerID
+                        select new
+                        {
+                            v.VoucherID,
+                            v.VoucherNo,
+                            v.VoucherDate,
+                            v.VoucherType,
+                            v.Amount,
+                            v.RefNo,
+                            v.Remarks,
+                            v.IssueingBank,
+                            v.ChequeNo,
+                            v.Cancelled,
+                            v.CrAmount,
+                            v.IsReconcil,
+                            v.ChequeStatus,
+                            v.ReconcilDate,
+                            v.CreatedOn,
+                            v.CreatedBy,
+                            v.ModificationBy,
+                            v.isActive,
+                            DrID = v.DrID,
+                            DrName = dr.ledgerName,
+                            CrID = v.CrID,
+                            CrName = cr.ledgerName
+                        };
+
+            return await query.AsNoTracking().ToListAsync<object>();
         }
 
 
-        public async Task<XRS_Voucher?> GetVoucherByIdAsync(int id)
+
+        public async Task<object?> GetVoucherByIdAsync(int id)
         {
-            return await _context.Vouchers.FirstOrDefaultAsync(v => v.VoucherID == id);
+            var query = from v in _context.Vouchers
+                        where v.VoucherID == id
+                        join dr in _context.Ledgers on v.DrID equals dr.ledgerID
+                        join cr in _context.Ledgers on v.CrID equals cr.ledgerID
+                        select new
+                        {
+                            v.VoucherID,
+                            v.VoucherNo,
+                            v.VoucherDate,
+                            v.VoucherType,
+                            v.Amount,
+                            v.RefNo,
+                            v.Remarks,
+                            v.IssueingBank,
+                            v.ChequeNo,
+                            v.Cancelled,
+                            v.CrAmount,
+                            v.IsReconcil,
+                            v.ChequeStatus,
+                            v.ReconcilDate,
+                            v.CreatedOn,
+                            v.CreatedBy,
+                            v.ModificationBy,
+                            v.isActive,
+                            DrID = dr.ledgerID,
+                            DrName = dr.ledgerName,
+                            CrID = cr.ledgerID,
+                            CrName = cr.ledgerName
+                        };
+
+            return await query.AsNoTracking().FirstOrDefaultAsync();
         }
 
 
@@ -30,12 +91,19 @@ namespace XeniaRentalApi.Repositories.Voucher
 
             try
             {
-
                 var indirectExpensesGroup = await _context.AccountGroups
-                .FirstOrDefaultAsync(g => g.groupName == "Indirect Expenses" && g.companyID == dto.CompanyID);
+                    .FirstOrDefaultAsync(g => g.groupName == "INDIRECT EXPENSES" && g.companyID == dto.CompanyID);
+
+                if (indirectExpensesGroup == null)
+                    throw new Exception("Indirect Expenses account group not found.");
 
                 var drLedger = await _context.Ledgers
-                 .FirstOrDefaultAsync(g => g.ledgerName == dto.DrID && g.companyID == dto.CompanyID);
+                    .FirstOrDefaultAsync(l => l.ledgerName == dto.DrID && l.companyID == dto.CompanyID);
+
+                if (drLedger == null)
+                    throw new Exception($"Ledger '{dto.DrID}' not found.");
+
+                var now = DateTime.Now;
 
                 var voucher = new XRS_Voucher
                 {
@@ -57,7 +125,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     IsReconcil = dto.IsReconcil,
                     ChequeStatus = dto.ChequeStatus,
                     ReconcilDate = dto.ReconcilDate,
-                    CreatedOn = DateTime.Now,
+                    CreatedOn = now,
                     CreatedBy = dto.CreatedBy ?? "System",
                     ModificationBy = dto.ModificationBy,
                     isActive = dto.IsActive
@@ -65,12 +133,8 @@ namespace XeniaRentalApi.Repositories.Voucher
 
                 _context.Vouchers.Add(voucher);
                 await _context.SaveChangesAsync();
-           
-            
 
-                if (indirectExpensesGroup == null)
-                    throw new Exception("Indirect Expenses account group not found.");
-         
+                // Debit Entry
                 var debitEntry = new XRS_Accounts
                 {
                     companyID = dto.CompanyID,
@@ -79,43 +143,43 @@ namespace XeniaRentalApi.Repositories.Voucher
                     invType = voucher.VoucherType,
                     invNo = voucher.VoucherNo,
                     invDate = voucher.VoucherDate,
-                    ledgerDr = drLedger.ledgerID,   
+                    ledgerDr = drLedger.ledgerID,
                     ledgerCr = dto.CrID,
                     amountDr = 0,
                     amountCr = voucher.Amount,
                     remarks = "Indirect Expenses Voucher",
-                    createdOn = DateTime.Now,
+                    createdOn = now,
                     createdBy = dto.CreatedBy ?? "System",
-                    modifiedOn = DateTime.Now,
+                    modifiedOn = now,
                     modifiedBy = dto.CreatedBy ?? "System",
                     isActive = true
                 };
 
-    
+                // Credit Entry
                 var creditEntry = new XRS_Accounts
                 {
                     companyID = dto.CompanyID,
                     VoucherId = voucher.VoucherID,
-                    GroupId = indirectExpensesGroup.groupID, 
+                    GroupId = indirectExpensesGroup.groupID,
                     invType = voucher.VoucherType,
                     invNo = voucher.VoucherNo,
-                    invDate = voucher.VoucherDate,
+                    invDate =voucher.VoucherDate,
                     ledgerDr = dto.CrID,
-                    ledgerCr = drLedger.ledgerID,  
+                    ledgerCr = drLedger.ledgerID,
                     amountDr = voucher.Amount,
                     amountCr = 0,
                     remarks = "Indirect Expenses Voucher",
-                    createdOn = DateTime.Now,
+                    createdOn = now,
                     createdBy = dto.CreatedBy ?? "System",
+                    modifiedOn = now,
+                    modifiedBy = dto.CreatedBy ?? "System",
                     isActive = true
                 };
 
-                _context.Accounts.Add(debitEntry);
-                _context.Accounts.Add(creditEntry);
+                _context.Accounts.AddRange(debitEntry, creditEntry);
                 await _context.SaveChangesAsync();
 
                 await transaction.CommitAsync();
-
                 return voucher;
             }
             catch

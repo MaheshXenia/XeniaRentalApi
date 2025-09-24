@@ -39,7 +39,7 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("company/{companyId}")]
         public async Task<ActionResult<IEnumerable<XRS_Voucher>>> GetAllVouchers(int companyId)
         {
             var vouchers = await _voucherRepository.GetAllVouchersAsync(companyId);

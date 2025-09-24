@@ -2084,32 +2084,6 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
-    "Method": "GetAllVouchers",
-    "RelativePath": "api/Voucher",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "companyId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
     "Method": "GetVoucherById",
     "RelativePath": "api/Voucher/{id}",
     "HttpMethod": "GET",
@@ -2180,6 +2154,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
+    "Method": "GetAllVouchers",
+    "RelativePath": "api/Voucher/company/{companyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_Voucher, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.WeatherForecastController",

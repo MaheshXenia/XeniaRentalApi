@@ -8,8 +8,8 @@
         public string VoucherNo { get; set; } = string.Empty;
         public DateTime VoucherDate { get; set; }
         public string VoucherType { get; set; } = string.Empty;
-        public string DrID { get; set; }      
-        public int CrID { get; set; }       
+        public string DrID { get; set; }
+        public int CrID { get; set; }
         public decimal Amount { get; set; }
         public string? RefNo { get; set; }
         public string? Remarks { get; set; }
