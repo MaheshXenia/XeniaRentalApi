@@ -3710,7 +3710,7 @@
         }
       }
     },
-    "/api/Voucher/{month}/{year}": {
+    "/api/Voucher/rent/initiate{month}/{year}": {
       "get": {
         "tags": [
           "Voucher"

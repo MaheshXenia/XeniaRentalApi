@@ -64,7 +64,7 @@ namespace XeniaRentalApi.Controllers
         }
 
 
-        [HttpGet("{month:int}/{year:int}")]
+        [HttpGet("rent/initiate{month:int}/{year:int}")]
         public async Task<IActionResult> GetTenantCharges(int month, int year)
         {
             var data = await _voucherRepository.GetTenantChargesByMonthAsync(month, year);

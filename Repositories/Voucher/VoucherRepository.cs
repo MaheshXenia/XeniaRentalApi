@@ -278,10 +278,18 @@ namespace XeniaRentalApi.Repositories.Voucher
         public async Task<object> GetTenantChargesByMonthAsync(int month, int year)
         {
             var tenants = await _context.TenantAssignemnts
+                .Include(t => t.Tenant)
+                .Include(t => t.Unit)
+                    .ThenInclude(u => u.Property)
+                .Include(t => t.BedSpace)
                 .Select(t => new
                 {
                     t.tenantID,
+                    TenantName = t.Tenant.tenantName,
                     t.unitID,
+                    UnitName = t.Unit.UnitName,
+                    PropertyName = t.Unit.Property.propertyName,
+                    BedSpaceName = t.BedSpace != null ? t.BedSpace.bedSpaceName : null,
                     t.agreementStartDate,
                     t.rentCollection,
                     t.collectionType,
@@ -293,20 +301,17 @@ namespace XeniaRentalApi.Repositories.Voucher
 
             foreach (var tenant in tenants)
             {
-                // 🔹 Calculate Next Rent Due Date
                 DateTime nextDueDate = CalculateNextRentDueDate(
                     tenant.agreementStartDate,
                     tenant.rentCollection,
                     tenant.collectionType
                 );
 
-                // 🔹 Get ChargeIDs for the Unit from UnitChargeMap
                 var chargeIds = await _context.UnitChargesMappings
                     .Where(m => m.unitID == tenant.unitID)
                     .Select(m => m.chargeID)
                     .ToListAsync();
 
-                // 🔹 Fetch Charges using those ChargeIDs
                 var charges = await _context.Charges
                     .Where(c => chargeIds.Contains(c.chargeID))
                     .Select(c => new
@@ -321,20 +326,28 @@ namespace XeniaRentalApi.Repositories.Voucher
                 var variableCharges = charges.Where(c => c.isVariable).ToList();
                 var fixedCharges = charges.Where(c => !c.isVariable).ToList();
 
+                decimal totalCharges = variableCharges.Sum(c => c.chargeAmt) + fixedCharges.Sum(c => c.chargeAmt);
+
                 result.Add(new
                 {
                     tenant.tenantID,
+                    tenant.TenantName,
                     tenant.unitID,
+                    tenant.UnitName,
+                    tenant.PropertyName,
+                    tenant.BedSpaceName,
                     tenant.rentCollection,
                     Frequency = tenant.collectionType,
                     NextRentDueDate = nextDueDate,
                     VariableCharges = variableCharges,
-                    FixedCharges = fixedCharges
+                    FixedCharges = fixedCharges,
+                    TotalCharges = totalCharges
                 });
             }
 
             return result;
         }
+
 
 
         private DateTime CalculateNextRentDueDate(DateTime agreementStart, int dueDay, string frequency)
@@ -359,7 +372,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     throw new ArgumentException("Invalid frequency type");
             }
 
-            // Set day to RentDueDay (if valid day exists in that month)
+          
             int daysInMonth = DateTime.DaysInMonth(nextDate.Year, nextDate.Month);
             int day = Math.Min(dueDay, daysInMonth);
 

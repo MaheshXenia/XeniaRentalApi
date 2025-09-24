@@ -19,7 +19,7 @@ namespace XeniaRentalApi.Models
         public int companyID { get; set; }
         public decimal securityAmt { get; set; }
         public bool isTaxable { get; set; }
-        public int bedSpaceID { get; set; }
+        public int? bedSpaceID { get; set; }
         public decimal rentAmt { get; set; }
         public int rentConcession { get; set; }
         public int messConcession { get; set; }
@@ -43,6 +43,7 @@ namespace XeniaRentalApi.Models
         [NotMapped] public string? UnitName { get; set; }
         [NotMapped] public string? TenantName { get; set; }
         [NotMapped] public string? TenantContactNo { get; set; }
+        [NotMapped] public string? BedSpaceName { get; set; }
 
         [ForeignKey("propID")]
         [JsonIgnore]
@@ -55,6 +56,10 @@ namespace XeniaRentalApi.Models
         [ForeignKey("unitID")]
         [JsonIgnore]
         public virtual XRS_Units? Unit { get; set; }
-    
+
+        [ForeignKey("bedSpaceID")]
+        [JsonIgnore]
+        public virtual XRS_Bedspace? BedSpace { get; set; }
+
     }
 }

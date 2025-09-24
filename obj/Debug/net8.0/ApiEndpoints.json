@@ -2157,27 +2157,6 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
-    "Method": "GetTenantCharges",
-    "RelativePath": "api/Voucher/{month}/{year}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "month",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "year",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
     "Method": "GetAllVouchers",
     "RelativePath": "api/Voucher/company/{companyId}",
     "HttpMethod": "GET",
@@ -2201,6 +2180,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
+    "Method": "GetTenantCharges",
+    "RelativePath": "api/Voucher/rent/initiate{month}/{year}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.WeatherForecastController",
