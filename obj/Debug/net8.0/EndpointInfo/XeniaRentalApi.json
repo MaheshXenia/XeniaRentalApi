@@ -3710,6 +3710,38 @@
         }
       }
     },
+    "/api/Voucher/{month}/{year}": {
+      "get": {
+        "tags": [
+          "Voucher"
+        ],
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -4367,10 +4399,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "frequency": {
-            "type": "string",
-            "nullable": true
-          },
           "collectionType": {
             "type": "string",
             "nullable": true
@@ -4397,9 +4425,8 @@
             "nullable": true
           },
           "rentDueDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "refundAmount": {
             "type": "number",
@@ -5077,6 +5104,7 @@
       },
       "XeniaRentalApi.Models.XRS_Messtypes": {
         "required": [
+          "MessCode",
           "MessName"
         ],
         "type": "object",
@@ -5093,6 +5121,10 @@
             "maxLength": 50,
             "minLength": 0,
             "type": "string"
+          },
+          "MessCode": {
+            "type": "string",
+            "nullable": true
           },
           "IsActive": {
             "type": "boolean"

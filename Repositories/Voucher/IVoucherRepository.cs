@@ -14,6 +14,8 @@ namespace XeniaRentalApi.Repositories.Voucher
         Task<XRS_Voucher?> UpdateVoucherAsync(int id, VoucherDto dto);
         Task<bool> DeleteVoucherAsync(int id);
 
+        Task<object> GetTenantChargesByMonthAsync(int month, int year);
+
 
     }
 }

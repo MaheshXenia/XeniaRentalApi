@@ -62,5 +62,16 @@ namespace XeniaRentalApi.Controllers
             if (!deleted) return NotFound();
             return NoContent();
         }
+
+
+        [HttpGet("{month:int}/{year:int}")]
+        public async Task<IActionResult> GetTenantCharges(int month, int year)
+        {
+            var data = await _voucherRepository.GetTenantChargesByMonthAsync(month, year);
+            return Ok(data);
+        }
+
+
+
     }
 }

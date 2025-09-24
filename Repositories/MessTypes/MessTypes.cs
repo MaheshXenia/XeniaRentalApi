@@ -40,6 +40,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
             {
               messID = u.messID,
               MessName=u.MessName,
+              MessCode=u.MessCode,
               CompanyId=u.CompanyId,
               IsActive=u.IsActive,
                
@@ -70,6 +71,7 @@ namespace XeniaRentalApi.Repositories.MessTypes
             var messTypesInsert = new XRS_Messtypes
             {
                 MessName = messTypes.MessName,
+                MessCode = messTypes.MessCode,
                 IsActive = messTypes.IsActive,
                 CompanyId = messTypes.CompanyId,
 

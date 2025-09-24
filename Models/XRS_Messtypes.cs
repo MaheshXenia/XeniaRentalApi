@@ -9,26 +9,13 @@ namespace XeniaRentalApi.Models
         [Key]
         public int messID { get; set; }
 
-        /// <summary>
-        /// CompanyId
-        /// Required
-        /// </summary>
         public int CompanyId { get; set; }
 
-        /// <summary>
-        /// UserType for storing user type like admin,tenant,landonwer
-        /// </summary>
         [Required]
         [StringLength(50)]
         public required string MessName { get; set; }
+        public required string MessCode { get; set; }
 
-       
-
-
-        /// <summary>
-        /// Is Active
-        /// Required
-        /// </summary>
         public bool IsActive { get; set; }
     }
 }

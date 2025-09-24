@@ -136,8 +136,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 bedSpaceID = dto.bedSpaceID,
                 rentAmt = dto.rentAmt,
                 rentConcession = dto.rentConcession,
-                messConcession = dto.messConcession,
-                frequency = dto.frequency,
+                messConcession = dto.messConcession,            
                 collectionType = dto.collectionType,
                 agreementStartDate = dto.agreementStartDate,
                 agreementEndDate = dto.agreementEndDate,
@@ -181,13 +180,11 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
             if (entity == null) return false;
 
-            // Update assignment properties
             entity.securityAmt = dto.securityAmt;
             entity.isTaxable = dto.isTaxable;
             entity.rentAmt = dto.rentAmt;
             entity.rentConcession = dto.rentConcession;
             entity.messConcession = dto.messConcession;
-            entity.frequency = dto.frequency;
             entity.collectionType = dto.collectionType;
             entity.agreementStartDate = dto.agreementStartDate;
             entity.agreementEndDate = dto.agreementEndDate;
@@ -197,7 +194,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.rentDueDate = dto.rentDueDate;
             entity.notes = dto.notes;
 
-            // Update TenantDocuments
+
             if (dto.Documents != null && dto.Documents.Any())
             {
                 if (entity.Tenant?.TenantDocuments != null)
@@ -218,9 +215,8 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 _context.TenantDocuments.AddRange(newDocs);
             }
 
-            // Save changes
             var saved = await _context.SaveChangesAsync();
-            return saved > 0; // returns true if any rows were affected
+            return saved > 0; 
         }
 
 
