@@ -26,11 +26,13 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("company/{companyId}")]
-        public async Task<IActionResult> GetByCompanyId(int companyId, bool isBedSpace = false)
+        public async Task<IActionResult> GetByCompanyId( int companyId, bool isBedSpace = false, DateTime? startDate = null, DateTime? endDate = null,int? propertyId = null, int? unitId = null, string? search = null)
         {
-            var data = await _tenantAssignmentRepository.GetByCompanyIdAsync(companyId, isBedSpace);
+            var data = await _tenantAssignmentRepository.GetByCompanyIdAsync( companyId,isBedSpace,startDate, endDate, propertyId,unitId, search );
+
             return Ok(data);
         }
+
 
 
         [HttpGet("{id}")]

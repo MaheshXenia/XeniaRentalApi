@@ -51,7 +51,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             return result;
         }
 
-        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId, bool isBedSpace = false)
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId,bool isBedSpace = false, DateTime? startDate = null, DateTime? endDate = null,int? propertyId = null,int? unitId = null,string? search = null)
         {
             IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
                 .Include(t => t.Properties)
@@ -66,11 +66,41 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             if (isBedSpace)
             {
                 query = query.Where(t => t.bedSpaceID > 0)
-                             .Include(t => t.BedSpace); 
+                             .Include(t => t.BedSpace);
             }
             else
             {
                 query = query.Where(t => t.bedSpaceID == 0 || t.bedSpaceID == null);
+            }
+
+            if (startDate.HasValue && endDate.HasValue)
+            {
+                query = query.Where(t =>
+                    t.agreementStartDate >= startDate.Value &&
+                    t.agreementEndDate <= endDate.Value);
+            }
+
+            if (propertyId.HasValue && propertyId.Value > 0)
+            {
+                query = query.Where(t => t.propID == propertyId.Value);
+            }
+
+
+            if (unitId.HasValue && unitId.Value > 0)
+            {
+                query = query.Where(t => t.unitID == unitId.Value);
+            }
+
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                string searchLower = search.ToLower();
+                query = query.Where(t =>
+                    (t.Tenant.tenantName.ToLower().Contains(searchLower)) ||
+                    (t.Unit.UnitName.ToLower().Contains(searchLower)) ||
+                    (t.Properties.propertyName.ToLower().Contains(searchLower)) ||
+                    (t.BedSpace != null && t.BedSpace.bedSpaceName.ToLower().Contains(searchLower))
+                );
             }
 
             var assignments = await query.ToListAsync();
