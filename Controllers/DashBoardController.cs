@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using XeniaRentalApi.Repositories.BedSpace;
 using XeniaRentalApi.Repositories.Dashboard;
 
 namespace XeniaRentalApi.Controllers

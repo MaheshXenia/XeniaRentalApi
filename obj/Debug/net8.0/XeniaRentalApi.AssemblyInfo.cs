@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XeniaRentalApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d551ab8e4f3aa401db636fc17ce360039db19831")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08883cbc0fc0d4932b265f2b57af0f712e4f60ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("XeniaRentalApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XeniaRentalApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

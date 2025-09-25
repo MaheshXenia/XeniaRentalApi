@@ -1167,71 +1167,9 @@
     ]
   },
   {
-    "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
-    "Method": "CreateAccounts",
-    "RelativePath": "api/MessDetails",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "messDetails",
-        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
-    "Method": "GetMessDetails",
-    "RelativePath": "api/MessDetails/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
-    "Method": "Get",
-    "RelativePath": "api/MessDetails/all/messdetails",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[XeniaRentalApi.Models.XRS_MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
-    "Method": "GetMessDetailsByCompanyId",
-    "RelativePath": "api/MessDetails/messdetails/{companyId}",
+    "ContainingType": "XeniaRentalApi.Controllers.MessAttendanceController",
+    "Method": "GetMonthlyAttendance",
+    "RelativePath": "api/MessAttendance/monthly",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1239,48 +1177,27 @@
       {
         "Name": "companyId",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
-        "Name": "pageNumber",
+        "Name": "propertyId",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "pageSize",
+        "Name": "unitId",
         "Type": "System.Int32",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "XeniaRentalApi.DTOs.PagedResultDto\u00601[[XeniaRentalApi.Models.XRS_MessDetails, XeniaRentalApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "XeniaRentalApi.Controllers.MessDetailsController",
-    "Method": "UpdateMessDetails",
-    "RelativePath": "api/MessDetails/UpdateMessDetails/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
       },
       {
-        "Name": "details",
-        "Type": "XeniaRentalApi.Models.XRS_MessDetails",
-        "IsRequired": true
+        "Name": "month",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "year",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

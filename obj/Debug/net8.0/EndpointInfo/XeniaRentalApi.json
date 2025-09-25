@@ -2043,208 +2043,53 @@
         }
       }
     },
-    "/api/MessDetails/all/messdetails": {
+    "/api/MessAttendance/monthly": {
       "get": {
         "tags": [
-          "MessDetails"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/MessDetails/messdetails/{companyId}": {
-      "get": {
-        "tags": [
-          "MessDetails"
+          "MessAttendance"
         ],
         "parameters": [
           {
             "name": "companyId",
-            "in": "path",
-            "required": true,
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "pageNumber",
+            "name": "propertyId",
             "in": "query",
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 1
+              "format": "int32"
             }
           },
           {
-            "name": "pageSize",
+            "name": "unitId",
             "in": "query",
             "schema": {
               "type": "integer",
-              "format": "int32",
-              "default": 10
+              "format": "int32"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_MessDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_MessDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_MessDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/MessDetails": {
-      "post": {
-        "tags": [
-          "MessDetails"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/MessDetails/{id}": {
-      "get": {
-        "tags": [
-          "MessDetails"
-        ],
-        "parameters": [
+          },
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
+            "name": "month",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/MessDetails/UpdateMessDetails/{id}": {
-      "put": {
-        "tags": [
-          "MessDetails"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -4137,44 +3982,6 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfXRS_MessDetails": {
-        "type": "object",
-        "properties": {
-          "Data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_MessDetails"
-            },
-            "nullable": true
-          },
-          "PageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalRecords": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "HasPreviousPage": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "HasNextPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PagedResultDtoOfXRS_Properties": {
         "type": "object",
         "properties": {
@@ -5314,55 +5121,6 @@
           "ExpiryDate": {
             "type": "string",
             "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "XeniaRentalApi.Models.XRS_MessDetails": {
-        "type": "object",
-        "properties": {
-          "messdtsID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "messID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "userID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "propID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "compantID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "tenantID": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "messDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "isConsumed": {
-            "type": "boolean"
-          },
-          "PropName": {
-            "type": "string",
-            "nullable": true
-          },
-          "TenantName": {
-            "type": "string",
-            "nullable": true
-          },
-          "MessTypeName": {
-            "type": "string",
             "nullable": true
           }
         },

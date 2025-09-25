@@ -115,7 +115,7 @@ builder.Services.AddScoped<IChargesRepository, ChargesRepository>();
 builder.Services.AddScoped<ICompanyRepsitory, CompanyRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<IAccountLedgerRepository, AccountLedgerRepository>();
-builder.Services.AddScoped<IMessDetailsRepository, MessDetailsRepository>();
+builder.Services.AddScoped<IMessAttendancesRepository, MessAttendancesRepository>();
 builder.Services.AddScoped<IMessTypes, MessTypes>();
 builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();

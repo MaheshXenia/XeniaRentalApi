@@ -27,7 +27,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<XRS_AccountLedger> Ledgers { get; set; }
 
-        public DbSet<XRS_MessDetails> MessDetails { get; set; }
+        public DbSet<XRS_MessAttendance> MessAttendances { get; set; }
 
         public DbSet<XRS_Messtypes> MessTypes { get; set; }
 
