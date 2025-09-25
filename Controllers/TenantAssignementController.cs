@@ -61,6 +61,14 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });
         }
 
+        [HttpGet("closure{companyId}")]
+        public async Task<IActionResult> GeClosure(int companyId)
+        {
+            var data = await _tenantAssignmentRepository.GeClosure(companyId);
+            return Ok(data);
+        }
+
+
 
         [HttpPut("closure/{id}")]
         public async Task<IActionResult> CloseUpdate(int id, [FromBody] TenantClosureCreateDto dto)

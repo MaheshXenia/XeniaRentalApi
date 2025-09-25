@@ -77,6 +77,19 @@ namespace XeniaRentalApi.Repositories.Dashboard
                 ? (decimal)paidCount / (paidCount + notPaidCount) * 100
                 : 0;
 
+            var topPerformingProperties = vouchers
+                .GroupBy(v => v.PropID)
+                .Select(g => new
+                {
+                    PropertyId = g.Key,
+                    TotalCollected = g.Sum(x => x.Amount)
+                })
+                .OrderByDescending(x => x.TotalCollected)
+                .Take(3)
+                .ToList();
+
+            int topPerformingPropertyCount = topPerformingProperties.Count;
+
             return new RentDashboardDto
             {
                 TotalPaidCount = paidCount,
@@ -87,6 +100,7 @@ namespace XeniaRentalApi.Repositories.Dashboard
                 TotalOccupiedUnits = occupiedUnitIds,
                 VacantProperties = vacantProperties,
                 VacantUnits = vacantUnits,
+                TopPerformingPropertyCount = topPerformingPropertyCount,
                 AverageRentPerProperty = averageRentPerProperty,
                 HighRiskTenantCount = highRiskTenantCount,
                 HighRiskPropertyCount = highRiskPropertyCount,

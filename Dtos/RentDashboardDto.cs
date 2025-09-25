@@ -10,6 +10,7 @@
         public int TotalOccupiedUnits { get; set; }
         public int VacantProperties { get; set; }
         public int VacantUnits { get; set; }
+        public int TopPerformingPropertyCount { get; set; }
         public decimal AverageRentPerProperty { get; set; }
         public int HighRiskTenantCount { get; set; }
         public int HighRiskPropertyCount { get; set; }

@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\messattendances\\imessattendancesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messattendances\\imessattendancesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\dashboard\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\dashboard\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\messattendances\\messattendancesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\messattendances\\messattendancesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\dtos\\rentdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\rentdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\dtos\\messattendancedaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\messattendancedaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\messattendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\messattendancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,67 +30,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Models\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBMAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T11:48:50.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MessAttendanceDayDto.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\MessAttendanceDayDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\MessAttendanceDayDto.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\MessAttendanceDayDto.cs",
-              "RelativeToolTip": "Dtos\\MessAttendanceDayDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T11:40:29.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MessAttendanceController.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\MessAttendanceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MessAttendanceController.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\MessAttendanceController.cs",
-              "RelativeToolTip": "Controllers\\MessAttendanceController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBwAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T10:00:10.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MessAttendancesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessAttendances\\MessAttendancesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\MessAttendances\\MessAttendancesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessAttendances\\MessAttendancesRepository.cs",
-              "RelativeToolTip": "Repositories\\MessAttendances\\MessAttendancesRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
+              "Title": "RentDashboardDto.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\RentDashboardDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\RentDashboardDto.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\RentDashboardDto.cs",
+              "RelativeToolTip": "Dtos\\RentDashboardDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T09:59:48.089Z",
+              "WhenOpened": "2025-09-25T12:53:38.433Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IMessAttendancesRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessAttendances\\IMessAttendancesRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\MessAttendances\\IMessAttendancesRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\MessAttendances\\IMessAttendancesRepository.cs",
-              "RelativeToolTip": "Repositories\\MessAttendances\\IMessAttendancesRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAqAAAAAAAAAA==",
+              "Title": "DashboardRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\DashboardRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\DashBoard\\DashboardRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\DashboardRepository.cs",
+              "RelativeToolTip": "Repositories\\DashBoard\\DashboardRepository.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwGYAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T09:58:59.397Z",
+              "WhenOpened": "2025-09-25T12:51:52.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashBoardController.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DashBoardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DashBoardController.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DashBoardController.cs",
+              "RelativeToolTip": "Controllers\\DashBoardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T12:51:46.89Z",
               "EditorCaption": ""
             }
           ]

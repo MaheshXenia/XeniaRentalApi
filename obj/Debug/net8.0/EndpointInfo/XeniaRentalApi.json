@@ -2097,6 +2097,37 @@
         }
       }
     },
+    "/api/MessAttendance/mark": {
+      "post": {
+        "tags": [
+          "MessAttendance"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.MarkAttendanceDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.MarkAttendanceDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.MarkAttendanceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/MessTypes/all": {
       "get": {
         "tags": [
@@ -3075,6 +3106,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TenantAssignement/closure{companyId}": {
+      "get": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -4322,6 +4376,39 @@
             "items": {
               "$ref": "#/components/schemas/XeniaRentalApi.DTOs.UnitChargeDto"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Dtos.MarkAttendanceDto": {
+        "type": "object",
+        "properties": {
+          "TenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TenantAssignId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BedSpacePlanId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MessTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AttendanceDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "IsPresent": {
+            "type": "boolean"
+          },
+          "CreatedBy": {
+            "type": "string",
             "nullable": true
           }
         },

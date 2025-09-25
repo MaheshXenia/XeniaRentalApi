@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.Dtos;
-using XeniaRentalApi.DTOs;
-using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.MessDetails;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {

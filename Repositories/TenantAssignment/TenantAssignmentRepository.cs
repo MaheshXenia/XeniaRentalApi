@@ -158,11 +158,51 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             return result;
         }
 
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GeClosure(int companyId)
+        {
+            IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
+                .Include(t => t.Properties)
+                .Include(t => t.Unit)
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                        .ThenInclude(td => td.Documents)
+                .AsNoTracking()
+                .Where(t => t.companyID == companyId && t.isClosure == true);
+
+
+
+            var assignments = await query.ToListAsync();
+
+            var result = assignments.Select(t => new TenantAssignmentGetDto
+            {
+                tenantAssignId = t.tenantAssignId,
+                propID = t.propID,
+                PropName = t.Properties?.propertyName,
+                unitID = t.unitID,
+                UnitName = t.Unit?.UnitName,
+                tenantID = t.tenantID,
+                TenantName = t.Tenant?.tenantName,
+                TenantContactNo = t.Tenant?.phoneNumber,
+                rentAmt = t.rentAmt,
+                rentConcession = t.rentConcession,
+                messConcession = t.messConcession,
+                agreementStartDate = t.agreementStartDate,
+                agreementEndDate = t.agreementEndDate,
+                isActive = t.isActive,
+                isClosure = t.isClosure,
+                notes = t.notes,
+                BedSpaceID = t.bedSpaceID
+            }).ToList();
+
+            return result;
+        }
+
         public async Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId)
         {
             var assignment = await _context.TenantAssignemnts
                 .Include(t => t.Properties)
                 .Include(t => t.Unit)
+                 .Include(t => t.BedSpace)
                 .Include(t => t.Tenant)
                     .ThenInclude(tenant => tenant.TenantDocuments)
                         .ThenInclude(td => td.Documents)
@@ -200,6 +240,8 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 isActive = assignment.isActive,
                 isClosure = assignment.isClosure,
                 notes = assignment.notes,
+                BedSpaceID = assignment.bedSpaceID ?? 0,
+                BedSpaceName = assignment.BedSpace?.bedSpaceName,
 
                 Documents = assignment.Tenant?.TenantDocuments?
                     .Select(td => new TenantDocumentDto
