@@ -158,7 +158,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             return result;
         }
 
-        public async Task<IEnumerable<TenantAssignmentGetDto>> GeClosure(int companyId)
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GeClosure(int companyId, DateTime? startDate = null,DateTime? endDate = null, int? propertyId = null, int? unitId = null,string? search = null)
         {
             IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
                 .Include(t => t.Properties)
@@ -168,8 +168,27 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                         .ThenInclude(td => td.Documents)
                 .AsNoTracking()
                 .Where(t => t.companyID == companyId && t.isClosure == true);
+  
+            if (startDate.HasValue)
+                query = query.Where(t => t.agreementStartDate >= startDate.Value);
 
+            if (endDate.HasValue)
+                query = query.Where(t => t.agreementEndDate <= endDate.Value);
 
+            if (propertyId.HasValue)
+                query = query.Where(t => t.propID == propertyId.Value);
+
+            if (unitId.HasValue)
+                query = query.Where(t => t.unitID == unitId.Value);
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                search = search.Trim().ToLower();
+                query = query.Where(t =>
+                    t.Tenant.tenantName.ToLower().Contains(search) ||
+                    t.Properties.propertyName.ToLower().Contains(search) ||
+                    t.Unit.UnitName.ToLower().Contains(search));
+            }
 
             var assignments = await query.ToListAsync();
 
