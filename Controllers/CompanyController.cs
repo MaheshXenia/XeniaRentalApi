@@ -33,19 +33,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = companies });
         }
 
-       
-        [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<XRS_Company>>> GetCompanyByCompanyId(int companyId)
-        {
-
-            var company = await _companyRepository.GetCompanybyCompanyId(companyId, pageNumber, pageSize);
-            if (company == null)
-            {
-                return NotFound(new { Status = "Error", Message = "No accounts found the given Company ID." });
-            }
-            return Ok(new { Status = "Success", Data = company });
-        }
-
+      
 
         [HttpPost]
         public async Task<IActionResult> CreateCompanies([FromBody] Models.XRS_Company company)
@@ -59,7 +47,6 @@ namespace XeniaRentalApi.Controllers
             return CreatedAtAction(nameof(GetCompanyById), new { id = createdCompany }, new { Status = "Success", Data = createdCompany });
         }
 
-        //[Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Company>> GetCompanyById(int id)
         {
@@ -104,14 +91,6 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "company deleted successfully." });
         }
 
-        [HttpGet("company/search")]
-        public async Task<ActionResult<PagedResultDto<XRS_Company>>> Get(
-           string? search,
-           int pageNumber = 1,
-           int pageSize = 10)
-        {
-            var result = await _companyRepository.GetCompanyAsync(search, pageNumber, pageSize);
-            return Ok(result);
-        }
+      
     }
 }
