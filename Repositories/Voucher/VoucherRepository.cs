@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using XeniaRentalApi.Dtos;
-using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Voucher

@@ -2225,6 +2225,22 @@
   },
   {
     "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
+    "Method": "CreateVoucher",
+    "RelativePath": "api/Voucher/rent/initiate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "XeniaRentalApi.Dtos.VoucherCreateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.VoucherController",
     "Method": "GetTenantCharges",
     "RelativePath": "api/Voucher/rent/initiate/{month}/{year}",
     "HttpMethod": "GET",

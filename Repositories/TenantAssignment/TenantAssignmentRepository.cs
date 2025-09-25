@@ -261,6 +261,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.escalationPer = dto.escalationPer;
             entity.nextescalationDate = dto.nextescalationDate;
             entity.rentDueDate = dto.rentDueDate;
+            entity.isActive = dto.isActive;
             entity.notes = dto.notes;
 
 

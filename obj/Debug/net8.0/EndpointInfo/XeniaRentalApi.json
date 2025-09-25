@@ -3815,6 +3815,37 @@
         }
       }
     },
+    "/api/Voucher/rent/initiate": {
+      "post": {
+        "tags": [
+          "Voucher"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -4619,6 +4650,88 @@
               "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantCreateDocumentDto"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Dtos.VoucherCreateRequest": {
+        "type": "object",
+        "properties": {
+          "UnitID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CompanyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PropID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "VoucherNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "VoucherDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "VoucherType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DrID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CrID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "RefNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Remarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "VoucherStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "VoucherDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Dtos.VoucherDetailCreateRequest"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Dtos.VoucherDetailCreateRequest": {
+        "type": "object",
+        "properties": {
+          "ChargeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Amount": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

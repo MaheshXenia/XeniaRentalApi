@@ -188,13 +188,33 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
         public async Task<bool> UpdateAsync(XRS_BedSpacePlan entity)
         {
-            var existing = await _context.BedSpacePlans.FindAsync(entity.bedPlanID);
-            if (existing == null) return false;
+            var existing = await _context.BedSpacePlans
+                .Include(p => p.BedspacePlanMessMappings) 
+                .FirstOrDefaultAsync(p => p.bedPlanID == entity.bedPlanID);
 
+            if (existing == null) return false;
+    
             _context.Entry(existing).CurrentValues.SetValues(entity);
+
+            _context.BedspacePlanMessMappings.RemoveRange(existing.BedspacePlanMessMappings);
+
+            if (entity.BedspacePlanMessMappings != null && entity.BedspacePlanMessMappings.Any())
+            {
+                foreach (var mapping in entity.BedspacePlanMessMappings)
+                {
+                    existing.BedspacePlanMessMappings.Add(new XRS_BedspacePlanMessMapping
+                    {
+                        bedPlanID = entity.bedPlanID,
+                        messID = mapping.messID,  
+                        active = mapping.active
+                    });
+                }
+            }
+
             await _context.SaveChangesAsync();
             return true;
         }
+
 
         public async Task<bool> DeleteAsync(int bedID)
         {
