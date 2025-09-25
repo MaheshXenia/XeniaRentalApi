@@ -54,9 +54,7 @@ namespace XeniaRentalApi.Controllers
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] TenantAssignmentCreateDto dto)
-        {
-            if (id != 1) return BadRequest("ID mismatch.");
-
+        {          
             var updated = await _tenantAssignmentRepository.UpdateAsync(id,dto);
             if (updated == null) return NotFound(new { Message = "Tenant Assignment not found." });
 

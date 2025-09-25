@@ -293,6 +293,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.rentDueDate = dto.rentDueDate;
             entity.isActive = dto.isActive;
             entity.notes = dto.notes;
+            entity.bedSpaceID = dto.bedSpaceID;
 
 
             if (dto.Documents != null && dto.Documents.Any())
