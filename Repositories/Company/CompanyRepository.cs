@@ -15,52 +15,21 @@ namespace XeniaRentalApi.Repositories.Company
 
         }
 
-        public async Task<IEnumerable<Models.XRS_Company>> GetCompanies()
+        public async Task<IEnumerable<XRS_Company>> GetCompanies(int pageNumber, int pageSize)
         {
+            if (pageNumber < 1) pageNumber = 1;
+            if (pageSize < 1) pageSize = 10;
 
-            return await _context.Company.ToListAsync();
-
-        }
-
-
-        public async Task<PagedResultDto<Models.XRS_Company>> GetCompanybyCompanyId(int companyId, int pageNumber, int pageSize)
-        {
-
-            var query = _context.Company.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
-            {
-                query = query.Where(u => u.companyID.Equals(companyId)); // Adjust property as needed
-            }
-
-            var totalRecords = await query.CountAsync();
-            var items = await query
-               .Skip((pageNumber - 1) * pageSize)
-             .Take(pageSize)
-            .Select(u => new Models.XRS_Company
-            {
-                companyID = companyId,
-                companyName = u.companyName,
-                address = u.address,
-                email = u.email,
-                IsActive = u.IsActive,
-                logo = u.logo,
-                phoneNumber = u.phoneNumber,
-                pin = u.pin,
-
-            })
+            var companies = await _context.Company
+                .AsNoTracking()
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
-            return new PagedResultDto<Models.XRS_Company>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
 
+            return companies;
         }
 
-        public async Task<IEnumerable<Models.XRS_Company>> GetCompanybyId(int companyId)
+        public async Task<IEnumerable<XRS_Company>> GetCompanybyId(int companyId)
         {
 
             return await _context.Company
@@ -69,26 +38,44 @@ namespace XeniaRentalApi.Repositories.Company
 
         }
 
-        public async Task<Models.XRS_Company> CreateCompany(Models.XRS_Company company)
-        {
 
+
+        public async Task<XRS_Company> CreateCompany(XRS_Company company)
+        {
+  
             await _context.Company.AddAsync(company);
             await _context.SaveChangesAsync();
-            return company;
 
+         
+            var adminUser = new XRS_Users
+            {
+                CompanyId = company.companyID,
+                UserType = 2, 
+                UserName = "admin",
+                Password = "admin", 
+                IsActive = true,
+                CreatedDate = DateTime.UtcNow
+            };
+
+            await _context.Users.AddAsync(adminUser);
+            await _context.SaveChangesAsync();
+
+            return company;
         }
+
+
 
         public async Task<bool> DeleteCompany(int id)
         {
             var bedspacesettings = await _context.Company.FirstOrDefaultAsync(u => u.companyID == id);
             if (bedspacesettings == null) return false;
             bedspacesettings.IsActive = false;
-            //. = DateTime.UtcNow;
             await _context.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> UpdateCompany(int id, Models.XRS_Company company)
+
+        public async Task<bool> UpdateCompany(int id, XRS_Company company)
         {
             var updatedCompany = await _context.Company.FirstOrDefaultAsync(u => u.companyID == id);
             if (updatedCompany == null) return false;
@@ -104,44 +91,6 @@ namespace XeniaRentalApi.Repositories.Company
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<PagedResultDto<Models.XRS_Company>> GetCompanyAsync(string? search, int pageNumber, int pageSize)
-        {
-            var query = _context.Company.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(u => u.companyName.Contains(search)); // Adjust property as needed
-
-            }
-
-            var totalRecords = await query.CountAsync();
-
-            var items = await query
-                // Optional: add sorting
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new Models.XRS_Company
-                {
-                   companyID = u.companyID,
-                   companyName = u.companyName,
-                   phoneNumber = u.phoneNumber,
-                   address = u.address,
-                   pin = u.pin,
-                   email = u.email,
-                   logo = u.logo,
-                   IsActive = u.IsActive,
-
-
-                })
-                .ToListAsync();
-
-            return new PagedResultDto<Models.XRS_Company>
-            {
-                Data = items,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                TotalRecords = totalRecords
-            };
-        }
+     
     }
 }

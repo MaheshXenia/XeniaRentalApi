@@ -23,9 +23,9 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("all/companies")]
-        public async Task<ActionResult<IEnumerable<XRS_Company>>> Get()
+        public async Task<ActionResult<IEnumerable<XRS_Company>>> Get(int pageNumber = 1, int pageSize = 10)
         {
-            var companies = await _companyRepository.GetCompanies();
+            var companies = await _companyRepository.GetCompanies(pageNumber, pageSize);
             if (companies == null || !companies.Any())
             {
                 return NotFound(new { Status = "Error", Message = "No companies found." });
@@ -33,10 +33,9 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Data = companies });
         }
 
-        // GET api/<AccountGroupController>/5
+       
         [HttpGet("company/{companyId}")]
-        public async Task<ActionResult<PagedResultDto<XRS_Company>>> GetCompanyByCompanyId(int companyId, int pageNumber = 1,
-            int pageSize = 10)
+        public async Task<ActionResult<PagedResultDto<XRS_Company>>> GetCompanyByCompanyId(int companyId)
         {
 
             var company = await _companyRepository.GetCompanybyCompanyId(companyId, pageNumber, pageSize);
