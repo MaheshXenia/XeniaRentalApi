@@ -44,7 +44,7 @@ namespace XeniaRentalApi.Repositories.Documents
 
             if (!string.IsNullOrWhiteSpace(docPurpose))
             {
-                query = query.Where(u => u.docPurpose.ToLower().Contains(docPurpose));
+                query = query.Where(u => u.docPurpose.ToLower() == docPurpose.ToLower());
             }
 
             var totalRecords = await query.CountAsync();

@@ -29,10 +29,10 @@ public class CategoryController : ControllerBase
 
  
     [HttpGet("company/{companyId}")]
-    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> GetCategoryByCompanyId(int companyId, int pageNumber = 1,int pageSize = 10)
+    public async Task<ActionResult<PagedResultDto<XRS_Categories>>> GetCategoryByCompanyId(int companyId, string? search = null, int pageNumber = 1,int pageSize = 10)
     {
 
-        var categories = await _categoryRepository.GetCategorybyCompanyId(companyId, pageNumber, pageSize);
+        var categories = await _categoryRepository.GetCategorybyCompanyId(companyId, search, pageNumber, pageSize);
         if (categories == null)
         {
             return NotFound(new { Status = "Error", Message = "No categories found the given Company ID." });

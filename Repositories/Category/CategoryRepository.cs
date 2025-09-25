@@ -30,20 +30,20 @@ namespace XeniaRentalApi.Repositories.Category
 
         }
 
-        public async Task<PagedResultDto<XRS_Categories>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize)
+        public async Task<PagedResultDto<XRS_Categories>> GetCategorybyCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10)
         {
 
             var query = _context.Category.AsQueryable();
+            query = query.Where(u => u.CompanyID == companyId);
 
-            if (!string.IsNullOrWhiteSpace(companyId.ToString()))
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                query = query.Where(u => u.CompanyID.Equals(companyId)); // Adjust property as needed
+                query = query.Where(u => u.CategoryName.Contains(search));
             }
-
             var totalRecords = await query.CountAsync();
 
             var items = await query
-                .OrderBy(u => u.CategoryName) // Optional: add sorting
+                .OrderBy(u => u.CategoryName)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                  .Select(u => new Models.XRS_Categories

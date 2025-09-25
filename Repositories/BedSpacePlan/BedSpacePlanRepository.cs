@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using XeniaRentalApi.Controllers;
-using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.BedSpacePlan
@@ -38,7 +36,6 @@ namespace XeniaRentalApi.Repositories.BedSpacePlan
 
             return result;
         }
-
 
         public async Task<object?> GetByIdAsync(int bedPlanID)
         {

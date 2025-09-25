@@ -7,7 +7,7 @@ namespace XeniaRentalApi.Repositories.Category
     {
         Task<IEnumerable<XRS_Categories>> GetCategories();
 
-        Task<PagedResultDto<XRS_Categories>> GetCategorybyCompanyId(int companyId, int pageNumber, int pageSize);
+        Task<PagedResultDto<XRS_Categories>> GetCategorybyCompanyId(int companyId, string? search = null,int pageNumber = 1, int pageSize = 10);
 
         Task<IEnumerable<XRS_Categories>> GetCategorybyId(int Id);
 
