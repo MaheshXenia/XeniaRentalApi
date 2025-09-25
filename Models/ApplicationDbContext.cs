@@ -42,6 +42,7 @@ namespace XeniaRentalApi.Models
         public DbSet<XRS_Units> Units { get; set; }
 
         public DbSet<XRS_Voucher> Vouchers { get; set; }
+        public DbSet<XRS_VoucherDetails> VoucherDetails { get; set; }
 
         public DbSet<XRS_UnitChargesMapping> UnitChargesMappings { get; set; }
 

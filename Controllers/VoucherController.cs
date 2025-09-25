@@ -72,6 +72,24 @@ namespace XeniaRentalApi.Controllers
         }
 
 
+        [HttpPost("rent/initiate")]
+        public async Task<IActionResult> CreateVoucher([FromBody] VoucherCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var voucher = await _voucherRepository.CreateIntiateAsync(request);
+                return Ok(new { message = "Voucher created successfully", voucherId = voucher.VoucherID });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
+
+
 
     }
 }

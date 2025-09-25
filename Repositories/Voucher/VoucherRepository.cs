@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using XeniaRentalApi.Dtos;
+using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Voucher
@@ -264,6 +265,57 @@ namespace XeniaRentalApi.Repositories.Voucher
         }
 
 
+        public async Task<XRS_Voucher> CreateIntiateAsync(VoucherCreateRequest request)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var voucher = new XRS_Voucher
+                {
+                    unitID = request.UnitID,
+                    CompanyID = request.CompanyID,
+                    PropID = request.PropID,
+                    VoucherNo = request.VoucherNo,
+                    VoucherDate = request.VoucherDate,
+                    VoucherType = request.VoucherType,
+                    DrID = request.DrID,
+                    CrID = request.CrID,
+                    Amount = request.Amount,
+                    RefNo = request.RefNo,
+                    Remarks = request.Remarks,
+                    VoucherStatus = request.VoucherStatus ?? "Initiated",
+                    isActive = request.IsActive,
+                    CreatedOn = DateTime.UtcNow,
+                    CreatedBy = request.createdBy,
+                };
+
+                _context.Vouchers.Add(voucher);
+                await _context.SaveChangesAsync();
+
+                foreach (var detail in request.VoucherDetails)
+                {
+                    var voucherDetail = new XRS_VoucherDetails
+                    {
+                        voucherId = voucher.VoucherID,
+                        chargeId = detail.ChargeId,
+                        amount = detail.Amount
+                    };
+                    _context.VoucherDetails.Add(voucherDetail);
+                }
+
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return voucher;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
         public async Task<bool> DeleteVoucherAsync(int id)
         {
             var voucher = await _context.Vouchers.FirstOrDefaultAsync(v => v.VoucherID == id);
@@ -314,29 +366,61 @@ namespace XeniaRentalApi.Repositories.Voucher
                                 && v.VoucherType == "Pay Rent")
                     .FirstOrDefaultAsync();
 
-                string status = voucher != null ? voucher.VoucherStatus : "Not Initiated";
+                string status;
+                List<ChargeDto> variableCharges;
+                List<ChargeDto> fixedCharges;
+                decimal totalCharges;
 
- 
-                var chargeIds = await _context.UnitChargesMappings
-                    .Where(m => m.unitID == tenant.unitID)
-                    .Select(m => m.chargeID)
-                    .ToListAsync();
-         
-                var charges = await _context.Charges
-                    .Where(c => chargeIds.Contains(c.chargeID))
-                    .Select(c => new
-                    {
-                        c.chargeID,
-                        c.chargeName,
-                        c.chargeAmt,
-                        c.isVariable
-                    })
-                    .ToListAsync();
+                if (voucher != null)
+                {
+           
+                    status = voucher.VoucherStatus ?? "Initiated";
 
-                var variableCharges = charges.Where(c => c.isVariable).ToList();
-                var fixedCharges = charges.Where(c => !c.isVariable).ToList();
+                    var voucherDetails = await _context.VoucherDetails
+                        .Where(d => d.voucherId == voucher.VoucherID)
+                        .Include(d => d.Charge)
+                        .Select(d => new ChargeDto
+                        {
+                            ChargeId = d.chargeId,
+                            ChargeName = d.Charge.chargeName,
+                            ChargeAmount = d.amount, 
+                            IsVariable = d.Charge.isVariable
+                        })
+                        .ToListAsync();
 
-                decimal totalCharges = tenant.rentAmt + variableCharges.Sum(c => c.chargeAmt) + fixedCharges.Sum(c => c.chargeAmt);
+                    variableCharges = voucherDetails.Where(c => c.IsVariable).ToList();
+                    fixedCharges = voucherDetails.Where(c => !c.IsVariable).ToList();
+
+                    totalCharges = tenant.rentAmt + voucherDetails.Sum(c => c.ChargeAmount);
+                }
+                else
+                {
+      
+                    status = "Not Initiated";
+
+                    var chargeIds = await _context.UnitChargesMappings
+                        .Where(m => m.unitID == tenant.unitID)
+                        .Select(m => m.chargeID)
+                        .ToListAsync();
+
+                    var charges = await _context.Charges
+                        .Where(c => chargeIds.Contains(c.chargeID))
+                        .Select(c => new ChargeDto
+                        {
+                            ChargeId = c.chargeID,
+                            ChargeName = c.chargeName,
+                            ChargeAmount = c.chargeAmt,
+                            IsVariable = c.isVariable
+                        })
+                        .ToListAsync();
+
+                    variableCharges = charges.Where(c => c.IsVariable).ToList();
+                    fixedCharges = charges.Where(c => !c.IsVariable).ToList();
+
+                    totalCharges = tenant.rentAmt
+                                   + variableCharges.Sum(c => c.ChargeAmount)
+                                   + fixedCharges.Sum(c => c.ChargeAmount);
+                }
 
                 result.Add(new
                 {
