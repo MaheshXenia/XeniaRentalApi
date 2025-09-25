@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantassignment\\tenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\tenantassignementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\tenantassignementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\dashboard\\idashboardrepsitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\dashboard\\idashboardrepsitory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\tenantassignment\\itenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\tenantassignment\\itenantassignmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\repositories\\dashboard\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:repositories\\dashboard\\dashboardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\controllers\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:controllers\\bedspaceplan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\dtos\\rentdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:dtos\\rentdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|d:\\xenia\\github\\webapi\\asp.net\\xeniarentalapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11D1209A-1970-40C2-87A9-28EB8711E40E}|XeniaRentalApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,62 +30,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TenantAssignmentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "RelativeToolTip": "Repositories\\TenantAssignment\\TenantAssignmentRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCcBAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T07:40:30.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITenantAssignmentRepository.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
-              "RelativeToolTip": "Repositories\\TenantAssignment\\ITenantAssignmentRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T07:40:23.106Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TenantAssignementController.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\TenantAssignementController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TenantAssignementController.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\TenantAssignementController.cs",
-              "RelativeToolTip": "Controllers\\TenantAssignementController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowDsAAABBAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "RentDashboardDto.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\RentDashboardDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\RentDashboardDto.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Dtos\\RentDashboardDto.cs",
+              "RelativeToolTip": "Dtos\\RentDashboardDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T07:37:04.828Z",
+              "WhenOpened": "2025-09-25T09:17:14.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BedSpacePlan.cs",
-              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\BedSpacePlan.cs",
-              "RelativeDocumentMoniker": "Controllers\\BedSpacePlan.cs",
-              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\BedSpacePlan.cs",
-              "RelativeToolTip": "Controllers\\BedSpacePlan.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "DashboardRepository.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\DashboardRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\DashBoard\\DashboardRepository.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\DashboardRepository.cs",
+              "RelativeToolTip": "Repositories\\DashBoard\\DashboardRepository.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAuwHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-25T07:36:24.218Z",
+              "WhenOpened": "2025-09-25T09:08:33.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAH4AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T09:11:04.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IDashboardRepsitory.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\IDashboardRepsitory.cs",
+              "RelativeDocumentMoniker": "Repositories\\DashBoard\\IDashboardRepsitory.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Repositories\\DashBoard\\IDashboardRepsitory.cs",
+              "RelativeToolTip": "Repositories\\DashBoard\\IDashboardRepsitory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T09:07:58.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashBoardController.cs",
+              "DocumentMoniker": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DashBoardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DashBoardController.cs",
+              "ToolTip": "D:\\XENIA\\GITHUB\\WEBAPI\\ASP.NET\\XeniaRentalApi\\Controllers\\DashBoardController.cs",
+              "RelativeToolTip": "Controllers\\DashBoardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-25T08:00:23.403Z",
               "EditorCaption": ""
             }
           ]

@@ -26,6 +26,7 @@ using XeniaRentalApi.Service.Notification;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Category;
 using XeniaRentalApi.Repositories.Unit;
+using XeniaRentalApi.Repositories.Dashboard;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -115,7 +116,7 @@ builder.Services.AddScoped<ICompanyRepsitory, CompanyRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<IAccountLedgerRepository, AccountLedgerRepository>();
 builder.Services.AddScoped<IMessDetailsRepository, MessDetailsRepository>();
-builder.Services.AddScoped<IMessTypes, XeniaRentalApi.Repositories.MessTypes.MessTypes>();
+builder.Services.AddScoped<IMessTypes, MessTypes>();
 builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 builder.Services.AddScoped<ITenantAssignmentRepository, TenantAssignmentRepository>();
@@ -123,6 +124,7 @@ builder.Services.AddScoped<IUnitRepository, UnitRepository>();
 builder.Services.AddScoped<IVoucherRepository,VoucherRepository>();
 builder.Services.AddScoped<INotificationService, OTPService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IDashboardRepsitory, DashboardRepository>();
 
 
 
