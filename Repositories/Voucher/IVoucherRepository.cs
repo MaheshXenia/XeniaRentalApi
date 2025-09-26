@@ -10,7 +10,7 @@ namespace XeniaRentalApi.Repositories.Voucher
     {
         Task<XRS_Voucher> CreateVoucherAsync(VoucherDto dto);
         Task<object?> GetVoucherByIdAsync(int id);
-        Task<IEnumerable<object>> GetAllVouchersAsync(int companyId);
+        Task<IEnumerable<object>> GetAllVouchersAsync(int companyId, string? search = null);
         Task<XRS_Voucher?> UpdateVoucherAsync(int id, VoucherDto dto);
         Task<bool> DeleteVoucherAsync(int id);
         Task<XRS_Voucher> CreateIntiateAsync(VoucherCreateRequest request);

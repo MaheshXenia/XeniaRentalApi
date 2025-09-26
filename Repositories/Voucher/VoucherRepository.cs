@@ -12,7 +12,7 @@ namespace XeniaRentalApi.Repositories.Voucher
             _context = context;
 
         }
-        public async Task<IEnumerable<object>> GetAllVouchersAsync(int companyId)
+        public async Task<IEnumerable<object>> GetAllVouchersAsync(int companyId, string? search)
         {
             var query = from v in _context.Vouchers
                         where v.CompanyID == companyId
@@ -43,6 +43,12 @@ namespace XeniaRentalApi.Repositories.Voucher
                             CrID = v.CrID,
                             CrName = cr.ledgerName
                         };
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(v => v.VoucherNo.Contains(search));
+            }
+
 
             return await query.AsNoTracking().ToListAsync<object>();
         }
