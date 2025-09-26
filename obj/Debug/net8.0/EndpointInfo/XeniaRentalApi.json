@@ -1964,6 +1964,22 @@
             }
           },
           {
+            "name": "month",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "propertyId",
             "in": "query",
             "schema": {
@@ -1980,7 +1996,7 @@
             }
           },
           {
-            "name": "month",
+            "name": "bedSpaceid",
             "in": "query",
             "schema": {
               "type": "integer",
@@ -1988,11 +2004,10 @@
             }
           },
           {
-            "name": "year",
+            "name": "search",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],

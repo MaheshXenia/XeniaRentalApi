@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using XeniaRentalApi.Dtos;
 using XeniaRentalApi.Repositories.MessDetails;
 
@@ -20,9 +21,9 @@ namespace XeniaRentalApi.Controllers
         }
 
         [HttpGet("monthly")]
-        public async Task<IActionResult> GetMonthlyAttendance(int companyId, int propertyId, int unitId, int month, int year)
+        public async Task<IActionResult> GetMonthlyAttendance(int companyId,int month, int year,int? propertyId = null, int? unitId = null, int? bedSpaceid = null, string? search= null)
         {
-            var data = await _messDetailsRepository.GetMonthlyMessAttendanceAsync(companyId, propertyId, unitId, month, year);
+            var data = await _messDetailsRepository.GetMonthlyMessAttendanceAsync(companyId, month, year, propertyId, unitId, bedSpaceid, search);
             return Ok(data);
         }
 

@@ -13,16 +13,28 @@ namespace XeniaRentalApi.Repositories.MessDetails
 
         }
 
-        public async Task<List<TenantMessAttendanceDto>> GetMonthlyMessAttendanceAsync(int companyId, int propertyId, int unitId, int month, int year)
+        public async Task<List<TenantMessAttendanceDto>> GetMonthlyMessAttendanceAsync( int companyId,int month, int year, int? propertyId = null, int? unitId = null, int? bedSpaceId = null, string? search = null)
         {
-            var tenants = await _context.TenantAssignemnts
+            var query = _context.TenantAssignemnts
                 .Include(t => t.Tenant)
                 .Include(t => t.BedSpace)
-                .Where(t => t.companyID == companyId &&
-                            t.propID == propertyId &&
-                            t.unitID == unitId &&
-                            !t.isClosure)
-                .ToListAsync();
+                .Where(t => t.companyID == companyId && !t.isClosure)
+                .AsQueryable();
+
+
+            if (propertyId.HasValue)
+                query = query.Where(t => t.propID == propertyId.Value);
+
+            if (unitId.HasValue)
+                query = query.Where(t => t.unitID == unitId.Value);
+
+            if (bedSpaceId.HasValue)
+                query = query.Where(t => t.bedSpaceID == bedSpaceId.Value);
+
+            if (!string.IsNullOrEmpty(search))
+                query = query.Where(t => t.Tenant.tenantName.Contains(search));
+
+            var tenants = await query.ToListAsync();
 
             var daysInMonth = DateTime.DaysInMonth(year, month);
             var result = new List<TenantMessAttendanceDto>();
@@ -44,7 +56,6 @@ namespace XeniaRentalApi.Repositories.MessDetails
                           })
                     .ToListAsync();
 
-               
                 var attendanceRecords = await _context.MessAttendances
                     .Where(a => a.TenantAssignID == tenant.tenantAssignId &&
                                 a.AttendanceDate.Month == month &&
@@ -66,7 +77,6 @@ namespace XeniaRentalApi.Repositories.MessDetails
                         MessTypeId = mess.messID,
                         MessName = mess.MessName,
                         MessCode = mess.MessCode,
-
                     };
 
                     for (int day = 1; day <= daysInMonth; day++)
@@ -91,6 +101,7 @@ namespace XeniaRentalApi.Repositories.MessDetails
 
             return result;
         }
+
 
         public async Task<bool> MarkAttendanceAsync(MarkAttendanceDto dto)
         {

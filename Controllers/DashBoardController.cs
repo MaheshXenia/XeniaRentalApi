@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using XeniaRentalApi.Repositories.Dashboard;
 
 namespace XeniaRentalApi.Controllers
 {
-    public class DashBoardController : Controller
+    [AllowAnonymous]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DashBoardController : ControllerBase
     {
         private readonly IDashboardRepsitory _dashboardRepsitory;
 
