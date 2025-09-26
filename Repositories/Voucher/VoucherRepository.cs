@@ -340,6 +340,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                     t.unitID,
                     UnitName = t.Unit.UnitName,
                     PropertyName = t.Unit.Property.propertyName,
+                    PropertyId = t.Unit.Property.PropID,
                     BedSpaceName = t.BedSpace != null ? t.BedSpace.bedSpaceName : null,
                     t.agreementStartDate,
                     t.rentCollection,
@@ -425,6 +426,7 @@ namespace XeniaRentalApi.Repositories.Voucher
                 {
                     tenant.tenantID,
                     tenant.TenantName,
+                    tenant.PropertyId,
                     tenant.unitID,
                     tenant.UnitName,
                     tenant.PropertyName,
