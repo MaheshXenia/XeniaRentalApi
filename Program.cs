@@ -84,17 +84,17 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder =>
+        policyBuilder =>
         {
-            builder.WithOrigins(                    
-                       "https://rental.xeniapos.com"
-                   )
-                   .AllowAnyHeader()
-                   .AllowAnyMethod()
-                   .AllowCredentials();
+            policyBuilder.WithOrigins(
+                "https://rental.xeniapos.com",
+                "https://www.rental.xeniapos.com"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
         });
 });
-
 
 
 builder.Services.AddSignalR();

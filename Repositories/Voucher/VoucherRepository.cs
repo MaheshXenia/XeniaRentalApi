@@ -273,15 +273,27 @@ namespace XeniaRentalApi.Repositories.Voucher
         public async Task<XRS_Voucher> CreateIntiateAsync(VoucherCreateRequest request)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
-
             try
             {
+                var lastVoucherNo = await _context.Vouchers
+                   .Where(v => v.CompanyID == request.CompanyID
+                            && v.PropID == request.PropID
+                            && v.unitID == request.UnitID)
+                   .OrderByDescending(v => v.VoucherID) 
+                   .Select(v => v.VoucherNo)
+                   .FirstOrDefaultAsync();
+
+                int newVoucherNo = 1; 
+                if (!string.IsNullOrEmpty(lastVoucherNo) && int.TryParse(lastVoucherNo, out int parsedNo))
+                {
+                    newVoucherNo = parsedNo + 1;
+                }
                 var voucher = new XRS_Voucher
                 {
                     unitID = request.UnitID,
                     CompanyID = request.CompanyID,
                     PropID = request.PropID,
-                    VoucherNo = request.VoucherNo,
+                    VoucherNo = newVoucherNo.ToString(),
                     VoucherDate = request.VoucherDate,
                     VoucherType = request.VoucherType,
                     DrID = request.DrID,
