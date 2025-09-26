@@ -1458,54 +1458,7 @@
         "tags": [
           "Company"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Company/company/{companyId}": {
-      "get": {
-        "tags": [
-          "Company"
-        ],
         "parameters": [
-          {
-            "name": "companyId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
           {
             "name": "pageNumber",
             "in": "query",
@@ -1531,17 +1484,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
+                  }
                 }
               }
             }
@@ -1679,62 +1641,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Company/company/search": {
-      "get": {
-        "tags": [
-          "Company"
-        ],
-        "parameters": [
-          {
-            "name": "search",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pageNumber",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PagedResultDtoOfXRS_Company"
-                }
-              }
-            }
           }
         }
       }
@@ -3113,7 +3019,7 @@
         }
       }
     },
-    "/api/TenantAssignement/closure{companyId}": {
+    "/api/TenantAssignement/closure/{companyId}": {
       "get": {
         "tags": [
           "TenantAssignement"
@@ -3126,6 +3032,45 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "propertyId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "unitId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -3960,44 +3905,6 @@
         },
         "additionalProperties": false
       },
-      "PagedResultDtoOfXRS_Company": {
-        "type": "object",
-        "properties": {
-          "Data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/XeniaRentalApi.Models.XRS_Company"
-            },
-            "nullable": true
-          },
-          "PageNumber": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalRecords": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalPages": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "HasPreviousPage": {
-            "type": "boolean",
-            "readOnly": true
-          },
-          "HasNextPage": {
-            "type": "boolean",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "PagedResultDtoOfXRS_Documents": {
         "type": "object",
         "properties": {
@@ -4532,6 +4439,14 @@
             "format": "date-time"
           },
           "closureReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "refundAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "note": {
             "type": "string",
             "nullable": true
           }

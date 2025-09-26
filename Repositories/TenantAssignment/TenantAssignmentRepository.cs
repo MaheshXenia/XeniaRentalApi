@@ -250,6 +250,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 nextescalationDate = assignment.nextescalationDate,
                 rentDueDate = assignment.rentDueDate,
                 refundAmount = assignment.refundAmount,
+                dueAmount = 0,
                 charges = assignment.charges,
                 amount = assignment.amount,
                 rentConcession = assignment.rentConcession,
@@ -391,6 +392,8 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.isClosure = dto.isClosure;
             entity.closureDate = dto.closureDate;
             entity.closureReason = dto.closureReason;
+            entity.refundAmount = dto.refundAmount;
+            entity.notes = dto.note;
 
             _context.TenantAssignemnts.Update(entity);
 

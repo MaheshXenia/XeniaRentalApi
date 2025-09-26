@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Repositories.Company;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace XeniaRentalApi.Controllers
 {
@@ -36,7 +34,7 @@ namespace XeniaRentalApi.Controllers
       
 
         [HttpPost]
-        public async Task<IActionResult> CreateCompanies([FromBody] Models.XRS_Company company)
+        public async Task<IActionResult> CreateCompanies([FromBody] XRS_Company company)
         {
             if (company == null)
             {
@@ -46,6 +44,7 @@ namespace XeniaRentalApi.Controllers
             var createdCompany = await _companyRepository.CreateCompany(company);
             return CreatedAtAction(nameof(GetCompanyById), new { id = createdCompany }, new { Status = "Success", Data = createdCompany });
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<XRS_Company>> GetCompanyById(int id)
@@ -78,7 +77,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Status = "Success", Message = "Company updated successfully." });
         }
 
-        // DELETE api/<AccountGroupController>/5
+  
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBranch(int id)
         {

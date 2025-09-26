@@ -128,7 +128,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                     .ToList() ?? new List<TenantDocumentDto>()
             }).ToList();
 
-            // Return paged result
+   
             return new PagedResultDto<TenantGetDto>
             {
                 Data = items,
