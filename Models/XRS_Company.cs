@@ -19,7 +19,7 @@ namespace XeniaRentalApi.Models
 
         public  string pin { get; set; }
 
-        public string logo { get; set; }
+        public string? logo { get; set; }
 
         public bool IsActive { get; set; }
 

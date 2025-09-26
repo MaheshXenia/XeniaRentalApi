@@ -305,6 +305,8 @@ namespace XeniaRentalApi.Repositories.Voucher
                     isActive = request.IsActive,
                     CreatedOn = DateTime.UtcNow,
                     CreatedBy = request.createdBy,
+                    ModificationBy = request.modifiedBy,
+                    ModifiedOn = DateTime.UtcNow,
                 };
 
                 _context.Vouchers.Add(voucher);
