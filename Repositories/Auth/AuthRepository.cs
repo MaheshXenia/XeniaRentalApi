@@ -129,14 +129,9 @@ namespace XeniaRentalApi.Repositories.Auth
 
         public async Task<IActionResult> GenerateLoginOTPAsync(DTOs.LoginOTPDTO request)
         {
-            var existingUser = await _context.Users
-                .FirstOrDefaultAsync(u => u.Phone == request.MobileNo && u.CompanyId == request.CompanyID);
-
-            var isExistingUser = existingUser != null;
-
             var otpLog = new XRS_OTPLog
             {
-                Type = isExistingUser ? (int)OTPType.LOGIN : (int)OTPType.REGISTRATION,
+                Type = (int)OTPType.REGISTRATION,
                 MobileNo = request.MobileNo,
                 CompanyId =request.CompanyID,
                 OTP = GenerateOTP(),
@@ -159,7 +154,7 @@ namespace XeniaRentalApi.Repositories.Auth
                 NotificationType.REGISTRATION_OTP,
                 request.MobileNo,
                 request.Email,
-                isExistingUser ? "LOGIN OTP" : "REGISTRATION OTP",
+                "REGISTRATION OTP",
                 parameters
             );
 

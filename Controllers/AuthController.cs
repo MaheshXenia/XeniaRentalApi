@@ -66,6 +66,7 @@ namespace XeniaRentalApi.Controllers
             }
         }
 
+
         [HttpPost]
         [Route("OTP/login")]
         public async Task<IActionResult> GenerateLoginOTP([FromBody] DTOs.LoginOTPDTO request)
@@ -73,12 +74,14 @@ namespace XeniaRentalApi.Controllers
             return await _authRepository.GenerateLoginOTPAsync(request);
         }
 
+
         [HttpPost]
         [Route("OTP/forgotPassword")]
         public async Task<IActionResult> GenerateForgotPasswordOTP([FromBody] DTOs.ForgetPasswordOTPDTO request)
         {
             return await _authRepository.GenerateForgotPasswordOTP(request);
         }
+
 
         [HttpPost("forgetPassword")]
         public async Task<IActionResult> ForgetPassword([FromBody] DTOs.ForegtPasswordDTO request)
