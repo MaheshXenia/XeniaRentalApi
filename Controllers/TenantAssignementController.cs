@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using XeniaRentalApi.Dtos;
 using XeniaRentalApi.Repositories.TenantAssignment;
 
@@ -62,13 +61,14 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });
         }
 
-        [HttpGet("closure/{companyId}")]
+        [HttpGet("company/closure/{companyId}")]
         public async Task<IActionResult> GeClosure(int companyId,DateTime? startDate = null, DateTime? endDate = null,int ? propertyId = null, int? unitId = null, string? search = null)
         {
             var data = await _tenantAssignmentRepository.GeClosure(companyId, startDate, endDate, propertyId, unitId, search);
             return Ok(data);
         }
 
+        [HttpGet("closure/{tenantAssignId}")]
         public Task<TenantAssignmentGetDto?> GetClosureById(int tenantAssignId)
         => _tenantAssignmentRepository.GetClosureById(tenantAssignId);
 

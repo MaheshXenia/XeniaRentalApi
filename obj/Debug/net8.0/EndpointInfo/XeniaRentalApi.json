@@ -1645,7 +1645,7 @@
         }
       }
     },
-    "/dashboard/rent": {
+    "/api/DashBoard/dashboard/rent": {
       "get": {
         "tags": [
           "DashBoard"
@@ -1675,7 +1675,7 @@
         }
       }
     },
-    "/rent/monthly": {
+    "/api/DashBoard/rent/monthly": {
       "get": {
         "tags": [
           "DashBoard"
@@ -3034,7 +3034,7 @@
         }
       }
     },
-    "/api/TenantAssignement/closure/{companyId}": {
+    "/api/TenantAssignement/company/closure/{companyId}": {
       "get": {
         "tags": [
           "TenantAssignement"
@@ -3092,6 +3092,46 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TenantAssignement/closure/{tenantAssignId}": {
+      "get": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "tenantAssignId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantAssignmentGetDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantAssignmentGetDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantAssignmentGetDto"
+                }
+              }
+            }
           }
         }
       }
@@ -3704,6 +3744,13 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -4443,6 +4490,147 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.Dtos.TenantAssignmentGetDto": {
+        "type": "object",
+        "properties": {
+          "tenantAssignId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PropName": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UnitName": {
+            "type": "string",
+            "nullable": true
+          },
+          "tenantID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TenantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantContactNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "rentAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "securityAmt": {
+            "type": "number",
+            "format": "double"
+          },
+          "isTaxable": {
+            "type": "boolean"
+          },
+          "taxPercentage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "collectionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "rentCollection": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "escalationPer": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextescalationDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "rentDueDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "refundAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "dueAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "charges": {
+            "type": "number",
+            "format": "double"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "rentConcession": {
+            "type": "number",
+            "format": "double"
+          },
+          "messConcession": {
+            "type": "number",
+            "format": "double"
+          },
+          "agreementStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "agreementEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "isClosure": {
+            "type": "boolean"
+          },
+          "closureDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "closureReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "BedSpaceID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "BedSpaceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Documents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantDocumentDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.Dtos.TenantClosureCreateDto": {
         "type": "object",
         "properties": {
@@ -4537,6 +4725,57 @@
         },
         "additionalProperties": false
       },
+      "XeniaRentalApi.Dtos.TenantDocumentDto": {
+        "type": "object",
+        "properties": {
+          "TenantID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DocTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CompanyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DocumentsNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "DocumentUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "DocumentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsAlphaNumeric": {
+            "type": "boolean"
+          },
+          "IsMandatory": {
+            "type": "boolean"
+          },
+          "IsExpiry": {
+            "type": "boolean"
+          },
+          "DocPurpose": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExpiryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "XeniaRentalApi.Dtos.VoucherCreateRequest": {
         "type": "object",
         "properties": {
@@ -4551,10 +4790,6 @@
           "PropID": {
             "type": "integer",
             "format": "int32"
-          },
-          "VoucherNo": {
-            "type": "string",
-            "nullable": true
           },
           "VoucherDate": {
             "type": "string",
@@ -4573,6 +4808,10 @@
             "format": "int32"
           },
           "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "modifiedBy": {
             "type": "string",
             "nullable": true
           },
