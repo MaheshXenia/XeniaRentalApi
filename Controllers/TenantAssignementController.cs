@@ -69,6 +69,9 @@ namespace XeniaRentalApi.Controllers
             return Ok(data);
         }
 
+        public Task<TenantAssignmentGetDto?> GetClosureById(int companyId, int tenantAssignId)
+        => _tenantAssignmentRepository.GetClosureById(companyId, tenantAssignId);
+
 
 
         [HttpPut("closure/{id}")]

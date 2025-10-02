@@ -29,6 +29,8 @@
         public DateTime agreementEndDate { get; set; }
         public bool isActive { get; set; }
         public bool isClosure { get; set; }
+        public DateTime? closureDate { get; set; }
+        public string closureReason { get; set; }
         public string? notes { get; set; }
         public int? BedSpaceID { get; set; }
         public string? BedSpaceName { get; set; }

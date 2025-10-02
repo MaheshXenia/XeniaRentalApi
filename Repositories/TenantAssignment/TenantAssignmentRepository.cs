@@ -209,12 +209,56 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 agreementEndDate = t.agreementEndDate,
                 isActive = t.isActive,
                 isClosure = t.isClosure,
+                closureDate = t.closureDate,
+                closureReason = t.closureReason,
                 notes = t.notes,
                 BedSpaceID = t.bedSpaceID
             }).ToList();
 
             return result;
         }
+
+        public async Task<TenantAssignmentGetDto?> GetClosureById(int tenantAssignId)
+        {
+            var query = _context.TenantAssignemnts
+                .Include(t => t.Properties)
+                .Include(t => t.Unit)
+                .Include(t => t.Tenant)
+                    .ThenInclude(tenant => tenant.TenantDocuments)
+                        .ThenInclude(td => td.Documents)
+                .AsNoTracking()
+                .Where(t => t.isClosure == true
+                         && t.tenantAssignId == tenantAssignId);
+
+            var entity = await query.FirstOrDefaultAsync();
+
+            if (entity == null)
+                return null;
+
+            return new TenantAssignmentGetDto
+            {
+                tenantAssignId = entity.tenantAssignId,
+                propID = entity.propID,
+                PropName = entity.Properties?.propertyName,
+                unitID = entity.unitID,
+                UnitName = entity.Unit?.UnitName,
+                tenantID = entity.tenantID,
+                TenantName = entity.Tenant?.tenantName,
+                TenantContactNo = entity.Tenant?.phoneNumber,
+                rentAmt = entity.rentAmt,
+                rentConcession = entity.rentConcession,
+                messConcession = entity.messConcession,
+                agreementStartDate = entity.agreementStartDate,
+                agreementEndDate = entity.agreementEndDate,
+                isActive = entity.isActive,
+                isClosure = entity.isClosure,
+                closureDate = entity.closureDate,
+                closureReason = entity.closureReason,
+                notes = entity.notes,
+                BedSpaceID = entity.bedSpaceID
+            };
+        }
+
 
         public async Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId)
         {
