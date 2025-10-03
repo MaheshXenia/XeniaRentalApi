@@ -248,6 +248,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 TenantName = entity.Tenant?.tenantName,
                 TenantContactNo = entity.Tenant?.phoneNumber,
                 rentAmt = entity.rentAmt,
+                refundAmount = entity.refundAmount,
                 rentConcession = entity.rentConcession,
                 messConcession = entity.messConcession,
                 agreementStartDate = entity.agreementStartDate,
