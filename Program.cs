@@ -42,7 +42,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Xenia Rental API", Version = "v1" });
-    c.CustomSchemaIds(type => {
+    c.CustomSchemaIds(type =>
+    {
         if (type.IsGenericType)
         {
             var genericTypeName = type.Name.Split('`')[0];
@@ -88,7 +89,9 @@ builder.Services.AddCors(options =>
         {
             policyBuilder.WithOrigins(
                 "https://rental.xeniapos.com",
-                "https://www.rental.xeniapos.com"
+                "https://rental.xeniapos.com/",
+                "https://www.rental.xeniapos.com",
+                "https://www.rental.xeniapos.com/"
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
@@ -121,7 +124,7 @@ builder.Services.AddScoped<IPropertiesRepository, PropertiesRepository>();
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 builder.Services.AddScoped<ITenantAssignmentRepository, TenantAssignmentRepository>();
 builder.Services.AddScoped<IUnitRepository, UnitRepository>();
-builder.Services.AddScoped<IVoucherRepository,VoucherRepository>();
+builder.Services.AddScoped<IVoucherRepository, VoucherRepository>();
 builder.Services.AddScoped<INotificationService, OTPService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IDashboardRepsitory, DashboardRepository>();
