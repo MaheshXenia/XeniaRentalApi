@@ -36,7 +36,7 @@ namespace XeniaRentalApi.Models
         public decimal refundAmount { get; set; }
         public decimal charges { get; set; }
         public decimal amount { get; set; }
-        public string notes { get; set; }
+        public string? notes { get; set; }
         public bool isClosure { get; set; }
         public bool isActive { get; set; }
 
