@@ -7,7 +7,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
     public interface ITenantAssignmentRepository
     {
 
-        Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId);
+        Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId, int? unitId = null);
         Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyIdAsync(int companyId, bool isBedSpace = false, DateTime? startDate = null, DateTime? endDate = null, int? propertyId = null, int? unitId = null, string? search = null);
         Task<IEnumerable<TenantAssignmentGetDto>> GeClosure(int companyId, DateTime? startDate = null, DateTime? endDate = null, int? propertyId = null, int? unitId = null, string? search = null);
         Task<TenantAssignmentGetDto?> GetClosureById(int tenantAssignId);

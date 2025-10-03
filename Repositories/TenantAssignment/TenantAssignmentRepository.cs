@@ -12,7 +12,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             _context = context;
 
         }
-        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId)
+        public async Task<IEnumerable<TenantAssignmentGetDto>> GetByCompanyAllId(int companyId, int? unitId = null)
         {
             IQueryable<XRS_TenantAssignment> query = _context.TenantAssignemnts
                 .Include(t => t.Properties)
@@ -23,6 +23,8 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 .AsNoTracking()
                 .Where(t => t.companyID == companyId && t.isClosure == false);
 
+            if (unitId.HasValue)
+                query = query.Where(t => t.unitID == unitId.Value);
 
 
             var assignments = await query.ToListAsync();

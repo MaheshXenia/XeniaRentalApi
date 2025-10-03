@@ -19,9 +19,9 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("company/all/{companyId}")]
-        public async Task<IActionResult> GetByCompanyAllId(int companyId)
+        public async Task<IActionResult> GetByCompanyAllId(int companyId, int? unitId = null)
         {
-            var data = await _tenantAssignmentRepository.GetByCompanyAllId(companyId);
+            var data = await _tenantAssignmentRepository.GetByCompanyAllId(companyId, unitId);
             return Ok(data);
         }
 
@@ -77,7 +77,6 @@ namespace XeniaRentalApi.Controllers
         [HttpPut("closure/{id}")]
         public async Task<IActionResult> CloseUpdate(int id, [FromBody] TenantClosureCreateDto dto)
         {
-            if (id != 1) return BadRequest("ID mismatch.");
 
             var updated = await _tenantAssignmentRepository.UpdateClosureAsync(id, dto);
             if (updated == null) return NotFound(new { Message = "Tenant Assignment not found." });
