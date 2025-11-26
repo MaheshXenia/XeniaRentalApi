@@ -5,7 +5,7 @@ namespace XeniaRentalApi.Repositories.Dashboard
 {
     public interface IDashboardRepsitory
     {
-        Task<RentDashboardDto> GetRentDashboardAsync(DateTime fromDate, DateTime toDate);
-        Task<List<MonthlyRevenueDto>> GetMonthlyRentRevenueAsync(int year);
+        Task<RentDashboardDto> GetRentDashboardAsync(int companyid, DateTime fromDate, DateTime toDate);
+        Task<List<MonthlyRevenueDto>> GetMonthlyRentRevenueAsync(int companyid, int year);
     }
 }

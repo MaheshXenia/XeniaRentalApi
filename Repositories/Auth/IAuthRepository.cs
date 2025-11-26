@@ -1,20 +1,24 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
 
 namespace XeniaRentalApi.Repositories.Auth
 {
     public interface IAuthRepository
     {
-        Task<XRS_Users?> AuthenticateAdminUser(DTOs.LoginRequest request);
+        Task<XRS_Users?> AuthenticateAdminUser(LoginRequest request);
         
+        Task<IActionResult> GenerateLoginOTPAsync(LoginOTPDTO request);
+        Task<XRS_Tenant?> AuthenticateUser(string username, string password, int companyId, string otp, string? deviceToken);
+
+        Task<IActionResult> GenerateForgotPasswordOTP(ForgetPasswordOTPDTO request);
+
+         Task<bool> ResetUserPassword(ForegtPasswordDTO request);
+
         string GenerateJwtAdminToken(XRS_Users user);
 
-        Task<IActionResult> GenerateLoginOTPAsync(DTOs.LoginOTPDTO request);
-
-        Task<IActionResult> GenerateForgotPasswordOTP(DTOs.ForgetPasswordOTPDTO request);
-
-         Task<bool> ResetUserPassword(DTOs.ForegtPasswordDTO request);
+        string GenerateJwtCustomerToken(XRS_Tenant user);
 
     }
 }

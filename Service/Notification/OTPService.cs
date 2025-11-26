@@ -39,13 +39,13 @@ namespace XeniaRentalApi.Service.Notification
             if (string.IsNullOrWhiteSpace(mobileNo))
                 return "0";
 
-            var tblEmailSmsSettings = _context.tblEmailSmsSettings.FirstOrDefault(e => e.CompanyId == companyId);
-            if (tblEmailSmsSettings?.SMSGateway == null || string.IsNullOrWhiteSpace(tblEmailSmsSettings.SMSGateway))
+            var tblEmailSmsSettings = _context.tblEmailSmsSettings.FirstOrDefault(e => e.companyID == companyId);
+            if (tblEmailSmsSettings?.smsGateWay == null || string.IsNullOrWhiteSpace(tblEmailSmsSettings.smsGateWay))
                 return "0";
 
             try
             {
-                string url = tblEmailSmsSettings.SMSGateway;
+                string url = tblEmailSmsSettings.smsGateWay;
                 url = url.Replace("{mobileNo}", mobileNo)
                          .Replace("{templateId}", templateId ?? "")
                          .Replace("{message}", ReplaceVariables(template, parameters));
@@ -69,22 +69,22 @@ namespace XeniaRentalApi.Service.Notification
             if (string.IsNullOrWhiteSpace(email))
                 return "0";
 
-            var settings = _context.tblEmailSmsSettings.FirstOrDefault(e => e.CompanyId == companyId);
-            if (settings == null || string.IsNullOrWhiteSpace(settings.EmailSender) || string.IsNullOrWhiteSpace(settings.Password) ||
-                string.IsNullOrWhiteSpace(settings.Host) || string.IsNullOrWhiteSpace(settings.Port))
+            var settings = _context.tblEmailSmsSettings.FirstOrDefault(e => e.companyID == companyId);
+            if (settings == null || string.IsNullOrWhiteSpace(settings.emailSender) || string.IsNullOrWhiteSpace(settings.password) ||
+                string.IsNullOrWhiteSpace(settings.host) || string.IsNullOrWhiteSpace(settings.port))
                 return "0";
 
             try
             {
-                using var client = new SmtpClient(settings.Host, int.Parse(settings.Port))
+                using var client = new SmtpClient(settings.host, int.Parse(settings.port))
                 {
-                    Credentials = new NetworkCredential(settings.EmailSender, settings.Password),
-                    EnableSsl = settings.EnableSsl ?? false
+                    Credentials = new NetworkCredential(settings.emailSender, settings.password),
+                    EnableSsl = settings.enableSsl ?? false
                 };
 
                 var message = new MailMessage
                 {
-                    From = new MailAddress(settings.EmailSender),
+                    From = new MailAddress(settings.emailSender),
                     Subject = subject,
                     Body = ReplaceVariables(template, parameters),
                     IsBodyHtml = true

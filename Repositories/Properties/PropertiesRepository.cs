@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
+using XeniaRentalApi.Service.Common;
 
 
 namespace XeniaRentalApi.Repositories.Properties
@@ -8,9 +9,11 @@ namespace XeniaRentalApi.Repositories.Properties
     public class PropertiesRepository: IPropertiesRepository
     {
         private readonly ApplicationDbContext _context;
-        public PropertiesRepository(ApplicationDbContext context)
+        private readonly JwtHelperService _jwtHelperService;
+        public PropertiesRepository(ApplicationDbContext context, JwtHelperService jwtHelperService)
         {
             _context = context;
+            _jwtHelperService = jwtHelperService;
 
         }
 
@@ -59,6 +62,40 @@ namespace XeniaRentalApi.Repositories.Properties
                 TotalRecords = totalRecords
             };
         }
+
+
+        public async Task<List<XRS_Properties>> GetPropertiesForApp()
+        {
+            int customerId = _jwtHelperService.GetCustomerId();
+
+            if (customerId == 0)
+                return new List<XRS_Properties>();
+
+            var propertyIds = await _context.UserMapping
+                .Where(x => x.userID == customerId && x.isActive == true)
+                .Select(x => x.propID)
+                .Distinct()
+                .ToListAsync();
+
+            if (propertyIds.Count == 0)
+                return new List<XRS_Properties>();
+
+            var properties = await _context.Properties
+                .Where(p => propertyIds.Contains(p.PropID))
+                .Select(p => new XRS_Properties
+                {
+                    PropID = p.PropID,
+                    propertyName = p.propertyName,
+                    propertyType = p.propertyType,
+                    IsActive = p.IsActive,
+                    CompanyId = p.CompanyId
+                })
+                .ToListAsync();
+
+            return properties;
+        }
+
+
 
         public async Task<IEnumerable<XRS_Properties>> GetPrpoertiesbyId(int propertyId)
         {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Repositories.Auth;
 using XeniaRentalApi.Service.Common;
 
@@ -20,10 +21,10 @@ namespace XeniaRentalApi.Controllers
             _jwtHelperService = jwtHelperService;
         }
 
-        #region ADMIN
+ 
 
         [HttpPost("admin/login")]
-        public async Task<IActionResult> AdminLogin([FromBody] DTOs.LoginRequest request)
+        public async Task<IActionResult> AdminLogin([FromBody] LoginRequest request)
         {
             try
             {
@@ -69,22 +70,44 @@ namespace XeniaRentalApi.Controllers
 
         [HttpPost]
         [Route("OTP/login")]
-        public async Task<IActionResult> GenerateLoginOTP([FromBody] DTOs.LoginOTPDTO request)
+        public async Task<IActionResult> GenerateLoginOTP([FromBody] LoginOTPDTO request)
         {
             return await _authRepository.GenerateLoginOTPAsync(request);
         }
 
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(string userName, string password, int companyId, string otp, string? deviceToken)
+        {
+            try
+            {
+                var user = await _authRepository.AuthenticateUser(userName, password, companyId, otp, deviceToken);
+
+                if (user == null)
+                {
+                    return NotFound(new { Status = "Error", Message = "User does not exist." });
+                }
+
+                var token = _authRepository.GenerateJwtCustomerToken(user);
+                return Ok(new { Status = "Success", Token = token });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Status = "Error", Message = ex.Message });
+            }
+        }
+
+
         [HttpPost]
         [Route("OTP/forgotPassword")]
-        public async Task<IActionResult> GenerateForgotPasswordOTP([FromBody] DTOs.ForgetPasswordOTPDTO request)
+        public async Task<IActionResult> GenerateForgotPasswordOTP([FromBody] ForgetPasswordOTPDTO request)
         {
             return await _authRepository.GenerateForgotPasswordOTP(request);
         }
 
 
         [HttpPost("forgetPassword")]
-        public async Task<IActionResult> ForgetPassword([FromBody] DTOs.ForegtPasswordDTO request)
+        public async Task<IActionResult> ForgetPassword([FromBody] ForegtPasswordDTO request)
         {
             try
             {
@@ -102,7 +125,7 @@ namespace XeniaRentalApi.Controllers
             }
         }
 
-        #endregion
+  
 
 
     }

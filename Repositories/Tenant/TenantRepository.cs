@@ -161,6 +161,7 @@ namespace XeniaRentalApi.Repositories.Tenant
                 ConcessionPer = tenant.concessionper,
                 IsActive = tenant.isActive,
                 Documents = tenant.TenantDocuments?
+                    .Where(td => (td.Documents?.docPurpose ?? td.DocPurpose) == "Tenant")
                     .Select(td => new TenantDocumentDto
                     {
                         TenantID = td.TenantID,

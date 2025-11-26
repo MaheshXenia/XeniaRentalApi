@@ -963,6 +963,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "companyid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "fromDate",
         "Type": "System.DateTime",
         "IsRequired": false
@@ -983,6 +988,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "companyid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "year",
         "Type": "System.Int32",
@@ -1724,6 +1734,63 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
+    "Method": "UpdateChequePayStatus",
+    "RelativePath": "api/TenantAssignement/cheque/{chequeRegisterId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "chequeRegisterId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "XeniaRentalApi.Controllers.TenantAssignementController",
+    "Method": "GetChequesByCompany",
+    "RelativePath": "api/TenantAssignement/cheque/{companyId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "startDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

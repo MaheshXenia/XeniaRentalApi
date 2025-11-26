@@ -24,9 +24,11 @@
         public decimal Charges { get; set; }
         public decimal amount { get; set; }
         public string? notes { get; set; }
+        public string? paymentMode { get; set; }
         public bool isClosure { get; set; }
         public bool isActive { get; set; }
 
         public List<TenantCreateDocumentDto>? Documents { get; set; }
+        public List<TenantChequeRegisterDto>? Cheques { get; set; }
     }
 }

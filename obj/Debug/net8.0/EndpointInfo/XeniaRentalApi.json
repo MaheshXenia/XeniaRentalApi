@@ -1652,6 +1652,14 @@
         ],
         "parameters": [
           {
+            "name": "companyid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
             "name": "fromDate",
             "in": "query",
             "schema": {
@@ -1681,6 +1689,14 @@
           "DashBoard"
         ],
         "parameters": [
+          {
+            "name": "companyid",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "year",
             "in": "query",
@@ -3186,6 +3202,89 @@
         }
       }
     },
+    "/api/TenantAssignement/cheque/{companyId}": {
+      "get": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TenantAssignement/cheque/{chequeRegisterId}": {
+      "put": {
+        "tags": [
+          "TenantAssignement"
+        ],
+        "parameters": [
+          {
+            "name": "chequeRegisterId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Units/all/{companyId}": {
       "get": {
         "tags": [
@@ -4482,6 +4581,10 @@
             "type": "string",
             "nullable": true
           },
+          "paymentMode": {
+            "type": "string",
+            "nullable": true
+          },
           "isClosure": {
             "type": "boolean"
           },
@@ -4492,6 +4595,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantCreateDocumentDto"
+            },
+            "nullable": true
+          },
+          "Cheques": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantChequeRegisterDto"
             },
             "nullable": true
           }
@@ -4607,6 +4717,10 @@
           "isClosure": {
             "type": "boolean"
           },
+          "paymentMode": {
+            "type": "string",
+            "nullable": true
+          },
           "closureDate": {
             "type": "string",
             "format": "date-time",
@@ -4635,6 +4749,59 @@
               "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantDocumentDto"
             },
             "nullable": true
+          },
+          "Cheques": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/XeniaRentalApi.Dtos.TenantChequeRegisterDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "XeniaRentalApi.Dtos.TenantChequeRegisterDto": {
+        "type": "object",
+        "properties": {
+          "propID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenantID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chequeNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "chequeUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "chequeDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "issueBank": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "active": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

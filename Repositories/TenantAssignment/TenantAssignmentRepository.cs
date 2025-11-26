@@ -266,14 +266,17 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
         public async Task<TenantAssignmentGetDto?> GetByIdAsync(int tenantAssignId)
         {
             var assignment = await _context.TenantAssignemnts
-                .Include(t => t.Properties)
-                .Include(t => t.Unit)
-                 .Include(t => t.BedSpace)
-                .Include(t => t.Tenant)
-                    .ThenInclude(tenant => tenant.TenantDocuments)
-                        .ThenInclude(td => td.Documents)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(t => t.tenantAssignId == tenantAssignId);
+                      .Include(t => t.Properties)
+                      .Include(t => t.Unit)
+                      .Include(t => t.BedSpace)
+                      .Include(t => t.Tenant)
+                          .ThenInclude(tenant => tenant.TenantDocuments)
+                              .ThenInclude(td => td.Documents)
+                      .Include(t => t.Tenant)
+                          .ThenInclude(tenant => tenant.TenantChequeRegister)
+                      .AsNoTracking()
+                      .FirstOrDefaultAsync(t => t.tenantAssignId == tenantAssignId);
+
 
             if (assignment == null)
                 return null;
@@ -306,11 +309,13 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 agreementEndDate = assignment.agreementEndDate,
                 isActive = assignment.isActive,
                 isClosure = assignment.isClosure,
+                paymentMode = assignment.paymentMode,
                 notes = assignment.notes,
                 BedSpaceID = assignment.bedSpaceID ?? 0,
                 BedSpaceName = assignment.BedSpace?.bedSpaceName,
 
                 Documents = assignment.Tenant?.TenantDocuments?
+                   .Where(td => (td.Documents?.docPurpose ?? td.DocPurpose) == "Tenant Assignment")
                     .Select(td => new TenantDocumentDto
                     {
                         TenantID = td.TenantID,
@@ -326,7 +331,22 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                         DocPurpose = td.Documents?.docPurpose ?? td.DocPurpose,
                         ExpiryDate = td.Documents?.ExpiryDate ?? td.ExpiryDate
                     })
-                    .ToList() ?? new List<TenantDocumentDto>()
+                    .ToList() ?? new List<TenantDocumentDto>(),
+
+               Cheques = assignment.Tenant?.TenantChequeRegister?
+                    .Select(ch => new TenantChequeRegisterDto
+                    {         
+                        propID = ch.propID,
+                        unitID = ch.unitID,
+                        tenantID = ch.tenantID,
+                        chequeNo = ch.chequeNo,
+                        chequeUrl = ch.chequeUrl,
+                        chequeDate = ch.chequeDate,
+                        issueBank = ch.issueBank,
+                        amount = ch.amount,
+                        status = ch.status,
+                        active = ch.active
+                    }).ToList() ?? new List<TenantChequeRegisterDto>()
             };
         }
 
@@ -353,6 +373,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 nextescalationDate = dto.nextescalationDate,
                 rentDueDate = dto.rentDueDate,
                 notes = dto.notes,
+                paymentMode = dto.paymentMode,
                 isActive = true
             };
 
@@ -372,6 +393,26 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
                 }).ToList();
 
                 _context.TenantDocuments.AddRange(tenantDocs);
+                await _context.SaveChangesAsync();
+            }
+
+            if (dto.Cheques != null && dto.Cheques.Any())
+            {
+                var cheques = dto.Cheques.Select(ch => new XRS_TenantChequeRegister
+                {
+                    propID = ch.propID,
+                    unitID = ch.unitID,
+                    tenantID = ch.tenantID,
+                    chequeNo = ch.chequeNo,
+                    chequeUrl = ch.chequeUrl,
+                    chequeDate = ch.chequeDate,
+                    issueBank = ch.issueBank,
+                    amount = ch.amount,
+                    status = ch.status,
+                    active = ch.active
+                }).ToList();
+
+                _context.TenantChequeRegisters.AddRange(cheques);
                 await _context.SaveChangesAsync();
             }
 
@@ -402,6 +443,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             entity.rentDueDate = dto.rentDueDate;
             entity.isActive = dto.isActive;
             entity.notes = dto.notes;
+            entity.paymentMode = dto.paymentMode;
             entity.bedSpaceID = dto.bedSpaceID;
 
 
@@ -424,7 +466,35 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
 
                 _context.TenantDocuments.AddRange(newDocs);
             }
+            if (dto.Cheques != null && dto.Cheques.Any())
+            {
+                var existingCheques = await _context.TenantChequeRegisters
+                    .Where(c => c.tenantID == entity.tenantID)
+                    .ToListAsync();
 
+                if (existingCheques.Any())
+                {
+                    _context.TenantChequeRegisters.RemoveRange(existingCheques);
+                }
+
+   
+                var newCheques = dto.Cheques.Select(ch => new XRS_TenantChequeRegister
+                {
+                    propID = entity.propID,
+                    unitID = entity.unitID,
+                    tenantID = entity.tenantID,
+                    chequeNo = ch.chequeNo,
+                    chequeUrl = ch.chequeUrl,
+                    chequeDate = ch.chequeDate,
+                    issueBank = ch.issueBank,
+                    amount = ch.amount,
+                    active = ch.active
+                }).ToList();
+
+                _context.TenantChequeRegisters.AddRange(newCheques);
+            }
+
+   
             var saved = await _context.SaveChangesAsync();
             return saved > 0; 
         }
@@ -457,6 +527,74 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<List<TenantChequeListDto>> GetChequesByCompanyAsync( int companyId, string? search = null, DateTime? startDate = null, DateTime? endDate = null, string? status = null)
+        {
+            var query = from cheque in _context.TenantChequeRegisters
+                        join tenant in _context.Tenants
+                            on cheque.tenantID equals tenant.tenantID
+                        join assign in _context.TenantAssignemnts
+                            on tenant.tenantID equals assign.tenantID
+                        where assign.companyID == companyId
+                        select new TenantChequeListDto
+                        {
+                            ChequeRegisterId = cheque.chequeRegisterId,
+                            PropID = cheque.propID,
+                            UnitID = cheque.unitID,
+                            TenantID = cheque.tenantID,
+                            TenantName = tenant.tenantName,
+                            ChequeNo = cheque.chequeNo,
+                            IssueBank = cheque.issueBank,
+                            Amount = cheque.amount,
+                            ChequeDate = cheque.chequeDate,
+                            ChequeUrl = cheque.chequeUrl,
+                            Status = cheque.status,
+                            Active = cheque.active
+                        };
+
+        
+            if (!string.IsNullOrEmpty(search))
+            {
+                search = search.ToLower();
+                query = query.Where(x => x.TenantName.ToLower().Contains(search)
+                                      || x.ChequeNo.ToLower().Contains(search));
+            }
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(x => x.ChequeDate >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(x => x.ChequeDate <= endDate.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(status))
+            {
+                status = status.ToLower();
+                query = query.Where(x => x.Status.ToLower() == status);
+            }
+
+            return await query.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<bool> UpdateChequePayStatusAsync(int chequeRegisterId, string payStatus)
+        {
+            var cheque = await _context.TenantChequeRegisters
+                .FirstOrDefaultAsync(c => c.chequeRegisterId == chequeRegisterId);
+
+            if (cheque == null)
+                return false;
+
+            cheque.status = payStatus;
+
+            _context.TenantChequeRegisters.Update(cheque);
+            var saved = await _context.SaveChangesAsync();
+
+            return saved > 0;
+        }
+
     }
 
 

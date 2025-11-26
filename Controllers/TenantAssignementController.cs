@@ -25,6 +25,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(data);
         }
 
+
         [HttpGet("company/{companyId}")]
         public async Task<IActionResult> GetByCompanyId( int companyId, bool isBedSpace = false, DateTime? startDate = null, DateTime? endDate = null,int? propertyId = null, int? unitId = null, string? search = null)
         {
@@ -32,7 +33,6 @@ namespace XeniaRentalApi.Controllers
 
             return Ok(data);
         }
-
 
 
         [HttpGet("{id}")]
@@ -61,6 +61,7 @@ namespace XeniaRentalApi.Controllers
             return Ok(new { Message = "Tenant Assignment updated successfully", Data = updated });
         }
 
+
         [HttpGet("company/closure/{companyId}")]
         public async Task<IActionResult> GeClosure(int companyId,DateTime? startDate = null, DateTime? endDate = null,int ? propertyId = null, int? unitId = null, string? search = null)
         {
@@ -68,10 +69,10 @@ namespace XeniaRentalApi.Controllers
             return Ok(data);
         }
 
+
         [HttpGet("closure/{tenantAssignId}")]
         public Task<TenantAssignmentGetDto?> GetClosureById(int tenantAssignId)
         => _tenantAssignmentRepository.GetClosureById(tenantAssignId);
-
 
 
         [HttpPut("closure/{id}")]
@@ -93,5 +94,32 @@ namespace XeniaRentalApi.Controllers
 
             return Ok(new { Message = "Tenant Assignment deleted successfully" });
         }
+
+
+        [HttpGet("cheque/{companyId}")]
+        public async Task<IActionResult> GetChequesByCompany(int companyId,string? search = null, DateTime? startDate = null,DateTime? endDate = null, string? status = null)
+        {
+            var result = await _tenantAssignmentRepository.GetChequesByCompanyAsync( companyId, search, startDate, endDate, status);
+
+            if (result == null || !result.Any())
+                return NotFound(new { message = "No cheques found for this company." });
+
+            return Ok(result);
+        }
+
+
+
+        [HttpPut("cheque/{chequeRegisterId}")]
+        public async Task<IActionResult> UpdateChequePayStatus(int chequeRegisterId, string status)
+        {
+
+            var success = await _tenantAssignmentRepository.UpdateChequePayStatusAsync(chequeRegisterId, status);
+
+            if (!success)
+                return NotFound(new { message = "Cheque not found or update failed." });
+
+            return Ok(new { message = "Payment status updated successfully." });
+        }
+
     }
 }

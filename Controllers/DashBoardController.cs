@@ -19,16 +19,16 @@ namespace XeniaRentalApi.Controllers
 
 
         [HttpGet("dashboard/rent")]
-        public async Task<IActionResult> GetRentDashboard(DateTime fromDate, DateTime toDate)
+        public async Task<IActionResult> GetRentDashboard(int companyid, DateTime fromDate, DateTime toDate)
         {
-            var data = await _dashboardRepsitory.GetRentDashboardAsync(fromDate, toDate);
+            var data = await _dashboardRepsitory.GetRentDashboardAsync(companyid,fromDate, toDate);
             return Ok(data);
         }
 
         [HttpGet("rent/monthly")]
-        public async Task<IActionResult> GetMonthlyRevenue([FromQuery] int year)
+        public async Task<IActionResult> GetMonthlyRevenue(int companyid,[FromQuery] int year)
         {
-            var revenue = await _dashboardRepsitory.GetMonthlyRentRevenueAsync(year);
+            var revenue = await _dashboardRepsitory.GetMonthlyRentRevenueAsync(companyid,year);
             return Ok(revenue);
         }
 

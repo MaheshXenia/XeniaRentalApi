@@ -7,6 +7,7 @@ using System.Text;
 using XeniaCatalogueApi.Dictionary;
 using XeniaRentalApi.Models;
 using XeniaRentalApi.Service.Notification;
+using XeniaRentalApi.DTOs;
 
 namespace XeniaRentalApi.Repositories.Auth
 {
@@ -24,7 +25,7 @@ namespace XeniaRentalApi.Repositories.Auth
         }
 
         #region ADMIN
-        public async Task<XRS_Users?> AuthenticateAdminUser(DTOs.LoginRequest request)
+        public async Task<XRS_Users?> AuthenticateAdminUser(LoginRequest request)
         {
             var user = await _context.Users
                 .Where(u => u.UserName == request.Username)
@@ -51,6 +52,153 @@ namespace XeniaRentalApi.Repositories.Auth
             }
            
             return user;
+        }
+
+   
+
+        public async Task<bool> ResetUserPassword(ForegtPasswordDTO request)
+        {
+            var latestOtp = await _context.tblOTPLogs
+                .Where(o => o.MobileNo == request.PhoneNumber && o.CompanyId ==request.CompanyId)
+                .OrderByDescending(o => o.OTPId)
+                .FirstOrDefaultAsync();
+
+            if (latestOtp == null || latestOtp.OTP != request.OTP)
+            {
+                throw new UnauthorizedAccessException("Incorrect otp !");
+            }
+
+            if (latestOtp.ExpiryDate < DateTime.Now)
+            {
+                throw new UnauthorizedAccessException("otp was expired !");
+
+            }
+
+
+            var user = await _context.Users
+                .Where(u => u.UserName == request.PhoneNumber && u.CompanyId == request.CompanyId)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("User not found.");
+            }
+
+            user.Password = request.NewPassword;
+
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<IActionResult> GenerateLoginOTPAsync(LoginOTPDTO request)
+        {
+            var otpLog = new XRS_OTPLog
+            {
+                Type = (int)OTPType.REGISTRATION,
+                MobileNo = request.MobileNo,
+                CompanyId =request.CompanyID,
+                OTP = GenerateOTP(),
+                ExpiryDate = GetExpiryTime(request.CompanyID)
+            };
+
+            _context.tblOTPLogs.Add(otpLog);
+            await _context.SaveChangesAsync();
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+                {
+                    { "{otpcode}", otpLog.OTP },
+                    { "{expiry}", GetExpiry(request.CompanyID) }
+                };
+
+
+            await _notificationService.SendNotification(
+                request.CompanyID,
+                null,
+                NotificationType.REGISTRATION_OTP,
+                request.MobileNo,
+                request.Email,
+                "REGISTRATION OTP",
+                parameters
+            );
+
+            return new OkObjectResult("OTP sent successfully.");
+        }
+
+        public async Task<XRS_Tenant?> AuthenticateUser(string username, string password, int companyId, string otp, string? deviceToken)
+        {
+            var latestOtp = await _context.tblOTPLogs
+                .Where(o => o.MobileNo == username && o.CompanyId == companyId)
+                .OrderByDescending(o => o.OTPId)
+                .FirstOrDefaultAsync();
+
+            if (latestOtp == null || latestOtp.OTP != otp)
+            {
+                throw new UnauthorizedAccessException("Incorrect OTP!");
+            }
+
+            if (latestOtp.ExpiryDate < DateTime.Now)
+            {
+                throw new UnauthorizedAccessException("OTP was expired!");
+            }
+
+
+            var user = await _context.Tenants
+                .Where(u => u.phoneNumber == username && u.companyID == companyId)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("Phone Number is not registered.");
+            }
+      
+            if (!string.IsNullOrEmpty(deviceToken))
+            {
+                user.deviceToken = deviceToken;
+            }
+
+            return user;
+        }
+
+
+        public async Task<IActionResult> GenerateForgotPasswordOTP(ForgetPasswordOTPDTO request)
+        {
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Phone == request.MobileNo && u.CompanyId == request.CompanyID);
+
+
+
+            var otpLog = new XRS_OTPLog
+            {
+                Type = (int)OTPType.FORGOT_PASSWORD,
+                MobileNo = request.MobileNo,
+                CompanyId = request.CompanyID,
+                OTP = GenerateOTP(),
+                ExpiryDate = GetExpiryTime(request.CompanyID)
+            };
+
+            _context.tblOTPLogs.Add(otpLog);
+            await _context.SaveChangesAsync();
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+                {
+                    { "{otpcode}", otpLog.OTP },
+                    { "{expiry}", GetExpiry(request.CompanyID)}
+                };
+
+
+            /*await _notificationService.SendNotification(
+                companyId,
+                null,
+                NotificationType.FORGOT_OTP,
+                mobileNo,
+                email,
+                "FORGOT_PASSWORD",
+                parameters
+            );*/
+
+            return new OkObjectResult("OTP sent successfully.");
         }
 
         public string GenerateJwtAdminToken(XRS_Users user)
@@ -91,114 +239,40 @@ namespace XeniaRentalApi.Repositories.Auth
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public async Task<bool> ResetUserPassword(DTOs.ForegtPasswordDTO request)
+        public string GenerateJwtCustomerToken(XRS_Tenant user)
         {
-            var latestOtp = await _context.tblOTPLogs
-                .Where(o => o.MobileNo == request.PhoneNumber && o.CompanyId ==request.CompanyId)
-                .OrderByDescending(o => o.OTPId)
-                .FirstOrDefaultAsync();
+            var keyString = _configuration["JwtSettings:Key"]
+                ?? throw new InvalidOperationException("JWT key is not configured.");
 
-            if (latestOtp == null || latestOtp.OTP != request.OTP)
-            {
-                throw new UnauthorizedAccessException("Incorrect otp !");
-            }
+            var issuer = _configuration["JwtSettings:Issuer"]
+                ?? throw new InvalidOperationException("JWT issuer is not configured.");
 
-            if (latestOtp.ExpiryDate < DateTime.Now)
-            {
-                throw new UnauthorizedAccessException("otp was expired !");
+            var audience = _configuration["JwtSettings:Audience"]
+                ?? throw new InvalidOperationException("JWT audience is not configured.");
 
-            }
+            var expirationMinutesString = _configuration["JwtSettings:ExpirationMinutes"]
+                ?? throw new InvalidOperationException("JWT expiration is not configured.");
 
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var user = await _context.Users
-                .Where(u => u.UserName == request.PhoneNumber && u.CompanyId == request.CompanyId)
-                .FirstOrDefaultAsync();
-
-            if (user == null)
-            {
-                throw new UnauthorizedAccessException("User not found.");
-            }
-
-            user.Password = request.NewPassword;
-
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<IActionResult> GenerateLoginOTPAsync(DTOs.LoginOTPDTO request)
-        {
-            var otpLog = new XRS_OTPLog
-            {
-                Type = (int)OTPType.REGISTRATION,
-                MobileNo = request.MobileNo,
-                CompanyId =request.CompanyID,
-                OTP = GenerateOTP(),
-                ExpiryDate = GetExpiryTime(request.CompanyID)
-            };
-
-            _context.tblOTPLogs.Add(otpLog);
-            await _context.SaveChangesAsync();
-
-            Dictionary<string, string> parameters = new Dictionary<string, string>
+            var claims = new List<Claim>
                 {
-                    { "{otpcode}", otpLog.OTP },
-                    { "{expiry}", GetExpiry(request.CompanyID) }
+                    new Claim(JwtRegisteredClaimNames.Sub, user.phoneNumber ?? "UnknownPhone"),
+                    new Claim("TenantId", user.tenantID.ToString() ?? "0"),
+                    new Claim("CompanyId", user.companyID.ToString() ?? "0"),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
 
-
-            await _notificationService.SendNotification(
-                request.CompanyID,
-                null,
-                NotificationType.REGISTRATION_OTP,
-                request.MobileNo,
-                request.Email,
-                "REGISTRATION OTP",
-                parameters
+            var token = new JwtSecurityToken(
+                issuer: issuer,
+                audience: audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(expirationMinutesString)),
+                signingCredentials: credentials
             );
 
-            return new OkObjectResult("OTP sent successfully.");
-        }
-
-
-        public async Task<IActionResult> GenerateForgotPasswordOTP(DTOs.ForgetPasswordOTPDTO request)
-        {
-            var existingUser = await _context.Users
-                .FirstOrDefaultAsync(u => u.Phone == request.MobileNo && u.CompanyId == request.CompanyID);
-
-
-
-            var otpLog = new XRS_OTPLog
-            {
-                Type = (int)OTPType.FORGOT_PASSWORD,
-                MobileNo = request.MobileNo,
-                CompanyId = request.CompanyID,
-                OTP = GenerateOTP(),
-                ExpiryDate = GetExpiryTime(request.CompanyID)
-            };
-
-            _context.tblOTPLogs.Add(otpLog);
-            await _context.SaveChangesAsync();
-
-            Dictionary<string, string> parameters = new Dictionary<string, string>
-                {
-                    { "{otpcode}", otpLog.OTP },
-                    { "{expiry}", GetExpiry(request.CompanyID)}
-                };
-
-
-            /*await _notificationService.SendNotification(
-                companyId,
-                null,
-                NotificationType.FORGOT_OTP,
-                mobileNo,
-                email,
-                "FORGOT_PASSWORD",
-                parameters
-            );*/
-
-            return new OkObjectResult("OTP sent successfully.");
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         private string GenerateOTP()

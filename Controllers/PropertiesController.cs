@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using XeniaRentalApi.Dictionnary;
 using XeniaRentalApi.DTOs;
 using XeniaRentalApi.Models;
@@ -45,6 +46,18 @@ namespace XeniaRentalApi.Controllers
                 return NotFound(new { Status = "Error", Message = "No properties found the given Company ID." });
             }
             return Ok(new { Status = "Success", Data = accounts });
+        }
+
+        [HttpGet("FromJwt")]
+        public async Task<IActionResult> GetPropertyForApp()
+        {
+  
+            var property = await _propertyRepository.GetPropertyForApp();
+
+            if (property == null)
+                return NotFound("No property found for this user.");
+
+            return Ok(property);
         }
 
 

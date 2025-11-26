@@ -8,6 +8,7 @@ namespace XeniaRentalApi.Models
 
         public DbSet<XRS_Users> Users { get; set; }
         public DbSet<XRS_UserRole> UserRoles { get; set; }
+        public DbSet<XRS_UserMapping> UserMapping { get; set; }
 
         public DbSet<XRS_AccountGroup> AccountGroups { get; set; }
 
@@ -38,6 +39,9 @@ namespace XeniaRentalApi.Models
         public DbSet<XRS_TenantAssignment> TenantAssignemnts { get; set; }
 
         public DbSet<XRS_TenantDocuments> TenantDocuments { get; set; }
+
+        public DbSet<XRS_TenantChequeRegister> TenantChequeRegisters { get; set; }
+
 
         public DbSet<XRS_Units> Units { get; set; }
 

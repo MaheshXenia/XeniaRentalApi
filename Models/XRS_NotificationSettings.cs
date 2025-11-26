@@ -27,8 +27,6 @@ namespace XeniaRentalApi.Models
 
         public required string EmailTemplate { get; set; }
 
-        public string? PushTemplate { get; set; }
-
         public string? SMSTemplateId { get; set; }
     }
 }

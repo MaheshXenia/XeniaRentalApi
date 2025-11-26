@@ -16,14 +16,20 @@ namespace XeniaRentalApi.Repositories.Dashboard
 
         }
 
-        public async Task<RentDashboardDto> GetRentDashboardAsync(DateTime fromDate, DateTime toDate)
+        public async Task<RentDashboardDto> GetRentDashboardAsync(int companyId, DateTime fromDate, DateTime toDate)
         {
             var activeAssignments = await _context.TenantAssignemnts
-                .Where(t => t.rentDueDate >= fromDate && t.rentDueDate <= toDate && !t.isClosure)
+                .Where(t => t.companyID == companyId &&
+                            t.rentDueDate >= fromDate &&
+                            t.rentDueDate <= toDate &&
+                            !t.isClosure)
                 .ToListAsync();
 
             var vouchers = await _context.Vouchers
-                .Where(v => v.VoucherType == "Pay Rent" && v.VoucherDate >= fromDate && v.VoucherDate <= toDate)
+                .Where(v => v.CompanyID == companyId &&
+                            v.VoucherType == "Pay Rent" &&
+                            v.VoucherDate >= fromDate &&
+                            v.VoucherDate <= toDate)
                 .ToListAsync();
 
             int paidCount = 0;
@@ -49,8 +55,13 @@ namespace XeniaRentalApi.Repositories.Dashboard
             var occupiedPropertyIds = activeAssignments.Select(t => t.propID).Distinct().Count();
             var occupiedUnitIds = activeAssignments.Select(t => t.unitID).Distinct().Count();
 
-            var totalPropertiesCount = await _context.Properties.CountAsync();
-            var totalUnitsCount = await _context.Units.CountAsync();
+            var totalPropertiesCount = await _context.Properties
+                .Where(p => p.CompanyId == companyId)
+                .CountAsync();
+
+            var totalUnitsCount = await _context.Units
+                .Where(u => u.CompanyId == companyId)
+                .CountAsync();
 
             int vacantProperties = totalPropertiesCount - occupiedPropertyIds;
             int vacantUnits = totalUnitsCount - occupiedUnitIds;
@@ -68,7 +79,6 @@ namespace XeniaRentalApi.Repositories.Dashboard
                 .Distinct()
                 .Count();
 
-       
             decimal occupancyRate = totalPropertiesCount > 0
                 ? (decimal)occupiedPropertyIds / totalPropertiesCount * 100
                 : 0;
@@ -109,10 +119,10 @@ namespace XeniaRentalApi.Repositories.Dashboard
             };
         }
 
-        public async Task<List<MonthlyRevenueDto>> GetMonthlyRentRevenueAsync(int year)
+        public async Task<List<MonthlyRevenueDto>> GetMonthlyRentRevenueAsync(int companyid,int year)
         {
             var vouchers = await _context.Vouchers
-                .Where(v => v.VoucherType == "Pay Rent" && v.VoucherDate.Year == year)
+                .Where(v => v.VoucherType == "Pay Rent" && v.VoucherDate.Year == year && v.CompanyID == companyid)
                 .ToListAsync();
 
             var monthlyRevenue = Enumerable.Range(1, 12)

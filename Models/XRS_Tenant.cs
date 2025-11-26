@@ -16,6 +16,7 @@ namespace XeniaRentalApi.Models
         public string tenantName { get; set; }
         public string phoneNumber { get; set; }
         public string email { get; set; }
+        public string deviceToken { get; set; }
         public string emergencyContactNo { get; set; }
         public decimal concessionper { get; set; }
         public string note { get; set; }
@@ -24,5 +25,8 @@ namespace XeniaRentalApi.Models
  
         [JsonIgnore] 
         public virtual ICollection<XRS_TenantDocuments>? TenantDocuments { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<XRS_TenantChequeRegister>? TenantChequeRegister { get; set; }
     }
 }

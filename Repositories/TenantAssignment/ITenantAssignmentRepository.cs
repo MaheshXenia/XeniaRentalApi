@@ -16,5 +16,7 @@ namespace XeniaRentalApi.Repositories.TenantAssignment
         Task<bool> UpdateAsync(int tenantAssignId, TenantAssignmentCreateDto dto);
         Task<bool> UpdateClosureAsync(int tenantAssignId, TenantClosureCreateDto dto);
         Task<bool> DeleteAsync(int tenantAssignId);
+        Task<List<TenantChequeListDto>> GetChequesByCompanyAsync( int companyId, string? search = null, DateTime? startDate = null, DateTime? endDate = null, string? status = null);
+        Task<bool> UpdateChequePayStatusAsync(int chequeRegisterId, string payStatus);
     }
 }

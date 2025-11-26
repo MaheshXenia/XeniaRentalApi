@@ -7,6 +7,7 @@ namespace XeniaRentalApi.Repositories.Properties
     {
         Task<IEnumerable<XRS_Properties>> GetProperties(int companyId);
         Task<PagedResultDto<XRS_Properties>> GetPropertiesByCompanyId(int companyId, string? search = null, int pageNumber = 1, int pageSize = 10);
+        Task<XRS_Properties?> GetPropertyForApp();
         Task<IEnumerable<XRS_Properties>> GetPrpoertiesbyId(int propertyId);
         Task<bool> UpDateProperties(int id, XRS_Properties properties);
         Task<XRS_Properties> CreateProperties(XRS_Properties property);

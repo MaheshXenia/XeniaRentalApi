@@ -9,23 +9,23 @@ namespace XeniaRentalApi.Models
         [Key]
         public int Id { get; set; }
 
-        public int CompanyId { get; set; }
+        public int companyID { get; set; }
 
-        public string? EmailIncomingServer { get; set; }
+        public string? emailIincomingServer { get; set; }
 
-        public string? EmailSender { get; set; }
+        public string? emailSender { get; set; }
 
-        public string? Password { get; set; }
+        public string? password { get; set; }
 
-        public bool UseDefaultCredentials { get; set; }
+        public bool userDefaultCredentials { get; set; }
 
-        public string? Port { get; set; }
+        public string? port { get; set; }
 
-        public bool? EnableSsl { get; set; }
+        public bool? enableSsl { get; set; }
 
-        public string? Host { get; set; }
-        public string? SMSGateway { get; set; }
+        public string? host { get; set; }
+        public string? smsGateWay { get; set; }
 
-        public bool Active { get; set; }
+        public bool active { get; set; }
     }
 }
